@@ -172,8 +172,8 @@ librarian release tag <artifact>
 ```
 
 Creates a git tag if `next_released_at` is later than `last_released_at`.
-Updates `last_released_at` after the tag is created. Skips if the git tag
-already exists.
+Updates `last_released_at` and removes `next_released_at` after the tag is
+created. Skips if the git tag already exists.
 
 ### Tag all artifacts
 
@@ -182,4 +182,5 @@ librarian release tag --all
 ```
 
 Creates git tags for all artifacts where `next_released_at` is later than
-`last_released_at`.
+`last_released_at`. Updates `last_released_at` and removes `next_released_at`
+after each tag is created.
