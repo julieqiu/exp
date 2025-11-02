@@ -89,8 +89,7 @@ func generateCommands(model *api.API, cfg *gcloudyaml.Config, outputDir string) 
 
 	for _, service := range model.Services {
 		resourceName := strings.TrimSuffix(service.Name, "Service")
-		resourceDir := filepath.Join(serviceDir, strings.ToLower(resourceName))
-		partialsDir := filepath.Join(resourceDir, "_partials")
+		partialsDir := filepath.Join(serviceDir, "_partials")
 
 		if err := os.MkdirAll(partialsDir, 0755); err != nil {
 			return fmt.Errorf("failed to create directory %s: %w", partialsDir, err)
@@ -98,7 +97,7 @@ func generateCommands(model *api.API, cfg *gcloudyaml.Config, outputDir string) 
 
 		for _, method := range service.Methods {
 			cmdName := gcloud.DeriveCommandName(method.Name)
-			if err := generateCommandFiles(resourceDir, partialsDir, cmdName, method, cfg); err != nil {
+			if err := generateCommandFiles(serviceDir, partialsDir, cmdName, method, cfg); err != nil {
 				return err
 			}
 		}
