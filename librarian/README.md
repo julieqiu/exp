@@ -139,22 +139,22 @@ librarian stage --all
 Scans for all `.librarian.yaml` files and updates release metadata for
 libraries with a release section.
 
-## Tagging Libraries
+## Publishing Libraries
 
 ### Tag a staged library
 
 ```
-librarian tag <library-path>
+librarian publish <library-path>
 ```
 
-Creates a git tag for the staged library. On success, the `staged` section is
+Creates a git tag for the staged library and publishes it. On success, the `staged` section is
 removed and `released` is updated with the new tag. Skips if the git tag
 already exists.
 
 ### Tag all staged libraries
 
 ```
-librarian tag --all
+librarian publish --all
 ```
 
 Scans for all `.librarian.yaml` files and creates git tags for all libraries
@@ -223,9 +223,9 @@ librarian stage --all --commit
 gh pr create --with-token=$(fetch token) --fill
 ```
 
-### Release Tag
+### Release Publish
 
 ```
-librarian tag --all
+librarian publish --all
 gh release create --with-token=$(fetch token) --notes-from-tag
 ```
