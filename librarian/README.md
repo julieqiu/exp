@@ -1,6 +1,6 @@
 # Librarian
 
-Librarian manages the lifecycle of client libraries and release artifacts, from
+Librarian manages the lifecycle of client libraries and release libraries, from
 code generation to version tagging and publishing.
 
 ## Getting Started
@@ -57,16 +57,16 @@ release:
 ## Creating Client Libraries
 
 ```
-librarian create [artifact] [api-path]
+librarian create [library-path] [api-path]
 ```
 
-Creates a `.librarian.yaml` file in the artifact's directory and runs code
-generation. The artifact state is automatically synced with the current config.
+Creates a `.librarian.yaml` file in the library's directory and runs code
+generation. The library state is automatically synced with the current config.
 
-Each artifact has its own `.librarian.yaml` file:
+Each library has its own `.librarian.yaml` file:
 
 ```yaml
-# <artifact-path>/.librarian.yaml
+# <library-path>/.librarian.yaml
 generated_at:
   commit: <sha>
   apis:
@@ -81,10 +81,10 @@ released_at:
 ### Update an existing client library
 
 ```
-librarian update [artifact]
+librarian update [library-path]
 ```
 
-Regenerates the artifact and automatically syncs its `.librarian.yaml` file
+Regenerates the library and automatically syncs its `.librarian.yaml` file
 with the current config (librarian version, image, googleapis SHA, etc.).
 
 ### Update all client libraries
@@ -93,37 +93,37 @@ with the current config (librarian version, image, googleapis SHA, etc.).
 librarian update --all
 ```
 
-Scans for all `.librarian.yaml` files and regenerates all artifacts. Each
-artifact's state is automatically synced with the current config.
+Scans for all `.librarian.yaml` files and regenerates all libraries. Each
+library's state is automatically synced with the current config.
 
 ## Releasing Artifacts
 
-### Release an artifact
+### Release a library
 
 ```
-librarian release <artifact-path>
+librarian release <library-path>
 ```
 
-Adds release metadata to the artifact's `.librarian.yaml` file and creates
+Adds release metadata to the library's `.librarian.yaml` file and creates
 release files (such as CHANGELOG.md).
 
 ```yaml
-# <artifact-path>/.librarian.yaml
+# <library-path>/.librarian.yaml
 released_at:
   tag: <version>      # next planned release version
   commit: <sha>           # commit to be tagged
 ```
 
-### Release all artifacts
+### Release all libraries
 
 ```
 librarian release --all
 ```
 
 Scans for all `.librarian.yaml` files and updates release metadata for
-artifacts with a release section.
+libraries with a release section.
 
-Scans for all `.librarian.yaml` files and creates git tags for all artifacts
+Scans for all `.librarian.yaml` files and creates git tags for all libraries
 where `released_at` has a tag. Updates `commit` in `released_at` after each
 tag is created.
 
@@ -131,11 +131,11 @@ tag is created.
 ## Deleting Client Libraries
 
 ```
-librarian delete [artifact]
+librarian delete [library-path]
 ```
 
-Removes an artifact from librarian management. Deletes the `.librarian.yaml`
-file from the artifact's directory.
+Removes a library from librarian management. Deletes the `.librarian.yaml`
+file from the library's directory.
 
 ## Managing Configuration
 
