@@ -8,16 +8,12 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-// State represents the .librarian/state.yaml structure.
-type State struct {
-	Artifacts map[string]*Artifact `yaml:"artifacts"`
-}
+const stateFile = ".librarian.yaml"
 
-// Artifact represents a single artifact in the state file.
+// Artifact represents a single artifact's state.
 type Artifact struct {
-	Path     string          `yaml:"path,omitempty"`
-	Generate *GenerateState  `yaml:"generate,omitempty"`
-	Release  *ReleaseState   `yaml:"release,omitempty"`
+	Generate *GenerateState `yaml:"generate,omitempty"`
+	Release  *ReleaseState  `yaml:"release,omitempty"`
 }
 
 // GenerateState tracks generation metadata.
@@ -48,46 +44,33 @@ type API struct {
 	ServiceConfig string `yaml:"service_config,omitempty"`
 }
 
-const (
-	stateDir  = ".librarian"
-	stateFile = "state.yaml"
-)
-
-// Load reads the state.yaml file from the .librarian directory.
-func Load() (*State, error) {
-	path := filepath.Join(stateDir, stateFile)
+// Load reads the .librarian.yaml file from the artifact's directory.
+func Load(artifactPath string) (*Artifact, error) {
+	path := filepath.Join(artifactPath, stateFile)
 	data, err := os.ReadFile(path)
 	if err != nil {
 		if os.IsNotExist(err) {
-			return &State{Artifacts: make(map[string]*Artifact)}, nil
+			return &Artifact{}, nil
 		}
 		return nil, fmt.Errorf("failed to read state file: %w", err)
 	}
 
-	var s State
-	if err := yaml.Unmarshal(data, &s); err != nil {
+	var a Artifact
+	if err := yaml.Unmarshal(data, &a); err != nil {
 		return nil, fmt.Errorf("failed to parse state file: %w", err)
 	}
 
-	if s.Artifacts == nil {
-		s.Artifacts = make(map[string]*Artifact)
-	}
-
-	return &s, nil
+	return &a, nil
 }
 
-// Save writes the state to .librarian/state.yaml.
-func (s *State) Save() error {
-	if err := os.MkdirAll(stateDir, 0755); err != nil {
-		return fmt.Errorf("failed to create .librarian directory: %w", err)
-	}
-
-	data, err := yaml.Marshal(s)
+// Save writes the artifact state to .librarian.yaml in the artifact's directory.
+func (a *Artifact) Save(artifactPath string) error {
+	data, err := yaml.Marshal(a)
 	if err != nil {
-		return fmt.Errorf("failed to marshal state: %w", err)
+		return fmt.Errorf("failed to marshal artifact state: %w", err)
 	}
 
-	path := filepath.Join(stateDir, stateFile)
+	path := filepath.Join(artifactPath, stateFile)
 	if err := os.WriteFile(path, data, 0644); err != nil {
 		return fmt.Errorf("failed to write state file: %w", err)
 	}
@@ -95,25 +78,42 @@ func (s *State) Save() error {
 	return nil
 }
 
-// AddArtifact adds or updates an artifact in the state.
-func (s *State) AddArtifact(id string, artifact *Artifact) {
-	if s.Artifacts == nil {
-		s.Artifacts = make(map[string]*Artifact)
+// Remove deletes the .librarian.yaml file from the artifact's directory.
+func Remove(artifactPath string) error {
+	path := filepath.Join(artifactPath, stateFile)
+	if err := os.Remove(path); err != nil && !os.IsNotExist(err) {
+		return fmt.Errorf("failed to remove state file: %w", err)
 	}
-	s.Artifacts[id] = artifact
-}
-
-// RemoveArtifact removes an artifact from the state.
-func (s *State) RemoveArtifact(id string) error {
-	if _, exists := s.Artifacts[id]; !exists {
-		return fmt.Errorf("artifact %s not found", id)
-	}
-	delete(s.Artifacts, id)
 	return nil
 }
 
-// GetArtifact retrieves an artifact from the state.
-func (s *State) GetArtifact(id string) (*Artifact, bool) {
-	artifact, ok := s.Artifacts[id]
-	return artifact, ok
+// LoadAll scans for all .librarian.yaml files and returns a map of artifact paths to their states.
+func LoadAll() (map[string]*Artifact, error) {
+	artifacts := make(map[string]*Artifact)
+
+	err := filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if info.Name() == stateFile {
+			// Get the directory containing the .librarian.yaml file
+			artifactPath := filepath.Dir(path)
+
+			artifact, err := Load(artifactPath)
+			if err != nil {
+				return fmt.Errorf("failed to load artifact at %s: %w", artifactPath, err)
+			}
+
+			artifacts[artifactPath] = artifact
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		return nil, fmt.Errorf("failed to scan for artifacts: %w", err)
+	}
+
+	return artifacts, nil
 }

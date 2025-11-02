@@ -35,12 +35,6 @@ generate:
     - key: value
 ```
 
-Creates `.librarian/state.yaml`:
-
-```
-artifacts: {}
-```
-
 ## Managing Configuration
 
 ### Update all versions to latest
@@ -75,37 +69,37 @@ Sets a specific configuration value in `.librarian/config.yaml`. Supported keys:
 ### Generate a new artifact
 
 ```
-librarian generate <artifact> <api>
+librarian generate <artifact-path> <api>
 ```
 
-This registers the artifact and API in .librarian/state.yaml, and runs code
+Creates a `.librarian.yaml` file in the artifact's directory and runs code
 generation.
 
-```
-artifacts:
-  <artifact>:
-    path: <path>              # path to artifact
-    generate:
-      apis:
-        - path: <api path>
-      commit: <sha>
-      librarian: <version>     # from config.yaml
-      image: <container image> # from config.yaml
-      googleapis-sha: <sha>    # listed if the api source is googleapis
-      discovery-sha: <sha>     # listed if the api source is discovery docs
-    release:
-      last_released_at:
-        tag: <tag|nil>
-        commit: <sha|nil>
+Each artifact has its own `.librarian.yaml` file:
+
+```yaml
+# <artifact-path>/.librarian.yaml
+generate:
+  apis:
+    - path: <api path>
+  commit: <sha>
+  librarian: <version>     # from config.yaml
+  image: <container image> # from config.yaml
+  googleapis-sha: <sha>    # listed if the api source is googleapis
+  discovery-sha: <sha>     # listed if the api source is discovery docs
+release:
+  last_released_at:
+    tag: <tag|nil>
+    commit: <sha|nil>
 ```
 
 ### Regenerate an existing artifact
 
 ```
-librarian generate <artifact>
+librarian generate <artifact-path>
 ```
 
-The artifact must already exist in .librarian/state.yaml.
+The artifact must have a `.librarian.yaml` file in its directory.
 
 ### Regenerate all artifacts
 
@@ -113,44 +107,42 @@ The artifact must already exist in .librarian/state.yaml.
 librarian generate --all
 ```
 
-Runs generation for all artifacts with a `generate:` section.
+Scans for all `.librarian.yaml` files and runs generation for artifacts with a `generate:` section.
 
 ### Remove an artifact
 
 ```
-librarian remove <artifact>
+librarian remove <artifact-path>
 ```
 
-Removes an artifact from librarian management. Deletes the artifact entry from `.librarian/state.yaml`.
+Removes an artifact from librarian management. Deletes the `.librarian.yaml` file from the artifact's directory.
 
 ## Releasing Artifacts
 
 ### Stage a new artifact for release
 
 ```
-librarian release stage <artifact> <path>
+librarian release stage <artifact-path>
 ```
 
-Adds an artifact for release management. Creates release metadata
-(such as CHANGELOG.md) and adds the release section to `.librarian/state.yaml`.
+Adds release metadata to the artifact's `.librarian.yaml` file and creates
+release files (such as CHANGELOG.md).
 
-```
-artifacts:
-  <artifact>:
-    path: <path>               # path to artifact
-    release:
-    last_released_at:
-        tag: <tag|null>
-        commit: <sha|null>
-    next_released_at:
-        version: <version>      # next planned release version
-        commit: <sha>           # commit to be tagged
+```yaml
+# <artifact-path>/.librarian.yaml
+release:
+  last_released_at:
+    tag: <tag|null>
+    commit: <sha|null>
+  next_release_at:
+    version: <version>      # next planned release version
+    commit: <sha>           # commit to be tagged
 ```
 
 ### Stage an existing artifact for release
 
 ```
-librarian release stage <artifact>
+librarian release stage <artifact-path>
 ```
 
 Updates release metadata for an artifact already managed by librarian.
@@ -161,14 +153,14 @@ Updates release metadata for an artifact already managed by librarian.
 librarian release stage --all
 ```
 
-Updates release metadata for all artifacts with a release section.
+Scans for all `.librarian.yaml` files and updates release metadata for artifacts with a release section.
 
 ## Tagging Artifacts
 
 ### Tag an artifact
 
 ```
-librarian release tag <artifact>
+librarian release tag <artifact-path>
 ```
 
 Creates a git tag if `next_released_at` is later than `last_released_at`.
@@ -181,6 +173,6 @@ created. Skips if the git tag already exists.
 librarian release tag --all
 ```
 
-Creates git tags for all artifacts where `next_released_at` is later than
-`last_released_at`. Updates `last_released_at` and removes `next_released_at`
-after each tag is created.
+Scans for all `.librarian.yaml` files and creates git tags for all artifacts
+where `next_released_at` is later than `last_released_at`. Updates
+`last_released_at` and removes `next_released_at` after each tag is created.
