@@ -9,46 +9,30 @@ provides commands to regenerate and release the code in a repeatable way.
 
 ## Commands
 
-**Setup**
+**Core commands**
 
-- `librarian init [language]`
+- [`librarian init`](#repository-setup): Initialize repository for library management
+- [`librarian add`](#tracking-a-directory): Track a directory for management
+- [`librarian remove`](#removing-a-directory): Stop tracking a directory
+- [`librarian generate`](#regeneration): Generate or regenerate code for tracked directories
+- [`librarian stage`](#staging-a-release): Prepare a release with version updates and notes
+- [`librarian release`](#releasing): Tag and publish a staged release
 
-**Manage directories**
+**Inspection commands**
 
-- `librarian add <path> [api-path]`
-- `librarian remove <path>`
-- `librarian edit <path>`
-- `librarian list`
+- `librarian list`: List all tracked directories
+- `librarian status`: Show generation and release status
+- `librarian history`: View release history
 
-**Generate code**
+**Configuration commands**
 
-- `librarian generate [<path> | --all] [--latest] [--commit]`
+- [`librarian config get`](#configuration): Read a configuration value
+- [`librarian config set`](#configuration): Set a configuration value
+- [`librarian config update`](#configuration): Update toolchain versions to latest
 
-**Stage a release**
+**Automation commands**
 
-- `librarian stage [<path> | --all] [--notes <file>] [--commit]`
-
-**Publish a release**
-
-- `librarian release [<path> | --all] [--tag-format]`
-
-**Inspection**
-
-- `librarian status [path]`
-- `librarian history [path]`
-
-**Automation**
-
-- `librarian automate generate`
-- `librarian automate stage`
-- `librarian automate release`
-
-**Configuration**
-
-- `librarian config get <key>`
-- `librarian config set <key> <value>`
-- `librarian config unset <key>`
-- `librarian config update [key | --all]`
+- [`librarian automate`](#librarian-automation): Automate code generation workflow
 
 ## Repository Setup
 
