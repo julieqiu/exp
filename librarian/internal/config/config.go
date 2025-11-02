@@ -24,6 +24,7 @@ type GenerateConfig struct {
 	Image      string                   `yaml:"image,omitempty"`
 	Googleapis string                   `yaml:"googleapis,omitempty"`
 	Discovery  string                   `yaml:"discovery,omitempty"`
+	Source     string                   `yaml:"source,omitempty"`
 	Custom     []map[string]interface{} `yaml:"custom,omitempty"`
 }
 
@@ -86,6 +87,8 @@ func (c *Config) Set(key, value string) error {
 		c.Generate.Googleapis = value
 	case "generate.discovery":
 		c.Generate.Discovery = value
+	case "generate.source":
+		c.Generate.Source = value
 	default:
 		return fmt.Errorf("unknown config key: %s", key)
 	}
@@ -105,4 +108,12 @@ func (c *Config) DiscoveryURL() string {
 // GeneratorImage returns the full generator image.
 func (c *Config) GeneratorImage() string {
 	return c.Generate.Image
+}
+
+// SourcePath returns the source path with a default of "generated".
+func (c *Config) SourcePath() string {
+	if c.Generate.Source == "" {
+		return "generated"
+	}
+	return c.Generate.Source
 }

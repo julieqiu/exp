@@ -74,6 +74,30 @@ func main() {
 				Action: generateCommand,
 			},
 			{
+				Name:      "edit",
+				Usage:     "Edit artifact configuration",
+				Arguments: []cli.Argument{&cli.StringArg{Name: "artifact-path"}},
+				Flags: []cli.Flag{
+					&cli.StringSliceFlag{
+						Name:  "keep",
+						Usage: "Files/directories to keep (don't overwrite) during generation",
+					},
+					&cli.StringSliceFlag{
+						Name:  "remove",
+						Usage: "Files to remove after generation",
+					},
+					&cli.StringSliceFlag{
+						Name:  "exclude",
+						Usage: "Files to exclude from release",
+					},
+					&cli.StringFlag{
+						Name:  "source",
+						Usage: "Where to write source code (overrides global default)",
+					},
+				},
+				Action: editCommand,
+			},
+			{
 				Name:      "remove",
 				Usage:     "Remove an artifact from librarian management",
 				Arguments: []cli.Argument{&cli.StringArg{Name: "artifact-path"}},
@@ -467,6 +491,86 @@ func removeCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	fmt.Printf("Removed artifact at %s\n", artifactPath)
+	return nil
+}
+
+func editCommand(ctx context.Context, cmd *cli.Command) error {
+	artifactPath := cmd.StringArg("artifact-path")
+	if artifactPath == "" {
+		return fmt.Errorf("artifact-path is required")
+	}
+
+	keep := cmd.StringSlice("keep")
+	remove := cmd.StringSlice("remove")
+	exclude := cmd.StringSlice("exclude")
+	source := cmd.String("source")
+
+	// Load existing artifact
+	artifact, err := state.Load(artifactPath)
+	if err != nil {
+		return fmt.Errorf("failed to load artifact at %s: %w", artifactPath, err)
+	}
+
+	// Initialize config if needed
+	if artifact.Config == nil {
+		artifact.Config = &state.ConfigState{}
+	}
+
+	// Update config fields if flags were provided
+	updated := false
+	if len(keep) > 0 {
+		artifact.Config.Keep = keep
+		updated = true
+		fmt.Printf("Set keep: %v\n", keep)
+	}
+	if len(remove) > 0 {
+		artifact.Config.Remove = remove
+		updated = true
+		fmt.Printf("Set remove: %v\n", remove)
+	}
+	if len(exclude) > 0 {
+		artifact.Config.Exclude = exclude
+		updated = true
+		fmt.Printf("Set exclude: %v\n", exclude)
+	}
+	if source != "" {
+		artifact.Config.Source = source
+		updated = true
+		fmt.Printf("Set source: %s\n", source)
+	}
+
+	if !updated {
+		// No flags provided, show current config
+		fmt.Printf("Current configuration for %s:\n", artifactPath)
+		if artifact.Config != nil {
+			if len(artifact.Config.Keep) > 0 {
+				fmt.Printf("  Keep: %v\n", artifact.Config.Keep)
+			}
+			if len(artifact.Config.Remove) > 0 {
+				fmt.Printf("  Remove: %v\n", artifact.Config.Remove)
+			}
+			if len(artifact.Config.Exclude) > 0 {
+				fmt.Printf("  Exclude: %v\n", artifact.Config.Exclude)
+			}
+			if artifact.Config.Source != "" {
+				fmt.Printf("  Source: %s\n", artifact.Config.Source)
+			}
+			if len(artifact.Config.Keep) == 0 && len(artifact.Config.Remove) == 0 && len(artifact.Config.Exclude) == 0 && artifact.Config.Source == "" {
+				fmt.Println("  (no configuration set)")
+			}
+		} else {
+			fmt.Println("  (no configuration set)")
+		}
+		return nil
+	}
+
+	// Save updated artifact
+	if err := artifact.Save(artifactPath); err != nil {
+		return fmt.Errorf("failed to save artifact state: %w", err)
+	}
+	runYamlFmt(filepath.Join(artifactPath, ".librarian.yaml"))
+
+	fmt.Printf("Updated configuration for %s\n", artifactPath)
 	return nil
 }
 

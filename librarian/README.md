@@ -15,6 +15,7 @@ provides commands to regenerate and release the code in a repeatable way.
 
 - [librarian init](#repository-setup): Initialize repository for library management
 - [librarian add](#managing-directories): Track a directory for management
+- [librarian edit](#editing-artifact-configuration): Edit artifact configuration (keep, remove, exclude, source)
 - [librarian remove](#removing-a-directory): Stop tracking a directory
 - [librarian generate](#generating-a-client-library): Generate or regenerate code for tracked directories
 - [librarian prepare](#preparing-a-release): Prepare a release with version updates and notes
@@ -126,6 +127,55 @@ librarian remove <path>
 
 Removes `<path>/.librarian.yaml`. Source code is not modified.
 
+## Editing Artifact Configuration
+
+```bash
+librarian edit <path> [flags]
+```
+
+Configure how files are handled during generation and release:
+
+**Keep files during generation:**
+
+```bash
+librarian edit <path> --keep README.md --keep docs/
+```
+
+Files and directories in the keep list are not overwritten during code generation.
+
+**Remove files after generation:**
+
+```bash
+librarian edit <path> --remove temp.txt --remove build/
+```
+
+Files in the remove list are deleted after code generation completes.
+
+**Exclude files from release:**
+
+```bash
+librarian edit <path> --exclude tests/ --exclude .gitignore
+```
+
+Files in the exclude list are not included when creating releases.
+
+**Set source output path:**
+
+```bash
+# Override where source code is written (default: "generated")
+librarian edit <path> --source src/
+```
+
+This overrides the global default set in `.librarian/config.yaml`.
+
+**View current configuration:**
+
+```bash
+librarian edit <path>
+```
+
+Running `edit` without flags displays the current configuration for the artifact.
+
 ## Generating a Client Library
 
 For directories with code generation configured:
@@ -225,7 +275,17 @@ Supported keys:
 - `generator.image`
 - `generator.googleapis`
 - `generator.discovery`
+- `generate.source` - Default source code output path (default: "generated")
 - `release.tag_format`
+
+**Example: Set global source path**
+
+```bash
+# Set default source path for all artifacts
+librarian config set generate.source generated/
+```
+
+Artifacts can override this default using `librarian edit --source`.
 
 ## Inspection
 
