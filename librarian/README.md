@@ -69,7 +69,7 @@ Initializes a repository for library management. Repository capabilities are det
 librarian init
 ```
 
-Creates `.librarian/config.yaml`:
+**Example** `.librarian/config.yaml`:
 
 ```yaml
 librarian:
@@ -90,7 +90,7 @@ release:
 librarian init python
 ```
 
-Creates `.librarian/config.yaml`:
+**Example** `.librarian/config.yaml`:
 
 ```yaml
 librarian:
@@ -101,7 +101,7 @@ generate:
   image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator:latest
   googleapis: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
   discovery: f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0
-  dir: generated
+  dir: generated/
 
 release:
   tag_format: '{name}-v{version}'
@@ -132,7 +132,7 @@ Tracks a directory for management. The sections created in `<path>/.librarian.ya
 librarian add packages/my-tool
 ```
 
-Creates `<path>/.librarian.yaml`:
+**Example** `packages/my-tool/.librarian.yaml`:
 ```yaml
 release:
   version: null
@@ -144,7 +144,7 @@ release:
 librarian add packages/my-tool
 ```
 
-Creates `<path>/.librarian.yaml`:
+**Example** `packages/my-tool/.librarian.yaml`:
 ```yaml
 release:
   version: null
@@ -155,7 +155,7 @@ release:
 librarian add packages/storage google/storage/v1
 ```
 
-Creates `packages/storage/.librarian.yaml`:
+**Example** `packages/storage/.librarian.yaml`:
 ```yaml
 generate:
   apis:
@@ -276,7 +276,7 @@ librarian prepare <path>
 Determines the next version, updates metadata, and prepares release notes.
 Does not tag or publish.
 
-`packages/storage/.librarian.yaml` is updated:
+**Example** `packages/storage/.librarian.yaml`:
 
 ```yaml
 release:
@@ -313,7 +313,7 @@ Release all prepared artifacts:
 librarian release --all
 ```
 
-After release, the `release.prepared` section is removed:
+**Example** `packages/storage/.librarian.yaml` after release:
 
 ```yaml
 release:
