@@ -78,11 +78,14 @@ message.
 
 ## Generating Client Libraries
 
+
 ### Generate an existing client library
 
 ```
 librarian generate <library-path>
 ```
+
+Alias: `librarian gen`
 
 Regenerates the library and automatically syncs its `.librarian.yaml` file
 with the current config (librarian version, image, googleapis SHA, etc.).
@@ -102,12 +105,15 @@ library's state is automatically synced with the current config.
 Use the `--latest` flag to first update `.librarian/config.yaml` to the latest
 version of the config.
 
-## Releasing Artifacts
+
+
+
+## Staging Libraries
 
 ### Stage a library for release
 
 ```
-librarian release stage <library-path>
+librarian stage <library-path>
 ```
 
 Adds release metadata to the library's `.librarian.yaml` file and creates
@@ -127,16 +133,18 @@ message.
 ### Stage all libraries for release
 
 ```
-librarian release stage --all
+librarian stage --all
 ```
 
 Scans for all `.librarian.yaml` files and updates release metadata for
 libraries with a release section.
 
+## Tagging Libraries
+
 ### Tag a staged library
 
 ```
-librarian release tag <library-path>
+librarian tag <library-path>
 ```
 
 Creates a git tag for the staged library. On success, the `staged` section is
@@ -146,14 +154,13 @@ already exists.
 ### Tag all staged libraries
 
 ```
-librarian release tag --all
+librarian tag --all
 ```
 
 Scans for all `.librarian.yaml` files and creates git tags for all libraries
 where a `staged` section exists. On success, the `staged` section is removed
 and `released` is updated with the new tag. Skips if the git tag already
 exists.
-
 
 ## Removing Client Libraries
 
@@ -212,13 +219,13 @@ gh pr create --with-token=$(fetch token) --fill
 ### Release Stage
 
 ```
-librarian release stage --all --commit
+librarian stage --all --commit
 gh pr create --with-token=$(fetch token) --fill
 ```
 
 ### Release Tag
 
 ```
-librarian release tag --all
+librarian tag --all
 gh release create --with-token=$(fetch token) --notes-from-tag
 ```
