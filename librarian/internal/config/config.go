@@ -24,7 +24,7 @@ type GenerateConfig struct {
 	Image      string                   `yaml:"image,omitempty"`
 	Googleapis string                   `yaml:"googleapis,omitempty"`
 	Discovery  string                   `yaml:"discovery,omitempty"`
-	Source     string                   `yaml:"source,omitempty"`
+	Dir        string                   `yaml:"dir,omitempty"`
 	Custom     []map[string]interface{} `yaml:"custom,omitempty"`
 }
 
@@ -87,8 +87,8 @@ func (c *Config) Set(key, value string) error {
 		c.Generate.Googleapis = value
 	case "generate.discovery":
 		c.Generate.Discovery = value
-	case "generate.source":
-		c.Generate.Source = value
+	case "generate.dir":
+		c.Generate.Dir = value
 	default:
 		return fmt.Errorf("unknown config key: %s", key)
 	}
@@ -110,10 +110,10 @@ func (c *Config) GeneratorImage() string {
 	return c.Generate.Image
 }
 
-// SourcePath returns the source path with a default of "generated".
-func (c *Config) SourcePath() string {
-	if c.Generate.Source == "" {
+// Dir returns the generation directory with a default of "generated".
+func (c *Config) Dir() string {
+	if c.Generate.Dir == "" {
 		return "generated"
 	}
-	return c.Generate.Source
+	return c.Generate.Dir
 }

@@ -15,7 +15,7 @@ provides commands to regenerate and release the code in a repeatable way.
 
 - [librarian init](#repository-setup): Initialize repository for library management
 - [librarian add](#managing-directories): Track a directory for management
-- [librarian edit](#editing-artifact-configuration): Edit artifact configuration (keep, remove, exclude, source)
+- [librarian edit](#editing-artifact-configuration): Edit artifact configuration (keep, remove, exclude, dir)
 - [librarian remove](#removing-a-directory): Stop tracking a directory
 - [librarian generate](#generating-a-client-library): Generate or regenerate code for tracked directories
 - [librarian prepare](#preparing-a-release): Prepare a release with version updates and notes
@@ -159,11 +159,11 @@ librarian edit <path> --exclude tests/ --exclude .gitignore
 
 Files in the exclude list are not included when creating releases.
 
-**Set source output path:**
+**Set generation directory:**
 
 ```bash
-# Override where source code is written (default: "generated")
-librarian edit <path> --source src/
+# Override where generated code is written (default: "generated")
+librarian edit <path> --dir src/
 ```
 
 This overrides the global default set in `.librarian/config.yaml`.
@@ -275,17 +275,17 @@ Supported keys:
 - `generator.image`
 - `generator.googleapis`
 - `generator.discovery`
-- `generate.source` - Default source code output path (default: "generated")
+- `generate.dir` - Default generation directory (default: "generated")
 - `release.tag_format`
 
-**Example: Set global source path**
+**Example: Set global generation directory**
 
 ```bash
-# Set default source path for all artifacts
-librarian config set generate.source generated/
+# Set default generation directory for all artifacts
+librarian config set generate.dir generated/
 ```
 
-Artifacts can override this default using `librarian edit --source`.
+Artifacts can override this default using `librarian edit --dir`.
 
 ## Inspection
 

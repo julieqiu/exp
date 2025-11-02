@@ -50,7 +50,7 @@ type ConfigState struct {
 	Keep    []string `yaml:"keep,omitempty"`    // Files/directories to keep (don't overwrite) during generation
 	Remove  []string `yaml:"remove,omitempty"`  // Files to remove after generation
 	Exclude []string `yaml:"exclude,omitempty"` // Files to exclude from release
-	Source  string   `yaml:"source,omitempty"`  // Where to write source code (overrides global default)
+	Dir     string   `yaml:"dir,omitempty"`     // Where to write generated code (overrides global default)
 }
 
 // Load reads the .librarian.yaml file from the artifact's directory.

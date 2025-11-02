@@ -91,8 +91,8 @@ func main() {
 						Usage: "Files to exclude from release",
 					},
 					&cli.StringFlag{
-						Name:  "source",
-						Usage: "Where to write source code (overrides global default)",
+						Name:  "dir",
+						Usage: "Where to write generated code (overrides global default)",
 					},
 				},
 				Action: editCommand,
@@ -503,7 +503,7 @@ func editCommand(ctx context.Context, cmd *cli.Command) error {
 	keep := cmd.StringSlice("keep")
 	remove := cmd.StringSlice("remove")
 	exclude := cmd.StringSlice("exclude")
-	source := cmd.String("source")
+	dir := cmd.String("dir")
 
 	// Load existing artifact
 	artifact, err := state.Load(artifactPath)
@@ -533,10 +533,10 @@ func editCommand(ctx context.Context, cmd *cli.Command) error {
 		updated = true
 		fmt.Printf("Set exclude: %v\n", exclude)
 	}
-	if source != "" {
-		artifact.Config.Source = source
+	if dir != "" {
+		artifact.Config.Dir = dir
 		updated = true
-		fmt.Printf("Set source: %s\n", source)
+		fmt.Printf("Set dir: %s\n", dir)
 	}
 
 	if !updated {
@@ -552,10 +552,10 @@ func editCommand(ctx context.Context, cmd *cli.Command) error {
 			if len(artifact.Config.Exclude) > 0 {
 				fmt.Printf("  Exclude: %v\n", artifact.Config.Exclude)
 			}
-			if artifact.Config.Source != "" {
-				fmt.Printf("  Source: %s\n", artifact.Config.Source)
+			if artifact.Config.Dir != "" {
+				fmt.Printf("  Dir: %s\n", artifact.Config.Dir)
 			}
-			if len(artifact.Config.Keep) == 0 && len(artifact.Config.Remove) == 0 && len(artifact.Config.Exclude) == 0 && artifact.Config.Source == "" {
+			if len(artifact.Config.Keep) == 0 && len(artifact.Config.Remove) == 0 && len(artifact.Config.Exclude) == 0 && artifact.Config.Dir == "" {
 				fmt.Println("  (no configuration set)")
 			}
 		} else {
