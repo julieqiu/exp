@@ -10,11 +10,11 @@ import (
 
 // State represents the .librarian/state.yaml structure.
 type State struct {
-	Packages map[string]*Package `yaml:"packages"`
+	Libraries map[string]*Library `yaml:"libraries"`
 }
 
-// Package represents a single package in the state file.
-type Package struct {
+// Library represents a single library in the state file.
+type Library struct {
 	Path     string          `yaml:"path,omitempty"`
 	Generate *GenerateState  `yaml:"generate,omitempty"`
 	Release  *ReleaseState   `yaml:"release,omitempty"`
@@ -59,7 +59,7 @@ func Load() (*State, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		if os.IsNotExist(err) {
-			return &State{Packages: make(map[string]*Package)}, nil
+			return &State{Libraries: make(map[string]*Library)}, nil
 		}
 		return nil, fmt.Errorf("failed to read state file: %w", err)
 	}
@@ -69,8 +69,8 @@ func Load() (*State, error) {
 		return nil, fmt.Errorf("failed to parse state file: %w", err)
 	}
 
-	if s.Packages == nil {
-		s.Packages = make(map[string]*Package)
+	if s.Libraries == nil {
+		s.Libraries = make(map[string]*Library)
 	}
 
 	return &s, nil
@@ -95,25 +95,25 @@ func (s *State) Save() error {
 	return nil
 }
 
-// AddPackage adds or updates a package in the state.
-func (s *State) AddPackage(id string, pkg *Package) {
-	if s.Packages == nil {
-		s.Packages = make(map[string]*Package)
+// AddLibrary adds or updates a library in the state.
+func (s *State) AddLibrary(id string, lib *Library) {
+	if s.Libraries == nil {
+		s.Libraries = make(map[string]*Library)
 	}
-	s.Packages[id] = pkg
+	s.Libraries[id] = lib
 }
 
-// RemovePackage removes a package from the state.
-func (s *State) RemovePackage(id string) error {
-	if _, exists := s.Packages[id]; !exists {
-		return fmt.Errorf("package %s not found", id)
+// RemoveLibrary removes a library from the state.
+func (s *State) RemoveLibrary(id string) error {
+	if _, exists := s.Libraries[id]; !exists {
+		return fmt.Errorf("library %s not found", id)
 	}
-	delete(s.Packages, id)
+	delete(s.Libraries, id)
 	return nil
 }
 
-// GetPackage retrieves a package from the state.
-func (s *State) GetPackage(id string) (*Package, bool) {
-	pkg, ok := s.Packages[id]
-	return pkg, ok
+// GetLibrary retrieves a library from the state.
+func (s *State) GetLibrary(id string) (*Library, bool) {
+	lib, ok := s.Libraries[id]
+	return lib, ok
 }

@@ -1,4 +1,4 @@
-packages:
+libraries:
   my-library:
     generate:
       apis:

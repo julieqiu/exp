@@ -129,7 +129,7 @@ func initCommand(ctx context.Context, cmd *cli.Command) error {
 	runYamlFmt(".librarian/config.yaml")
 
 	st := &state.State{
-		Packages: make(map[string]*state.Package),
+		Libraries: make(map[string]*state.Library),
 	}
 
 	if err := st.Save(); err != nil {
@@ -211,7 +211,7 @@ func addCommand(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("failed to load state: %w", err)
 	}
 
-	pkg := &state.Package{
+	lib := &state.Library{
 		Generate: &state.GenerateState{
 			APIs: []state.API{
 				{Path: apiPath},
@@ -234,7 +234,7 @@ func addCommand(ctx context.Context, cmd *cli.Command) error {
 		},
 	}
 
-	st.AddPackage(libraryID, pkg)
+	st.AddLibrary(libraryID, lib)
 
 	if err := st.Save(); err != nil {
 		return fmt.Errorf("failed to save state: %w", err)
@@ -262,17 +262,17 @@ func updateCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	if all {
-		fmt.Printf("Updating all %d packages...\n", len(st.Packages))
-		for id := range st.Packages {
+		fmt.Printf("Updating all %d libraries...\n", len(st.Libraries))
+		for id := range st.Libraries {
 			fmt.Printf("  - Updating %s\n", id)
-			// TODO: Run generator for each package
+			// TODO: Run generator for each library
 		}
 	} else {
-		if _, exists := st.GetPackage(libraryID); !exists {
-			return fmt.Errorf("package %s not found", libraryID)
+		if _, exists := st.GetLibrary(libraryID); !exists {
+			return fmt.Errorf("library %s not found", libraryID)
 		}
-		fmt.Printf("Updating package %s...\n", libraryID)
-		// TODO: Run generator for the package
+		fmt.Printf("Updating library %s...\n", libraryID)
+		// TODO: Run generator for the library
 	}
 
 	fmt.Println("Update complete")
@@ -371,21 +371,21 @@ func configUpdateCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	if !noSync {
-		fmt.Println("\nRegenerating all packages...")
+		fmt.Println("\nRegenerating all libraries...")
 		st, err := state.Load()
 		if err != nil {
 			return fmt.Errorf("failed to load state: %w", err)
 		}
 
-		if len(st.Packages) == 0 {
-			fmt.Println("No packages to regenerate")
+		if len(st.Libraries) == 0 {
+			fmt.Println("No libraries to regenerate")
 			return nil
 		}
 
-		fmt.Printf("Updating all %d packages...\n", len(st.Packages))
-		for id := range st.Packages {
+		fmt.Printf("Updating all %d libraries...\n", len(st.Libraries))
+		for id := range st.Libraries {
 			fmt.Printf("  - Updating %s\n", id)
-			// TODO: Run generator for each package
+			// TODO: Run generator for each library
 		}
 		fmt.Println("Regeneration complete")
 	}
@@ -405,7 +405,7 @@ func removeCommand(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("failed to load state: %w", err)
 	}
 
-	if err := st.RemovePackage(libraryID); err != nil {
+	if err := st.RemoveLibrary(libraryID); err != nil {
 		return err
 	}
 
@@ -414,7 +414,7 @@ func removeCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 	runYamlFmt(".librarian/state.yaml")
 
-	fmt.Printf("Removed package %s\n", libraryID)
+	fmt.Printf("Removed library %s\n", libraryID)
 	return nil
 }
 
@@ -432,17 +432,17 @@ func releaseCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	if all {
-		fmt.Printf("Releasing all %d packages...\n", len(st.Packages))
-		for id := range st.Packages {
+		fmt.Printf("Releasing all %d libraries...\n", len(st.Libraries))
+		for id := range st.Libraries {
 			fmt.Printf("  - Releasing %s\n", id)
-			// TODO: Create release PR/tag for each package
+			// TODO: Create release PR/tag for each library
 		}
 	} else {
-		if _, exists := st.GetPackage(libraryID); !exists {
-			return fmt.Errorf("package %s not found", libraryID)
+		if _, exists := st.GetLibrary(libraryID); !exists {
+			return fmt.Errorf("library %s not found", libraryID)
 		}
-		fmt.Printf("Releasing package %s...\n", libraryID)
-		// TODO: Create release PR/tag for the package
+		fmt.Printf("Releasing library %s...\n", libraryID)
+		// TODO: Create release PR/tag for the library
 	}
 
 	fmt.Println("Release complete")
@@ -513,16 +513,16 @@ func publishCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	var published bool
-	for id, pkg := range st.Packages {
-		if pkg.Release != nil && pkg.Release.NextReleaseAt != nil && pkg.Release.NextReleaseAt.Tag != "" {
-			if pkg.Release.LastReleasedAt == nil || pkg.Release.NextReleaseAt.Tag != pkg.Release.LastReleasedAt.Tag {
-				fmt.Printf("Publishing %s %s...\n", id, pkg.Release.NextReleaseAt.Tag)
+	for id, lib := range st.Libraries {
+		if lib.Release != nil && lib.Release.NextReleaseAt != nil && lib.Release.NextReleaseAt.Tag != "" {
+			if lib.Release.LastReleasedAt == nil || lib.Release.NextReleaseAt.Tag != lib.Release.LastReleasedAt.Tag {
+				fmt.Printf("Publishing %s %s...\n", id, lib.Release.NextReleaseAt.Tag)
 				// TODO: Implement actual publishing logic (git tag, push, etc.)
 				fmt.Println("  - Tagging and pushing release...")
-				fmt.Println("  - Publishing to package manager...")
+				fmt.Println("  - Publishing to library manager...")
 
-				pkg.Release.LastReleasedAt = pkg.Release.NextReleaseAt
-				pkg.Release.NextReleaseAt = nil
+				lib.Release.LastReleasedAt = lib.Release.NextReleaseAt
+				lib.Release.NextReleaseAt = nil
 				published = true
 				fmt.Println("  - Done.")
 			}
@@ -530,7 +530,7 @@ func publishCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	if !published {
-		fmt.Println("No packages to publish.")
+		fmt.Println("No libraries to publish.")
 		return nil
 	}
 
