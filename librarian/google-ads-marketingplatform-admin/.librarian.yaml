@@ -1,0 +1,8 @@
+generated_at:
+  commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
+  apis:
+    - path: google/marketingplatform/admin/v1alpha
+released_at:
+  commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
+  tag: google-ads-marketingplatform-admin-v0.2.0
+

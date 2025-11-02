@@ -1,0 +1,12 @@
+generated_at:
+  commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
+  apis:
+    - path: google/ai/generativelanguage/v1
+    - path: google/ai/generativelanguage/v1beta
+    - path: google/ai/generativelanguage/v1beta3
+    - path: google/ai/generativelanguage/v1beta2
+    - path: google/ai/generativelanguage/v1alpha
+released_at:
+  commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
+  tag: google-ai-generativelanguage-v0.9.0
+

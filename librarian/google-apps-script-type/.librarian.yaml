@@ -1,0 +1,14 @@
+generated_at:
+  commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
+  apis:
+    - path: google/apps/script/type
+    - path: google/apps/script/type/gmail
+    - path: google/apps/script/type/docs
+    - path: google/apps/script/type/drive
+    - path: google/apps/script/type/sheets
+    - path: google/apps/script/type/calendar
+    - path: google/apps/script/type/slides
+released_at:
+  commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
+  tag: google-apps-script-type-v0.4.0
+

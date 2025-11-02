@@ -1,0 +1,9 @@
+generated_at:
+  commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
+  apis:
+    - path: google/analytics/data/v1alpha
+    - path: google/analytics/data/v1beta
+released_at:
+  commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
+  tag: google-analytics-data-v0.19.0
+

@@ -1,0 +1,8 @@
+generated_at:
+  commit: e8365a7f88fabe8717cb8322b8ce784b03b6daea
+  apis:
+    - path: google/ads/admanager/v1
+released_at:
+  commit: e8365a7f88fabe8717cb8322b8ce784b03b6daea
+  tag: google-ads-admanager-v0.6.0
+
