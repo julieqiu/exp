@@ -1,209 +1,192 @@
 # Librarian
 
-Librarian manages the lifecycle of client libraries and other release
-artifacts, from code generation to version tagging.
+Librarian automates the maintenance and release of versioned directories in a
+repository.  A directory managed by Librarian may contain either generated code
+(for a client library) or handwritten code (for a tool or service).
 
-## Getting Started
+Librarian records generation input, release state, and version history, and
+provides commands to regenerate and release the code in a repeatable way.
 
-### Initialize a repository
+## Repository Setup
 
 ```
 librarian init <language>
 ```
 
-If `language` is provided, `librarian` will configure the repository for code
-generation. Supported languages are:
+`librarian init` creates `.librarian/config.yaml`.
+
+If language is provided, Librarian also configures code generation for that
+language. Supported languages:
   - go
   - python
 
-If `language` is not provided, `librarian` will configure the repository for
-releases only.
-
-#### Example: Releases only
+**Example: setting up a release-only repository**
 
 ```
 librarian init
 ```
 
-Creates `.librarian/config.yaml`:
+Produces:
 
-```yaml
+```
 librarian: <librarian version>
 
 release:
   tag_format: '{package}-v{version}'
 ```
 
-#### Example: Go with code generation
+**Example: Python repository with code generation
 
 ```
-librarian init go
+librarian init [language]
 ```
 
-Creates `.librarian/config.yaml` with a `generator` section:
+Produces:
 
-```yaml
+```
 librarian: <librarian version>
 
 generator:
-  language: go
-  image: <full-image-url-with-tag>
-  googleapis: <commit-sha>
-  discovery: <commit-sha>
+  language: python
+  googleapis: <commit at latest>
+  discovery: <commit at latest>
 
 release:
   tag_format: '{package}-v{version}'
 ```
 
-## Adding Client Libraries
+## Tracking a Directory
 
 ```
-librarian add <library-path> [api-path]
+librarian add <path> [api]
 ```
 
-Registers a library for librarian management by creating a `.librarian.yaml`
-file in the library's directory.
+`add` tells Librarian to track the directory at `path`. If `api` is provided,
+Librarian also records the API for code generation.
 
-Each library has its own `.librarian.yaml` file:
+This creates `<path>/.librarian.yaml`:
 
 ```yaml
-# <library-path>/.librarian.yaml
-generate:               # only populated if generator section exists
-  commit: <sha>
+generate:        # present only if api is provided
   apis:
-    - path: <api path>
+    - path: <api>
+  commit: <sha>
+
 release:
-  version: <tag|nil>
+  version: null
 ```
 
-The `--commit` flag can be used to generate a preformatted commit message.
+`--commit` writes a standard commit message for the change.
 
-## Generating Client Libraries
+## Regeneration
 
-### Generate an existing client library
+For directories with code generation configured:
 
 ```
-librarian generate <library-path>
+librarian generate <path>
 ```
 
-Alias: `librarian gen`
+Updates generated code using the tool versions at `.librarian/config.yaml`.
+Librarian updates .librarian.yaml automatically.
 
-Regenerates the library and automatically syncs its `.librarian.yaml` file
-with the current config (librarian version, image, googleapis SHA, etc.).
+`--commit` writes a standard commit message for the change.
 
-The `--commit` flag can be used to generate a preformatted commit message.
-
-### Generate all client libraries
+Regenerate all tracked directories:
 
 ```
 librarian generate --all
 ```
 
-Scans for all `.librarian.yaml` files and regenerates all libraries. Each
-library's state is automatically synced with the current config.
-
-## Staging Libraries
-
-### Stage a library for release
+## Staging a Release
 
 ```
-librarian stage <library-path>
+librarian stage <path>
 ```
 
-Calculates the next version, updates metadata, and prepares release artifacts.
+Determines the next version, updates metadata, and prepares release notes.
+Does not tag or publish.
 
-The `release` section of the `.librarian.yaml` is updated:
+`<path>/.librarian.yaml` is updated:
 
-```yaml
-# <library-path>/.librarian.yaml
-
+```
 release:
-  version: <version>      # last tagged version
+  version: <current>
   staged:
-    version: <version>    # next planned release version
-    commit: <sha>         # commit to be tagged
+    version: <next>
+    commit: <sha>
 ```
 
-The `--commit` flag can be used to generate a preformatted commit message.
-
-### Stage all libraries for release
+Stage all tracked directories:
 
 ```
 librarian stage --all
 ```
 
-Scans for all `.librarian.yaml` files and updates release metadata for
-libraries with a release section.
+`--commit` writes a standard commit message for the change.
 
-## Releasing Libraries
-
-### Release a staged library
+## Releasing
 
 ```
-librarian release <library-path>
+librarian release <path>
 ```
 
-Alias: `librarian rel`
+Tags the staged version and updates recorded release state. If no staged
+release exists, the command does nothing.
 
-Creates a git tag for the staged library. On success, the
-`release.staged` section is cleared and `release.version` is updated with the
-new version and commit. Skips if the git tag already exists.
+Release all staged directories:
 
 ```
 librarian release --all
 ```
 
-Scans for all `.librarian.yaml` files and creates git tags for all libraries
-where a `release.staged` section exists. On success, the `release.staged` section is cleared
-and `release.version` is updated with the new version and commit. Skips if the git tag already
-exists.
-
-## Removing Client Libraries
+After release, the `release.staged` section is removed:
 
 ```
-librarian remove <library-path>
+release:
+  version: <new version>
 ```
 
-Removes a library from librarian management by deleting the `.librarian.yaml`
-file from the library's directory. This does not delete the library's source code.
+## Removing a Directory
 
-## Managing Configuration
+```
+librarian remove <path>
+```
+
+Removes `<path>/.librarian.yaml`. Source code is not modified.
+
+## Configuration
 
 ### Update versions in config.yaml
 
+Update toolchain information to latest:
+
 ```
 librarian config update [key]
+librarian config update --all
 ```
 
-Fetches and updates `.librarian/config.yaml` with the latest versions of:
-
+Supported keys:
 - `generator.image`
 - `generator.googleapis`
 - `generator.discovery`
 
-```
-librarian config update --all
-```
 
-Updates all values above.
-
-### Set a configuration value
+Set a configuration key explicitly:
 
 ```
 librarian config set <key> <value>
 ```
 
-Sets a specific configuration value in `.librarian/config.yaml`. Supported keys:
-- `librarian`
+Supported keys:
 - `generator.language`
 - `generator.image`
 - `generator.googleapis`
 - `generator.discovery`
 - `release.tag_format`
 
-## Automation
+## Librarian Automation
 
-The automation infrastructure will run these commands:
+Automation follows three phases:
 
 ### Generate
 
@@ -226,3 +209,11 @@ gh pr create --with-token=$(fetch token) --fill
 librarian release --all
 gh release create --with-token=$(fetch token) --notes-from-tag
 ```
+
+## Notes
+
+- Librarian does not modify code outside the tracked directories.
+- Librarian records only information required for reproducibility and release
+  automation.
+- The system is designed so that `git log` and `.librarian.yaml` describe the
+  full history of generation inputs and release versions.
