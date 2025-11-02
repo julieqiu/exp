@@ -1,0 +1,98 @@
+feat: Release new versions of libraries
+
+This PR is generated using
+[librarian@v0.0.0-20251022181450-0ee9437f0ec3](https://pkg.go.dev/github.com/julieqiu/exp/librarian@v0.0.0-20251022181450-0ee9437f0ec3),
+with language container image
+`us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator:latest`.
+
+Once it is merged, someone on the librarian team will run `librarian release tag` to tag the next versions to be released, listed below. <link to more information>.
+
+**google-ads-admanager v0.6.0**
+- PiperOrigin-RevId: 822617305, commit: c3c2fbba
+  - Added AudienceSegment resource
+  - Added Application resource
+  - Added AdReviewCenterAd methods
+  - Added Browser resource
+  - Added BrowserLanguage resource
+  - Added CmsMetadataKey resource
+  - Added CmsMetadataValue resource
+  - Added Content resource
+  - Added ContentBundle resource
+  - Added ContentLabel resource
+  - Added CreativeTemplate resource
+  - Added DeviceCapability resource
+  - Added DeviceManufacturer resource
+  - Added MobileCarrier resource
+  - Added MobileDevice resource
+  - Added MobileDeviceSubmodel resource
+  - Added Site resource
+  - Added Team resource
+  - Added additional Report dimensions and metrics
+  - Added methods for reading and writing Contact resources
+  - Added required field displayName to Team
+  - Added required fields displayName and company to Contact
+  - Made AdUnitSize fields proto3 optional
+  - Made Company fields proto3 optional
+  - Made Contact fields proto3 optional
+  - Made Label fields proto3 optional
+  - Moved multiple Report messages and submessages
+  - Renamed ReportDefinition.Dimension AD_SERVER_UNFILTERED_IMPRESSIONS to AD_SERVER_UNFILTERED_DOWNLOADED_IMPRESSIONS
+  - Renamed ReportDefinition.Dimensions PROGRAMMATIC_BUYER_ID and PROGRAMMATIC_BUYER_NAME to DEAL_BUYER_ID and DEAL_BUYER_NAME
+  - Clarified pagination defaults for List methods
+
+**google-apps-chat v0.4.0**
+- PiperOrigin-RevId: 823185429, commit: c3c2fbba
+  - add ROLE_ASSISTANT_MANAGER to the MembershipRole enum in the Membership proto and assistant_managers_allowed to the PermissionSetting
+  - Update field documentations for space.proto and membership.proto
+
+**google-cloud-bigquery-storage v2.34.0**
+- commit: bd0f5422
+  - Add support for Python 3.14
+  - Deprecate `credentials_file` argument
+  - Require grpcio &gt;= 1.33.2
+  - Require grpcio &gt;= 1.75.1 for Python 3.14
+
+**google-cloud-common v1.7.0**
+- PiperOrigin-RevId: 823187922, commit: c3c2fbba
+  - upgrade gRPC service registration func An update to Go gRPC Protobuf generation will change service registration function signatures to use an interface instead of a concrete type in generated .pb.go service files. This change should affect very few client library users. See release notes advisories in https://github.com/googleapis/google-cloud-go/pull/11025.
+
+**google-cloud-dataplex v2.14.0**
+- PiperOrigin-RevId: 822921010, commit: c3c2fbba
+  - A new field `data_documentation_result` is added for Data Documentation Result in `.google.cloud.dataplex.v1.DataScanJob`
+  - A new data scan type Data documentation added.
+  - A new field `data_documentation_result` is added for Data Documentation Result to message `.google.cloud.dataplex.v1.DataScan`
+  - A new message `DataDocumentationSpec` is added representing Data Documentation Spec
+  - A new message `DataDocumentationResult` is added representing Data Documentation Result
+  - A new field `data_documentation_spec` is added for Data Documentation Spec to message `.google.cloud.dataplex.v1.DataScan`
+  - A new field `data_documentation_spec` is added for Data Documentation Spec to message `.google.cloud.dataplex.v1.DataScanJob`
+  - A comment for field `resource` in message `.google.cloud.dataplex.v1.DataSource` is changed
+  - A comment for message `DataScan` is changed
+
+**google-cloud-dialogflow v2.43.0**
+- PiperOrigin-RevId: 822692160, commit: c3c2fbba
+  - Improved generator quota management
+  - Added tool support for AI Coach feature
+  - Expose debug info field in ConversationProfile
+  - Expose skip_empty_event_based_suggestion in ConversationProfile
+  - Added support for Build Your Own Assist feature
+  - Added support for AI Coach feature
+  - Context references added to conversation for dynamic data ingestion
+  - A new field &amp;#39;security_settings&amp;#39; is added to GenerateStatelessSuggestionRequest
+  - Added Vertex extension tool support to v2/v2beta1
+  - add a turn complete signal to BidiStreamingAnalyzeContent
+  - Expose flexible safety filter change, rai_settings in ConversationProfile
+  - add Agent Assist Generator Evaluation feature
+  - Updated comments for the `SuggestionInput` message, documenting how it is used with tools
+  - update documentation for transcription language code configuration
+- PiperOrigin-RevId: 823067257, commit: c3c2fbba
+  - minor formatting
+
+**google-cloud-edgenetwork v0.3.0**
+- PiperOrigin-RevId: 824727309, commit: 3264efa1
+  - A new field `remote_peering_network_type` is added to message `google.cloud.edgenetwork.v1.Interconnect`
+  - A new field `peering_type` is added to message `google.cloud.edgenetwork.v1.InterconnectAttachment`
+
+**google-maps-places v0.5.0**
+- PiperOrigin-RevId: 822750099, commit: c3c2fbba
+  - Add Review.visitDate field to indicate when the review author visited
+  - Add Place.consumerAlert field for suspicious review activity

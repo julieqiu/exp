@@ -1,0 +1,78 @@
+This PR is generated using
+[librarian@v0.0.0-20251022181450-0ee9437f0ec3](https://pkg.go.dev/github.com/julieqiu/exp/librarian@v0.0.0-20251022181450-0ee9437f0ec3),
+with language container image
+`us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator:latest`.
+It includes changes to the following libraries:
+
+**google-ads-admanager** (PiperOrigin-RevId: 822617305, Source-link: googleapis/googleapis@1615c512)
+- feat: Added AudienceSegment resource
+- feat: Added Application resource
+- feat: Added AdReviewCenterAd methods
+- feat: Added Browser resource
+- feat: Added BrowserLanguage resource
+- feat: Added CmsMetadataKey resource
+- feat: Added CmsMetadataValue resource
+- feat: Added Content resource
+- feat: Added ContentBundle resource
+- feat: Added ContentLabel resource
+- feat: Added CreativeTemplate resource
+- feat: Added DeviceCapability resource
+- feat: Added DeviceManufacturer resource
+- feat: Added MobileCarrier resource
+- feat: Added MobileDevice resource
+- feat: Added MobileDeviceSubmodel resource
+- feat: Added Site resource
+- feat: Added Team resource
+- feat: Added additional Report dimensions and metrics
+- feat: Added methods for reading and writing Contact resources
+- feat: Added required field displayName to Team
+- feat: Added required fields displayName and company to Contact
+- fix: Made AdUnitSize fields proto3 optional
+- fix: Made Company fields proto3 optional
+- fix: Made Contact fields proto3 optional
+- fix: Made Label fields proto3 optional
+- fix: Moved multiple Report messages and submessages
+- fix: Renamed ReportDefinition.Dimension AD_SERVER_UNFILTERED_IMPRESSIONS to AD_SERVER_UNFILTERED_DOWNLOADED_IMPRESSIONS
+- fix: Renamed ReportDefinition.Dimensions PROGRAMMATIC_BUYER_ID and PROGRAMMATIC_BUYER_NAME to DEAL_BUYER_ID and DEAL_BUYER_NAME
+- docs: Clarified pagination defaults for List methods
+
+**google-apps-chat** (PiperOrigin-RevId: 823185429, Source-link: googleapis/googleapis@98fef441)
+- feat: add ROLE_ASSISTANT_MANAGER to the MembershipRole enum in the Membership proto and assistant_managers_allowed to the PermissionSetting
+- docs: Update field documentations for space.proto and membership.proto
+
+**google-cloud-common** (PiperOrigin-RevId: 823187922, Source-link: googleapis/googleapis@6e4f2a51)
+- fix: upgrade gRPC service registration func
+
+**google-cloud-dataplex** (PiperOrigin-RevId: 822921010, Source-link: googleapis/googleapis@5ad924f1)
+- feat: A new data scan type Data documentation added.
+- feat: A new field data_documentation_result is added for Data Documentation Result in .google.cloud.dataplex.v1.DataScanJob
+- feat: A new field data_documentation_result is added for Data Documentation Result to message .google.cloud.dataplex.v1.DataScan
+- feat: A new field data_documentation_spec is added for Data Documentation Spec to message .google.cloud.dataplex.v1.DataScan
+- feat: A new field data_documentation_spec is added for Data Documentation Spec to message .google.cloud.dataplex.v1.DataScanJob
+- feat: A new message DataDocumentationResult is added representing Data Documentation Result
+- feat: A new message DataDocumentationSpec is added representing Data Documentation Spec
+- docs: A comment for field resource in message .google.cloud.dataplex.v1.DataSource is changed
+- docs: A comment for message DataScan is changed
+
+**google-cloud-dialogflow** (PiperOrigin-RevId: 822692160, Source-link: googleapis/googleapis@80a20813)
+- feat: Improved generator quota management
+- feat: Added support for AI Coach feature
+- feat: Added support for Build Your Own Assist feature
+- feat: Added tool support for AI Coach feature
+- feat: Added Vertex extension tool support to v2/v2beta1
+- feat: Context references added to conversation for dynamic data ingestion
+- feat: Expose debug info field in ConversationProfile
+- feat: Expose flexible safety filter change, rai_settings in ConversationProfile
+- feat: Expose skip_empty_event_based_suggestion in ConversationProfile
+- feat: A new field 'security_settings' is added to GenerateStatelessSuggestionRequest
+- feat: add a turn complete signal to BidiStreamingAnalyzeContent
+- feat: add Agent Assist Generator Evaluation feature
+- docs: Updated comments for the SuggestionInput message, documenting how it is used with tools
+- docs: update documentation for transcription language code configuration
+
+**google-cloud-dialogflow** (PiperOrigin-RevId: 823067257, Source-link: googleapis/googleapis@fc2a56a1)
+- docs: minor formatting
+
+**google-maps-places** (PiperOrigin-RevId: 822750099, Source-link: googleapis/googleapis@b61fb21b)
+- feat: Add Place.consumerAlert field for suspicious review activity
+- feat: Add Review.visitDate field to indicate when the review author visited

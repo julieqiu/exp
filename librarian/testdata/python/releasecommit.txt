@@ -1,0 +1,214 @@
+Librarian Version: v0.0.0-20251022181450-0ee9437f0ec3
+Language Image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator:latest
+<details><summary>google-ads-admanager: 0.6.0</summary>
+
+## [0.6.0](https://github.com/googleapis/google-cloud-python/compare/google-ads-admanager-v0.5.0...google-ads-admanager-v0.6.0) (2025-10-28)
+
+### Features
+
+* Added DeviceCapability resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added CmsMetadataValue resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added Application resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added AdReviewCenterAd methods (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added BrowserLanguage resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added CreativeTemplate resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added required field `displayName` to Team (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added additional Report dimensions and metrics (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added required fields `displayName` and `company` to Contact (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added Site resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added DeviceManufacturer resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added Team resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added Browser resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added MobileCarrier resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added MobileDeviceSubmodel resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added AudienceSegment resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added CmsMetadataKey resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added ContentBundle resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added ContentLabel resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added Content resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added methods for reading and writing Contact resources (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added MobileDevice resource (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+### Bug Fixes
+
+* Made Label fields proto3 optional (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Made Company fields proto3 optional (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Renamed ReportDefinition.Dimensions PROGRAMMATIC_BUYER_ID and PROGRAMMATIC_BUYER_NAME to DEAL_BUYER_ID and DEAL_BUYER_NAME (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Moved multiple Report messages and submessages (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Made Contact fields proto3 optional (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Made AdUnitSize fields proto3 optional (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Renamed ReportDefinition.Dimension AD_SERVER_UNFILTERED_IMPRESSIONS to AD_SERVER_UNFILTERED_DOWNLOADED_IMPRESSIONS (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+### Documentation
+
+* Clarified pagination defaults for List methods (PiperOrigin-RevId: 822617305) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+</details>
+
+
+<details><summary>google-apps-chat: 0.4.0</summary>
+
+## [0.4.0](https://github.com/googleapis/google-cloud-python/compare/google-apps-chat-v0.3.0...google-apps-chat-v0.4.0) (2025-10-28)
+
+### Features
+
+* add ROLE_ASSISTANT_MANAGER to the MembershipRole enum in the Membership proto and assistant_managers_allowed to the PermissionSetting (PiperOrigin-RevId: 823185429) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+### Documentation
+
+* Update field documentations for space.proto and membership.proto (PiperOrigin-RevId: 823185429) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+</details>
+
+
+<details><summary>google-cloud-bigquery-storage: 2.34.0</summary>
+
+## [2.34.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-bigquery-storage-v2.33.1...google-cloud-bigquery-storage-v2.34.0) (2025-10-28)
+
+### Features
+
+* Add support for Python 3.14 ([bd0f5422](https://github.com/googleapis/google-cloud-python/commit/bd0f5422))
+
+### Bug Fixes
+
+* Deprecate `credentials_file` argument ([bd0f5422](https://github.com/googleapis/google-cloud-python/commit/bd0f5422))
+
+* Require grpcio &gt;= 1.33.2 ([bd0f5422](https://github.com/googleapis/google-cloud-python/commit/bd0f5422))
+
+* Require grpcio &gt;= 1.75.1 for Python 3.14 ([bd0f5422](https://github.com/googleapis/google-cloud-python/commit/bd0f5422))
+
+</details>
+
+
+<details><summary>google-cloud-common: 1.7.0</summary>
+
+## [1.7.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-common-v1.6.0...google-cloud-common-v1.7.0) (2025-10-28)
+
+### Bug Fixes
+
+* upgrade gRPC service registration func An update to Go gRPC Protobuf generation will change service registration function signatures to use an interface instead of a concrete type in generated .pb.go service files. This change should affect very few client library users. See release notes advisories in https://github.com/googleapis/google-cloud-go/pull/11025. (PiperOrigin-RevId: 823187922) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+</details>
+
+
+<details><summary>google-cloud-dataplex: 2.14.0</summary>
+
+## [2.14.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-dataplex-v2.13.0...google-cloud-dataplex-v2.14.0) (2025-10-28)
+
+### Features
+
+* A new field `data_documentation_result` is added for Data Documentation Result in `.google.cloud.dataplex.v1.DataScanJob` (PiperOrigin-RevId: 822921010) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* A new data scan type Data documentation added. (PiperOrigin-RevId: 822921010) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* A new field `data_documentation_result` is added for Data Documentation Result to message `.google.cloud.dataplex.v1.DataScan` (PiperOrigin-RevId: 822921010) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* A new message `DataDocumentationSpec` is added representing Data Documentation Spec (PiperOrigin-RevId: 822921010) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* A new message `DataDocumentationResult` is added representing Data Documentation Result (PiperOrigin-RevId: 822921010) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* A new field `data_documentation_spec` is added for Data Documentation Spec to message `.google.cloud.dataplex.v1.DataScan` (PiperOrigin-RevId: 822921010) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* A new field `data_documentation_spec` is added for Data Documentation Spec to message `.google.cloud.dataplex.v1.DataScanJob` (PiperOrigin-RevId: 822921010) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+### Documentation
+
+* A comment for field `resource` in message `.google.cloud.dataplex.v1.DataSource` is changed (PiperOrigin-RevId: 822921010) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* A comment for message `DataScan` is changed (PiperOrigin-RevId: 822921010) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+</details>
+
+
+<details><summary>google-cloud-dialogflow: 2.43.0</summary>
+
+## [2.43.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-dialogflow-v2.42.0...google-cloud-dialogflow-v2.43.0) (2025-10-28)
+
+### Features
+
+* Improved generator quota management (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added tool support for AI Coach feature (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Expose debug info field in ConversationProfile (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Expose skip_empty_event_based_suggestion in ConversationProfile (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added support for Build Your Own Assist feature (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added support for AI Coach feature (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Context references added to conversation for dynamic data ingestion (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* A new field &amp;#39;security_settings&amp;#39; is added to GenerateStatelessSuggestionRequest (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Added Vertex extension tool support to v2/v2beta1 (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* add a turn complete signal to BidiStreamingAnalyzeContent (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Expose flexible safety filter change, rai_settings in ConversationProfile (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* add Agent Assist Generator Evaluation feature (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+### Documentation
+
+* minor formatting (PiperOrigin-RevId: 823067257) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Updated comments for the `SuggestionInput` message, documenting how it is used with tools (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* update documentation for transcription language code configuration (PiperOrigin-RevId: 822692160) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+</details>
+
+
+<details><summary>google-cloud-edgenetwork: 0.3.0</summary>
+
+## [0.3.0](https://github.com/googleapis/google-cloud-python/compare/google-cloud-edgenetwork-v0.2.0...google-cloud-edgenetwork-v0.3.0) (2025-10-28)
+
+### Features
+
+* A new field `remote_peering_network_type` is added to message `google.cloud.edgenetwork.v1.Interconnect` (PiperOrigin-RevId: 824727309) ([3264efa1](https://github.com/googleapis/google-cloud-python/commit/3264efa1))
+
+* A new field `peering_type` is added to message `google.cloud.edgenetwork.v1.InterconnectAttachment` (PiperOrigin-RevId: 824727309) ([3264efa1](https://github.com/googleapis/google-cloud-python/commit/3264efa1))
+
+</details>
+
+
+<details><summary>google-maps-places: 0.5.0</summary>
+
+## [0.5.0](https://github.com/googleapis/google-cloud-python/compare/google-maps-places-v0.4.0...google-maps-places-v0.5.0) (2025-10-28)
+
+### Features
+
+* Add Review.visitDate field to indicate when the review author visited (PiperOrigin-RevId: 822750099) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+* Add Place.consumerAlert field for suspicious review activity (PiperOrigin-RevId: 822750099) ([c3c2fbba](https://github.com/googleapis/google-cloud-python/commit/c3c2fbba))
+
+</details>
