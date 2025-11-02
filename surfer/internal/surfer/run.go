@@ -2,13 +2,14 @@ package surfer
 
 import (
 	"context"
-	"os"
+	"fmt"
+	"strings"
 
 	"github.com/urfave/cli/v3"
 )
 
 // Run runs the surfer CLI application.
-func Run(ctx context.Context) error {
+func Run(ctx context.Context, args []string) error {
 	cmd := &cli.Command{
 		Name:  "surfer",
 		Usage: "Generate gcloud command surface definitions",
@@ -38,13 +39,20 @@ func Run(ctx context.Context) error {
 		},
 	}
 
-	return cmd.Run(ctx, os.Args)
+	return cmd.Run(ctx, args)
 }
 
 func generateAction(ctx context.Context, cmd *cli.Command) error {
 	googleapis := cmd.String("googleapis")
 	gcloudYAML := cmd.String("gcloud-yaml")
 	output := cmd.String("output")
+
+	// Print the full command being run
+	cmdParts := []string{"surfer", "generate"}
+	cmdParts = append(cmdParts, fmt.Sprintf("--googleapis=%s", googleapis))
+	cmdParts = append(cmdParts, fmt.Sprintf("--gcloud-yaml=%s", gcloudYAML))
+	cmdParts = append(cmdParts, fmt.Sprintf("--output=%s", output))
+	fmt.Printf("%s\n\n", strings.Join(cmdParts, " "))
 
 	return Generate(googleapis, gcloudYAML, output)
 }

@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	if err := surfer.Run(context.Background()); err != nil {
+	if err := surfer.Run(context.Background(), os.Args); err != nil {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)
 		os.Exit(1)
 	}
