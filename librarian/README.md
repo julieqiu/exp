@@ -98,9 +98,15 @@ librarian:
   language: python
 
 generate:
-  image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator:latest
-  googleapis: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
-  discovery: f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0
+  container:
+    image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator
+    tag: latest
+  googleapis:
+    repo: github.com/googleapis/googleapis
+    ref: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
+  discovery:
+    repo: github.com/googleapis/discovery-artifact-manager
+    ref: f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0
   dir: generated/
 
 release:
@@ -112,6 +118,16 @@ release:
 - `librarian generate <path>` - Regenerate code
 - `librarian prepare <path>` - Prepare releases
 - `librarian release <path>` - Publish releases
+
+**Configuration fields:**
+
+- `container.image` - Container registry path (without tag)
+- `container.tag` - Container image tag (e.g., `latest`, `v1.0.0`)
+- `googleapis.repo` - Repository location for googleapis (GitHub path or local directory relative to `.librarian/`)
+- `googleapis.ref` - Git reference (commit SHA, branch name, or tag). Optional; if omitted, uses HEAD of default branch
+- `discovery.repo` - Repository location for discovery-artifact-manager
+- `discovery.ref` - Git reference. Optional; if omitted, uses HEAD of default branch
+- `dir` - Directory where generated code is written (relative to repository root, with trailing `/`)
 
 **Note**: The presence of the `generate` section enables generation commands. The presence of the `release` section enables release commands.
 
@@ -162,9 +178,15 @@ generate:
     - path: google/storage/v1
   commit: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
   librarian: v0.5.0
-  image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator:latest
-  googleapis-sha: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
-  discovery-sha: f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0
+  container:
+    image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator
+    tag: latest
+  googleapis:
+    repo: github.com/googleapis/googleapis
+    ref: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
+  discovery:
+    repo: github.com/googleapis/discovery-artifact-manager
+    ref: f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0
 
 release:
   version: null
@@ -406,9 +428,8 @@ librarianops generate
 ```
 
 This runs:
-1. `librarian config update --all --commit` - Update to latest versions
-2. `librarian generate --all --commit` - Regenerate all artifacts
-3. `gh pr create --with-token=$(fetch token) --fill` - Create pull request
+1. `librarian generate --all --commit` - Regenerate all artifacts
+2. `gh pr create --with-token=$(fetch token) --fill` - Create pull request
 
 ### Automate release preparation
 
