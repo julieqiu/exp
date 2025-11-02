@@ -15,7 +15,11 @@
 // Package gcloud provides utilities for generating gcloud command configurations and related types.
 package gcloud
 
-import "github.com/julieqiu/exp/surfer/internal/gcloudyaml"
+import (
+	"strings"
+
+	"github.com/julieqiu/exp/surfer/internal/config/gcloudyaml"
+)
 
 // Command is a single gcloud command.
 type Command struct {
@@ -93,4 +97,16 @@ type CommandHelpText struct {
 	Brief       string `yaml:"brief,omitempty"`
 	Description string `yaml:"description,omitempty"`
 	Examples    string `yaml:"examples,omitempty"`
+}
+
+// DeriveCommandName derives a command name from a method name.
+func DeriveCommandName(methodName string) string {
+	lower := strings.ToLower(methodName)
+	verbs := []string{"get", "list", "create", "update", "delete", "import", "export"}
+	for _, verb := range verbs {
+		if strings.HasPrefix(lower, verb) {
+			return verb
+		}
+	}
+	return lower
 }

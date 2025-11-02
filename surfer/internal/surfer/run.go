@@ -21,7 +21,7 @@ func Run(ctx context.Context, args []string) error {
 					&cli.StringFlag{
 						Name:  "googleapis",
 						Usage: "Path to googleapis repository (local directory or URL)",
-						Value: "testdata/input/googleapis",
+						Value: "/Users/julieqiu/code/googleapis/googleapis",
 					},
 					&cli.StringFlag{
 						Name:  "gcloud-yaml",
