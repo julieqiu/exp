@@ -30,10 +30,6 @@ provides commands to regenerate and release the code in a repeatable way.
 - [librarian status](#inspection): Show generation and release status
 - [librarian history](#inspection): View release history
 
-**Automation commands**
-
-- [librarian automate](#librarian-automation): Automate code generation workflow
-
 ## Repository Setup
 
 ```bash
@@ -239,31 +235,40 @@ View the release history for a directory:
 librarian history <path>
 ```
 
-## Librarian Automation
+## Automation with librarianops
 
-Automation follows three phases:
+The `librarianops` command automates common librarian workflows for CI/CD pipelines.
 
-### Generate
-
-```bash
-librarian config update --all --commit
-librarian generate --all --commit
-gh pr create --with-token=$(fetch token) --fill
-```
-
-### Prepare
+### Automate code generation
 
 ```bash
-librarian prepare --all --commit
-gh pr create --with-token=$(fetch token) --fill
+librarianops generate
 ```
 
-### Release
+This runs:
+1. `librarian config update --all --commit` - Update to latest versions
+2. `librarian generate --all --commit` - Regenerate all artifacts
+3. `gh pr create --with-token=$(fetch token) --fill` - Create pull request
+
+### Automate release preparation
 
 ```bash
-librarian release --all
-gh release create --with-token=$(fetch token) --notes-from-tag
+librarianops prepare
 ```
+
+This runs:
+1. `librarian prepare --all --commit` - Prepare all artifacts
+2. `gh pr create --with-token=$(fetch token) --fill` - Create pull request
+
+### Automate release publishing
+
+```bash
+librarianops release
+```
+
+This runs:
+1. `librarian release --all` - Release all prepared artifacts
+2. `gh release create --with-token=$(fetch token) --notes-from-tag` - Create GitHub releases
 
 ## Notes
 
