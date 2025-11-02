@@ -10,81 +10,88 @@ provides commands to regenerate and release the code in a repeatable way.
 ## Commands
 
 **Setup**
-- librarian init [language]
+
+- `librarian init [language]`
 
 **Manage directories**
-- librarian add <path> [api-path]
-- librarian remove <path>
-- librarian edit <path>
-- librarian list
+
+- `librarian add <path> [api-path]`
+- `librarian remove <path>`
+- `librarian edit <path>`
+- `librarian list`
 
 **Generate code**
 
-- librarian generate [<path> | --all] [--latest] [--commit]
+- `librarian generate [<path> | --all] [--latest] [--commit]`
 
 **Stage a release**
 
-- librarian stage [<path> | --all] [--notes <file>] [--commit]
+- `librarian stage [<path> | --all] [--notes <file>] [--commit]`
 
 **Publish a release**
 
-- librarian release [<path> | --all] [--tag-format]
+- `librarian release [<path> | --all] [--tag-format]`
 
 **Inspection**
 
-- librarian status [path]
-- librarian history [path]
+- `librarian status [path]`
+- `librarian history [path]`
 
 **Automation**
 
-- librarian automate generate
-- librarian automate stage
-- librarian automate release
+- `librarian automate generate`
+- `librarian automate stage`
+- `librarian automate release`
 
 **Configuration**
 
-- librarian config get <key>
-- librarian config set <key> <value>
-- librarian config unset <key>
-- librarian config update [key | --all]
+- `librarian config get <key>`
+- `librarian config set <key> <value>`
+- `librarian config unset <key>`
+- `librarian config update [key | --all]`
 
 ## Repository Setup
 
-```
-librarian init <language>
+```bash
+librarian init [language]
 ```
 
-`librarian init` creates `.librarian/config.yaml`.
+Creates a new `.librarian.yaml`.
 
-If language is provided, Librarian also configures code generation for that
-language. Supported languages:
-  - go
-  - python
+If a language is specified, Librarian also sets up the code generation
+environment for that language:
+
+| Language   | Behavior                                           |
+| ---------- | -------------------------------------------------- |
+| **go**     | Builds the Go generator container using Docker     |
+| **python** | Builds the Python generator container using Docker |
+| **rust**   | Installs generator dependencies locally            |
+| **dart**   | Installs generator dependencies locally            |
 
 **Example: setting up a release-only repository**
 
-```
+```bash
 librarian init
 ```
 
 Produces:
 
-```
+```yaml
 librarian: <librarian version>
 
 release:
   tag_format: '{package}-v{version}'
 ```
 
-**Example: Python repository with code generation
+**Example: Python repository with code generation**
 
-```
+```bash
 librarian init [language]
 ```
 
 Produces:
 
-```
+```yaml
 librarian: <librarian version>
 
 generator:
@@ -98,7 +105,7 @@ release:
 
 ## Tracking a Directory
 
-```
+```bash
 librarian add <path> [api]
 ```
 
@@ -123,24 +130,24 @@ release:
 
 For directories with code generation configured:
 
-```
+```bash
 librarian generate <path>
 ```
 
 Updates generated code using the tool versions at `.librarian/config.yaml`.
-Librarian updates .librarian.yaml automatically.
+Librarian updates `.librarian.yaml` automatically.
 
 `--commit` writes a standard commit message for the change.
 
 Regenerate all tracked directories:
 
-```
+```bash
 librarian generate --all
 ```
 
 ## Staging a Release
 
-```
+```bash
 librarian stage <path>
 ```
 
@@ -149,7 +156,7 @@ Does not tag or publish.
 
 `<path>/.librarian.yaml` is updated:
 
-```
+```yaml
 release:
   version: <current>
   staged:
@@ -159,7 +166,7 @@ release:
 
 Stage all tracked directories:
 
-```
+```bash
 librarian stage --all
 ```
 
@@ -167,7 +174,7 @@ librarian stage --all
 
 ## Releasing
 
-```
+```bash
 librarian release <path>
 ```
 
@@ -176,20 +183,20 @@ release exists, the command does nothing.
 
 Release all staged directories:
 
-```
+```bash
 librarian release --all
 ```
 
 After release, the `release.staged` section is removed:
 
-```
+```yaml
 release:
   version: <new version>
 ```
 
 ## Removing a Directory
 
-```
+```bash
 librarian remove <path>
 ```
 
@@ -201,24 +208,25 @@ Removes `<path>/.librarian.yaml`. Source code is not modified.
 
 Update toolchain information to latest:
 
-```
+```bash
 librarian config update [key]
 librarian config update --all
 ```
 
 Supported keys:
+
 - `generator.image`
 - `generator.googleapis`
 - `generator.discovery`
 
-
 Set a configuration key explicitly:
 
-```
+```bash
 librarian config set <key> <value>
 ```
 
 Supported keys:
+
 - `generator.language`
 - `generator.image`
 - `generator.googleapis`
@@ -231,7 +239,7 @@ Automation follows three phases:
 
 ### Generate
 
-```
+```bash
 librarian config update --all --commit
 librarian generate --all --commit
 gh pr create --with-token=$(fetch token) --fill
@@ -239,14 +247,14 @@ gh pr create --with-token=$(fetch token) --fill
 
 ### Stage
 
-```
+```bash
 librarian stage --all --commit
 gh pr create --with-token=$(fetch token) --fill
 ```
 
 ### Release
 
-```
+```bash
 librarian release --all
 gh release create --with-token=$(fetch token) --notes-from-tag
 ```
