@@ -73,7 +73,6 @@ generated_at:
   apis:
     - path: <api path>
 released_at:
-  commit: <sha|nil>
   tag: <tag|nil>
 ```
 
@@ -111,8 +110,7 @@ release files (such as CHANGELOG.md).
 ```yaml
 # <library-path>/.librarian.yaml
 released_at:
-  tag: <version>      # next planned release version
-  commit: <sha>           # commit to be tagged
+  tag: <version>
 ```
 
 ### Release all libraries
