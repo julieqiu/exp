@@ -11,28 +11,28 @@ provides commands to regenerate and release the code in a repeatable way.
 
 **Core commands**
 
-- [`librarian init`](#repository-setup): Initialize repository for library management
-- [`librarian add`](#tracking-a-directory): Track a directory for management
-- [`librarian remove`](#removing-a-directory): Stop tracking a directory
-- [`librarian generate`](#regeneration): Generate or regenerate code for tracked directories
-- [`librarian stage`](#staging-a-release): Prepare a release with version updates and notes
-- [`librarian release`](#releasing): Tag and publish a staged release
-
-**Inspection commands**
-
-- `librarian list`: List all tracked directories
-- `librarian status`: Show generation and release status
-- `librarian history`: View release history
+- [librarian init](#repository-setup): Initialize repository for library management
+- [librarian add](#tracking-a-directory): Track a directory for management
+- [librarian remove](#removing-a-directory): Stop tracking a directory
+- [librarian generate](#regeneration): Generate or regenerate code for tracked directories
+- [librarian stage](#staging-a-release): Prepare a release with version updates and notes
+- [librarian release](#releasing): Tag and publish a staged release
 
 **Configuration commands**
 
-- [`librarian config get`](#configuration): Read a configuration value
-- [`librarian config set`](#configuration): Set a configuration value
-- [`librarian config update`](#configuration): Update toolchain versions to latest
+- [librarian config get](#configuration): Read a configuration value
+- [librarian config set](#configuration): Set a configuration value
+- [librarian config update](#configuration): Update toolchain versions to latest
+
+**Inspection commands**
+
+- [librarian list](#inspection): List all tracked directories
+- [librarian status](#inspection): Show generation and release status
+- [librarian history](#inspection): View release history
 
 **Automation commands**
 
-- [`librarian automate`](#librarian-automation): Automate code generation workflow
+- [librarian automate](#librarian-automation): Automate code generation workflow
 
 ## Repository Setup
 
@@ -216,6 +216,28 @@ Supported keys:
 - `generator.googleapis`
 - `generator.discovery`
 - `release.tag_format`
+
+## Inspection
+
+View information about tracked directories and their release history.
+
+List all tracked directories:
+
+```bash
+librarian list
+```
+
+Show the current generation and release status for a directory:
+
+```bash
+librarian status <path>
+```
+
+View the release history for a directory:
+
+```bash
+librarian history <path>
+```
 
 ## Librarian Automation
 
