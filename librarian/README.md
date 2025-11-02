@@ -15,8 +15,8 @@ provides commands to regenerate and release the code in a repeatable way.
 - [librarian add](#tracking-a-directory): Track a directory for management
 - [librarian remove](#removing-a-directory): Stop tracking a directory
 - [librarian generate](#regeneration): Generate or regenerate code for tracked directories
-- [librarian stage](#staging-a-release): Prepare a release with version updates and notes
-- [librarian release](#releasing): Tag and publish a staged release
+- [librarian prepare](#preparing-a-release): Prepare a release with version updates and notes
+- [librarian release](#releasing): Tag and publish a prepared release
 
 **Configuration commands**
 
@@ -129,10 +129,10 @@ Regenerate all tracked directories:
 librarian generate --all
 ```
 
-## Staging a Release
+## Preparing a Release
 
 ```bash
-librarian stage <path>
+librarian prepare <path>
 ```
 
 Determines the next version, updates metadata, and prepares release notes.
@@ -143,15 +143,15 @@ Does not tag or publish.
 ```yaml
 release:
   version: <current>
-  staged:
+  prepared:
     version: <next>
     commit: <sha>
 ```
 
-Stage all tracked directories:
+Prepare all tracked directories:
 
 ```bash
-librarian stage --all
+librarian prepare --all
 ```
 
 `--commit` writes a standard commit message for the change.
@@ -162,16 +162,16 @@ librarian stage --all
 librarian release <path>
 ```
 
-Tags the staged version and updates recorded release state. If no staged
+Tags the prepared version and updates recorded release state. If no prepared
 release exists, the command does nothing.
 
-Release all staged directories:
+Release all prepared directories:
 
 ```bash
 librarian release --all
 ```
 
-After release, the `release.staged` section is removed:
+After release, the `release.prepared` section is removed:
 
 ```yaml
 release:
@@ -251,10 +251,10 @@ librarian generate --all --commit
 gh pr create --with-token=$(fetch token) --fill
 ```
 
-### Stage
+### Prepare
 
 ```bash
-librarian stage --all --commit
+librarian prepare --all --commit
 gh pr create --with-token=$(fetch token) --fill
 ```
 

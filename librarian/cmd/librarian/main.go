@@ -84,16 +84,16 @@ func main() {
 				Usage: "Manage releases",
 				Commands: []*cli.Command{
 					{
-						Name:  "stage",
-						Usage: "Stage artifacts for release",
+						Name:  "prepare",
+						Usage: "Prepare artifacts for release",
 						Flags: []cli.Flag{
 							&cli.BoolFlag{
 								Name:  "all",
-								Usage: "Stage all artifacts",
+								Usage: "Prepare all artifacts",
 							},
 						},
 						Arguments: []cli.Argument{&cli.StringArg{Name: "artifact-path"}},
-						Action:    releaseStageCommand,
+						Action:    releasePrepareCommand,
 					},
 					{
 						Name:  "tag",
@@ -470,7 +470,7 @@ func removeCommand(ctx context.Context, cmd *cli.Command) error {
 	return nil
 }
 
-func releaseStageCommand(ctx context.Context, cmd *cli.Command) error {
+func releasePrepareCommand(ctx context.Context, cmd *cli.Command) error {
 	all := cmd.Bool("all")
 	artifactPath := cmd.StringArg("artifact-path")
 
@@ -484,9 +484,9 @@ func releaseStageCommand(ctx context.Context, cmd *cli.Command) error {
 			return fmt.Errorf("failed to load artifacts: %w", err)
 		}
 
-		fmt.Printf("Staging all %d artifacts for release...\n", len(artifacts))
+		fmt.Printf("Preparing all %d artifacts for release...\n", len(artifacts))
 		for path := range artifacts {
-			fmt.Printf("  - Staging %s\n", path)
+			fmt.Printf("  - Preparing %s\n", path)
 			// TODO: Create release metadata and CHANGELOG.md
 		}
 	} else {
@@ -494,11 +494,11 @@ func releaseStageCommand(ctx context.Context, cmd *cli.Command) error {
 		if err != nil {
 			return fmt.Errorf("failed to load artifact at %s: %w", artifactPath, err)
 		}
-		fmt.Printf("Staging artifact at %s for release...\n", artifactPath)
+		fmt.Printf("Preparing artifact at %s for release...\n", artifactPath)
 		// TODO: Create release metadata and CHANGELOG.md
 	}
 
-	fmt.Println("Stage complete")
+	fmt.Println("Prepare complete")
 	return nil
 }
 
@@ -609,7 +609,7 @@ func releaseTagCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	if artifact.Release == nil || artifact.Release.NextReleaseAt == nil {
-		return fmt.Errorf("no release staged for artifact at %s", artifactPath)
+		return fmt.Errorf("no release prepared for artifact at %s", artifactPath)
 	}
 
 	if artifact.Release.LastReleasedAt != nil && artifact.Release.NextReleaseAt.Tag == artifact.Release.LastReleasedAt.Tag {
