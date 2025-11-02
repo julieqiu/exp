@@ -143,6 +143,8 @@ libraries with a release section.
 librarian release <library-path>
 ```
 
+Alias: `librarian rel`
+
 Creates a git tag for the staged library. On success, the
 `release.staged` section is cleared and `release.version` is updated with the
 new version and commit. Skips if the git tag already exists.
