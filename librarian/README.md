@@ -19,36 +19,50 @@ Supported modes are:
 Creates `.librarian/config.yaml`:
 
 ```yaml
-version: <librarian version>
-mode: <mode>
-release_tag_format: '{package}-v{version}'
+librarian:
+  version: <librarian version>
+  mode: <mode>
+
+release:
+  tag_format: '{package}-v{version}'
 ```
 
 For generation modes (go, python), additional fields will be added when needed:
 
 ```yaml
+librarian:
+  version: <librarian version>
+  mode: <mode>
+
 generate:
   image: <full-image-url-with-tag>
   googleapis: <commit-sha>
   discovery: <commit-sha>
   custom:
     - key: value
+
+release:
+  tag_format: '{package}-v{version}'
 ```
 
 ## Managing Configuration
 
-### Update all versions to latest
+### Update versions in config.yaml
 
 ```
 librarian config update
 ```
 
-Fetches and updates the configuration with the latest versions of:
+Fetches and updates `.librarian/config.yaml` with the latest versions of:
 - Librarian version
 - Googleapis commit SHA (if generate config exists)
 - Discovery artifact manager commit SHA (if generate config exists)
 
-After updating, regenerates all libraries to use the new versions. Use `--no-sync` to skip regeneration.
+Add `--sync` to also regenerate all artifacts and sync their `.librarian.yaml` files:
+
+```
+librarian config update --sync
+```
 
 ### Set a configuration value
 
@@ -59,10 +73,16 @@ librarian config set <key> <value>
 Sets a specific configuration value in `.librarian/config.yaml`. Supported keys:
 - `version`
 - `mode`
-- `release_tag_format`
+- `release.tag_format`
 - `generate.image`
 - `generate.googleapis`
 - `generate.discovery`
+
+Add `--sync` to also regenerate all artifacts after setting the config:
+
+```
+librarian config set <key> <value> --sync
+```
 
 ## Generating Client Libraries
 
@@ -73,7 +93,7 @@ librarian generate <artifact-path> <api>
 ```
 
 Creates a `.librarian.yaml` file in the artifact's directory and runs code
-generation.
+generation. The artifact state is automatically synced with the current config.
 
 Each artifact has its own `.librarian.yaml` file:
 
@@ -99,7 +119,7 @@ release:
 librarian generate <artifact-path>
 ```
 
-The artifact must have a `.librarian.yaml` file in its directory.
+Regenerates the artifact and automatically syncs its `.librarian.yaml` file with the current config (librarian version, image, googleapis SHA, etc.).
 
 ### Regenerate all artifacts
 
@@ -107,7 +127,7 @@ The artifact must have a `.librarian.yaml` file in its directory.
 librarian generate --all
 ```
 
-Scans for all `.librarian.yaml` files and runs generation for artifacts with a `generate:` section.
+Scans for all `.librarian.yaml` files and regenerates all artifacts. Each artifact's state is automatically synced with the current config.
 
 ### Remove an artifact
 

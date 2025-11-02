@@ -10,10 +10,14 @@ import (
 
 // Config represents the .librarian/config.yaml structure.
 type Config struct {
-	Version          string         `yaml:"version"`
-	Mode             string         `yaml:"mode"`
-	ReleaseTagFormat string         `yaml:"release_tag_format"`
-	Generate         GenerateConfig `yaml:"generate,omitempty"`
+	Librarian LibrarianConfig `yaml:"librarian"`
+	Generate  GenerateConfig  `yaml:"generate,omitempty"`
+	Release   ReleaseConfig   `yaml:"release,omitempty"`
+}
+
+type LibrarianConfig struct {
+	Version string `yaml:"version"`
+	Mode    string `yaml:"mode"`
 }
 
 type GenerateConfig struct {
@@ -21,6 +25,10 @@ type GenerateConfig struct {
 	Googleapis string                   `yaml:"googleapis,omitempty"`
 	Discovery  string                   `yaml:"discovery,omitempty"`
 	Custom     []map[string]interface{} `yaml:"custom,omitempty"`
+}
+
+type ReleaseConfig struct {
+	TagFormat string `yaml:"tag_format"`
 }
 
 const (
@@ -67,11 +75,11 @@ func (c *Config) Save() error {
 func (c *Config) Set(key, value string) error {
 	switch key {
 	case "version":
-		c.Version = value
+		c.Librarian.Version = value
 	case "mode":
-		c.Mode = value
-	case "release_tag_format":
-		c.ReleaseTagFormat = value
+		c.Librarian.Mode = value
+	case "release.tag_format":
+		c.Release.TagFormat = value
 	case "generate.image":
 		c.Generate.Image = value
 	case "generate.googleapis":

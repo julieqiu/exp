@@ -27,33 +27,18 @@ func main() {
 				Action:    initCommand,
 			},
 			{
-				Name:  "add",
-				Usage: "Add an artifact to be managed by librarian",
-				Arguments: []cli.Argument{
-					&cli.StringArg{Name: "artifact-path"},
-					&cli.StringArg{Name: "api-path"},
-				},
-				Action: addCommand,
-			},
-			{
-				Name:  "update",
-				Usage: "Regenerate artifacts",
-				Flags: []cli.Flag{
-					&cli.BoolFlag{
-						Name:  "all",
-						Usage: "Update all artifacts",
-					},
-				},
-				Arguments: []cli.Argument{&cli.StringArg{Name: "artifact-path"}},
-				Action:    updateCommand,
-			},
-			{
 				Name:  "config",
 				Usage: "Manage configuration",
 				Commands: []*cli.Command{
 					{
 						Name:  "set",
 						Usage: "Set a configuration value",
+						Flags: []cli.Flag{
+							&cli.BoolFlag{
+								Name:  "sync",
+								Usage: "Regenerate all artifacts after setting config",
+							},
+						},
 						Arguments: []cli.Argument{
 							&cli.StringArg{Name: "key"},
 							&cli.StringArg{Name: "value"},
@@ -65,13 +50,28 @@ func main() {
 						Usage: "Update librarian and container versions",
 						Flags: []cli.Flag{
 							&cli.BoolFlag{
-								Name:  "no-sync",
-								Usage: "Skip regenerating artifacts after update",
+								Name:  "sync",
+								Usage: "Regenerate all artifacts after update",
 							},
 						},
 						Action: configUpdateCommand,
 					},
 				},
+			},
+			{
+				Name:  "generate",
+				Usage: "Generate client libraries",
+				Flags: []cli.Flag{
+					&cli.BoolFlag{
+						Name:  "all",
+						Usage: "Regenerate all artifacts",
+					},
+				},
+				Arguments: []cli.Argument{
+					&cli.StringArg{Name: "artifact-path"},
+					&cli.StringArg{Name: "api-path"},
+				},
+				Action: generateCommand,
 			},
 			{
 				Name:      "remove",
@@ -81,20 +81,33 @@ func main() {
 			},
 			{
 				Name:  "release",
-				Usage: "Release artifacts",
-				Flags: []cli.Flag{
-					&cli.BoolFlag{
-						Name:  "all",
-						Usage: "Release all artifacts",
+				Usage: "Manage releases",
+				Commands: []*cli.Command{
+					{
+						Name:  "stage",
+						Usage: "Stage artifacts for release",
+						Flags: []cli.Flag{
+							&cli.BoolFlag{
+								Name:  "all",
+								Usage: "Stage all artifacts",
+							},
+						},
+						Arguments: []cli.Argument{&cli.StringArg{Name: "artifact-path"}},
+						Action:    releaseStageCommand,
+					},
+					{
+						Name:  "tag",
+						Usage: "Tag artifacts for release",
+						Flags: []cli.Flag{
+							&cli.BoolFlag{
+								Name:  "all",
+								Usage: "Tag all artifacts",
+							},
+						},
+						Arguments: []cli.Argument{&cli.StringArg{Name: "artifact-path"}},
+						Action:    releaseTagCommand,
 					},
 				},
-				Arguments: []cli.Argument{&cli.StringArg{Name: "artifact-path"}},
-				Action:    releaseCommand,
-			},
-			{
-				Name:   "publish",
-				Usage:  "Publish artifacts that have a pending release",
-				Action: publishCommand,
 			},
 		},
 	}
@@ -119,9 +132,13 @@ func initCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	cfg := &config.Config{
-		Version:          librarianVersion,
-		Mode:             mode,
-		ReleaseTagFormat: "{package}-v{version}",
+		Librarian: config.LibrarianConfig{
+			Version: librarianVersion,
+			Mode:    mode,
+		},
+		Release: config.ReleaseConfig{
+			TagFormat: "{package}-v{version}",
+		},
 	}
 
 	if err := cfg.Save(); err != nil {
@@ -140,9 +157,9 @@ func ensureGenerationConfig(cfg *config.Config) error {
 
 	// Initialize generator image if not set
 	if cfg.Generate.Image == "" {
-		if cfg.Mode == "python" {
+		if cfg.Librarian.Mode == "python" {
 			cfg.Generate.Image = "us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator:latest"
-		} else if cfg.Mode == "go" {
+		} else if cfg.Librarian.Mode == "go" {
 			cfg.Generate.Image = "us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/go-librarian-generator:latest"
 		}
 		updated = true
@@ -179,13 +196,10 @@ func ensureGenerationConfig(cfg *config.Config) error {
 	return nil
 }
 
-func addCommand(ctx context.Context, cmd *cli.Command) error {
+func generateCommand(ctx context.Context, cmd *cli.Command) error {
+	all := cmd.Bool("all")
 	artifactPath := cmd.StringArg("artifact-path")
 	apiPath := cmd.StringArg("api-path")
-
-	if artifactPath == "" || apiPath == "" {
-		return fmt.Errorf("artifact-path and api-path are required")
-	}
 
 	cfg, err := config.Load()
 	if err != nil {
@@ -197,74 +211,88 @@ func addCommand(ctx context.Context, cmd *cli.Command) error {
 		return err
 	}
 
-	artifact := &state.Artifact{
-		Generate: &state.GenerateState{
-			APIs: []state.API{
-				{Path: apiPath},
-			},
-			Commit:        "c288189b43c016dd3cf1ec73ce3cadee8b732f07", // Dummy value
-			Librarian:     cfg.Version,
-			Image:         cfg.GeneratorImage(),
-			GoogleapisSHA: cfg.Generate.Googleapis,
-			DiscoverySHA:  cfg.Generate.Discovery,
-		},
-		Release: &state.ReleaseState{
-			LastReleasedAt: &state.ReleaseInfo{
-				Tag:    "v1.18.0",
-				Commit: "4a92b10e8f0a2b5c6d7e8f9a0b1c2d3e4f5a6b7c",
-			},
-			NextReleaseAt: &state.ReleaseInfo{
-				Tag:    "v1.19.0",
-				Commit: "some-new-commit-hash",
-			},
-		},
+	if all {
+		// Regenerate all artifacts
+		artifacts, err := state.LoadAll()
+		if err != nil {
+			return fmt.Errorf("failed to load artifacts: %w", err)
+		}
+
+		fmt.Printf("Regenerating all %d artifacts...\n", len(artifacts))
+		for path, artifact := range artifacts {
+			fmt.Printf("  - Regenerating %s\n", path)
+
+			// Sync artifact state with current config
+			if artifact.Generate != nil {
+				artifact.Generate.Librarian = cfg.Librarian.Version
+				artifact.Generate.Image = cfg.GeneratorImage()
+				artifact.Generate.GoogleapisSHA = cfg.Generate.Googleapis
+				artifact.Generate.DiscoverySHA = cfg.Generate.Discovery
+
+				if err := artifact.Save(path); err != nil {
+					return fmt.Errorf("failed to save artifact state: %w", err)
+				}
+				runYamlFmt(filepath.Join(path, ".librarian.yaml"))
+			}
+
+			// TODO: Run generator for each artifact
+		}
+		fmt.Println("Generation complete")
+		return nil
 	}
 
+	if artifactPath == "" {
+		return fmt.Errorf("artifact-path is required (or use --all)")
+	}
+
+	// Check if artifact exists
+	artifact, err := state.Load(artifactPath)
+	if err != nil {
+		return fmt.Errorf("failed to load artifact: %w", err)
+	}
+
+	// If apiPath is provided, this is a new artifact
+	if apiPath != "" {
+		artifact = &state.Artifact{
+			Generate: &state.GenerateState{
+				APIs: []state.API{
+					{Path: apiPath},
+				},
+				Commit:        "c288189b43c016dd3cf1ec73ce3cadee8b732f07", // Dummy value
+				Librarian:     cfg.Librarian.Version,
+				Image:         cfg.GeneratorImage(),
+				GoogleapisSHA: cfg.Generate.Googleapis,
+				DiscoverySHA:  cfg.Generate.Discovery,
+			},
+		}
+
+		fmt.Printf("Created artifact at %s with API %s\n", artifactPath, apiPath)
+	} else {
+		// Regenerating existing artifact - sync state with current config
+		fmt.Printf("Regenerating artifact at %s...\n", artifactPath)
+
+		if artifact.Generate != nil {
+			artifact.Generate.Librarian = cfg.Librarian.Version
+			artifact.Generate.Image = cfg.GeneratorImage()
+			artifact.Generate.GoogleapisSHA = cfg.Generate.Googleapis
+			artifact.Generate.DiscoverySHA = cfg.Generate.Discovery
+		}
+	}
+
+	// Save artifact state
 	if err := artifact.Save(artifactPath); err != nil {
 		return fmt.Errorf("failed to save state: %w", err)
 	}
 	runYamlFmt(filepath.Join(artifactPath, ".librarian.yaml"))
 
-	fmt.Printf("Added artifact at %s with API %s\n", artifactPath, apiPath)
 	fmt.Println("Running generator...")
 	// TODO: Actually run the generator container
 	fmt.Println("Generation complete")
 	return nil
 }
 
-func updateCommand(ctx context.Context, cmd *cli.Command) error {
-	all := cmd.Bool("all")
-	artifactPath := cmd.StringArg("artifact-path")
-
-	if !all && artifactPath == "" {
-		return fmt.Errorf("either --all flag or artifact-path is required")
-	}
-
-	if all {
-		artifacts, err := state.LoadAll()
-		if err != nil {
-			return fmt.Errorf("failed to load artifacts: %w", err)
-		}
-
-		fmt.Printf("Updating all %d artifacts...\n", len(artifacts))
-		for path := range artifacts {
-			fmt.Printf("  - Updating %s\n", path)
-			// TODO: Run generator for each artifact
-		}
-	} else {
-		_, err := state.Load(artifactPath)
-		if err != nil {
-			return fmt.Errorf("failed to load artifact at %s: %w", artifactPath, err)
-		}
-		fmt.Printf("Updating artifact at %s...\n", artifactPath)
-		// TODO: Run generator for the artifact
-	}
-
-	fmt.Println("Update complete")
-	return nil
-}
-
 func configSetCommand(ctx context.Context, cmd *cli.Command) error {
+	sync := cmd.Bool("sync")
 	key := cmd.StringArg("key")
 	value := cmd.StringArg("value")
 
@@ -287,11 +315,46 @@ func configSetCommand(ctx context.Context, cmd *cli.Command) error {
 	runYamlFmt(".librarian/config.yaml")
 
 	fmt.Printf("Set %s = %s\n", key, value)
+
+	if sync {
+		fmt.Println("\nRegenerating all artifacts...")
+		artifacts, err := state.LoadAll()
+		if err != nil {
+			return fmt.Errorf("failed to load artifacts: %w", err)
+		}
+
+		if len(artifacts) == 0 {
+			fmt.Println("No artifacts to regenerate")
+			return nil
+		}
+
+		fmt.Printf("Regenerating all %d artifacts...\n", len(artifacts))
+		for path, artifact := range artifacts {
+			fmt.Printf("  - Regenerating %s\n", path)
+
+			// Update artifact state with current config values
+			if artifact.Generate != nil {
+				artifact.Generate.Librarian = cfg.Librarian.Version
+				artifact.Generate.Image = cfg.GeneratorImage()
+				artifact.Generate.GoogleapisSHA = cfg.Generate.Googleapis
+				artifact.Generate.DiscoverySHA = cfg.Generate.Discovery
+
+				if err := artifact.Save(path); err != nil {
+					return fmt.Errorf("failed to save artifact state: %w", err)
+				}
+				runYamlFmt(filepath.Join(path, ".librarian.yaml"))
+			}
+
+			// TODO: Run generator for the artifact
+		}
+		fmt.Println("Regeneration complete")
+	}
+
 	return nil
 }
 
 func configUpdateCommand(ctx context.Context, cmd *cli.Command) error {
-	noSync := cmd.Bool("no-sync")
+	sync := cmd.Bool("sync")
 
 	cfg, err := config.Load()
 	if err != nil {
@@ -302,14 +365,14 @@ func configUpdateCommand(ctx context.Context, cmd *cli.Command) error {
 	var updated bool
 
 	// Update librarian version
-	fmt.Printf("Current librarian version: %s\n", cfg.Version)
+	fmt.Printf("Current librarian version: %s\n", cfg.Librarian.Version)
 	librarianVersion, err := getLibrarianVersion()
 	if err != nil {
 		return fmt.Errorf("failed to get latest librarian version: %w", err)
 	}
-	if librarianVersion != cfg.Version {
+	if librarianVersion != cfg.Librarian.Version {
 		fmt.Printf("Updating librarian version to %s\n", librarianVersion)
-		cfg.Version = librarianVersion
+		cfg.Librarian.Version = librarianVersion
 		updated = true
 	} else {
 		fmt.Println("Librarian version is up to date")
@@ -355,7 +418,7 @@ func configUpdateCommand(ctx context.Context, cmd *cli.Command) error {
 		fmt.Println("All versions are up to date")
 	}
 
-	if !noSync {
+	if sync {
 		fmt.Println("\nRegenerating all artifacts...")
 		artifacts, err := state.LoadAll()
 		if err != nil {
@@ -367,10 +430,24 @@ func configUpdateCommand(ctx context.Context, cmd *cli.Command) error {
 			return nil
 		}
 
-		fmt.Printf("Updating all %d artifacts...\n", len(artifacts))
-		for path := range artifacts {
-			fmt.Printf("  - Updating %s\n", path)
-			// TODO: Run generator for each artifact
+		fmt.Printf("Regenerating all %d artifacts...\n", len(artifacts))
+		for path, artifact := range artifacts {
+			fmt.Printf("  - Regenerating %s\n", path)
+
+			// Update artifact state with current config values
+			if artifact.Generate != nil {
+				artifact.Generate.Librarian = cfg.Librarian.Version
+				artifact.Generate.Image = cfg.GeneratorImage()
+				artifact.Generate.GoogleapisSHA = cfg.Generate.Googleapis
+				artifact.Generate.DiscoverySHA = cfg.Generate.Discovery
+
+				if err := artifact.Save(path); err != nil {
+					return fmt.Errorf("failed to save artifact state: %w", err)
+				}
+				runYamlFmt(filepath.Join(path, ".librarian.yaml"))
+			}
+
+			// TODO: Run generator for the artifact
 		}
 		fmt.Println("Regeneration complete")
 	}
@@ -393,7 +470,7 @@ func removeCommand(ctx context.Context, cmd *cli.Command) error {
 	return nil
 }
 
-func releaseCommand(ctx context.Context, cmd *cli.Command) error {
+func releaseStageCommand(ctx context.Context, cmd *cli.Command) error {
 	all := cmd.Bool("all")
 	artifactPath := cmd.StringArg("artifact-path")
 
@@ -407,21 +484,21 @@ func releaseCommand(ctx context.Context, cmd *cli.Command) error {
 			return fmt.Errorf("failed to load artifacts: %w", err)
 		}
 
-		fmt.Printf("Releasing all %d artifacts...\n", len(artifacts))
+		fmt.Printf("Staging all %d artifacts for release...\n", len(artifacts))
 		for path := range artifacts {
-			fmt.Printf("  - Releasing %s\n", path)
-			// TODO: Create release PR/tag for each artifact
+			fmt.Printf("  - Staging %s\n", path)
+			// TODO: Create release metadata and CHANGELOG.md
 		}
 	} else {
 		_, err := state.Load(artifactPath)
 		if err != nil {
 			return fmt.Errorf("failed to load artifact at %s: %w", artifactPath, err)
 		}
-		fmt.Printf("Releasing artifact at %s...\n", artifactPath)
-		// TODO: Create release PR/tag for the artifact
+		fmt.Printf("Staging artifact at %s for release...\n", artifactPath)
+		// TODO: Create release metadata and CHANGELOG.md
 	}
 
-	fmt.Println("Release complete")
+	fmt.Println("Stage complete")
 	return nil
 }
 
@@ -482,39 +559,77 @@ func runYamlFmt(file string) {
 	}
 }
 
-func publishCommand(ctx context.Context, cmd *cli.Command) error {
-	artifacts, err := state.LoadAll()
-	if err != nil {
-		return fmt.Errorf("failed to load artifacts: %w", err)
-	}
+func releaseTagCommand(ctx context.Context, cmd *cli.Command) error {
+	all := cmd.Bool("all")
+	artifactPath := cmd.StringArg("artifact-path")
 
-	var published bool
-	for path, artifact := range artifacts {
-		if artifact.Release != nil && artifact.Release.NextReleaseAt != nil && artifact.Release.NextReleaseAt.Tag != "" {
-			if artifact.Release.LastReleasedAt == nil || artifact.Release.NextReleaseAt.Tag != artifact.Release.LastReleasedAt.Tag {
-				fmt.Printf("Publishing %s %s...\n", path, artifact.Release.NextReleaseAt.Tag)
-				// TODO: Implement actual publishing logic (git tag, push, etc.)
-				fmt.Println("  - Tagging and pushing release...")
-				fmt.Println("  - Publishing artifact...")
+	if all {
+		artifacts, err := state.LoadAll()
+		if err != nil {
+			return fmt.Errorf("failed to load artifacts: %w", err)
+		}
 
-				artifact.Release.LastReleasedAt = artifact.Release.NextReleaseAt
-				artifact.Release.NextReleaseAt = nil
-				published = true
+		var tagged bool
+		for path, artifact := range artifacts {
+			if artifact.Release != nil && artifact.Release.NextReleaseAt != nil && artifact.Release.NextReleaseAt.Tag != "" {
+				if artifact.Release.LastReleasedAt == nil || artifact.Release.NextReleaseAt.Tag != artifact.Release.LastReleasedAt.Tag {
+					fmt.Printf("Tagging %s %s...\n", path, artifact.Release.NextReleaseAt.Tag)
+					// TODO: Implement actual git tagging logic
+					fmt.Println("  - Creating git tag...")
 
-				if err := artifact.Save(path); err != nil {
-					return fmt.Errorf("failed to save artifact state: %w", err)
+					artifact.Release.LastReleasedAt = artifact.Release.NextReleaseAt
+					artifact.Release.NextReleaseAt = nil
+					tagged = true
+
+					if err := artifact.Save(path); err != nil {
+						return fmt.Errorf("failed to save artifact state: %w", err)
+					}
+					runYamlFmt(filepath.Join(path, ".librarian.yaml"))
+					fmt.Println("  - Done.")
 				}
-				runYamlFmt(filepath.Join(path, ".librarian.yaml"))
-				fmt.Println("  - Done.")
 			}
 		}
-	}
 
-	if !published {
-		fmt.Println("No artifacts to publish.")
+		if !tagged {
+			fmt.Println("No artifacts to tag.")
+			return nil
+		}
+
+		fmt.Println("Tag complete.")
 		return nil
 	}
 
-	fmt.Println("Publish complete.")
+	if artifactPath == "" {
+		return fmt.Errorf("artifact-path is required (or use --all)")
+	}
+
+	artifact, err := state.Load(artifactPath)
+	if err != nil {
+		return fmt.Errorf("failed to load artifact at %s: %w", artifactPath, err)
+	}
+
+	if artifact.Release == nil || artifact.Release.NextReleaseAt == nil {
+		return fmt.Errorf("no release staged for artifact at %s", artifactPath)
+	}
+
+	if artifact.Release.LastReleasedAt != nil && artifact.Release.NextReleaseAt.Tag == artifact.Release.LastReleasedAt.Tag {
+		fmt.Printf("Artifact at %s already released at %s\n", artifactPath, artifact.Release.LastReleasedAt.Tag)
+		return nil
+	}
+
+	fmt.Printf("Tagging %s %s...\n", artifactPath, artifact.Release.NextReleaseAt.Tag)
+	// TODO: Implement actual git tagging logic
+	fmt.Println("  - Creating git tag...")
+
+	artifact.Release.LastReleasedAt = artifact.Release.NextReleaseAt
+	artifact.Release.NextReleaseAt = nil
+
+	if err := artifact.Save(artifactPath); err != nil {
+		return fmt.Errorf("failed to save artifact state: %w", err)
+	}
+	runYamlFmt(filepath.Join(artifactPath, ".librarian.yaml"))
+	fmt.Println("  - Done.")
+
+	fmt.Println("Tag complete.")
 	return nil
 }
