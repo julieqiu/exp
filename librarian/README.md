@@ -239,6 +239,21 @@ librarian history <path>
 
 The `librarianops` command automates common librarian workflows for CI/CD pipelines.
 
+### Configuration
+
+**Flags:**
+
+- `--project` - GCP project ID (default: `cloud-sdk-librarian-prod`)
+- `--dry-run` - Print commands without executing them
+
+```bash
+# Use custom project
+librarianops --project my-project generate
+
+# Dry run to see what would be executed
+librarianops --dry-run generate
+```
+
 ### Automate code generation
 
 ```bash

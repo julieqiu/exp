@@ -13,6 +13,17 @@ func main() {
 	cmd := &cli.Command{
 		Name:  "librarianops",
 		Usage: "Automate librarian workflows for CI/CD",
+		Flags: []cli.Flag{
+			&cli.StringFlag{
+				Name:  "project",
+				Usage: "GCP project ID",
+				Value: "cloud-sdk-librarian-prod",
+			},
+			&cli.BoolFlag{
+				Name:  "dry-run",
+				Usage: "Print commands without executing them",
+			},
+		},
 		Commands: []*cli.Command{
 			{
 				Name:  "generate",
@@ -38,33 +49,66 @@ func main() {
 }
 
 func automateGenerateCommand(ctx context.Context, cmd *cli.Command) error {
-	fmt.Println("Running automated generation workflow...")
+	project := cmd.String("project")
+	dryRun := cmd.Bool("dry-run")
+
+	if dryRun {
+		fmt.Println("[DRY RUN] Would run automated generation workflow")
+	} else {
+		fmt.Printf("Running automated generation workflow (project: %s)...\n", project)
+	}
+
 	fmt.Println("\nStep 1: Updating config to latest versions")
 	fmt.Println("  librarian config update --all --commit")
 	fmt.Println("\nStep 2: Regenerating all artifacts")
 	fmt.Println("  librarian generate --all --commit")
 	fmt.Println("\nStep 3: Creating pull request")
 	fmt.Println("  gh pr create --with-token=$(fetch token) --fill")
-	fmt.Println("\n⚠️  TODO: Implement actual automation logic")
+
+	if !dryRun {
+		fmt.Println("\n⚠️  TODO: Implement actual automation logic")
+	}
 	return nil
 }
 
 func automatePrepareCommand(ctx context.Context, cmd *cli.Command) error {
-	fmt.Println("Running automated prepare workflow...")
+	project := cmd.String("project")
+	dryRun := cmd.Bool("dry-run")
+
+	if dryRun {
+		fmt.Println("[DRY RUN] Would run automated prepare workflow")
+	} else {
+		fmt.Printf("Running automated prepare workflow (project: %s)...\n", project)
+	}
+
 	fmt.Println("\nStep 1: Preparing all artifacts for release")
 	fmt.Println("  librarian prepare --all --commit")
 	fmt.Println("\nStep 2: Creating pull request")
 	fmt.Println("  gh pr create --with-token=$(fetch token) --fill")
-	fmt.Println("\n⚠️  TODO: Implement actual automation logic")
+
+	if !dryRun {
+		fmt.Println("\n⚠️  TODO: Implement actual automation logic")
+	}
 	return nil
 }
 
 func automateReleaseCommand(ctx context.Context, cmd *cli.Command) error {
-	fmt.Println("Running automated release workflow...")
+	project := cmd.String("project")
+	dryRun := cmd.Bool("dry-run")
+
+	if dryRun {
+		fmt.Println("[DRY RUN] Would run automated release workflow")
+	} else {
+		fmt.Printf("Running automated release workflow (project: %s)...\n", project)
+	}
+
 	fmt.Println("\nStep 1: Releasing all prepared artifacts")
 	fmt.Println("  librarian release --all")
 	fmt.Println("\nStep 2: Creating GitHub releases")
 	fmt.Println("  gh release create --with-token=$(fetch token) --notes-from-tag")
-	fmt.Println("\n⚠️  TODO: Implement actual automation logic")
+
+	if !dryRun {
+		fmt.Println("\n⚠️  TODO: Implement actual automation logic")
+	}
 	return nil
 }
