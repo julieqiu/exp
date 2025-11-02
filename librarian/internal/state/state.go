@@ -15,6 +15,7 @@ type Artifact struct {
 	Generate *GenerateState `yaml:"generate,omitempty"`
 	Release  *ReleaseState  `yaml:"release,omitempty"`
 	Config   *ConfigState   `yaml:"config,omitempty"`
+	Language *LanguageState `yaml:"language,omitempty"`
 }
 
 // GenerateState tracks generation metadata.
@@ -51,6 +52,34 @@ type ConfigState struct {
 	Remove  []string `yaml:"remove,omitempty"`  // Files to remove after generation
 	Exclude []string `yaml:"exclude,omitempty"` // Files to exclude from release
 	Dir     string   `yaml:"dir,omitempty"`     // Where to write generated code (overrides global default)
+}
+
+// LanguageState holds language-specific metadata for the artifact.
+type LanguageState struct {
+	Go     *GoLanguage     `yaml:"go,omitempty"`
+	Python *PythonLanguage `yaml:"python,omitempty"`
+	Rust   *RustLanguage   `yaml:"rust,omitempty"`
+	Dart   *DartLanguage   `yaml:"dart,omitempty"`
+}
+
+// GoLanguage holds Go-specific metadata.
+type GoLanguage struct {
+	Module string `yaml:"module,omitempty"` // Go module path (e.g., "github.com/user/repo")
+}
+
+// PythonLanguage holds Python-specific metadata.
+type PythonLanguage struct {
+	Package string `yaml:"package,omitempty"` // Python package name (e.g., "my-package")
+}
+
+// RustLanguage holds Rust-specific metadata.
+type RustLanguage struct {
+	Crate string `yaml:"crate,omitempty"` // Rust crate name (e.g., "my_crate")
+}
+
+// DartLanguage holds Dart-specific metadata.
+type DartLanguage struct {
+	Package string `yaml:"package,omitempty"` // Dart package name (e.g., "my_package")
 }
 
 // Load reads the .librarian.yaml file from the artifact's directory.

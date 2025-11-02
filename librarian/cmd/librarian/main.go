@@ -9,6 +9,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 
 	"github.com/julieqiu/exp/librarian/internal/config"
 	"github.com/julieqiu/exp/librarian/internal/state"
@@ -93,6 +94,10 @@ func main() {
 					&cli.StringFlag{
 						Name:  "dir",
 						Usage: "Where to write generated code (overrides global default)",
+					},
+					&cli.StringSliceFlag{
+						Name:  "language",
+						Usage: "Language-specific metadata (format: LANG:KEY=VALUE, e.g., go:module=github.com/user/repo)",
 					},
 				},
 				Action: editCommand,
@@ -504,6 +509,7 @@ func editCommand(ctx context.Context, cmd *cli.Command) error {
 	remove := cmd.StringSlice("remove")
 	exclude := cmd.StringSlice("exclude")
 	dir := cmd.String("dir")
+	languageFlags := cmd.StringSlice("language")
 
 	// Load existing artifact
 	artifact, err := state.Load(artifactPath)
@@ -539,26 +545,112 @@ func editCommand(ctx context.Context, cmd *cli.Command) error {
 		fmt.Printf("Set dir: %s\n", dir)
 	}
 
+	// Update language-specific fields if flags were provided
+	for _, flag := range languageFlags {
+		lang, key, value, err := parseLanguageFlag(flag)
+		if err != nil {
+			return err
+		}
+
+		if artifact.Language == nil {
+			artifact.Language = &state.LanguageState{}
+		}
+
+		switch lang {
+		case "go":
+			if artifact.Language.Go == nil {
+				artifact.Language.Go = &state.GoLanguage{}
+			}
+			switch key {
+			case "module":
+				artifact.Language.Go.Module = value
+				updated = true
+				fmt.Printf("Set Go module: %s\n", value)
+			default:
+				return fmt.Errorf("unknown Go property: %s (expected 'module')", key)
+			}
+		case "python":
+			if artifact.Language.Python == nil {
+				artifact.Language.Python = &state.PythonLanguage{}
+			}
+			switch key {
+			case "package":
+				artifact.Language.Python.Package = value
+				updated = true
+				fmt.Printf("Set Python package: %s\n", value)
+			default:
+				return fmt.Errorf("unknown Python property: %s (expected 'package')", key)
+			}
+		case "rust":
+			if artifact.Language.Rust == nil {
+				artifact.Language.Rust = &state.RustLanguage{}
+			}
+			switch key {
+			case "crate":
+				artifact.Language.Rust.Crate = value
+				updated = true
+				fmt.Printf("Set Rust crate: %s\n", value)
+			default:
+				return fmt.Errorf("unknown Rust property: %s (expected 'crate')", key)
+			}
+		case "dart":
+			if artifact.Language.Dart == nil {
+				artifact.Language.Dart = &state.DartLanguage{}
+			}
+			switch key {
+			case "package":
+				artifact.Language.Dart.Package = value
+				updated = true
+				fmt.Printf("Set Dart package: %s\n", value)
+			default:
+				return fmt.Errorf("unknown Dart property: %s (expected 'package')", key)
+			}
+		default:
+			return fmt.Errorf("unknown language: %s (expected go, python, rust, or dart)", lang)
+		}
+	}
+
 	if !updated {
 		// No flags provided, show current config
 		fmt.Printf("Current configuration for %s:\n", artifactPath)
+		hasConfig := false
 		if artifact.Config != nil {
 			if len(artifact.Config.Keep) > 0 {
 				fmt.Printf("  Keep: %v\n", artifact.Config.Keep)
+				hasConfig = true
 			}
 			if len(artifact.Config.Remove) > 0 {
 				fmt.Printf("  Remove: %v\n", artifact.Config.Remove)
+				hasConfig = true
 			}
 			if len(artifact.Config.Exclude) > 0 {
 				fmt.Printf("  Exclude: %v\n", artifact.Config.Exclude)
+				hasConfig = true
 			}
 			if artifact.Config.Dir != "" {
 				fmt.Printf("  Dir: %s\n", artifact.Config.Dir)
+				hasConfig = true
 			}
-			if len(artifact.Config.Keep) == 0 && len(artifact.Config.Remove) == 0 && len(artifact.Config.Exclude) == 0 && artifact.Config.Dir == "" {
-				fmt.Println("  (no configuration set)")
+		}
+		if artifact.Language != nil {
+			if artifact.Language.Go != nil && artifact.Language.Go.Module != "" {
+				fmt.Printf("  Go module: %s\n", artifact.Language.Go.Module)
+				hasConfig = true
 			}
-		} else {
+			if artifact.Language.Python != nil && artifact.Language.Python.Package != "" {
+				fmt.Printf("  Python package: %s\n", artifact.Language.Python.Package)
+				hasConfig = true
+			}
+			if artifact.Language.Rust != nil && artifact.Language.Rust.Crate != "" {
+				fmt.Printf("  Rust crate: %s\n", artifact.Language.Rust.Crate)
+				hasConfig = true
+			}
+			if artifact.Language.Dart != nil && artifact.Language.Dart.Package != "" {
+				fmt.Printf("  Dart package: %s\n", artifact.Language.Dart.Package)
+				hasConfig = true
+			}
+		}
+		if !hasConfig {
 			fmt.Println("  (no configuration set)")
 		}
 		return nil
@@ -604,6 +696,25 @@ func releasePrepareCommand(ctx context.Context, cmd *cli.Command) error {
 
 	fmt.Println("Prepare complete")
 	return nil
+}
+
+// parseLanguageFlag parses a string in the format "LANG:KEY=VALUE" and returns the language, key, and value.
+func parseLanguageFlag(s string) (lang, key, value string, err error) {
+	// Split on first ':'
+	parts := strings.SplitN(s, ":", 2)
+	if len(parts) != 2 {
+		return "", "", "", fmt.Errorf("expected format LANG:KEY=VALUE, got %q", s)
+	}
+	lang = parts[0]
+
+	// Split on first '='
+	kvParts := strings.SplitN(parts[1], "=", 2)
+	if len(kvParts) != 2 {
+		return "", "", "", fmt.Errorf("expected format LANG:KEY=VALUE, got %q", s)
+	}
+	key, value = kvParts[0], kvParts[1]
+
+	return lang, key, value, nil
 }
 
 // getLatestSHA fetches the latest commit SHA for the given repo in the given
