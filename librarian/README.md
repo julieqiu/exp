@@ -75,6 +75,9 @@ generated_at:
 released: <tag|nil>
 ```
 
+The `--commit` flag can be used to run `git commit` with a preformatted commit
+message.
+
 ## Updating Client Libraries
 
 ### Update an existing client library
@@ -86,6 +89,9 @@ librarian update [library-path]
 Regenerates the library and automatically syncs its `.librarian.yaml` file
 with the current config (librarian version, image, googleapis SHA, etc.).
 
+The `--commit` flag can be used to run `git commit` with a preformatted commit
+message.
+
 ### Update all client libraries
 
 ```
@@ -94,6 +100,9 @@ librarian update --all
 
 Scans for all `.librarian.yaml` files and regenerates all libraries. Each
 library's state is automatically synced with the current config.
+
+Use the `--latest` flag to first update `.librarian/config.yaml` to the latest
+version of the config.
 
 ## Releasing Artifacts
 
@@ -113,6 +122,9 @@ staged:                   # removed once `release tag` runs
   commit: <sha>           # commit to be tagged
 released: <version>       # last released version
 ```
+
+The `--commit` flag can be used to run `git commit` with a preformatted commit
+message.
 
 ### Stage all libraries for release
 
@@ -195,18 +207,20 @@ The automation infrastructure will run these commands:
 ### Generate
 
 ```
-librarian config update --all
-librarian update --all
+librarian update --all --latest --commit
+gh pr create --with-token=$(fetch token) --fill
 ```
 
 ### Release Stage
 
 ```
-librarian release stage --all
+librarian release stage --all --commit
+gh pr create --with-token=$(fetch token) --fill
 ```
 
 ### Release Tag
 
 ```
 librarian release tag --all
+gh release create --with-token=$(fetch token) --notes-from-tag
 ```
