@@ -1,0 +1,310 @@
+# Copyright 2025 Google LLC. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# The content below is copied from
+# https://source.corp.google.com/piper///depot/google3/cloud/sdk/tools/gen_sfc/staging/apis/memorystore/gcloud.yaml?q=gcloud.yaml
+config_version: v2.0
+service_name: memorystore.googleapis.com
+generate_operations: false
+apis:
+- name: Memorystore
+  api_version: v1
+  supports_star_update_masks: false
+  release_tracks:
+  - GA
+  help_text:
+    service_rules:
+    - selector: google.cloud.memorystore.v1.Memorystore
+      help_text:
+        brief: Manage Memorystore resources.
+        description: Manage Memorystore resources.
+    message_rules:
+    - selector: google.cloud.memorystore.v1.Memorystore.Instance
+      help_text:
+        brief: Manage Memorystore instances.
+        description: Manage Memorystore instances.
+    method_rules:
+    - selector: google.cloud.memorystore.v1.Memorystore.CreateInstance
+      help_text:
+        brief: Create a Memorystore instance.
+        description: |
+          Create a Memorystore instance.
+
+          A service connection policy for service class `gcp-memorystore` must already exist for the
+          location and network. Refer to
+          [creation prerequisites](https://cloud.google.com/memorystore/docs/valkey/networking#prerequisites_required_before_creating_an_instance)
+          for more details.
+        examples:
+        - |-
+          To create a three shard Memorystore instance `my-instance` in project `my-project` and
+          location `us-central1`, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1 --shard-count=3
+            --psc-auto-connections="network=NETWORK,projectId=PROJECT_ID"
+        - |-
+          To create a three shard Memorystore instance `my-instance` in project `my-project`,
+          location `us-central1`, with one replica per shard, and TLS enabled, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1 --shard-count=3
+            --psc-auto-connections="network=NETWORK,projectId=PROJECT_ID"
+            --transit-encryption-mode=server-authentication --replica-count=1
+    - selector: google.cloud.memorystore.v1.Memorystore.DeleteInstance
+      help_text:
+        brief: Delete a Memorystore instance.
+        description: Delete a Memorystore instance.
+        examples:
+        - |-
+          To delete Memorystore instance `my-instance` in project `my-project` and location
+          `us-central1`, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1
+    - selector: google.cloud.memorystore.v1.Memorystore.GetInstance
+      help_text:
+        brief: Get details of a Memorystore instance.
+        description: Get details of a Memorystore instance.
+        examples:
+        - |-
+          To get the details of Memorystore instance `my-instance` in project `my-project` and
+          location `us-central`, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1
+    - selector: google.cloud.memorystore.v1.Memorystore.ListInstances
+      help_text:
+        brief: List all Memorystore instances in a specified project and location.
+        description: List all Memorystore instances in a specified project and location.
+        examples:
+        - |-
+          To list all Memorystore instances in project `my-project` and location `us-central`, run:
+
+          $ {command} --project=my-project --location=us-central1
+    - selector: google.cloud.memorystore.v1.Memorystore.UpdateInstance
+      help_text:
+        brief: Update the configuration of a Memorystore instance.
+        description: Update the configuration of a Memorystore instance.
+        examples:
+        - |-
+          To update Memorystore instance `my-instance` in project `my-project` and location
+          `us-central1` to six shards, run:
+
+          $ {command} `my-instance` --project=my-project --location=us-central1 --shard-count=6
+        - |-
+          To update Memorystore instance `my-instance` in project `my-project` and location
+          `us-central1` to use a maxmemory-policy of `allkeys-lru`, run:
+
+          $ {command} `my-instance` --project=my-project --location=us-central1
+            --update-engine-configs=maxmemory-policy=allkeys-lru
+    - selector: google.cloud.memorystore.v1.Memorystore.RescheduleMaintenance
+      help_text:
+        brief: Reschedule maintenance window for an instance.
+        description: Reschedule maintenance window for an instance.
+        examples:
+        - |-
+          To reschedule maintenance window for an instance with the name
+          `my-instance` in region `us-central-1` with immediate, run:
+
+- name: Memorystore
+  api_version: v1alpha
+  supports_star_update_masks: false
+  release_tracks:
+  - ALPHA
+  help_text:
+    service_rules:
+    - selector: google.cloud.memorystore.v1alpha.Memorystore
+      help_text:
+        brief: Manage Memorystore resources.
+        description: Manage Memorystore resources.
+    message_rules:
+    - selector: google.cloud.memorystore.v1alpha.Memorystore.Instance
+      help_text:
+        brief: Manage Memorystore instances.
+        description: Manage Memorystore instances.
+    method_rules:
+    - selector: google.cloud.memorystore.v1alpha.Memorystore.CreateInstance
+      help_text:
+        brief: Create a Memorystore instance.
+        description: |
+          Create a Memorystore instance.
+
+          A service connection policy for service class `gcp-memorystore` must already exist for the
+          location and network. Refer to
+          [creation prerequisites](https://cloud.google.com/memorystore/docs/valkey/networking#prerequisites_required_before_creating_an_instance)
+          for more details.
+        examples:
+        - |-
+          To create a three shard Memorystore instance `my-instance` in project `my-project` and
+          location `us-central1`, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1 --shard-count=3
+            --psc-auto-connections="network=NETWORK,projectId=PROJECT_ID"
+        - |-
+          To create a three shard Memorystore instance `my-instance` in project `my-project`,
+          location `us-central1`, with one replica per shard, and TLS enabled, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1 --shard-count=3
+            --psc-auto-connections="network=NETWORK,projectId=PROJECT_ID"
+            --transit-encryption-mode=server-authentication --replica-count=1
+    - selector: google.cloud.memorystore.v1alpha.Memorystore.DeleteInstance
+      help_text:
+        brief: Delete a Memorystore instance.
+        description: Delete a Memorystore instance.
+        examples:
+        - |-
+          To delete Memorystore instance `my-instance` in project `my-project` and location
+          `us-central1`, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1
+    - selector: google.cloud.memorystore.v1alpha.Memorystore.GetInstance
+      help_text:
+        brief: Get details of a Memorystore instance.
+        description: Get details of a Memorystore instance.
+        examples:
+        - |-
+          To get the details of Memorystore instance `my-instance` in project `my-project` and
+          location `us-central`, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1
+    - selector: google.cloud.memorystore.v1alpha.Memorystore.ListInstances
+      help_text:
+        brief: List all Memorystore instances in a specified project and location.
+        description: List all Memorystore instances in a specified project and location.
+        examples:
+        - |-
+          To list all Memorystore instances in project `my-project` and location `us-central`, run:
+
+          $ {command} --project=my-project --location=us-central1
+    - selector: google.cloud.memorystore.v1alpha.Memorystore.UpdateInstance
+      help_text:
+        brief: Update the configuration of a Memorystore instance.
+        description: Update the configuration of a Memorystore instance.
+        examples:
+        - |-
+          To update Memorystore instance `my-instance` in project `my-project` and location
+          `us-central1` to six shards, run:
+
+          $ {command} `my-instance` --project=my-project --location=us-central1 --shard-count=6
+        - |-
+          To update Memorystore instance `my-instance` in project `my-project` and location
+          `us-central1` to use a maxmemory-policy of `allkeys-lru`, run:
+
+          $ {command} `my-instance` --project=my-project --location=us-central1
+            --update-engine-configs=maxmemory-policy=allkeys-lru
+    - selector: google.cloud.memorystore.v1alpha.Memorystore.RescheduleMaintenance
+      help_text:
+        brief: Reschedule maintenance window for an instance.
+        description: Reschedule maintenance window for an instance.
+        examples:
+        - |-
+          To reschedule maintenance window for an instance with the name
+          `my-instance` in region `us-central-1` with immediate, run:
+
+          $ {command} `my-instance` --project=my-project --location=us-central1
+              --reschedule-type=IMMEDIATE
+
+- name: Memorystore
+  api_version: v1beta
+  supports_star_update_masks: false
+  release_tracks:
+  - BETA
+  help_text:
+    service_rules:
+    - selector: google.cloud.memorystore.v1beta.Memorystore
+      help_text:
+        brief: Manage Memorystore resources.
+        description: Manage Memorystore resources.
+    message_rules:
+    - selector: google.cloud.memorystore.v1beta.Memorystore.Instance
+      help_text:
+        brief: Manage Memorystore instances.
+        description: Manage Memorystore instances.
+    method_rules:
+    - selector: google.cloud.memorystore.v1beta.Memorystore.CreateInstance
+      help_text:
+        brief: Create a Memorystore instance.
+        description: |
+          Create a Memorystore instance.
+
+          A service connection policy for service class `gcp-memorystore` must already exist for the
+          location and network. Refer to
+          [creation prerequisites](https://cloud.google.com/memorystore/docs/valkey/networking#prerequisites_required_before_creating_an_instance)
+          for more details.
+        examples:
+        - |-
+          To create a three shard Memorystore instance `my-instance` in project `my-project` and
+          location `us-central1`, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1 --shard-count=3
+            --psc-auto-connections="network=NETWORK,projectId=PROJECT_ID"
+        - |-
+          To create a three shard Memorystore instance `my-instance` in project `my-project`,
+          location `us-central1`, with one replica per shard, and TLS enabled, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1 --shard-count=3
+            --psc-auto-connections="network=NETWORK,projectId=PROJECT_ID"
+            --transit-encryption-mode=server-authentication --replica-count=1
+    - selector: google.cloud.memorystore.v1beta.Memorystore.DeleteInstance
+      help_text:
+        brief: Delete a Memorystore instance.
+        description: Delete a Memorystore instance.
+        examples:
+        - |-
+          To delete Memorystore instance `my-instance` in project `my-project` and location
+          `us-central1`, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1
+    - selector: google.cloud.memorystore.v1beta.Memorystore.GetInstance
+      help_text:
+        brief: Get details of a Memorystore instance.
+        description: Get details of a Memorystore instance.
+        examples:
+        - |-
+          To get the details of Memorystore instance `my-instance` in project `my-project` and
+          location `us-central`, run:
+
+          $ {command} my-instance --project=my-project --location=us-central1
+    - selector: google.cloud.memorystore.v1beta.Memorystore.ListInstances
+      help_text:
+        brief: List all Memorystore instances in a specified project and location.
+        description: List all Memorystore instances in a specified project and location.
+        examples:
+        - |-
+          To list all Memorystore instances in project `my-project` and location `us-central`, run:
+
+          $ {command} --project=my-project --location=us-central1
+    - selector: google.cloud.memorystore.v1beta.Memorystore.UpdateInstance
+      help_text:
+        brief: Update the configuration of a Memorystore instance.
+        description: Update the configuration of a Memorystore instance.
+        examples:
+        - |-
+          To update Memorystore instance `my-instance` in project `my-project` and location
+          `us-central1` to six shards, run:
+
+          $ {command} `my-instance` --project=my-project --location=us-central1 --shard-count=6
+        - |-
+          To update Memorystore instance `my-instance` in project `my-project` and location
+          `us-central1` to use a maxmemory-policy of `allkeys-lru`, run:
+
+          $ {command} `my-instance` --project=my-project --location=us-central1
+            --update-engine-configs=maxmemory-policy=allkeys-lru
+    - selector: google.cloud.memorystore.v1beta.Memorystore.RescheduleMaintenance
+      help_text:
+        brief: Reschedule maintenance window for an instance.
+        description: Reschedule maintenance window for an instance.
+        examples:
+        - |-
+          To reschedule maintenance window for an instance with the name
+          `my-instance` in region `us-central-1` with immediate, run:
+
+          $ {command} `my-instance` --project=my-project --location=us-central1
+              --reschedule-type=IMMEDIATE

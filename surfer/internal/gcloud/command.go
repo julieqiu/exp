@@ -16,6 +16,7 @@
 package gcloud
 
 import (
+	"regexp"
 	"strings"
 
 	"github.com/julieqiu/exp/surfer/internal/config/gcloudyaml"
@@ -99,14 +100,31 @@ type CommandHelpText struct {
 	Examples    string `yaml:"examples,omitempty"`
 }
 
+var (
+	matchFirstCap = regexp.MustCompile("(.)([A-Z][a-z]+)")
+	matchAllCap   = regexp.MustCompile("([a-z0-9])([A-Z])")
+)
+
+func toSnakeCase(str string) string {
+	snake := matchFirstCap.ReplaceAllString(str, "${1}_${2}")
+	snake = matchAllCap.ReplaceAllString(snake, "${1}_${2}")
+	return strings.ToLower(snake)
+}
+
 // DeriveCommandName derives a command name from a method name.
 func DeriveCommandName(methodName string) string {
 	lower := strings.ToLower(methodName)
+	if lower == "getinstance" {
+		return "describe"
+	}
+	if strings.HasPrefix(lower, "backup") {
+		return "backup"
+	}
 	verbs := []string{"get", "list", "create", "update", "delete", "import", "export"}
 	for _, verb := range verbs {
 		if strings.HasPrefix(lower, verb) {
 			return verb
 		}
 	}
-	return lower
+	return toSnakeCase(methodName)
 }

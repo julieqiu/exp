@@ -87,6 +87,14 @@ func generateCommands(model *api.API, cfg *gcloudyaml.Config, outputDir string) 
 	serviceName := strings.Split(cfg.ServiceName, ".")[0]
 	serviceDir := filepath.Join(outputDir, serviceName)
 
+	// Create a set of methods defined in the gcloud.yaml
+	methodsInGcloudYAML := make(map[string]bool)
+	for _, apiCfg := range cfg.APIs {
+		for _, rule := range apiCfg.HelpText.MethodRules {
+			methodsInGcloudYAML["."+rule.Selector] = true
+		}
+	}
+
 	for _, service := range model.Services {
 		resourceName := strings.TrimSuffix(service.Name, "Service")
 		partialsDir := filepath.Join(serviceDir, "_partials")
@@ -96,6 +104,9 @@ func generateCommands(model *api.API, cfg *gcloudyaml.Config, outputDir string) 
 		}
 
 		for _, method := range service.Methods {
+			if _, ok := methodsInGcloudYAML[method.ID]; !ok {
+				continue
+			}
 			cmdName := gcloud.DeriveCommandName(method.Name)
 			if err := generateCommandFiles(serviceDir, partialsDir, cmdName, method, cfg); err != nil {
 				return err
