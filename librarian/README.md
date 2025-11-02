@@ -78,12 +78,12 @@ released: <tag|nil>
 The `--commit` flag can be used to run `git commit` with a preformatted commit
 message.
 
-## Updating Client Libraries
+## Generating Client Libraries
 
-### Update an existing client library
+### Generate an existing client library
 
 ```
-librarian update [library-path]
+librarian generate [library-path]
 ```
 
 Regenerates the library and automatically syncs its `.librarian.yaml` file
@@ -92,10 +92,10 @@ with the current config (librarian version, image, googleapis SHA, etc.).
 The `--commit` flag can be used to run `git commit` with a preformatted commit
 message.
 
-### Update all client libraries
+### Generate all client libraries
 
 ```
-librarian update --all
+librarian generate --all
 ```
 
 Scans for all `.librarian.yaml` files and regenerates all libraries. Each
@@ -207,7 +207,7 @@ The automation infrastructure will run these commands:
 ### Generate
 
 ```
-librarian update --all --latest --commit
+librarian generate --all --latest --commit
 gh pr create --with-token=$(fetch token) --fill
 ```
 
