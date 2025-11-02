@@ -55,14 +55,12 @@ release:
   tag_format: '{package}-v{version}'
 ```
 
-## Creating Client Libraries
+## Adding Client Libraries
 
-```
-librarian create <library-path> <api-path>
+librarian add <library-path> [api-path]
 ```
 
-Creates a `.librarian.yaml` file in the library's directory and runs code
-generation. The library state is automatically synced with the current config.
+Adds a library to librarian management by creating a `.librarian.yaml` file in the library's directory and running code generation. The library state is automatically synced with the current config.
 
 Each library has its own `.librarian.yaml` file:
 
@@ -157,14 +155,14 @@ and `released` is updated with the new tag. Skips if the git tag already
 exists.
 
 
-## Deleting Client Libraries
+## Removing Client Libraries
 
 ```
-librarian delete <library-path>
+librarian remove <library-path>
 ```
 
-Removes a library from librarian management. Deletes the `.librarian.yaml`
-file from the library's directory.
+Removes a library from librarian management by deleting the `.librarian.yaml`
+file from the library's directory. This does not delete the library's source code.
 
 ## Managing Configuration
 
