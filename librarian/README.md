@@ -8,14 +8,13 @@ code generation to version tagging and publishing.
 ### Initialize a repository
 
 ```
-librarian init [language]
+librarian init <language>
 ```
 
 If `language` is provided, `librarian` will configure the repository for code
 generation. Supported languages are:
   - go
   - python
-
 If `language` is not provided, `librarian` will configure the repository for
 releases only.
 
@@ -55,12 +54,10 @@ release:
   tag_format: '{package}-v{version}'
 ```
 
-## Generating Client Libraries
-
-### Generate a new artifact
+## Creating Client Libraries
 
 ```
-librarian generate <artifact-path> <api>
+librarian create [artifact] [api-path]
 ```
 
 Creates a `.librarian.yaml` file in the artifact's directory and runs code
@@ -79,19 +76,21 @@ released_at:
   tag: <tag|nil>
 ```
 
-### Regenerate an existing artifact
+## Updating Client Libraries
+
+### Update an existing client library
 
 ```
-librarian generate <artifact-path>
+librarian update [artifact]
 ```
 
 Regenerates the artifact and automatically syncs its `.librarian.yaml` file
 with the current config (librarian version, image, googleapis SHA, etc.).
 
-### Regenerate all artifacts
+### Update all client libraries
 
 ```
-librarian generate --all
+librarian update --all
 ```
 
 Scans for all `.librarian.yaml` files and regenerates all artifacts. Each
@@ -115,11 +114,6 @@ released_at:
   commit: <sha>           # commit to be tagged
 ```
 
-Updates release metadata for an artifact already managed by librarian.
-Creates a git tag if `released_at` has a tag.
-Updates `commit` in `released_at` after the tag is created.
-Skips if the git tag already exists.
-
 ### Release all artifacts
 
 ```
@@ -134,10 +128,10 @@ where `released_at` has a tag. Updates `commit` in `released_at` after each
 tag is created.
 
 
-## Remove an artifact
+## Deleting Client Libraries
 
 ```
-librarian remove <artifact-path>
+librarian delete [artifact]
 ```
 
 Removes an artifact from librarian management. Deletes the `.librarian.yaml`
@@ -169,7 +163,6 @@ Sets a specific configuration value in `.librarian/config.yaml`. Supported keys:
 - `generator.googleapis`
 - `generator.discovery`
 - `release.tag_format`
-
 To update the generator image, run:
 
 ```
