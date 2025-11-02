@@ -58,7 +58,7 @@ release:
 ## Creating Client Libraries
 
 ```
-librarian create [library-path] [api-path]
+librarian create <library-path> <api-path>
 ```
 
 Creates a `.librarian.yaml` file in the library's directory and runs code
@@ -83,7 +83,7 @@ message.
 ### Generate an existing client library
 
 ```
-librarian generate [library-path]
+librarian generate <library-path>
 ```
 
 Regenerates the library and automatically syncs its `.librarian.yaml` file
@@ -160,7 +160,7 @@ exists.
 ## Deleting Client Libraries
 
 ```
-librarian delete [library-path]
+librarian delete <library-path>
 ```
 
 Removes a library from librarian management. Deletes the `.librarian.yaml`
