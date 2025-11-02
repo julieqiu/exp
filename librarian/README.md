@@ -7,6 +7,47 @@ repository.  A directory managed by Librarian may contain either generated code
 Librarian records generation input, release state, and version history, and
 provides commands to regenerate and release the code in a repeatable way.
 
+## Commands
+
+**Setup**
+- librarian init [language]
+
+**Manage directories**
+- librarian add <path> [api-path]
+- librarian remove <path>
+- librarian edit <path>
+- librarian list
+
+**Generate code**
+
+- librarian generate [<path> | --all] [--latest] [--commit]
+
+**Stage a release**
+
+- librarian stage [<path> | --all] [--notes <file>] [--commit]
+
+**Publish a release**
+
+- librarian release [<path> | --all] [--tag-format]
+
+**Inspection**
+
+- librarian status [path]
+- librarian history [path]
+
+**Automation**
+
+- librarian automate generate
+- librarian automate stage
+- librarian automate release
+
+**Configuration**
+
+- librarian config get <key>
+- librarian config set <key> <value>
+- librarian config unset <key>
+- librarian config update [key | --all]
+
 ## Repository Setup
 
 ```
@@ -68,9 +109,9 @@ This creates `<path>/.librarian.yaml`:
 
 ```yaml
 generate:        # present only if api is provided
+  commit: <sha>
   apis:
     - path: <api>
-  commit: <sha>
 
 release:
   version: null
