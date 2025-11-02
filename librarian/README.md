@@ -1,7 +1,7 @@
 # Librarian
 
-Librarian manages the lifecycle of client libraries and release libraries, from
-code generation to version tagging.
+Librarian manages the lifecycle of client libraries and other release
+artifacts, from code generation to version tagging.
 
 ## Getting Started
 
@@ -57,31 +57,28 @@ release:
 
 ## Adding Client Libraries
 
+```
 librarian add <library-path> [api-path]
 ```
 
-Adds a library to librarian management by creating a `.librarian.yaml` file in
-the library's directory.
+Registers a library for librarian management by creating a `.librarian.yaml`
+file in the library's directory.
 
 Each library has its own `.librarian.yaml` file:
 
 ```yaml
 # <library-path>/.librarian.yaml
-generate:               # populated if generator section exists
+generate:               # only populated if generator section exists
   commit: <sha>
   apis:
     - path: <api path>
 release:
-  tagged:
-    version: <tag|nil>
-    commit: <sha|nil>
+  version: <tag|nil>
 ```
 
-The `--commit` flag can be used to run `git commit` with a preformatted commit
-message.
+The `--commit` flag can be used to generate a preformatted commit message.
 
 ## Generating Client Libraries
-
 
 ### Generate an existing client library
 
@@ -94,8 +91,7 @@ Alias: `librarian gen`
 Regenerates the library and automatically syncs its `.librarian.yaml` file
 with the current config (librarian version, image, googleapis SHA, etc.).
 
-The `--commit` flag can be used to run `git commit` with a preformatted commit
-message.
+The `--commit` flag can be used to generate a preformatted commit message.
 
 ### Generate all client libraries
 
@@ -105,12 +101,6 @@ librarian generate --all
 
 Scans for all `.librarian.yaml` files and regenerates all libraries. Each
 library's state is automatically synced with the current config.
-
-Use the `--latest` flag to first update `.librarian/config.yaml` to the latest
-version of the config.
-
-
-
 
 ## Staging Libraries
 
@@ -123,19 +113,18 @@ librarian stage <library-path>
 Calculates the next version, updates metadata, and prepares release artifacts.
 
 The `release` section of the `.librarian.yaml` is updated:
+
 ```yaml
 # <library-path>/.librarian.yaml
 
 release:
+  version: <version>      # last tagged version
   staged:
     version: <version>    # next planned release version
     commit: <sha>         # commit to be tagged
-  tagged:
-    version: <version>       # last tagged version
 ```
 
-The `--commit` flag can be used to run `git commit` with a preformatted commit
-message.
+The `--commit` flag can be used to generate a preformatted commit message.
 
 ### Stage all libraries for release
 
@@ -146,24 +135,24 @@ librarian stage --all
 Scans for all `.librarian.yaml` files and updates release metadata for
 libraries with a release section.
 
-## Tagging Libraries
+## Releasing Libraries
 
-### Tag a staged library
+### Release a staged library
 
 ```
-librarian tag <library-path>
+librarian release <library-path>
 ```
 
 Creates a git tag for the staged library. On success, the
-`release.staged` section is cleared and `release.tagged` is updated with the
+`release.staged` section is cleared and `release.version` is updated with the
 new version and commit. Skips if the git tag already exists.
 
-librarian tag --all
+librarian release --all
 ```
 
 Scans for all `.librarian.yaml` files and creates git tags for all libraries
 where a `release.staged` section exists. On success, the `release.staged` section is cleared
-and `release.tagged` is updated with the new version and commit. Skips if the git tag already
+and `release.version` is updated with the new version and commit. Skips if the git tag already
 exists.
 
 ## Removing Client Libraries
@@ -216,20 +205,21 @@ The automation infrastructure will run these commands:
 ### Generate
 
 ```
-librarian generate --all --latest --commit
+librarian config update --all --commit
+librarian generate --all --commit
 gh pr create --with-token=$(fetch token) --fill
 ```
 
-### Release Stage
+### Stage
 
 ```
 librarian stage --all --commit
 gh pr create --with-token=$(fetch token) --fill
 ```
 
-### Release Tag
+### Release
 
 ```
-librarian tag --all
+librarian release --all
 gh release create --with-token=$(fetch token) --notes-from-tag
 ```
