@@ -7,7 +7,9 @@ repository.  A directory managed by Librarian may contain either generated code
 Librarian records generation input, release state, and version history, and
 provides commands to regenerate and release the code in a repeatable way.
 
-## Commands
+## Overview
+
+### Librarian
 
 **Core commands**
 
@@ -29,6 +31,14 @@ provides commands to regenerate and release the code in a repeatable way.
 - [librarian list](#inspection): List all tracked directories
 - [librarian status](#inspection): Show generation and release status
 - [librarian history](#inspection): View release history
+
+### Librarianops
+
+**Automation commands**
+
+- [librarianops generate](#automate-code-generation): Automate code generation workflow
+- [librarianops prepare](#automate-release-preparation): Automate release preparation workflow
+- [librarianops release](#automate-release-publishing): Automate release publishing workflow
 
 ## Repository Setup
 
