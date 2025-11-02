@@ -18,11 +18,21 @@ Supported modes are:
 
 Creates `.librarian/config.yaml`:
 
+```yaml
+version: <librarian version>
+mode: <mode>
+release_tag_format: '{package}-v{version}'
 ```
-librarian:
-  mode: <mode>
-  version: <librarian version>
-  release_tag_format: '{id}-v{version}'
+
+For generation modes (go, python), additional fields will be added when needed:
+
+```yaml
+generate:
+  image: <full-image-url-with-tag>
+  googleapis: <commit-sha>
+  discovery: <commit-sha>
+  custom:
+    - key: value
 ```
 
 Creates `.librarian/state.yaml`:
@@ -30,6 +40,35 @@ Creates `.librarian/state.yaml`:
 ```
 packages: {}
 ```
+
+## Managing Configuration
+
+### Update all versions to latest
+
+```
+librarian config update
+```
+
+Fetches and updates the configuration with the latest versions of:
+- Librarian version
+- Googleapis commit SHA (if generate config exists)
+- Discovery artifact manager commit SHA (if generate config exists)
+
+After updating, regenerates all libraries to use the new versions. Use `--no-sync` to skip regeneration.
+
+### Set a configuration value
+
+```
+librarian config set <key> <value>
+```
+
+Sets a specific configuration value in `.librarian/config.yaml`. Supported keys:
+- `version`
+- `mode`
+- `release_tag_format`
+- `generate.image`
+- `generate.googleapis`
+- `generate.discovery`
 
 ## Generating Client Libraries
 
@@ -75,6 +114,14 @@ librarian generate --all
 ```
 
 Runs generation for all packages with a `generate:` section.
+
+### Remove a package
+
+```
+librarian remove <package>
+```
+
+Removes a package from librarian management. Deletes the package entry from `.librarian/state.yaml`.
 
 ## Releasing Packages
 

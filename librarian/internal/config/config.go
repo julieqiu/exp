@@ -10,26 +10,17 @@ import (
 
 // Config represents the .librarian/config.yaml structure.
 type Config struct {
-	Librarian    LibrarianConfig `yaml:"librarian"`
-	Sources      SourceConfig    `yaml:"sources"`
-	Container    ContainerConfig `yaml:"container"`
+	Version          string         `yaml:"version"`
+	Mode             string         `yaml:"mode"`
+	ReleaseTagFormat string         `yaml:"release_tag_format"`
+	Generate         GenerateConfig `yaml:"generate,omitempty"`
 }
 
-type LibrarianConfig struct {
-	Version          string `yaml:"version"`
-	Language         string `yaml:"language"`
-	ReleaseTagFormat string `yaml:"release_tag_format"`
-}
-
-type SourceConfig struct {
-	Googleapis string `yaml:"googleapis"`
-	Discovery  string `yaml:"discovery"`
-	Protobuf   string `yaml:"protobuf"`
-}
-
-type ContainerConfig struct {
-	URL     string `yaml:"url"`
-	Version string `yaml:"version"`
+type GenerateConfig struct {
+	Image      string                   `yaml:"image,omitempty"`
+	Googleapis string                   `yaml:"googleapis,omitempty"`
+	Discovery  string                   `yaml:"discovery,omitempty"`
+	Custom     []map[string]interface{} `yaml:"custom,omitempty"`
 }
 
 const (
@@ -75,24 +66,35 @@ func (c *Config) Save() error {
 // Set updates a configuration value.
 func (c *Config) Set(key, value string) error {
 	switch key {
-	case "librarian.version":
-		c.Librarian.Version = value
-	case "librarian.language":
-		c.Librarian.Language = value
-	case "librarian.release_tag_format":
-		c.Librarian.ReleaseTagFormat = value
-	case "sources.googleapis":
-		c.Sources.Googleapis = value
-	case "sources.discovery":
-		c.Sources.Discovery = value
-	case "sources.protobuf":
-		c.Sources.Protobuf = value
-	case "container.url":
-		c.Container.URL = value
-	case "container.version":
-		c.Container.Version = value
+	case "version":
+		c.Version = value
+	case "mode":
+		c.Mode = value
+	case "release_tag_format":
+		c.ReleaseTagFormat = value
+	case "generate.image":
+		c.Generate.Image = value
+	case "generate.googleapis":
+		c.Generate.Googleapis = value
+	case "generate.discovery":
+		c.Generate.Discovery = value
 	default:
 		return fmt.Errorf("unknown config key: %s", key)
 	}
 	return nil
+}
+
+// GoogleapisURL returns the full URL for the googleapis archive.
+func (c *Config) GoogleapisURL() string {
+	return fmt.Sprintf("https://github.com/googleapis/googleapis/archive/%s.tar.gz", c.Generate.Googleapis)
+}
+
+// DiscoveryURL returns the full URL for the discovery archive.
+func (c *Config) DiscoveryURL() string {
+	return fmt.Sprintf("https://github.com/googleapis/discovery-artifact-manager/archive/%s.tar.gz", c.Generate.Discovery)
+}
+
+// GeneratorImage returns the full generator image.
+func (c *Config) GeneratorImage() string {
+	return c.Generate.Image
 }

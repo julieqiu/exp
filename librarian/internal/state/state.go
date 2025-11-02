@@ -10,34 +10,42 @@ import (
 
 // State represents the .librarian/state.yaml structure.
 type State struct {
-	Libraries map[string]*Library `yaml:"libraries"`
+	Packages map[string]*Package `yaml:"packages"`
 }
 
-// Library represents a single library in the state file.
-type Library struct {
-	APIs           []API     `yaml:"apis"`
-	GeneratedAt    Generated `yaml:"generated_at"`
-	LastReleasedAt Release   `yaml:"last_released_at"`
-	NextReleaseAt  Release   `yaml:"next_release_at,omitempty"`
+// Package represents a single package in the state file.
+type Package struct {
+	Path     string          `yaml:"path,omitempty"`
+	Generate *GenerateState  `yaml:"generate,omitempty"`
+	Release  *ReleaseState   `yaml:"release,omitempty"`
+}
+
+// GenerateState tracks generation metadata.
+type GenerateState struct {
+	APIs          []API  `yaml:"apis"`
+	Commit        string `yaml:"commit"`
+	Librarian     string `yaml:"librarian"`
+	Image         string `yaml:"image"`
+	GoogleapisSHA string `yaml:"googleapis-sha,omitempty"`
+	DiscoverySHA  string `yaml:"discovery-sha,omitempty"`
+}
+
+// ReleaseState tracks release metadata.
+type ReleaseState struct {
+	LastReleasedAt *ReleaseInfo `yaml:"last_released_at,omitempty"`
+	NextReleaseAt  *ReleaseInfo `yaml:"next_release_at,omitempty"`
+}
+
+// ReleaseInfo contains information about a specific release.
+type ReleaseInfo struct {
+	Tag    string `yaml:"tag,omitempty"`
+	Commit string `yaml:"commit,omitempty"`
 }
 
 // API represents an API path.
 type API struct {
 	Path          string `yaml:"path"`
 	ServiceConfig string `yaml:"service_config,omitempty"`
-}
-
-// Generated tracks generation metadata.
-type Generated struct {
-	Commit    string `yaml:"commit"`
-	Image     string `yaml:"image"`
-	Librarian string `yaml:"librarian"`
-}
-
-// Release tracks release metadata.
-type Release struct {
-	Commit  string `yaml:"commit"`
-	Version string `yaml:"version"`
 }
 
 const (
@@ -51,7 +59,7 @@ func Load() (*State, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		if os.IsNotExist(err) {
-			return &State{Libraries: make(map[string]*Library)}, nil
+			return &State{Packages: make(map[string]*Package)}, nil
 		}
 		return nil, fmt.Errorf("failed to read state file: %w", err)
 	}
@@ -61,8 +69,8 @@ func Load() (*State, error) {
 		return nil, fmt.Errorf("failed to parse state file: %w", err)
 	}
 
-	if s.Libraries == nil {
-		s.Libraries = make(map[string]*Library)
+	if s.Packages == nil {
+		s.Packages = make(map[string]*Package)
 	}
 
 	return &s, nil
@@ -87,25 +95,25 @@ func (s *State) Save() error {
 	return nil
 }
 
-// AddLibrary adds or updates a library in the state.
-func (s *State) AddLibrary(id string, lib *Library) {
-	if s.Libraries == nil {
-		s.Libraries = make(map[string]*Library)
+// AddPackage adds or updates a package in the state.
+func (s *State) AddPackage(id string, pkg *Package) {
+	if s.Packages == nil {
+		s.Packages = make(map[string]*Package)
 	}
-	s.Libraries[id] = lib
+	s.Packages[id] = pkg
 }
 
-// RemoveLibrary removes a library from the state.
-func (s *State) RemoveLibrary(id string) error {
-	if _, exists := s.Libraries[id]; !exists {
-		return fmt.Errorf("library %s not found", id)
+// RemovePackage removes a package from the state.
+func (s *State) RemovePackage(id string) error {
+	if _, exists := s.Packages[id]; !exists {
+		return fmt.Errorf("package %s not found", id)
 	}
-	delete(s.Libraries, id)
+	delete(s.Packages, id)
 	return nil
 }
 
-// GetLibrary retrieves a library from the state.
-func (s *State) GetLibrary(id string) (*Library, bool) {
-	lib, ok := s.Libraries[id]
-	return lib, ok
+// GetPackage retrieves a package from the state.
+func (s *State) GetPackage(id string) (*Package, bool) {
+	pkg, ok := s.Packages[id]
+	return pkg, ok
 }

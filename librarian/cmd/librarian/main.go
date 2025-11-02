@@ -104,42 +104,23 @@ func main() {
 }
 
 func initCommand(ctx context.Context, cmd *cli.Command) error {
-	language := cmd.StringArg("language")
-	if language == "" {
-		return fmt.Errorf("language is required")
+	mode := cmd.StringArg("language")
+	if mode == "" {
+		return fmt.Errorf("mode is required")
 	}
-	if language != "python" {
-		return fmt.Errorf("language must be python")
+	if mode != "python" && mode != "go" && mode != "release-only" {
+		return fmt.Errorf("mode must be python, go, or release-only")
 	}
 
-	googleapisSHA, err := getLatestSHA("googleapis", "googleapis")
-	if err != nil {
-		return err
-	}
-	discoverySHA, err := getLatestSHA("googleapis", "discovery-artifact-manager")
-	if err != nil {
-		return err
-	}
 	librarianVersion, err := getLibrarianVersion()
 	if err != nil {
 		return err
 	}
 
 	cfg := &config.Config{
-		Librarian: config.LibrarianConfig{
-			Version:          librarianVersion,
-			Language:         language,
-			ReleaseTagFormat: "{id}-v{version}",
-		},
-		Sources: config.SourceConfig{
-			Googleapis: fmt.Sprintf("https://github.com/googleapis/googleapis/archive/%s.tar.gz", googleapisSHA),
-			Discovery:  fmt.Sprintf("https://github.com/googleapis/discovery-artifact-manager/archive/%s.tar.gz", discoverySHA),
-			Protobuf:   "https://github.com/protocolbuffers/protobuf/releases/download/v29.3/protobuf-29.3.tar.gz",
-		},
-		Container: config.ContainerConfig{
-			URL:     "us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator",
-			Version: "latest",
-		},
+		Version:          librarianVersion,
+		Mode:             mode,
+		ReleaseTagFormat: "{package}-v{version}",
 	}
 
 	if err := cfg.Save(); err != nil {
@@ -148,7 +129,7 @@ func initCommand(ctx context.Context, cmd *cli.Command) error {
 	runYamlFmt(".librarian/config.yaml")
 
 	st := &state.State{
-		Libraries: make(map[string]*state.Library),
+		Packages: make(map[string]*state.Package),
 	}
 
 	if err := st.Save(); err != nil {
@@ -156,9 +137,54 @@ func initCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 	runYamlFmt(".librarian/state.yaml")
 
-	fmt.Printf("Initialized librarian repository for %s\n", language)
+	fmt.Printf("Initialized librarian repository for %s\n", mode)
 	fmt.Println("Created .librarian/config.yaml")
 	fmt.Println("Created .librarian/state.yaml")
+	return nil
+}
+
+// ensureGenerationConfig initializes generation-related config fields if they're not set.
+func ensureGenerationConfig(cfg *config.Config) error {
+	var updated bool
+
+	// Initialize generator image if not set
+	if cfg.Generate.Image == "" {
+		if cfg.Mode == "python" {
+			cfg.Generate.Image = "us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator:latest"
+		} else if cfg.Mode == "go" {
+			cfg.Generate.Image = "us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/go-librarian-generator:latest"
+		}
+		updated = true
+	}
+
+	// Initialize googleapis SHA if not set
+	if cfg.Generate.Googleapis == "" {
+		googleapisSHA, err := getLatestSHA("googleapis", "googleapis")
+		if err != nil {
+			return fmt.Errorf("failed to get latest googleapis SHA: %w", err)
+		}
+		cfg.Generate.Googleapis = googleapisSHA
+		updated = true
+	}
+
+	// Initialize discovery SHA if not set
+	if cfg.Generate.Discovery == "" {
+		discoverySHA, err := getLatestSHA("googleapis", "discovery-artifact-manager")
+		if err != nil {
+			return fmt.Errorf("failed to get latest discovery SHA: %w", err)
+		}
+		cfg.Generate.Discovery = discoverySHA
+		updated = true
+	}
+
+	if updated {
+		if err := cfg.Save(); err != nil {
+			return fmt.Errorf("failed to save config: %w", err)
+		}
+		runYamlFmt(".librarian/config.yaml")
+		fmt.Println("Initialized generation configuration")
+	}
+
 	return nil
 }
 
@@ -175,31 +201,40 @@ func addCommand(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("failed to load config: %w", err)
 	}
 
+	// Ensure generation config is initialized
+	if err := ensureGenerationConfig(cfg); err != nil {
+		return err
+	}
+
 	st, err := state.Load()
 	if err != nil {
 		return fmt.Errorf("failed to load state: %w", err)
 	}
 
-	lib := &state.Library{
-		APIs: []state.API{
-			{Path: apiPath},
+	pkg := &state.Package{
+		Generate: &state.GenerateState{
+			APIs: []state.API{
+				{Path: apiPath},
+			},
+			Commit:        "c288189b43c016dd3cf1ec73ce3cadee8b732f07", // Dummy value
+			Librarian:     cfg.Version,
+			Image:         cfg.GeneratorImage(),
+			GoogleapisSHA: cfg.Generate.Googleapis,
+			DiscoverySHA:  cfg.Generate.Discovery,
 		},
-		GeneratedAt: state.Generated{
-			Commit:    "c288189b43c016dd3cf1ec73ce3cadee8b732f07", // Dummy value
-			Librarian: cfg.Librarian.Version,
-			Image:     fmt.Sprintf("%s:%s", cfg.Container.URL, cfg.Container.Version),
-		},
-		LastReleasedAt: state.Release{
-			Version: "v1.18.0",
-			Commit:  "4a92b10e8f0a2b5c6d7e8f9a0b1c2d3e4f5a6b7c",
-		},
-		NextReleaseAt: state.Release{
-			Version: "v1.19.0",
-			Commit:  "some-new-commit-hash",
+		Release: &state.ReleaseState{
+			LastReleasedAt: &state.ReleaseInfo{
+				Tag:    "v1.18.0",
+				Commit: "4a92b10e8f0a2b5c6d7e8f9a0b1c2d3e4f5a6b7c",
+			},
+			NextReleaseAt: &state.ReleaseInfo{
+				Tag:    "v1.19.0",
+				Commit: "some-new-commit-hash",
+			},
 		},
 	}
 
-	st.AddLibrary(libraryID, lib)
+	st.AddPackage(libraryID, pkg)
 
 	if err := st.Save(); err != nil {
 		return fmt.Errorf("failed to save state: %w", err)
@@ -227,17 +262,17 @@ func updateCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	if all {
-		fmt.Printf("Updating all %d libraries...\n", len(st.Libraries))
-		for id := range st.Libraries {
+		fmt.Printf("Updating all %d packages...\n", len(st.Packages))
+		for id := range st.Packages {
 			fmt.Printf("  - Updating %s\n", id)
-			// TODO: Run generator for each library
+			// TODO: Run generator for each package
 		}
 	} else {
-		if _, exists := st.GetLibrary(libraryID); !exists {
-			return fmt.Errorf("library %s not found", libraryID)
+		if _, exists := st.GetPackage(libraryID); !exists {
+			return fmt.Errorf("package %s not found", libraryID)
 		}
-		fmt.Printf("Updating library %s...\n", libraryID)
-		// TODO: Run generator for the library
+		fmt.Printf("Updating package %s...\n", libraryID)
+		// TODO: Run generator for the package
 	}
 
 	fmt.Println("Update complete")
@@ -278,14 +313,80 @@ func configUpdateCommand(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("failed to load config: %w", err)
 	}
 
-	// TODO: Fetch latest librarian version and container image
 	fmt.Println("Checking for updates...")
-	fmt.Printf("Current librarian version: %s\n", cfg.Librarian.Version)
-	fmt.Println("No updates available")
+	var updated bool
+
+	// Update librarian version
+	fmt.Printf("Current librarian version: %s\n", cfg.Version)
+	librarianVersion, err := getLibrarianVersion()
+	if err != nil {
+		return fmt.Errorf("failed to get latest librarian version: %w", err)
+	}
+	if librarianVersion != cfg.Version {
+		fmt.Printf("Updating librarian version to %s\n", librarianVersion)
+		cfg.Version = librarianVersion
+		updated = true
+	} else {
+		fmt.Println("Librarian version is up to date")
+	}
+
+	// Update googleapis SHA if generate config exists
+	if cfg.Generate.Googleapis != "" {
+		googleapisSHA, err := getLatestSHA("googleapis", "googleapis")
+		if err != nil {
+			return fmt.Errorf("failed to get latest googleapis SHA: %w", err)
+		}
+		if googleapisSHA != cfg.Generate.Googleapis {
+			fmt.Printf("Updating googleapis to %s\n", googleapisSHA[:7])
+			cfg.Generate.Googleapis = googleapisSHA
+			updated = true
+		} else {
+			fmt.Println("Googleapis is up to date")
+		}
+	}
+
+	// Update discovery SHA if generate config exists
+	if cfg.Generate.Discovery != "" {
+		discoverySHA, err := getLatestSHA("googleapis", "discovery-artifact-manager")
+		if err != nil {
+			return fmt.Errorf("failed to get latest discovery SHA: %w", err)
+		}
+		if discoverySHA != cfg.Generate.Discovery {
+			fmt.Printf("Updating discovery to %s\n", discoverySHA[:7])
+			cfg.Generate.Discovery = discoverySHA
+			updated = true
+		} else {
+			fmt.Println("Discovery is up to date")
+		}
+	}
+
+	if updated {
+		if err := cfg.Save(); err != nil {
+			return fmt.Errorf("failed to save config: %w", err)
+		}
+		runYamlFmt(".librarian/config.yaml")
+		fmt.Println("Configuration updated successfully")
+	} else {
+		fmt.Println("All versions are up to date")
+	}
 
 	if !noSync {
-		fmt.Println("Regenerating all libraries...")
-		// TODO: Run update --all
+		fmt.Println("\nRegenerating all packages...")
+		st, err := state.Load()
+		if err != nil {
+			return fmt.Errorf("failed to load state: %w", err)
+		}
+
+		if len(st.Packages) == 0 {
+			fmt.Println("No packages to regenerate")
+			return nil
+		}
+
+		fmt.Printf("Updating all %d packages...\n", len(st.Packages))
+		for id := range st.Packages {
+			fmt.Printf("  - Updating %s\n", id)
+			// TODO: Run generator for each package
+		}
 		fmt.Println("Regeneration complete")
 	}
 
@@ -304,7 +405,7 @@ func removeCommand(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("failed to load state: %w", err)
 	}
 
-	if err := st.RemoveLibrary(libraryID); err != nil {
+	if err := st.RemovePackage(libraryID); err != nil {
 		return err
 	}
 
@@ -313,7 +414,7 @@ func removeCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 	runYamlFmt(".librarian/state.yaml")
 
-	fmt.Printf("Removed library %s\n", libraryID)
+	fmt.Printf("Removed package %s\n", libraryID)
 	return nil
 }
 
@@ -331,17 +432,17 @@ func releaseCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	if all {
-		fmt.Printf("Releasing all %d libraries...\n", len(st.Libraries))
-		for id := range st.Libraries {
+		fmt.Printf("Releasing all %d packages...\n", len(st.Packages))
+		for id := range st.Packages {
 			fmt.Printf("  - Releasing %s\n", id)
-			// TODO: Create release PR/tag for each library
+			// TODO: Create release PR/tag for each package
 		}
 	} else {
-		if _, exists := st.GetLibrary(libraryID); !exists {
-			return fmt.Errorf("library %s not found", libraryID)
+		if _, exists := st.GetPackage(libraryID); !exists {
+			return fmt.Errorf("package %s not found", libraryID)
 		}
-		fmt.Printf("Releasing library %s...\n", libraryID)
-		// TODO: Create release PR/tag for the library
+		fmt.Printf("Releasing package %s...\n", libraryID)
+		// TODO: Create release PR/tag for the package
 	}
 
 	fmt.Println("Release complete")
@@ -412,22 +513,24 @@ func publishCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	var published bool
-	for id, lib := range st.Libraries {
-		if lib.NextReleaseAt.Version != "" && lib.NextReleaseAt.Version != lib.LastReleasedAt.Version {
-			fmt.Printf("Publishing %s %s...\n", id, lib.NextReleaseAt.Version)
-			// TODO: Implement actual publishing logic (git tag, push, etc.)
-			fmt.Println("  - Tagging and pushing release...")
-			fmt.Println("  - Publishing to package manager...")
+	for id, pkg := range st.Packages {
+		if pkg.Release != nil && pkg.Release.NextReleaseAt != nil && pkg.Release.NextReleaseAt.Tag != "" {
+			if pkg.Release.LastReleasedAt == nil || pkg.Release.NextReleaseAt.Tag != pkg.Release.LastReleasedAt.Tag {
+				fmt.Printf("Publishing %s %s...\n", id, pkg.Release.NextReleaseAt.Tag)
+				// TODO: Implement actual publishing logic (git tag, push, etc.)
+				fmt.Println("  - Tagging and pushing release...")
+				fmt.Println("  - Publishing to package manager...")
 
-			lib.LastReleasedAt = lib.NextReleaseAt
-			lib.NextReleaseAt = state.Release{}
-			published = true
-			fmt.Println("  - Done.")
+				pkg.Release.LastReleasedAt = pkg.Release.NextReleaseAt
+				pkg.Release.NextReleaseAt = nil
+				published = true
+				fmt.Println("  - Done.")
+			}
 		}
 	}
 
 	if !published {
-		fmt.Println("No libraries to publish.")
+		fmt.Println("No packages to publish.")
 		return nil
 	}
 

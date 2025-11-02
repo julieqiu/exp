@@ -1,11 +1,17 @@
-libraries:
-  accessapproval:
-    apis:
-      - path: google/cloud/accessapproval/v1
-    generated_at:
+packages:
+  my-library:
+    generate:
+      apis:
+        - path: google/cloud/storage/v1
       commit: c288189b43c016dd3cf1ec73ce3cadee8b732f07
-      image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator:latest
       librarian: v0.5.0
-    last_released_at:
-      commit: some-new-commit-hash
-      version: v1.19.0
+      image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator:latest
+      googleapis-sha: 97763d6efb2d35474e0363c254ee6994837a08fa
+      discovery-sha: d4685cbda13fb10181e337531fcbca335beb1107
+    release:
+      last_released_at:
+        tag: v1.18.0
+        commit: 4a92b10e8f0a2b5c6d7e8f9a0b1c2d3e4f5a6b7c
+      next_release_at:
+        tag: v1.19.0
+        commit: some-new-commit-hash
