@@ -14,11 +14,11 @@ provides commands to regenerate and release the code in a repeatable way.
 **Core commands**
 
 - [librarian init](#repository-setup): Initialize repository for library management
-- [librarian add](#tracking-a-directory): Track a directory for management
+- [librarian add](#managing-directories): Track a directory for management
 - [librarian remove](#removing-a-directory): Stop tracking a directory
-- [librarian generate](#regeneration): Generate or regenerate code for tracked directories
+- [librarian generate](#generating-a-client-library): Generate or regenerate code for tracked directories
 - [librarian prepare](#preparing-a-release): Prepare a release with version updates and notes
-- [librarian release](#releasing): Tag and publish a prepared release
+- [librarian release](#publishing-a-release): Tag and publish a prepared release
 
 **Configuration commands**
 
@@ -93,7 +93,9 @@ release:
   tag_format: '{package}-v{version}'
 ```
 
-## Tracking a Directory
+## Managing Directories
+
+### Adding a Directory
 
 ```bash
 librarian add <path> [api]
@@ -116,7 +118,15 @@ release:
 
 `--commit` writes a standard commit message for the change.
 
-## Regeneration
+### Removing a Directory
+
+```bash
+librarian remove <path>
+```
+
+Removes `<path>/.librarian.yaml`. Source code is not modified.
+
+## Generating a Client Library
 
 For directories with code generation configured:
 
@@ -135,7 +145,9 @@ Regenerate all tracked directories:
 librarian generate --all
 ```
 
-## Preparing a Release
+## Releasing
+
+### Preparing a Release
 
 ```bash
 librarian prepare <path>
@@ -162,7 +174,7 @@ librarian prepare --all
 
 `--commit` writes a standard commit message for the change.
 
-## Releasing
+### Publishing a Release
 
 ```bash
 librarian release <path>
@@ -183,14 +195,6 @@ After release, the `release.prepared` section is removed:
 release:
   version: <new version>
 ```
-
-## Removing a Directory
-
-```bash
-librarian remove <path>
-```
-
-Removes `<path>/.librarian.yaml`. Source code is not modified.
 
 ## Configuration
 
