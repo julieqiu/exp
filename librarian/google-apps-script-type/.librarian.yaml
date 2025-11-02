@@ -8,7 +8,7 @@ generated_at:
     - path: google/apps/script/type/sheets
     - path: google/apps/script/type/calendar
     - path: google/apps/script/type/slides
-released_at:
-  commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
-  tag: google-apps-script-type-v0.4.0
-
+release:
+  published:
+    version: 0.4.0
+    commit: 3322511885371d2b2253f209ccc3aa60d4100cfd

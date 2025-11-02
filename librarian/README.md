@@ -70,7 +70,10 @@ generated_at:
   commit: <sha>
   apis:
     - path: <api path>
-released: <tag|nil>
+release:
+  published:
+    version: <tag|nil>
+    commit: <sha|nil>
 ```
 
 The `--commit` flag can be used to run `git commit` with a preformatted commit
@@ -119,12 +122,16 @@ librarian stage <library-path>
 Adds release metadata to the library's `.librarian.yaml` file and creates
 release files (such as CHANGELOG.md).
 
+The `release` section of the `.librarian.yaml` is updated:
 ```yaml
 # <library-path>/.librarian.yaml
-staged:                   # removed once `release tag` runs
-  tag: <version>          # next planned release version
-  commit: <sha>           # commit to be tagged
-released: <version>       # last released version
+release:
+  staged:
+    version: <version>    # next planned release version
+    commit: <sha>         # commit to be tagged
+  published:
+    version: <version>    # last released version
+    commit: <sha>         # last released commit
 ```
 
 The `--commit` flag can be used to run `git commit` with a preformatted commit
@@ -147,9 +154,9 @@ libraries with a release section.
 librarian publish <library-path>
 ```
 
-Creates a git tag for the staged library and publishes it. On success, the `staged` section is
-removed and `released` is updated with the new tag. Skips if the git tag
-already exists.
+Creates a git tag for the staged library and publishes it. On success, the
+`release.staged` section is cleared and `release.published` is updated with the
+new version and commit. Skips if the git tag already exists.
 
 ### Tag all staged libraries
 

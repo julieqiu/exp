@@ -2,7 +2,7 @@ generated_at:
   commit: e8365a7f88fabe8717cb8322b8ce784b03b6daea
   apis:
     - path: google/chat/v1
-released_at:
-  commit: e8365a7f88fabe8717cb8322b8ce784b03b6daea
-  tag: google-apps-chat-v0.4.0
-
+release:
+  published:
+    version: 0.4.0
+    commit: e8365a7f88fabe8717cb8322b8ce784b03b6daea

@@ -3,7 +3,7 @@ generated_at:
   apis:
     - path: google/apps/events/subscriptions/v1
     - path: google/apps/events/subscriptions/v1beta
-released_at:
-  commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
-  tag: google-apps-events-subscriptions-v0.3.0
-
+release:
+  published:
+    version: 0.3.0
+    commit: 3322511885371d2b2253f209ccc3aa60d4100cfd
