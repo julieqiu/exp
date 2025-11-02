@@ -15,10 +15,11 @@ If `language` is provided, `librarian` will configure the repository for code
 generation. Supported languages are:
   - go
   - python
+
 If `language` is not provided, `librarian` will configure the repository for
 releases only.
 
-**Example: Releases only**
+#### Example: Releases only
 
 ```
 librarian init
@@ -33,7 +34,7 @@ release:
   tag_format: '{package}-v{version}'
 ```
 
-**Example: Go with code generation**
+#### Example: Go with code generation
 
 ```
 librarian init go
@@ -142,13 +143,20 @@ file from the library's directory.
 ### Update versions in config.yaml
 
 ```
-librarian config update
+librarian config update [key]
 ```
 
 Fetches and updates `.librarian/config.yaml` with the latest versions of:
-- Googleapis commit SHA (if generate config exists)
-- Discovery artifact manager commit SHA (if generate config exists)
-- Language Container Image (if generate config exists)
+
+- `generator.image`
+- `generator.googleapis`
+- `generator.discovery`
+
+```
+librarian config update --all
+```
+
+Updates all values above.
 
 ### Set a configuration value
 
@@ -163,8 +171,20 @@ Sets a specific configuration value in `.librarian/config.yaml`. Supported keys:
 - `generator.googleapis`
 - `generator.discovery`
 - `release.tag_format`
-To update the generator image, run:
+
+## Automation
+
+The automation infrastructure will run these commands:
+
+### Generate
 
 ```
-librarian config set generator.image <image>
+librarian config update --all
+librarian update --all
+```
+
+### Release
+
+```
+librarian release --all
 ```
