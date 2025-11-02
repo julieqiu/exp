@@ -10,11 +10,11 @@ import (
 
 // State represents the .librarian/state.yaml structure.
 type State struct {
-	Libraries map[string]*Library `yaml:"libraries"`
+	Artifacts map[string]*Artifact `yaml:"artifacts"`
 }
 
-// Library represents a single library in the state file.
-type Library struct {
+// Artifact represents a single artifact in the state file.
+type Artifact struct {
 	Path     string          `yaml:"path,omitempty"`
 	Generate *GenerateState  `yaml:"generate,omitempty"`
 	Release  *ReleaseState   `yaml:"release,omitempty"`
@@ -59,7 +59,7 @@ func Load() (*State, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		if os.IsNotExist(err) {
-			return &State{Libraries: make(map[string]*Library)}, nil
+			return &State{Artifacts: make(map[string]*Artifact)}, nil
 		}
 		return nil, fmt.Errorf("failed to read state file: %w", err)
 	}
@@ -69,8 +69,8 @@ func Load() (*State, error) {
 		return nil, fmt.Errorf("failed to parse state file: %w", err)
 	}
 
-	if s.Libraries == nil {
-		s.Libraries = make(map[string]*Library)
+	if s.Artifacts == nil {
+		s.Artifacts = make(map[string]*Artifact)
 	}
 
 	return &s, nil
@@ -95,25 +95,25 @@ func (s *State) Save() error {
 	return nil
 }
 
-// AddLibrary adds or updates a library in the state.
-func (s *State) AddLibrary(id string, lib *Library) {
-	if s.Libraries == nil {
-		s.Libraries = make(map[string]*Library)
+// AddArtifact adds or updates an artifact in the state.
+func (s *State) AddArtifact(id string, artifact *Artifact) {
+	if s.Artifacts == nil {
+		s.Artifacts = make(map[string]*Artifact)
 	}
-	s.Libraries[id] = lib
+	s.Artifacts[id] = artifact
 }
 
-// RemoveLibrary removes a library from the state.
-func (s *State) RemoveLibrary(id string) error {
-	if _, exists := s.Libraries[id]; !exists {
-		return fmt.Errorf("library %s not found", id)
+// RemoveArtifact removes an artifact from the state.
+func (s *State) RemoveArtifact(id string) error {
+	if _, exists := s.Artifacts[id]; !exists {
+		return fmt.Errorf("artifact %s not found", id)
 	}
-	delete(s.Libraries, id)
+	delete(s.Artifacts, id)
 	return nil
 }
 
-// GetLibrary retrieves a library from the state.
-func (s *State) GetLibrary(id string) (*Library, bool) {
-	lib, ok := s.Libraries[id]
-	return lib, ok
+// GetArtifact retrieves an artifact from the state.
+func (s *State) GetArtifact(id string) (*Artifact, bool) {
+	artifact, ok := s.Artifacts[id]
+	return artifact, ok
 }

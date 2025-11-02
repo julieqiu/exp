@@ -38,7 +38,7 @@ generate:
 Creates `.librarian/state.yaml`:
 
 ```
-libraries: {}
+artifacts: {}
 ```
 
 ## Managing Configuration
@@ -72,19 +72,19 @@ Sets a specific configuration value in `.librarian/config.yaml`. Supported keys:
 
 ## Generating Client Libraries
 
-### Generate a new library
+### Generate a new artifact
 
 ```
-librarian generate <library> <api>
+librarian generate <artifact> <api>
 ```
 
-This registers the library and API in .librarian/state.yaml, and runs code
+This registers the artifact and API in .librarian/state.yaml, and runs code
 generation.
 
 ```
-libraries:
-  <library>:
-    path: <path>              # path to library
+artifacts:
+  <artifact>:
+    path: <path>              # path to artifact
     generate:
       apis:
         - path: <api path>
@@ -99,45 +99,45 @@ libraries:
         commit: <sha|nil>
 ```
 
-### Regenerate an existing library
+### Regenerate an existing artifact
 
 ```
-librarian generate <library>
+librarian generate <artifact>
 ```
 
-The library must already exist in .librarian/state.yaml.
+The artifact must already exist in .librarian/state.yaml.
 
-### Regenerate all libraries
+### Regenerate all artifacts
 
 ```
 librarian generate --all
 ```
 
-Runs generation for all libraries with a `generate:` section.
+Runs generation for all artifacts with a `generate:` section.
 
-### Remove a library
-
-```
-librarian remove <library>
-```
-
-Removes a library from librarian management. Deletes the library entry from `.librarian/state.yaml`.
-
-## Releasing Libraries
-
-### Stage a new library for release
+### Remove an artifact
 
 ```
-librarian release stage <library> <path>
+librarian remove <artifact>
 ```
 
-Adds a handwritten library for release management. Creates release metadata
+Removes an artifact from librarian management. Deletes the artifact entry from `.librarian/state.yaml`.
+
+## Releasing Artifacts
+
+### Stage a new artifact for release
+
+```
+librarian release stage <artifact> <path>
+```
+
+Adds an artifact for release management. Creates release metadata
 (such as CHANGELOG.md) and adds the release section to `.librarian/state.yaml`.
 
 ```
-libraries:
-  <library>:
-    path: <path>               # path to library
+artifacts:
+  <artifact>:
+    path: <path>               # path to artifact
     release:
     last_released_at:
         tag: <tag|null>
@@ -147,39 +147,39 @@ libraries:
         commit: <sha>           # commit to be tagged
 ```
 
-### Stage an existing library for release
+### Stage an existing artifact for release
 
 ```
-librarian release stage <library>
+librarian release stage <artifact>
 ```
 
-Updates release metadata for a library already managed by librarian.
+Updates release metadata for an artifact already managed by librarian.
 
-### Stage all libraries for release
+### Stage all artifacts for release
 
 ```
 librarian release stage --all
 ```
 
-Updates release metadata for all libraries with a release section.
+Updates release metadata for all artifacts with a release section.
 
-## Tagging Libraries
+## Tagging Artifacts
 
-### Tag a library
+### Tag an artifact
 
 ```
-librarian release tag <library>
+librarian release tag <artifact>
 ```
 
 Creates a git tag if `next_released_at` is later than `last_released_at`.
 Updates `last_released_at` after the tag is created. Skips if the git tag
 already exists.
 
-### Tag all libraries
+### Tag all artifacts
 
 ```
 librarian release tag --all
 ```
 
-Creates git tags for all libraries where `next_released_at` is later than
+Creates git tags for all artifacts where `next_released_at` is later than
 `last_released_at`.

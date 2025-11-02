@@ -17,7 +17,7 @@ import (
 func main() {
 	cmd := &cli.Command{
 		Name:  "librarian",
-		Usage: "Manage Google API client libraries",
+		Usage: "Manage release artifacts",
 		Commands: []*cli.Command{
 			{
 				Name:      "init",
@@ -27,23 +27,23 @@ func main() {
 			},
 			{
 				Name:  "add",
-				Usage: "Add a library to be managed by librarian",
+				Usage: "Add an artifact to be managed by librarian",
 				Arguments: []cli.Argument{
-					&cli.StringArg{Name: "library-id"},
+					&cli.StringArg{Name: "artifact-id"},
 					&cli.StringArg{Name: "api-path"},
 				},
 				Action: addCommand,
 			},
 			{
 				Name:  "update",
-				Usage: "Regenerate client libraries",
+				Usage: "Regenerate artifacts",
 				Flags: []cli.Flag{
 					&cli.BoolFlag{
 						Name:  "all",
-						Usage: "Update all libraries",
+						Usage: "Update all artifacts",
 					},
 				},
-				Arguments: []cli.Argument{&cli.StringArg{Name: "library-id"}},
+				Arguments: []cli.Argument{&cli.StringArg{Name: "artifact-id"}},
 				Action:    updateCommand,
 			},
 			{
@@ -65,7 +65,7 @@ func main() {
 						Flags: []cli.Flag{
 							&cli.BoolFlag{
 								Name:  "no-sync",
-								Usage: "Skip regenerating libraries after update",
+								Usage: "Skip regenerating artifacts after update",
 							},
 						},
 						Action: configUpdateCommand,
@@ -74,25 +74,25 @@ func main() {
 			},
 			{
 				Name:      "remove",
-				Usage:     "Remove a library from librarian management",
-				Arguments: []cli.Argument{&cli.StringArg{Name: "library-id"}},
+				Usage:     "Remove an artifact from librarian management",
+				Arguments: []cli.Argument{&cli.StringArg{Name: "artifact-id"}},
 				Action:    removeCommand,
 			},
 			{
 				Name:  "release",
-				Usage: "Release libraries",
+				Usage: "Release artifacts",
 				Flags: []cli.Flag{
 					&cli.BoolFlag{
 						Name:  "all",
-						Usage: "Release all libraries",
+						Usage: "Release all artifacts",
 					},
 				},
-				Arguments: []cli.Argument{&cli.StringArg{Name: "library-id"}},
+				Arguments: []cli.Argument{&cli.StringArg{Name: "artifact-id"}},
 				Action:    releaseCommand,
 			},
 			{
 				Name:   "publish",
-				Usage:  "Publish libraries that have a pending release",
+				Usage:  "Publish artifacts that have a pending release",
 				Action: publishCommand,
 			},
 		},
@@ -129,7 +129,7 @@ func initCommand(ctx context.Context, cmd *cli.Command) error {
 	runYamlFmt(".librarian/config.yaml")
 
 	st := &state.State{
-		Libraries: make(map[string]*state.Library),
+		Artifacts: make(map[string]*state.Artifact),
 	}
 
 	if err := st.Save(); err != nil {
@@ -189,11 +189,11 @@ func ensureGenerationConfig(cfg *config.Config) error {
 }
 
 func addCommand(ctx context.Context, cmd *cli.Command) error {
-	libraryID := cmd.StringArg("library-id")
+	artifactID := cmd.StringArg("artifact-id")
 	apiPath := cmd.StringArg("api-path")
 
-	if libraryID == "" || apiPath == "" {
-		return fmt.Errorf("library-id and api-path are required")
+	if artifactID == "" || apiPath == "" {
+		return fmt.Errorf("artifact-id and api-path are required")
 	}
 
 	cfg, err := config.Load()
@@ -211,7 +211,7 @@ func addCommand(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("failed to load state: %w", err)
 	}
 
-	lib := &state.Library{
+	artifact := &state.Artifact{
 		Generate: &state.GenerateState{
 			APIs: []state.API{
 				{Path: apiPath},
@@ -234,14 +234,14 @@ func addCommand(ctx context.Context, cmd *cli.Command) error {
 		},
 	}
 
-	st.AddLibrary(libraryID, lib)
+	st.AddArtifact(artifactID, artifact)
 
 	if err := st.Save(); err != nil {
 		return fmt.Errorf("failed to save state: %w", err)
 	}
 	runYamlFmt(".librarian/state.yaml")
 
-	fmt.Printf("Added library %s with API %s\n", libraryID, apiPath)
+	fmt.Printf("Added artifact %s with API %s\n", artifactID, apiPath)
 	fmt.Println("Running generator...")
 	// TODO: Actually run the generator container
 	fmt.Println("Generation complete")
@@ -250,10 +250,10 @@ func addCommand(ctx context.Context, cmd *cli.Command) error {
 
 func updateCommand(ctx context.Context, cmd *cli.Command) error {
 	all := cmd.Bool("all")
-	libraryID := cmd.StringArg("library-id")
+	artifactID := cmd.StringArg("artifact-id")
 
-	if !all && libraryID == "" {
-		return fmt.Errorf("either --all flag or library-id is required")
+	if !all && artifactID == "" {
+		return fmt.Errorf("either --all flag or artifact-id is required")
 	}
 
 	st, err := state.Load()
@@ -262,17 +262,17 @@ func updateCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	if all {
-		fmt.Printf("Updating all %d libraries...\n", len(st.Libraries))
-		for id := range st.Libraries {
+		fmt.Printf("Updating all %d artifacts...\n", len(st.Artifacts))
+		for id := range st.Artifacts {
 			fmt.Printf("  - Updating %s\n", id)
-			// TODO: Run generator for each library
+			// TODO: Run generator for each artifact
 		}
 	} else {
-		if _, exists := st.GetLibrary(libraryID); !exists {
-			return fmt.Errorf("library %s not found", libraryID)
+		if _, exists := st.GetArtifact(artifactID); !exists {
+			return fmt.Errorf("artifact %s not found", artifactID)
 		}
-		fmt.Printf("Updating library %s...\n", libraryID)
-		// TODO: Run generator for the library
+		fmt.Printf("Updating artifact %s...\n", artifactID)
+		// TODO: Run generator for the artifact
 	}
 
 	fmt.Println("Update complete")
@@ -371,21 +371,21 @@ func configUpdateCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	if !noSync {
-		fmt.Println("\nRegenerating all libraries...")
+		fmt.Println("\nRegenerating all artifacts...")
 		st, err := state.Load()
 		if err != nil {
 			return fmt.Errorf("failed to load state: %w", err)
 		}
 
-		if len(st.Libraries) == 0 {
-			fmt.Println("No libraries to regenerate")
+		if len(st.Artifacts) == 0 {
+			fmt.Println("No artifacts to regenerate")
 			return nil
 		}
 
-		fmt.Printf("Updating all %d libraries...\n", len(st.Libraries))
-		for id := range st.Libraries {
+		fmt.Printf("Updating all %d artifacts...\n", len(st.Artifacts))
+		for id := range st.Artifacts {
 			fmt.Printf("  - Updating %s\n", id)
-			// TODO: Run generator for each library
+			// TODO: Run generator for each artifact
 		}
 		fmt.Println("Regeneration complete")
 	}
@@ -394,10 +394,10 @@ func configUpdateCommand(ctx context.Context, cmd *cli.Command) error {
 }
 
 func removeCommand(ctx context.Context, cmd *cli.Command) error {
-	libraryID := cmd.StringArg("library-id")
+	artifactID := cmd.StringArg("artifact-id")
 
-	if libraryID == "" {
-		return fmt.Errorf("library-id is required")
+	if artifactID == "" {
+		return fmt.Errorf("artifact-id is required")
 	}
 
 	st, err := state.Load()
@@ -405,7 +405,7 @@ func removeCommand(ctx context.Context, cmd *cli.Command) error {
 		return fmt.Errorf("failed to load state: %w", err)
 	}
 
-	if err := st.RemoveLibrary(libraryID); err != nil {
+	if err := st.RemoveArtifact(artifactID); err != nil {
 		return err
 	}
 
@@ -414,16 +414,16 @@ func removeCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 	runYamlFmt(".librarian/state.yaml")
 
-	fmt.Printf("Removed library %s\n", libraryID)
+	fmt.Printf("Removed artifact %s\n", artifactID)
 	return nil
 }
 
 func releaseCommand(ctx context.Context, cmd *cli.Command) error {
 	all := cmd.Bool("all")
-	libraryID := cmd.StringArg("library-id")
+	artifactID := cmd.StringArg("artifact-id")
 
-	if !all && libraryID == "" {
-		return fmt.Errorf("either --all flag or library-id is required")
+	if !all && artifactID == "" {
+		return fmt.Errorf("either --all flag or artifact-id is required")
 	}
 
 	st, err := state.Load()
@@ -432,17 +432,17 @@ func releaseCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	if all {
-		fmt.Printf("Releasing all %d libraries...\n", len(st.Libraries))
-		for id := range st.Libraries {
+		fmt.Printf("Releasing all %d artifacts...\n", len(st.Artifacts))
+		for id := range st.Artifacts {
 			fmt.Printf("  - Releasing %s\n", id)
-			// TODO: Create release PR/tag for each library
+			// TODO: Create release PR/tag for each artifact
 		}
 	} else {
-		if _, exists := st.GetLibrary(libraryID); !exists {
-			return fmt.Errorf("library %s not found", libraryID)
+		if _, exists := st.GetArtifact(artifactID); !exists {
+			return fmt.Errorf("artifact %s not found", artifactID)
 		}
-		fmt.Printf("Releasing library %s...\n", libraryID)
-		// TODO: Create release PR/tag for the library
+		fmt.Printf("Releasing artifact %s...\n", artifactID)
+		// TODO: Create release PR/tag for the artifact
 	}
 
 	fmt.Println("Release complete")
@@ -513,16 +513,16 @@ func publishCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	var published bool
-	for id, lib := range st.Libraries {
-		if lib.Release != nil && lib.Release.NextReleaseAt != nil && lib.Release.NextReleaseAt.Tag != "" {
-			if lib.Release.LastReleasedAt == nil || lib.Release.NextReleaseAt.Tag != lib.Release.LastReleasedAt.Tag {
-				fmt.Printf("Publishing %s %s...\n", id, lib.Release.NextReleaseAt.Tag)
+	for id, artifact := range st.Artifacts {
+		if artifact.Release != nil && artifact.Release.NextReleaseAt != nil && artifact.Release.NextReleaseAt.Tag != "" {
+			if artifact.Release.LastReleasedAt == nil || artifact.Release.NextReleaseAt.Tag != artifact.Release.LastReleasedAt.Tag {
+				fmt.Printf("Publishing %s %s...\n", id, artifact.Release.NextReleaseAt.Tag)
 				// TODO: Implement actual publishing logic (git tag, push, etc.)
 				fmt.Println("  - Tagging and pushing release...")
-				fmt.Println("  - Publishing to library manager...")
+				fmt.Println("  - Publishing artifact...")
 
-				lib.Release.LastReleasedAt = lib.Release.NextReleaseAt
-				lib.Release.NextReleaseAt = nil
+				artifact.Release.LastReleasedAt = artifact.Release.NextReleaseAt
+				artifact.Release.NextReleaseAt = nil
 				published = true
 				fmt.Println("  - Done.")
 			}
@@ -530,7 +530,7 @@ func publishCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 
 	if !published {
-		fmt.Println("No libraries to publish.")
+		fmt.Println("No artifacts to publish.")
 		return nil
 	}
 
