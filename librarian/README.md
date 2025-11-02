@@ -72,8 +72,7 @@ generated_at:
   commit: <sha>
   apis:
     - path: <api path>
-released_at:
-  tag: <tag|nil>
+released: <tag|nil>
 ```
 
 ## Updating Client Libraries
@@ -98,10 +97,10 @@ library's state is automatically synced with the current config.
 
 ## Releasing Artifacts
 
-### Release a library
+### Stage a library for release
 
 ```
-librarian release <library-path>
+librarian release stage <library-path>
 ```
 
 Adds release metadata to the library's `.librarian.yaml` file and creates
@@ -109,22 +108,41 @@ release files (such as CHANGELOG.md).
 
 ```yaml
 # <library-path>/.librarian.yaml
-released_at:
-  tag: <version>
+staged:                   # removed once `release tag` runs
+  tag: <version>          # next planned release version
+  commit: <sha>           # commit to be tagged
+released: <version>       # last released version
 ```
 
-### Release all libraries
+### Stage all libraries for release
 
 ```
-librarian release --all
+librarian release stage --all
 ```
 
 Scans for all `.librarian.yaml` files and updates release metadata for
 libraries with a release section.
 
+### Tag a staged library
+
+```
+librarian release tag <library-path>
+```
+
+Creates a git tag for the staged library. On success, the `staged` section is
+removed and `released` is updated with the new tag. Skips if the git tag
+already exists.
+
+### Tag all staged libraries
+
+```
+librarian release tag --all
+```
+
 Scans for all `.librarian.yaml` files and creates git tags for all libraries
-where `released_at` has a tag. Updates `commit` in `released_at` after each
-tag is created.
+where a `staged` section exists. On success, the `staged` section is removed
+and `released` is updated with the new tag. Skips if the git tag already
+exists.
 
 
 ## Deleting Client Libraries
@@ -181,8 +199,14 @@ librarian config update --all
 librarian update --all
 ```
 
-### Release
+### Release Stage
 
 ```
-librarian release --all
+librarian release stage --all
+```
+
+### Release Tag
+
+```
+librarian release tag --all
 ```
