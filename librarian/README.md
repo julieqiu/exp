@@ -1,7 +1,7 @@
 # Librarian
 
 Librarian manages the lifecycle of client libraries and release libraries, from
-code generation to version tagging and publishing.
+code generation to version tagging.
 
 ## Getting Started
 
@@ -60,18 +60,19 @@ release:
 librarian add <library-path> [api-path]
 ```
 
-Adds a library to librarian management by creating a `.librarian.yaml` file in the library's directory and running code generation. The library state is automatically synced with the current config.
+Adds a library to librarian management by creating a `.librarian.yaml` file in
+the library's directory.
 
 Each library has its own `.librarian.yaml` file:
 
 ```yaml
 # <library-path>/.librarian.yaml
-generated_at:
+generate:               # populated if generator section exists
   commit: <sha>
   apis:
     - path: <api path>
 release:
-  published:
+  tagged:
     version: <tag|nil>
     commit: <sha|nil>
 ```
@@ -119,19 +120,18 @@ version of the config.
 librarian stage <library-path>
 ```
 
-Adds release metadata to the library's `.librarian.yaml` file and creates
-release files (such as CHANGELOG.md).
+Calculates the next version, updates metadata, and prepares release artifacts.
 
 The `release` section of the `.librarian.yaml` is updated:
 ```yaml
 # <library-path>/.librarian.yaml
+
 release:
   staged:
     version: <version>    # next planned release version
     commit: <sha>         # commit to be tagged
-  published:
-    version: <version>    # last released version
-    commit: <sha>         # last released commit
+  tagged:
+    version: <version>       # last tagged version
 ```
 
 The `--commit` flag can be used to run `git commit` with a preformatted commit
@@ -146,27 +146,24 @@ librarian stage --all
 Scans for all `.librarian.yaml` files and updates release metadata for
 libraries with a release section.
 
-## Publishing Libraries
+## Tagging Libraries
 
 ### Tag a staged library
 
 ```
-librarian publish <library-path>
+librarian tag <library-path>
 ```
 
-Creates a git tag for the staged library and publishes it. On success, the
-`release.staged` section is cleared and `release.published` is updated with the
+Creates a git tag for the staged library. On success, the
+`release.staged` section is cleared and `release.tagged` is updated with the
 new version and commit. Skips if the git tag already exists.
 
-### Tag all staged libraries
-
-```
-librarian publish --all
+librarian tag --all
 ```
 
 Scans for all `.librarian.yaml` files and creates git tags for all libraries
-where a `staged` section exists. On success, the `staged` section is removed
-and `released` is updated with the new tag. Skips if the git tag already
+where a `release.staged` section exists. On success, the `release.staged` section is cleared
+and `release.tagged` is updated with the new version and commit. Skips if the git tag already
 exists.
 
 ## Removing Client Libraries
@@ -230,9 +227,9 @@ librarian stage --all --commit
 gh pr create --with-token=$(fetch token) --fill
 ```
 
-### Release Publish
+### Release Tag
 
 ```
-librarian publish --all
+librarian tag --all
 gh release create --with-token=$(fetch token) --notes-from-tag
 ```
