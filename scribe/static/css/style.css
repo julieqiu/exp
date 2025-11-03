@@ -56,11 +56,46 @@ header {
     text-decoration: underline;
 }
 
-.original-link {
-    margin-left: 8px;
+.breadcrumb-container {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: #5f6368;
+}
+
+.breadcrumb-container a {
     color: #1967d2;
     text-decoration: none;
-    font-size: 13px;
+}
+
+.breadcrumb-container a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-container > a:first-child {
+    margin-right: 4px;
+}
+
+.breadcrumb-container > span {
+    margin-left: 16px;
+    margin-right: 8px;
+}
+
+.separator {
+    margin-right: 8px;
+}
+
+.caption {
+    font-size: 14px;
+    color: #5f6368;
+    margin-right: 4px;
+}
+
+.original-link {
+    color: #5f6368;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 .original-link:hover {

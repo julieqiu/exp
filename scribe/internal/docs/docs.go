@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 
 	"github.com/julieqiu/exp/scribe/internal/scraper"
@@ -171,6 +172,10 @@ func (s *Server) handleLanguageTOC(w http.ResponseWriter, r *http.Request, langu
 		http.NotFound(w, r)
 		return
 	}
+
+	sort.Slice(libraries, func(i, j int) bool {
+		return libraries[i].Name < libraries[j].Name
+	})
 
 	// Generate original docs URL
 	originalDocsURL := fmt.Sprintf("https://cloud.google.com/%s/docs/reference", language)

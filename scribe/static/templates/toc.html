@@ -14,13 +14,10 @@
         </div>
     </header>
 
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="/">Home</a> › {{.LanguageTitle}}
-            <a href="{{.OriginalDocsURL}}" class="original-link" target="_blank">{{.OriginalDocsURL}}</a>
-        </div>
-
-        <h1>{{.LanguageTitle}} Cloud Client Libraries</h1>
+        <div class="container">
+            <div class="breadcrumb-container">
+                <a href="/">Home</a> › {{.LanguageTitle}} <span class="separator">|</span> <a href="{{.OriginalDocsURL}}" class="original-link" target="_blank">{{.OriginalDocsURL}}</a>
+            </div>        <h1>{{.LanguageTitle}} Cloud Client Libraries</h1>
 
         <div class="intro-text">
             <p>The Cloud Client Libraries are the recommended way to access Google Cloud APIs programmatically. The Cloud Client Libraries support accessing Google Cloud services in a way that significantly reduces the boilerplate code you have to write. The libraries provide high-level API abstractions so they're easier to understand. They embrace idioms of the language, work well with the standard library, and integrate better with your codebase.</p>
