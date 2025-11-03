@@ -55,15 +55,27 @@ func TestCommandYAML(t *testing.T) {
 				return
 			}
 
-			var commands []*Command
-			if err := yaml.Unmarshal(data, &commands); err != nil {
-				t.Fatalf("failed to unmarshal YAML: %v", err)
-			}
 			var got bytes.Buffer
 			enc := yaml.NewEncoder(&got)
-			enc.SetIndent(2)
-			if err := enc.Encode(commands); err != nil {
-				t.Fatalf("failed to marshal struct to YAML: %v", err)
+			enc.SetIndent(4)
+
+			// Try to unmarshal as array first, then as single command
+			var commands []*Command
+			if err := yaml.Unmarshal(data, &commands); err != nil {
+				// If it fails, try unmarshaling as a single command
+				var cmd Command
+				if err := yaml.Unmarshal(data, &cmd); err != nil {
+					t.Fatalf("failed to unmarshal YAML: %v", err)
+				}
+				// Encode as single command
+				if err := enc.Encode(&cmd); err != nil {
+					t.Fatalf("failed to marshal struct to YAML: %v", err)
+				}
+			} else {
+				// Encode as array of commands
+				if err := enc.Encode(commands); err != nil {
+					t.Fatalf("failed to marshal struct to YAML: %v", err)
+				}
 			}
 
 			lines := strings.Split(string(data), "\n")
