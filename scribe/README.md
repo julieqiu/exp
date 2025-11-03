@@ -21,7 +21,7 @@ If you need to use a different port, you can specify it with the `--port` flag:
 go run ./cmd/scribe docs --port=8888
 ```
 
-## Refreshing Documentation Data (Optional)
+## Refreshing Documentation Data
 
 The documentation data is pre-scraped and included in the `data/` directory. If
 you need to refresh this data, you can use the `scrape` command.
