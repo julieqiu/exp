@@ -22,7 +22,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/julieqiu/exp/surfer/internal/gcloudyaml"
+	"github.com/julieqiu/exp/surfer/internal/gcloudconfig"
 	"github.com/julieqiu/exp/surfer/internal/sidekick/license"
 	toml "github.com/pelletier/go-toml/v2"
 )
@@ -64,7 +64,7 @@ type Config struct {
 
 	// Gcloud is used to pass data into gcloud.Generate. It does not use the
 	// normal .sidekick.toml file, but instead reads a gcloud.yaml file.
-	Gcloud *gcloudyaml.Config
+	Gcloud *gcloudconfig.Config
 }
 
 // GeneralConfig contains configuration parameters that affect Parsers and Codecs, including the

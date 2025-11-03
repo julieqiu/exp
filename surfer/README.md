@@ -30,8 +30,8 @@ Generates gcloud surface definitions from a gcloud.yaml configuration file.
 
 **Flags:**
 
-- `--googleapis` - Path to googleapis repository (local directory or URL). Default: `testdata/googleapis/input`
-- `--gcloud-yaml` - Path to gcloud.yaml configuration file. Default: `testdata/parallelstore/input/gcloud.yaml`
+- `--googleapis` - Path to googleapis repository (local directory or URL). Default: `/Users/julieqiu/code/googleapis/googleapis`
+- `--gcloud-yaml` - Path to gcloud.yaml configuration file. Default: `testdata/parallelstore/gcloud.yaml`
 - `--output` - Output directory for generated surfaces. Default: current working directory
 
 **Examples:**
@@ -62,7 +62,7 @@ surfer generate \
 
 ### gcloud.yaml
 
-The gcloud.yaml file configures how the surface is generated. It follows the schema defined in `internal/gcloudyaml`.
+The gcloud.yaml file configures how the surface is generated. It follows the schema defined in `internal/gcloudconfig`.
 
 **Top-level fields:**
 - `service_name` (required) - The fully qualified service name (e.g., "parallelstore.googleapis.com")
@@ -143,10 +143,10 @@ The repository includes test data demonstrating the expected configuration and
 output:
 
 **Input:**
-- `testdata/parallelstore/input/gcloud.yaml` - Sample gcloud.yaml configuration
+- `testdata/parallelstore/gcloud.yaml` - Sample gcloud.yaml configuration
 
 **Output:**
-- `testdata/parallelstore/output/` - Generated command surfaces
+- `testdata/parallelstore/generated/` - Generated command surfaces
 
 **Note:** Proto files are loaded from the googleapis repository specified via
 the `--googleapis` flag and are not included in testdata.
@@ -156,11 +156,11 @@ the `--googleapis` flag and are not included in testdata.
 Surfer uses several internal packages:
 
 - `internal/api` - Core API model representation and transformation logic
-- `internal/gcloudyaml` - Go types for parsing gcloud.yaml configuration
-- `internal/gcloud` - Types for generated gcloud command structures
+- `internal/gcloudconfig` - Go types for parsing gcloud.yaml configuration
+- `internal/commandyaml` - Types for generated gcloud command structures
 
 The generation process:
-1. Parse the gcloud.yaml file using `gcloudyaml.Config`
+1. Parse the gcloud.yaml file using `gcloudconfig.Config`
 2. Load proto descriptors from the googleapis repository
 3. Build API model using `api.API`
 4. Apply custom configurations from gcloud.yaml (help text, output formatting, etc.)
