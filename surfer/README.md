@@ -1,85 +1,107 @@
 # Surfer
 
-Surfer generates gcloud command surface definitions from Google API protocol
-buffers and configuration files.
+Surfer is a code generator that creates gcloud CLI command definitions from Google Cloud API specifications.
 
-## Overview
+## What Does It Do?
 
-Surfer automates the creation of gcloud CLI command surfaces by processing:
-- Protocol buffer definitions from googleapis
-- Service configurations from googleapis
-- Custom gcloud configuration files (gcloud.yaml)
+Surfer generates YAML files that the gcloud CLI uses to create commands for Google Cloud services. Instead of manually writing command definitions, Surfer automatically generates them from:
+- API protocol buffer definitions (`.proto` files)
+- A service configuration file (`gcloud.yaml`)
 
-The tool produces YAML files that define gcloud commands, including their
-arguments, help text, request mappings, and async operation configurations.
+The generated YAML files define everything gcloud needs to know about a command: its arguments, help text, how it maps to API calls, and how to handle responses.
+
+## Quick Start
+
+```bash
+# Generate gcloud command definitions for the parallelstore service
+surfer generate parallelstore
+
+# This reads: testdata/parallelstore/gcloud.yaml
+# And writes to: testdata/parallelstore/generated/
+```
 
 ## How It Works
 
-1. **Parse configuration**: Surfer reads the gcloud.yaml file to understand the surface definition
-2. **Load proto definitions**: Surfer loads protocol buffer definitions from the googleapis repository
-3. **Build API model**: Using `internal/api`, Surfer creates an internal representation of the API surface
-4. **Generate commands**: Surfer transforms the API model into gcloud command YAML files and writes them to the output directory
+1. **Read configuration**: Reads `testdata/{service}/gcloud.yaml` to understand which API to generate commands for and how to customize them
+2. **Load API definitions**: Loads protocol buffer (`.proto`) files from the googleapis repository that define the service's API
+3. **Build model**: Creates an internal representation of the API (services, methods, messages, fields)
+4. **Generate YAML**: Transforms the API model into gcloud command YAML files according to the configuration
 
-## Command
+## Usage
 
 ```bash
 surfer generate <service> [flags]
 ```
 
-Generates gcloud surface definitions for a service. The service name corresponds to a directory in `testdata/{service}/` that contains a `gcloud.yaml` file.
+Generate gcloud command YAML files for a service.
 
 **Arguments:**
 
-- `<service>` - Service name (required). Looks for configuration at `testdata/{service}/gcloud.yaml`
+- `<service>` - Name of the service to generate (e.g., `parallelstore`, `memorystore`)
+  - Configuration file must exist at `testdata/{service}/gcloud.yaml`
+  - See [examples](#examples) for available services
 
 **Flags:**
 
-- `--googleapis` - Path to googleapis repository (local directory or URL). Default: `/Users/julieqiu/code/googleapis/googleapis`
-- `--output` - Output directory for generated surfaces. Default: `testdata/{service}/generated/`
+- `--googleapis <path>` - Location of the googleapis repository containing `.proto` files
+  - Can be a local directory path or a Git URL
+  - Default: `/Users/julieqiu/code/googleapis/googleapis`
 
-**Examples:**
+- `--output <path>` - Where to write the generated YAML files
+  - Default: `testdata/{service}/generated/`
+
+### Examples
 
 ```bash
-# Generate for parallelstore service
-# Reads: testdata/parallelstore/gcloud.yaml
-# Writes to: testdata/parallelstore/generated/
+# Basic usage - generate commands for parallelstore
 surfer generate parallelstore
+# Reads from:  testdata/parallelstore/gcloud.yaml
+# Writes to:   testdata/parallelstore/generated/
 
-# Generate for memorystore service
+# Generate for a different service
 surfer generate memorystore
 
-# Generate with custom googleapis
-surfer generate parallelstore \
-  --googleapis=/path/to/googleapis
+# Use a local clone of googleapis
+surfer generate parallelstore --googleapis=/path/to/googleapis
 
-# Generate with custom output directory
-surfer generate parallelstore \
-  --output=/custom/output/path
+# Use googleapis from GitHub directly
+surfer generate parallelstore --googleapis=https://github.com/googleapis/googleapis
 
-# Generate using googleapis URL
-surfer generate parallelstore \
-  --googleapis=https://github.com/googleapis/googleapis
+# Write output to a custom location
+surfer generate parallelstore --output=/custom/output/directory
 ```
+
+Available services in testdata: `parallelstore`, `memorystore`, `parametermanager`
 
 ## Configuration
 
-### gcloud.yaml
+Each service needs a `gcloud.yaml` configuration file at `testdata/{service}/gcloud.yaml`. This file tells Surfer:
+- Which API to generate commands for
+- What version of the API to use
+- How to customize the generated commands (help text, formatting, etc.)
 
-The gcloud.yaml file configures how the surface is generated. It follows the schema defined in `internal/gcloudconfig`.
+The configuration schema is defined in `internal/gcloudconfig`.
 
-**Top-level fields:**
-- `service_name` (required) - The fully qualified service name (e.g., "parallelstore.googleapis.com")
-- `apis` (required) - List of API configurations
-- `resource_patterns` (optional) - Additional resource patterns not in proto descriptors
+### Basic Structure
 
-**API configuration:**
-- `name` (required) - API name (e.g., "Parallelstore")
-- `api_version` (required) - API version (e.g., "v1")
-- `root_is_hidden` - Whether to hide the root command group
-- `release_tracks` - List of release tracks (ALPHA, BETA, GA)
-- `help_text` - Help text rules for services, messages, methods, and fields
-- `output_formatting` - Output format specifications for commands
-- `command_operations_config` - Long-running operation configurations
+```yaml
+service_name: <fully-qualified-service-name>  # e.g., parallelstore.googleapis.com
+apis:
+  - name: <API-name>           # e.g., Parallelstore
+    api_version: <version>      # e.g., v1
+    release_tracks:             # Which gcloud tracks to generate for
+      - GA                      # Can be: ALPHA, BETA, GA
+    root_is_hidden: true        # Whether to hide the root command
+```
+
+### Customization Options
+
+You can customize the generated commands by adding these fields to the API configuration:
+
+- **`help_text`** - Override help text for methods and fields
+- **`output_formatting`** - Customize how command output is displayed
+- **`command_operations_config`** - Configure long-running operation behavior
+- **`method_generation_filters`** - Control which API methods get commands generated
 
 **Example:**
 ```yaml
@@ -107,74 +129,63 @@ apis:
           table(name, capacityGib:label=Capacity, state)
 ```
 
-## Output Structure
-
-Generated command files are organized by resource and operation:
+## Project Structure
 
 ```
-<output-dir>/
-└── <service>/
-    └── surface/
-        ├── <resource>/
-        │   ├── <command>.yaml
-        │   └── _partials/
-        │       └── _<command>_<track>.yaml
-        └── ...
+testdata/
+├── parallelstore/
+│   ├── gcloud.yaml       # Input: Configuration for parallelstore service
+│   └── generated/        # Output: Generated command YAML files
+│       ├── create.yaml
+│       ├── delete.yaml
+│       ├── list.yaml
+│       └── _partials/    # Track-specific command definitions
+│           ├── _create_ga.yaml
+│           ├── _delete_ga.yaml
+│           └── _list_ga.yaml
+├── memorystore/
+│   ├── gcloud.yaml
+│   └── generated/
+└── parametermanager/
+    ├── gcloud.yaml
+    └── generated/
+
+internal/
+├── gcloudconfig/         # Input configuration schema (gcloud.yaml)
+├── commandyaml/          # Output command YAML schema
+└── surfer/               # CLI and generation logic
 ```
 
-**Example output:**
-```
-parallelstore/
-└── surface/
-    ├── instances/
-    │   ├── create.yaml
-    │   ├── list.yaml
-    │   ├── describe.yaml
-    │   └── _partials/
-    │       ├── _create_ga.yaml
-    │       ├── _list_ga.yaml
-    │       └── _describe_ga.yaml
-    └── operations/
-        ├── list.yaml
-        └── _partials/
-            └── _list_ga.yaml
-```
+### Generated Files
 
-## Testdata
+Each generated YAML file defines a gcloud command:
+- **Top-level files** (e.g., `create.yaml`) - Contain `_PARTIALS_: true` to reference partial files
+- **Partial files** (e.g., `_create_ga.yaml`) - Contain the actual command definition for a specific release track
 
-The repository includes test data demonstrating the expected configuration and
-output:
+The partial file structure allows different command definitions for ALPHA, BETA, and GA tracks.
 
-**Input:**
-- `testdata/parallelstore/gcloud.yaml` - Sample gcloud.yaml configuration
+## How Surfer Works Internally
 
-**Output:**
-- `testdata/parallelstore/generated/` - Generated command surfaces
+### Key Packages
 
-**Note:** Proto files are loaded from the googleapis repository specified via
-the `--googleapis` flag and are not included in testdata.
+- **`internal/gcloudconfig`** - Defines the schema for `gcloud.yaml` input files
+- **`internal/commandyaml`** - Defines the schema for generated command YAML output files
+- **`internal/sidekick`** - Parses protocol buffer definitions and builds API models
+- **`internal/surfer`** - CLI implementation and orchestrates the generation process
 
-## Implementation
+### Generation Flow
 
-Surfer uses several internal packages:
+1. **Parse configuration** - Read and validate `testdata/{service}/gcloud.yaml`
+2. **Load API model** - Parse `.proto` files from googleapis and build an API model (services, methods, messages, fields)
+3. **Apply customizations** - Merge configuration from `gcloud.yaml` (help text, output formatting, etc.)
+4. **Generate YAML** - Transform the API model into gcloud command YAML files
+5. **Write output** - Save files to `testdata/{service}/generated/`
 
-- `internal/api` - Core API model representation and transformation logic
-- `internal/gcloudconfig` - Go types for parsing gcloud.yaml configuration
-- `internal/commandyaml` - Types for generated gcloud command structures
+---
 
-The generation process:
-1. Parse the gcloud.yaml file using `gcloudconfig.Config`
-2. Load proto descriptors from the googleapis repository
-3. Build API model using `api.API`
-4. Apply custom configurations from gcloud.yaml (help text, output formatting, etc.)
-5. Generate command YAML files using the API model
-6. Write generated files to the output directory
+## Reference: Command YAML Format
 
-## gcloud Command YAML
-
-Surfer generates gcloud command definitions as YAML files. These files define the
-command-line interface for interacting with Google Cloud APIs through the gcloud
-CLI.
+This section describes the structure of the generated command YAML files. These files define how gcloud commands work: their arguments, help text, API mappings, and behavior.
 
 ### File Organization
 
