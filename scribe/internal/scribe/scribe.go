@@ -124,7 +124,7 @@ func runScrape(ctx context.Context, cmd *cli.Command) error {
 }
 
 func writeYAML(language string, libraries []scraper.Library) error {
-	dir := filepath.Join("testdata", "reference")
+	dir := "data"
 	if err := os.MkdirAll(dir, 0755); err != nil {
 		return fmt.Errorf("failed to create directory: %w", err)
 	}
