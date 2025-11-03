@@ -23,39 +23,42 @@ arguments, help text, request mappings, and async operation configurations.
 ## Command
 
 ```bash
-surfer generate [flags]
+surfer generate <service> [flags]
 ```
 
-Generates gcloud surface definitions from a gcloud.yaml configuration file.
+Generates gcloud surface definitions for a service. The service name corresponds to a directory in `testdata/{service}/` that contains a `gcloud.yaml` file.
+
+**Arguments:**
+
+- `<service>` - Service name (required). Looks for configuration at `testdata/{service}/gcloud.yaml`
 
 **Flags:**
 
 - `--googleapis` - Path to googleapis repository (local directory or URL). Default: `/Users/julieqiu/code/googleapis/googleapis`
-- `--gcloud-yaml` - Path to gcloud.yaml configuration file. Default: `testdata/parallelstore/gcloud.yaml`
-- `--output` - Output directory for generated surfaces. Default: current working directory
+- `--output` - Output directory for generated surfaces. Default: `testdata/{service}/generated/`
 
 **Examples:**
 
 ```bash
-# Generate with defaults (testdata)
-surfer generate
+# Generate for parallelstore service
+# Reads: testdata/parallelstore/gcloud.yaml
+# Writes to: testdata/parallelstore/generated/
+surfer generate parallelstore
+
+# Generate for memorystore service
+surfer generate memorystore
 
 # Generate with custom googleapis
-surfer generate \
-  --googleapis=/path/to/googleapis \
-  --gcloud-yaml=parallelstore/gcloud.yaml
+surfer generate parallelstore \
+  --googleapis=/path/to/googleapis
 
-# Generate with specific output directory
-surfer generate \
-  --googleapis=/path/to/googleapis \
-  --gcloud-yaml=parallelstore/gcloud.yaml \
-  --output=parallelstore/surface
+# Generate with custom output directory
+surfer generate parallelstore \
+  --output=/custom/output/path
 
 # Generate using googleapis URL
-surfer generate \
-  --googleapis=https://github.com/googleapis/googleapis \
-  --gcloud-yaml=myservice/gcloud.yaml \
-  --output=generated
+surfer generate parallelstore \
+  --googleapis=https://github.com/googleapis/googleapis
 ```
 
 ## Configuration

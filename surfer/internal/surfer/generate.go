@@ -84,8 +84,7 @@ func parseGcloudYAML(path string) (*gcloudconfig.Config, error) {
 
 // generateCommands generates gcloud command YAML files
 func generateCommands(model *api.API, cfg *gcloudconfig.Config, outputDir string) error {
-	serviceName := strings.Split(cfg.ServiceName, ".")[0]
-	serviceDir := filepath.Join(outputDir, serviceName)
+	serviceDir := outputDir
 
 	// Filter out nil services
 	var validServices []*api.Service
