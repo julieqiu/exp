@@ -210,6 +210,12 @@ func (s *Server) handlePackageRedirect(w http.ResponseWriter, r *http.Request, l
 				if language == "go" {
 					// For Go, redirect to pkg.go.dev
 					redirectURL = "https://pkg.go.dev/" + pkg.Name
+				} else if language == "nodejs" {
+					// For Node.js, redirect to npmjs.com
+					redirectURL = "https://www.npmjs.com/package/" + pkg.Name
+				} else if language == "python" {
+					// For Python, redirect to pypi.org
+					redirectURL = "https://pypi.org/project/" + pkg.Name + "/"
 				} else if language == "dotnet" && strings.Contains(pkg.Link, "googleapis.dev") {
 					// For .NET packages on googleapis.dev, add the /api/{packageName}.html suffix
 					redirectURL = fmt.Sprintf("%s/api/%s.html", pkg.Link, pkg.Name)
