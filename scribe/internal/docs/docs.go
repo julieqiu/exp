@@ -219,6 +219,9 @@ func (s *Server) handlePackageRedirect(w http.ResponseWriter, r *http.Request, l
 				} else if language == "ruby" {
 					// For Ruby, redirect to rubygems.org
 					redirectURL = "https://rubygems.org/gems/" + pkg.Name
+				} else if language == "java" {
+					// For Java, redirect to mvnrepository.com
+					redirectURL = "https://mvnrepository.com/artifact/com.google.cloud/" + pkg.Name
 				} else if language == "dotnet" && strings.Contains(pkg.Link, "googleapis.dev") {
 					// For .NET packages on googleapis.dev, add the /api/{packageName}.html suffix
 					redirectURL = fmt.Sprintf("%s/api/%s.html", pkg.Link, pkg.Name)
