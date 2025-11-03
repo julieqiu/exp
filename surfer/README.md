@@ -30,8 +30,8 @@ Generates gcloud surface definitions from a gcloud.yaml configuration file.
 
 **Flags:**
 
-- `--googleapis` - Path to googleapis repository (local directory or URL). Default: `testdata/input/googleapis`
-- `--gcloud-yaml` - Path to gcloud.yaml configuration file. Default: `testdata/input/parallelstore/gcloud.yaml`
+- `--googleapis` - Path to googleapis repository (local directory or URL). Default: `testdata/googleapis/input`
+- `--gcloud-yaml` - Path to gcloud.yaml configuration file. Default: `testdata/parallelstore/input/gcloud.yaml`
 - `--output` - Output directory for generated surfaces. Default: current working directory
 
 **Examples:**
@@ -143,10 +143,10 @@ The repository includes test data demonstrating the expected configuration and
 output:
 
 **Input:**
-- `testdata/input/parallelstore/gcloud.yaml` - Sample gcloud.yaml configuration
+- `testdata/parallelstore/input/gcloud.yaml` - Sample gcloud.yaml configuration
 
 **Output:**
-- `testdata/output/parallelstore/surface/` - Generated command surfaces
+- `testdata/parallelstore/output/` - Generated command surfaces
 
 **Note:** Proto files are loaded from the googleapis repository specified via
 the `--googleapis` flag and are not included in testdata.

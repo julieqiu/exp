@@ -26,7 +26,7 @@ func Run(ctx context.Context, args []string) error {
 					&cli.StringFlag{
 						Name:  "gcloud-yaml",
 						Usage: "Path to gcloud.yaml configuration file",
-						Value: "testdata/input/parallelstore/gcloud.yaml",
+						Value: "testdata/parallelstore/input/gcloud.yaml",
 					},
 					&cli.StringFlag{
 						Name:  "output",
