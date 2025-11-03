@@ -29,7 +29,7 @@ import (
 	"google.golang.org/genproto/googleapis/api/serviceconfig"
 )
 
-const computeDiscoveryFile = "../testdata/disco/compute.v1.json"
+const computeDiscoveryFile = "../../testdata/disco/compute.v1.json"
 
 func TestSorted(t *testing.T) {
 	got, err := ComputeDisco(t, nil)

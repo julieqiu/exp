@@ -26,7 +26,7 @@ import (
 )
 
 func TestReadServiceConfig(t *testing.T) {
-	const serviceConfigPath = "../../testdata/googleapis/google/cloud/secretmanager/v1/secretmanager_v1.yaml"
+	const serviceConfigPath = "../testdata/googleapis/google/cloud/secretmanager/v1/secretmanager_v1.yaml"
 	got, err := readServiceConfig(serviceConfigPath)
 	if err != nil {
 		t.Fatal(err)
