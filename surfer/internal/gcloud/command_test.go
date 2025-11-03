@@ -27,7 +27,7 @@ import (
 )
 
 func TestCommandYAML(t *testing.T) {
-	const root = "testdata/parallelstore/surface"
+	const root = "../../testdata/output/parallelstore"
 	var files []string
 	err := filepath.WalkDir(root, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {

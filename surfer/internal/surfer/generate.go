@@ -6,11 +6,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/julieqiu/exp/surfer/internal/api"
-	"github.com/julieqiu/exp/surfer/internal/config"
-	"github.com/julieqiu/exp/surfer/internal/config/gcloudyaml"
+	"github.com/julieqiu/exp/surfer/internal/sidekick/api"
+	"github.com/julieqiu/exp/surfer/internal/sidekick/config"
+	"github.com/julieqiu/exp/surfer/internal/gcloudyaml"
 	"github.com/julieqiu/exp/surfer/internal/gcloud"
-	"github.com/julieqiu/exp/surfer/internal/parser"
+	"github.com/julieqiu/exp/surfer/internal/sidekick/parser"
 	"gopkg.in/yaml.v3"
 )
 

@@ -72,6 +72,36 @@ type API struct {
 	// methods within this API. This allows customization of how asynchronous
 	// operations are handled and displayed.
 	CommandOperationsConfig []*CommandOperationsConfig `yaml:"command_operations_config,omitempty"`
+
+	// MethodGenerationFilters contains a collection of method generation
+	// filter rules. These rules determine which methods should be included or
+	// excluded during the command generation process.
+	MethodGenerationFilters []*MethodGenerationFilter `yaml:"method_generation_filters,omitempty"`
+}
+
+// MethodGenerationFilter contains a collection of method generation filter
+// rules. These rules determine which methods should be included or excluded
+// during the command generation process.
+type MethodGenerationFilter struct {
+	// Selector is a comma-separated list of patterns for any element such as a
+	// method, a field, an enum value. Each pattern is a qualified name of the
+	// element which may end in "*", indicating a wildcard. Wildcards are only
+	// allowed at the end and for a whole component of the qualified name, i.e.
+	// "foo.*" is ok, but not "foo.b*" or "foo.*.bar".
+	//
+	// Wildcard may not be applicable for some elements, in those cases an
+	// 'InvalidSelectorWildcardError' error will be thrown.  Additionally, some
+	// gcloud data elements expect a singular selector, if a comma separated
+	// selector string is passed, a 'InvalidSelectorList' error will be thrown.
+	//
+	// See http://google3/google/api/documentation.proto;l=253;rcl=525006895
+	// for API selector details.
+	Selector string `yaml:"selector"`
+
+	// Include determines whether to include or exclude the selected methods
+	// from generation. If true, the methods are included; otherwise, they are
+	// excluded.
+	Include bool `yaml:"include"`
 }
 
 // HelpText contains rules for various types of help text within an API

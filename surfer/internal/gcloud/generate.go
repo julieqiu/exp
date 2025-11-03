@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/julieqiu/exp/surfer/internal/api"
-	"github.com/julieqiu/exp/surfer/internal/config/gcloudyaml"
+	"github.com/julieqiu/exp/surfer/internal/sidekick/api"
+	"github.com/julieqiu/exp/surfer/internal/gcloudyaml"
 )
 
 // GenerateCommand generates a gcloud command from an API method.

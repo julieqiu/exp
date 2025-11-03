@@ -19,7 +19,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/julieqiu/exp/surfer/internal/config/gcloudyaml"
+	"github.com/julieqiu/exp/surfer/internal/gcloudyaml"
 )
 
 // Command is a single gcloud command.
