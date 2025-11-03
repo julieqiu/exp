@@ -1,0 +1,726 @@
+- name: Sensitive Data Protection
+  packages:
+    - name: '@google-cloud/dlp'
+      link: https://cloud.google.com/nodejs/docs/reference/dlp/latest
+- name: Web Risk
+  packages:
+    - name: '@google-cloud/web-risk'
+      link: https://googleapis.dev/nodejs/web-risk/latest
+- name: Infrastructure Manager
+  packages:
+    - name: '@google-cloud/config'
+      link: https://cloud.google.com/nodejs/docs/reference/infra-manager/latest
+- name: AlloyDB for PostgreSQL
+  packages:
+    - name: '@google-cloud/alloydb'
+      link: https://cloud.google.com/nodejs/docs/reference/alloydb/latest
+- name: Compute Engine
+  packages:
+    - name: '@google-cloud/compute'
+      link: https://cloud.google.com/nodejs/docs/reference/compute/latest
+- name: GKE Hub API
+  packages:
+    - name: '@google-cloud/gke-hub'
+      link: https://cloud.google.com/nodejs/docs/reference/gke-hub/latest
+- name: Google Cloud Managed Service for Apache Kafka
+  packages:
+    - name: '@google-cloud/managedkafka'
+      link: https://cloud.google.com/nodejs/docs/reference/managedkafka/latest
+    - name: '@google-cloud/managedkafka-schemaregistry'
+      link: https://cloud.google.com/nodejs/docs/reference/managedkafka/latest
+- name: Advisory Notifications
+  packages:
+    - name: '@google-cloud/advisorynotifications'
+      link: https://cloud.google.com/nodejs/docs/reference/advisorynotifications/latest
+- name: Chat API
+  packages:
+    - name: '@google-apps/chat'
+      link: https://cloud.google.com/nodejs/docs/reference/chat/latest
+- name: Cloud Billing Budget API
+  packages:
+    - name: '@google-cloud/billing-budgets'
+      link: https://cloud.google.com/nodejs/docs/reference/billing-budgets/latest
+- name: Cloud Data Fusion
+  packages:
+    - name: '@google-cloud/data-fusion'
+      link: https://cloud.google.com/nodejs/docs/reference/data-fusion/latest
+- name: Dataform
+  packages:
+    - name: '@google-cloud/dataform'
+      link: https://cloud.google.com/nodejs/docs/reference/dataform/latest
+- name: Service Control API
+  packages:
+    - name: '@google-cloud/service-control'
+      link: https://cloud.google.com/nodejs/docs/reference/service-control/latest
+- name: Storage Insights
+  packages:
+    - name: '@google-cloud/storageinsights'
+      link: https://cloud.google.com/nodejs/docs/reference/storageinsights/latest
+- name: Access Approval
+  packages:
+    - name: '@google-cloud/access-approval'
+      link: https://cloud.google.com/nodejs/docs/reference/access-approval/latest
+- name: Analytics Hub API
+  packages:
+    - name: '@google-cloud/bigquery-data-exchange'
+      link: https://cloud.google.com/nodejs/docs/reference/bigquery-data-exchange/latest
+- name: Artifact Registry
+  packages:
+    - name: '@google-cloud/artifact-registry'
+      link: https://cloud.google.com/nodejs/docs/reference/artifact-registry/latest
+- name: Discovery Engine API
+  packages:
+    - name: '@google-cloud/discoveryengine'
+      link: https://cloud.google.com/nodejs/docs/reference/discoveryengine/latest
+- name: Analytics Data API
+  packages:
+    - name: '@google-analytics/data'
+      link: https://googleapis.dev/nodejs/analytics-data/latest/index.html
+- name: Assured Workloads
+  packages:
+    - name: '@google-cloud/assured-workloads'
+      link: https://cloud.google.com/nodejs/docs/reference/assured-workloads/latest
+- name: Dataproc Metastore
+  packages:
+    - name: '@google-cloud/dataproc-metastore'
+      link: https://cloud.google.com/nodejs/docs/reference/dataproc-metastore/latest
+- name: Vertex AI Workbench
+  packages:
+    - name: '@google-cloud/notebooks'
+      link: https://cloud.google.com/nodejs/docs/reference/notebooks/latest
+- name: Workflow Executions API
+  packages:
+    - name: '@google-cloud/workflows'
+      link: https://cloud.google.com/nodejs/docs/reference/workflows/latest
+- name: BigQuery Storage
+  packages:
+    - name: '@google-cloud/bigquery-storage'
+      link: https://cloud.google.com/nodejs/docs/reference/bigquery-storage/latest
+- name: Cloud Database Migration Service
+  packages:
+    - name: '@google-cloud/dms'
+      link: https://cloud.google.com/nodejs/docs/reference/dms/latest
+- name: Data Lineage
+  packages:
+    - name: '@google-cloud/lineage'
+      link: https://cloud.google.com/nodejs/docs/reference/lineage/latest
+- name: Secret Manager
+  packages:
+    - name: '@google-cloud/secret-manager'
+      link: https://cloud.google.com/nodejs/docs/reference/secret-manager/latest
+- name: Video Intelligence API
+  packages:
+    - name: '@google-cloud/video-intelligence'
+      link: https://cloud.google.com/nodejs/docs/reference/video-intelligence/latest
+- name: Datastream
+  packages:
+    - name: '@google-cloud/datastream'
+      link: https://cloud.google.com/nodejs/docs/reference/datastream/latest
+- name: Firestore in Datastore mode
+  packages:
+    - name: '@google-cloud/datastore'
+      link: https://cloud.google.com/nodejs/docs/reference/datastore/latest
+- name: Google Meet
+  packages:
+    - name: '@google-apps/meet'
+      link: https://cloud.google.com/nodejs/docs/reference/meet/latest
+- name: Integration Connectors
+  packages:
+    - name: '@google-cloud/connectors'
+      link: https://cloud.google.com/nodejs/docs/reference/connectors/latest
+- name: Memorystore for Memcached
+  packages:
+    - name: '@google-cloud/memcache'
+      link: https://cloud.google.com/nodejs/docs/reference/memcache/latest
+- name: Migrate to Virtual Machines
+  packages:
+    - name: '@google-cloud/vmmigration'
+      link: https://cloud.google.com/nodejs/docs/reference/vmmigration/latest
+- name: Organization Policy Service
+  packages:
+    - name: '@google-cloud/org-policy'
+      link: https://cloud.google.com/nodejs/docs/reference/org-policy/latest
+- name: BigQuery Connection API
+  packages:
+    - name: '@google-cloud/bigquery-connection'
+      link: https://cloud.google.com/nodejs/docs/reference/bigquery-connection/latest
+- name: BigQuery Data Transfer Service
+  packages:
+    - name: '@google-cloud/bigquery-data-transfer'
+      link: https://cloud.google.com/nodejs/docs/reference/bigquery-data-transfer/latest
+- name: Cloud IDS
+  packages:
+    - name: '@google-cloud/ids'
+      link: https://cloud.google.com/intrusion-detection-system
+- name: Cloud Natural Language API
+  packages:
+    - name: '@google-cloud/language'
+      link: https://cloud.google.com/nodejs/docs/reference/language/latest
+- name: Cloud Storage
+  packages:
+    - name: '@google-cloud/storage'
+      link: https://cloud.google.com/nodejs/docs/reference/storage/latest
+    - name: '@google-cloud/storage-control'
+      link: https://cloud.google.com/nodejs/docs/reference/storage-control/latest
+- name: Migration Center
+  packages:
+    - name: '@google-cloud/migrationcenter'
+      link: https://cloud.google.com/nodejs/docs/reference/migrationcenter/latest
+- name: Service Health
+  packages:
+    - name: '@google-cloud/servicehealth'
+      link: https://cloud.google.com/nodejs/docs/reference/servicehealth/latest
+- name: Solar API
+  packages:
+    - name: '@googlemaps/solar'
+      link: https://cloud.google.com/nodejs/docs/reference/solar/latest
+- name: Fleet Engine API
+  packages:
+    - name: '@googlemaps/fleetengine'
+      link: https://cloud.google.com/nodejs/docs/reference/fleetengine/latest
+- name: Service Directory
+  packages:
+    - name: '@google-cloud/service-directory'
+      link: https://cloud.google.com/nodejs/docs/reference/service-directory/latest
+- name: Storage Transfer Service
+  packages:
+    - name: '@google-cloud/storage-transfer'
+      link: https://googleapis.dev/nodejs/storagetransfer/latest/index.html
+- name: Web Security Scanner
+  packages:
+    - name: '@google-cloud/web-security-scanner'
+      link: https://cloud.google.com/nodejs/docs/reference/web-security-scanner/latest
+- name: App Engine Admin API
+  packages:
+    - name: '@google-cloud/appengine-admin'
+      link: https://cloud.google.com/nodejs/docs/reference/appengine-admin/latest
+- name: Backup for GKE
+  packages:
+    - name: '@google-cloud/gke-backup'
+      link: https://cloud.google.com/nodejs/docs/reference/gke-backup/latest
+- name: Cloud DNS
+  packages:
+    - name: '@google-cloud/dns'
+      link: https://cloud.google.com/nodejs/docs/reference/dns/latest
+- name: Container Analysis
+  packages:
+    - name: '@google-cloud/containeranalysis'
+      link: https://cloud.google.com/nodejs/docs/reference/containeranalysis/latest
+    - name: '@google-cloud/grafeas'
+      link: https://cloud.google.com/nodejs/docs/reference/grafeas/latest
+- name: Dialogflow
+  packages:
+    - name: '@google-cloud/dialogflow'
+      link: https://googleapis.dev/nodejs/dialogflow/latest
+    - name: '@google-cloud/dialogflow-cx'
+      link: https://googleapis.dev/nodejs/dialogflow-cx/latest
+- name: Network Connectivity Center
+  packages:
+    - name: '@google-cloud/network-connectivity'
+      link: https://cloud.google.com/nodejs/docs/reference/network-connectivity/latest
+- name: Unified Maintenance
+  packages:
+    - name: '@google-cloud/maintenance-api'
+      link: https://cloud.google.com/nodejs/docs/reference/maintenance/latest
+- name: reCAPTCHA
+  packages:
+    - name: '@google-cloud/recaptcha-enterprise'
+      link: https://cloud.google.com/nodejs/docs/reference/recaptcha-enterprise/latest
+- name: Cloud Run
+  packages:
+    - name: '@google-cloud/run'
+      link: https://googleapis.dev/nodejs/run/latest
+- name: Cloud Tasks
+  packages:
+    - name: '@google-cloud/tasks'
+      link: https://cloud.google.com/nodejs/docs/reference/tasks/latest
+- name: Google SecOps SIEM
+  packages:
+    - name: '@google-cloud/chronicle'
+      link: https://cloud.google.com/nodejs/docs/reference/chronicle/latest
+- name: Resource Manager
+  packages:
+    - name: '@google-cloud/resource-manager'
+      link: https://cloud.google.com/nodejs/docs/reference/resource-manager/latest
+- name: Cloud Trace
+  packages:
+    - name: '@google-cloud/trace-agent'
+      link: https://cloud.google.com/nodejs/docs/reference/trace-agent/latest
+- name: Document AI
+  packages:
+    - name: '@google-cloud/documentai'
+      link: https://cloud.google.com/nodejs/docs/reference/documentai/latest
+- name: Essential Contacts API
+  packages:
+    - name: '@google-cloud/essential-contacts'
+      link: https://cloud.google.com/nodejs/docs/reference/essential-contacts/latest
+- name: Google Workspace add-ons
+  packages:
+    - name: '@google-cloud/gsuiteaddons'
+      link: https://cloud.google.com/nodejs/docs/reference/gsuiteaddons/latest
+- name: Parameter Manager
+  packages:
+    - name: '@google-cloud/parametermanager'
+      link: https://cloud.google.com/nodejs/docs/reference/parametermanager/latest
+- name: Vertex AI
+  packages:
+    - name: '@google-cloud/aiplatform'
+      link: https://cloud.google.com/nodejs/docs/reference/aiplatform/latest
+    - name: '@google-cloud/vertexai'
+      link: https://cloud.google.com/nodejs/docs/reference/vertexai/latest
+- name: BigQuery
+  packages:
+    - name: '@google-cloud/bigquery'
+      link: https://cloud.google.com/nodejs/docs/reference/bigquery/latest
+- name: Conversational Analytics API
+  packages:
+    - name: '@google-cloud/geminidataanalytics'
+      link: https://cloud.google.com/nodejs/docs/reference/geminidataanalytics/latest
+- name: Media CDN
+  packages:
+    - name: '@google-cloud/networkservices'
+      link: https://cloud.google.com/nodejs/docs/reference/networkservices/latest
+- name: Oracle Database@Google Cloud
+  packages:
+    - name: '@google-cloud/oracledatabase'
+      link: https://cloud.google.com/nodejs/docs/reference/oracledatabase/latest
+- name: Google Cloud VMware Engine
+  packages:
+    - name: '@google-cloud/vmwareengine'
+      link: https://cloud.google.com/nodejs/docs/reference/vmwareengine/latest
+- name: Channel Services
+  packages:
+    - name: '@google-cloud/channel'
+      link: https://cloud.google.com/nodejs/docs/reference/channel/latest
+- name: Chrome Enterprise Premium
+  packages:
+    - name: '@google-cloud/appconnections'
+      link: https://cloud.google.com/nodejs/docs/reference/appconnections/latest
+    - name: '@google-cloud/appconnectors'
+      link: https://cloud.google.com/nodejs/docs/reference/beyondcorp/latest
+    - name: '@google-cloud/appgateways'
+      link: https://cloud.google.com/nodejs/docs/reference/appgateways/latest
+    - name: '@google-cloud/clientconnectorservices'
+      link: https://cloud.google.com/nodejs/docs/reference/clientconnectorservices/latest
+    - name: '@google-cloud/clientgateways'
+      link: https://cloud.google.com/nodejs/docs/reference/clientgateways/latest
+- name: Cloud Billing
+  packages:
+    - name: '@google-cloud/billing'
+      link: https://cloud.google.com/nodejs/docs/reference/billing/latest
+- name: Cloud Composer
+  packages:
+    - name: '@google-cloud/orchestration-airflow'
+      link: https://cloud.google.com/nodejs/docs/reference/orchestration-airflow/latest
+- name: Developer Connect
+  packages:
+    - name: '@google-cloud/developerconnect'
+      link: https://cloud.google.com/nodejs/docs/reference/developerconnect/latest
+- name: Service Management API
+  packages:
+    - name: '@google-cloud/service-management'
+      link: https://cloud.google.com/nodejs/docs/reference/service-management/latest
+- name: Spanner
+  packages:
+    - name: '@google-cloud/spanner'
+      link: https://cloud.google.com/nodejs/docs/reference/spanner/latest
+- name: Network Management API
+  packages:
+    - name: '@google-cloud/network-management'
+      link: https://cloud.google.com/nodejs/docs/reference/network-management/latest
+- name: Speech-to-Text
+  packages:
+    - name: '@google-cloud/speech'
+      link: https://googleapis.dev/nodejs/speech/latest
+- name: Tables by Area 120
+  packages:
+    - name: '@google/area120-tables'
+      link: https://cloud.google.com/nodejs/docs/reference/area120-tables/latest
+- name: Transcoder API
+  packages:
+    - name: '@google-cloud/video-transcoder'
+      link: https://cloud.google.com/nodejs/docs/reference/video-transcoder/latest
+- name: Batch
+  packages:
+    - name: '@google-cloud/batch'
+      link: https://cloud.google.com/nodejs/docs/reference/batch/latest
+- name: Dataflow
+  packages:
+    - name: '@google-cloud/dataflow'
+      link: https://cloud.google.com/nodejs/docs/reference/dataflow/latest
+- name: Eventarc Publishing API
+  packages:
+    - name: '@google-cloud/eventarc-publishing'
+      link: https://googleapis.dev/nodejs/publishing/latest/
+- name: Phishing Protection
+  packages:
+    - name: '@google-cloud/phishing-protection'
+      link: https://cloud.google.com/nodejs/docs/reference/phishing-protection/latest
+- name: Places API
+  packages:
+    - name: '@googlemaps/places'
+      link: https://cloud.google.com/nodejs/docs/reference/places/latest
+- name: Secure Source Manager
+  packages:
+    - name: '@google-cloud/securesourcemanager'
+      link: https://cloud.google.com/nodejs/docs/reference/securesourcemanager/latest
+- name: Text-to-Speech
+  packages:
+    - name: '@google-cloud/text-to-speech'
+      link: https://googleapis.dev/nodejs/text-to-speech/latest
+- name: AutoML
+  packages:
+    - name: '@google-cloud/automl'
+      link: https://cloud.google.com/nodejs/docs/reference/automl/latest
+- name: Cloud Asset Inventory
+  packages:
+    - name: '@google-cloud/asset'
+      link: https://cloud.google.com/nodejs/docs/reference/asset/latest
+- name: Cloud Life Sciences
+  packages:
+    - name: '@google-cloud/life-sciences'
+      link: https://cloud.google.com/nodejs/docs/reference/life-sciences/latest
+- name: IAM Service Account Credentials API
+  packages:
+    - name: '@google-cloud/iam-credentials'
+      link: https://cloud.google.com/nodejs/docs/reference/iam-credentials/latest
+- name: Certificate Manager
+  packages:
+    - name: '@google-cloud/certificate-manager'
+      link: https://cloud.google.com/nodejs/docs/reference/certificate-manager/latest
+- name: Cloud OS Login API
+  packages:
+    - name: '@google-cloud/os-login'
+      link: https://cloud.google.com/nodejs/docs/reference/os-login/latest
+- name: Cloud Talent Solution Job Search
+  packages:
+    - name: '@google-cloud/talent'
+      link: https://cloud.google.com/nodejs/docs/reference/talent/latest
+- name: Cloud Workstations
+  packages:
+    - name: '@google-cloud/workstations'
+      link: https://cloud.google.com/nodejs/docs/reference/workstations/latest
+- name: AI Platform Data Labeling Service
+  packages:
+    - name: '@google-cloud/datalabeling'
+      link: https://cloud.google.com/nodejs/docs/reference/datalabeling/latest
+- name: Cloud Key Management Service
+  packages:
+    - name: '@google-cloud/kms'
+      link: https://cloud.google.com/nodejs/docs/reference/kms/latest
+- name: Cloud TPU
+  packages:
+    - name: '@google-cloud/tpu'
+      link: https://cloud.google.com/nodejs/docs/reference/tpu/latest
+- name: Dataproc
+  packages:
+    - name: '@google-cloud/dataproc'
+      link: https://cloud.google.com/nodejs/docs/reference/dataproc/latest
+- name: Retail API
+  packages:
+    - name: '@google-cloud/retail'
+      link: https://cloud.google.com/nodejs/docs/reference/retail/latest
+- name: API Keys API
+  packages:
+    - name: '@google-cloud/apikeys'
+      link: https://cloud.google.com/nodejs/docs/reference/apikeys/latest
+- name: Backup and DR
+  packages:
+    - name: '@google-cloud/backupdr'
+      link: https://cloud.google.com/nodejs/docs/reference/backupdr/latest
+- name: BigQuery Data QnA
+  packages:
+    - name: '@google-cloud/data-qna'
+      link: https://cloud.google.com/nodejs/docs/reference/data-qna/latest
+- name: Capacity Planner
+  packages:
+    - name: '@google-cloud/capacityplanner'
+      link: https://cloud.google.com/nodejs/docs/reference/capacityplanner/latest
+- name: Connect Gateway API
+  packages:
+    - name: '@google-cloud/gke-connect-gateway'
+      link: https://cloud.google.com/nodejs/docs/reference/gke-connect-gateway/latest
+- name: Merchant API for Shopping
+  packages:
+    - name: '@google-shopping/accounts'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/conversions'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/datasources'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/inventories'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/issueresolution'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/lfp'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/notifications'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/ordertracking'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/products'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/promotions'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/quota'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/reports'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+    - name: '@google-shopping/reviews'
+      link: https://cloud.google.com/nodejs/docs/reference/merchantapi/latest
+- name: Model Armor
+  packages:
+    - name: '@google-cloud/modelarmor'
+      link: https://cloud.google.com/nodejs/docs/reference/modelarmor/latest
+- name: Route Optimization API
+  packages:
+    - name: '@googlemaps/routeoptimization'
+      link: https://cloud.google.com/nodejs/docs/reference/routeoptimization/latest
+- name: API Gateway
+  packages:
+    - name: '@google-cloud/api-gateway'
+      link: https://cloud.google.com/nodejs/docs/reference/api-gateway/latest
+- name: Apigee Connect API
+  packages:
+    - name: '@google-cloud/apigee-connect'
+      link: https://cloud.google.com/nodejs/docs/reference/apigee-connect/latest
+- name: Bare Metal Solution
+  packages:
+    - name: '@google-cloud/bare-metal-solution'
+      link: https://cloud.google.com/nodejs/docs/reference/bare-metal-solution/latest
+- name: Cloud Shell
+  packages:
+    - name: '@google-cloud/shell'
+      link: https://cloud.google.com/nodejs/docs/reference/shell/latest
+- name: Firestore
+  packages:
+    - name: '@google-cloud/firestore'
+      link: https://cloud.google.com/nodejs/docs/reference/firestore/latest
+- name: Kubernetes Engine API
+  packages:
+    - name: '@google-cloud/container'
+      link: https://cloud.google.com/nodejs/docs/reference/container/latest
+- name: Pub/Sub
+  packages:
+    - name: '@google-cloud/pubsub'
+      link: https://cloud.google.com/nodejs/docs/reference/pubsub/latest
+- name: Video Stitcher API
+  packages:
+    - name: '@google-cloud/video-stitcher'
+      link: https://googleapis.dev/nodejs/videostitcher/latest/
+- name: BigQuery DataPolicy API
+  packages:
+    - name: '@google-cloud/bigquery-datapolicies'
+      link: https://cloud.google.com/nodejs/docs/reference/datapolicies/latest
+- name: Cloud Monitoring
+  packages:
+    - name: '@google-cloud/monitoring'
+      link: https://cloud.google.com/nodejs/docs/reference/monitoring/latest
+    - name: '@google-cloud/monitoring-dashboards'
+      link: https://cloud.google.com/nodejs/docs/reference/monitoring-dashboards/latest
+- name: NetApp Volumes
+  packages:
+    - name: '@google-cloud/netapp'
+      link: https://cloud.google.com/nodejs/docs/reference/netapp/latest
+- name: Network Security API
+  packages:
+    - name: '@google-cloud/network-security'
+      link: https://cloud.google.com/nodejs/docs/reference/network-security/latest
+- name: Public Certificate Authority
+  packages:
+    - name: '@google-cloud/publicca'
+      link: https://cloud.google.com/nodejs/docs/reference/publicca/latest
+- name: Security Command Center
+  packages:
+    - name: '@google-cloud/security-center'
+      link: https://cloud.google.com/nodejs/docs/reference/security-center/latest
+- name: Apigee API hub
+  packages:
+    - name: '@google-cloud/apihub'
+      link: https://cloud.google.com/nodejs/docs/reference/apihub/latest
+- name: App Hub
+  packages:
+    - name: '@google-cloud/apphub'
+      link: https://cloud.google.com/nodejs/docs/reference/apphub/latest
+- name: Cloud Run functions
+  packages:
+    - name: '@google-cloud/functions'
+      link: https://cloud.google.com/nodejs/docs/reference/functions/latest
+- name: Cloud Translation
+  packages:
+    - name: '@google-cloud/translate'
+      link: https://cloud.google.com/nodejs/docs/reference/translate/latest
+- name: Document AI Warehouse
+  packages:
+    - name: '@google-cloud/contentwarehouse'
+      link: https://cloud.google.com/nodejs/docs/reference/contentwarehouse/latest
+- name: Identity and Access Management
+  packages:
+    - name: '@google-cloud/iam'
+      link: https://cloud.google.com/nodejs/docs/reference/iam/latest
+    - name: '@google-cloud/policy-troubleshooter-iam'
+      link: https://cloud.google.com/nodejs/docs/reference/iam/latest
+- name: IoT Core
+  packages:
+    - name: '@google-cloud/iot'
+      link: https://cloud.google.com/nodejs/docs/reference/iot/latest
+- name: Live Stream API
+  packages:
+    - name: '@google-cloud/livestream'
+      link: https://cloud.google.com/nodejs/docs/reference/livestream/latest
+- name: Analytics Admin API
+  packages:
+    - name: '@google-analytics/admin'
+      link: https://googleapis.dev/nodejs/analytics-admin/latest/index.html
+- name: Cloud Deploy
+  packages:
+    - name: '@google-cloud/deploy'
+      link: https://cloud.google.com/nodejs/docs/reference/deploy/latest
+- name: Cloud Profiler
+  packages:
+    - name: '@google-cloud/cloudprofiler'
+      link: https://cloud.google.com/nodejs/docs/reference/cloudprofiler/latest
+    - name: '@google-cloud/profiler'
+      link: https://cloud.google.com/nodejs/docs/reference/profiler/latest
+- name: IAM Policy Troubleshooter API
+  packages:
+    - name: '@google-cloud/policy-troubleshooter'
+      link: https://cloud.google.com/nodejs/docs/reference/policy-troubleshooter/latest
+- name: Identity-Aware Proxy
+  packages:
+    - name: '@google-cloud/iap'
+      link: https://cloud.google.com/nodejs/docs/reference/iap/latest
+- name: Managed Service for Microsoft Active Directory
+  packages:
+    - name: '@google-cloud/managed-identities'
+      link: https://cloud.google.com/nodejs/docs/reference/managed-identities/latest
+- name: Routes API
+  packages:
+    - name: '@googlemaps/routing'
+      link: https://cloud.google.com/nodejs/docs/reference/routing/latest
+- name: Binary Authorization
+  packages:
+    - name: '@google-cloud/binary-authorization'
+      link: https://cloud.google.com/nodejs/docs/reference/binary-authorization/latest
+- name: Cloud Logging
+  packages:
+    - name: '@google-cloud/logging'
+      link: https://cloud.google.com/nodejs/docs/reference/logging/latest
+- name: Dataplex
+  packages:
+    - name: '@google-cloud/dataplex'
+      link: https://cloud.google.com/dataplex
+- name: Eventarc
+  packages:
+    - name: '@google-cloud/eventarc'
+      link: https://cloud.google.com/nodejs/docs/reference/eventarc/latest
+- name: Google Workspace Events API
+  packages:
+    - name: '@google-cloud/subscriptions'
+      link: https://cloud.google.com/nodejs/docs/reference/workspaceevents/latest
+- name: Memorystore for Redis
+  packages:
+    - name: '@google-cloud/memorystore'
+      link: https://cloud.google.com/nodejs/docs/reference/memorystore/latest
+    - name: '@google-cloud/redis'
+      link: https://cloud.google.com/nodejs/docs/reference/redis/latest
+    - name: '@google-cloud/redis-cluster'
+      link: https://cloud.google.com/nodejs/docs/reference/redis/latest
+- name: AI Platform
+  packages:
+    - name: '@google-cloud/aiplatform'
+      link: https://cloud.google.com/nodejs/docs/reference/aiplatform/latest
+    - name: '@google-cloud/vertexai'
+      link: https://cloud.google.com/nodejs/docs/reference/vertexai/latest
+- name: BigQuery Reservation API
+  packages:
+    - name: '@google-cloud/bigquery-reservation'
+      link: https://cloud.google.com/nodejs/docs/reference/bigquery-reservation/latest
+- name: Cloud Scheduler
+  packages:
+    - name: '@google-cloud/scheduler'
+      link: https://cloud.google.com/nodejs/docs/reference/scheduler/latest
+- name: Parallelstore
+  packages:
+    - name: '@google-cloud/parallelstore'
+      link: https://cloud.google.com/nodejs/docs/reference/parallelstore/latest
+- name: Recommender
+  packages:
+    - name: '@google-cloud/recommender'
+      link: https://cloud.google.com/nodejs/docs/reference/recommender/latest
+- name: Virtual Private Cloud
+  packages:
+    - name: '@google-cloud/vpc-access'
+      link: https://cloud.google.com/nodejs/docs/reference/vpc-access/latest
+- name: Cloud Domains
+  packages:
+    - name: '@google-cloud/domains'
+      link: https://cloud.google.com/nodejs/docs/reference/domains/latest
+- name: Cloud OS Config
+  packages:
+    - name: '@google-cloud/os-config'
+      link: https://cloud.google.com/nodejs/docs/reference/os-config/latest
+- name: Contact Center AI Insights
+  packages:
+    - name: '@google-cloud/contact-center-insights'
+      link: https://cloud.google.com/nodejs/docs/reference/contact-center-insights/latest
+- name: Google Ad Manager API
+  packages:
+    - name: '@google-ads/admanager'
+      link: https://cloud.google.com/nodejs/docs/reference/admanager/latest
+- name: Managed Lustre
+  packages:
+    - name: '@google-cloud/lustre'
+      link: https://cloud.google.com/nodejs/docs/reference/lustre/latest
+- name: Cloud Build
+  packages:
+    - name: '@google-cloud/cloudbuild'
+      link: https://cloud.google.com/nodejs/docs/reference/cloudbuild/latest
+- name: Data Catalog
+  packages:
+    - name: '@google-cloud/datacatalog'
+      link: https://cloud.google.com/nodejs/docs/reference/datacatalog/latest
+- name: Service Usage
+  packages:
+    - name: '@google-cloud/service-usage'
+      link: https://cloud.google.com/service-usage/docs/overview
+- name: Access Context Manager
+  packages:
+    - name: '@google-cloud/access-context-manager'
+      link: https://cloud.google.com/nodejs/docs/reference/access-context-manager/latest
+- name: Cloud Vision
+  packages:
+    - name: '@google-cloud/vision'
+      link: https://cloud.google.com/nodejs/docs/reference/vision/latest
+- name: Confidential Space
+  packages:
+    - name: '@google-cloud/confidentialcomputing'
+      link: https://cloud.google.com/nodejs/docs/reference/confidentialcomputing/latest
+- name: Media Translation
+  packages:
+    - name: '@google-cloud/media-translation'
+      link: https://cloud.google.com/nodejs/docs/reference/media-translation/latest
+- name: Cloud Quotas
+  packages:
+    - name: '@google-cloud/cloudquotas'
+      link: https://cloud.google.com/nodejs/docs/reference/cloudquotas/latest
+- name: Confidential VM
+  packages:
+    - name: '@google-cloud/confidentialcomputing'
+      link: https://cloud.google.com/nodejs/docs/reference/confidentialcomputing/latest
+- name: Filestore
+  packages:
+    - name: '@google-cloud/filestore'
+      link: https://cloud.google.com/nodejs/docs/reference/filestore/latest
+- name: Certificate Authority Service
+  packages:
+    - name: '@google-cloud/security-private-ca'
+      link: https://cloud.google.com/nodejs/docs/reference/security-private-ca/latest
+- name: Bigtable
+  packages:
+    - name: '@google-cloud/bigtable'
+      link: https://cloud.google.com/nodejs/docs/reference/bigtable/latest
+- name: SaaS Runtime
+  packages:
+    - name: '@google-cloud/saasservicemgmt'
+      link: https://cloud.google.com/nodejs/docs/reference/saasservicemgmt/latest

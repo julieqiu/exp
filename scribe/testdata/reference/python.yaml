@@ -1,0 +1,724 @@
+- name: Access Context Manager
+  packages:
+    - name: google-cloud-access-context-manager
+      link: https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-access-context-manager
+- name: Chrome Enterprise Premium
+  packages:
+    - name: google-cloud-beyondcorp-appconnections
+      link: https://cloud.google.com/python/docs/reference/beyondcorpappconnections/latest
+    - name: google-cloud-beyondcorp-appconnectors
+      link: https://cloud.google.com/python/docs/reference/beyondcorpappconnectors/latest
+    - name: google-cloud-beyondcorp-appgateways
+      link: https://cloud.google.com/python/docs/reference/beyondcorpappgateways/latest
+    - name: google-cloud-beyondcorp-clientconnectorservices
+      link: https://cloud.google.com/python/docs/reference/beyondcorpclientconnectorservices/latest
+    - name: google-cloud-beyondcorp-clientgateways
+      link: https://cloud.google.com/python/docs/reference/beyondcorpclientgateways/latest
+- name: Filestore
+  packages:
+    - name: google-cloud-filestore
+      link: https://cloud.google.com/python/docs/reference/file/latest
+- name: Service Control API
+  packages:
+    - name: google-cloud-service-control
+      link: https://cloud.google.com/python/docs/reference/servicecontrol/latest
+- name: BigQuery DataPolicy API
+  packages:
+    - name: google-cloud-bigquery-datapolicies
+      link: https://cloud.google.com/python/docs/reference/bigquerydatapolicy/latest
+- name: Cloud OS Config
+  packages:
+    - name: google-cloud-os-config
+      link: https://cloud.google.com/python/docs/reference/osconfig/latest
+- name: Eventarc
+  packages:
+    - name: google-cloud-eventarc
+      link: https://cloud.google.com/python/docs/reference/eventarc/latest
+- name: Network Management API
+  packages:
+    - name: google-cloud-network-management
+      link: https://cloud.google.com/python/docs/reference/networkmanagement/latest
+- name: Speech-to-Text
+  packages:
+    - name: google-cloud-speech
+      link: https://cloud.google.com/python/docs/reference/speech/latest
+- name: Access Approval
+  packages:
+    - name: google-cloud-access-approval
+      link: https://cloud.google.com/python/docs/reference/accessapproval/latest
+- name: Address Validation API
+  packages:
+    - name: google-maps-addressvalidation
+      link: https://googleapis.dev/python/addressvalidation/latest
+- name: BigQuery Storage
+  packages:
+    - name: google-cloud-bigquery-storage
+      link: https://cloud.google.com/python/docs/reference/bigquerystorage/latest
+- name: Data Catalog
+  packages:
+    - name: google-cloud-datacatalog
+      link: https://cloud.google.com/python/docs/reference/datacatalog/latest
+- name: Discovery Engine API
+  packages:
+    - name: google-cloud-discoveryengine
+      link: https://cloud.google.com/python/docs/reference/discoveryengine/latest
+- name: SaaS Runtime
+  packages:
+    - name: google-cloud-saasplatform-saasservicemgmt
+      link: https://cloud.google.com/python/docs/reference/google-cloud-saasplatform-saasservicemgmt/latest
+- name: Chat API
+  packages:
+    - name: google-apps-chat
+      link: https://googleapis.dev/python/google-apps-chat/latest
+- name: Cloud Billing
+  packages:
+    - name: google-cloud-billing
+      link: https://cloud.google.com/python/docs/reference/cloudbilling/latest
+- name: Bare Metal Solution
+  packages:
+    - name: google-cloud-bare-metal-solution
+      link: https://cloud.google.com/python/docs/reference/baremetalsolution/latest
+- name: Dataplex
+  packages:
+    - name: google-cloud-dataplex
+      link: https://cloud.google.com/python/docs/reference/dataplex/latest
+- name: Virtual Private Cloud
+  packages:
+    - name: google-cloud-vpc-access
+      link: https://cloud.google.com/python/docs/reference/vpcaccess/latest
+- name: Advisory Notifications
+  packages:
+    - name: google-cloud-advisorynotifications
+      link: https://cloud.google.com/python/docs/reference/advisorynotifications/latest
+- name: Channel Services
+  packages:
+    - name: google-cloud-channel
+      link: https://cloud.google.com/python/docs/reference/cloudchannel/latest
+- name: Dataproc
+  packages:
+    - name: google-cloud-dataproc
+      link: https://cloud.google.com/python/docs/reference/dataproc/latest
+- name: Identity and Access Management
+  packages:
+    - name: google-cloud-policytroubleshooter-iam
+      link: https://cloud.google.com/python/docs/reference/policytroubleshooter-iam/latest
+    - name: grpc-google-iam-v1
+      link: https://cloud.google.com/python/docs/reference/grpc-iam/latest
+- name: Organization Policy Service
+  packages:
+    - name: google-cloud-org-policy
+      link: https://cloud.google.com/python/docs/reference/orgpolicy/latest
+- name: AI Platform Data Labeling Service
+  packages:
+    - name: google-cloud-datalabeling
+      link: https://cloud.google.com/python/docs/reference/datalabeling/latest
+- name: Vertex AI Workbench
+  packages:
+    - name: google-cloud-notebooks
+      link: https://cloud.google.com/python/docs/reference/notebooks/latest
+- name: AlloyDB for PostgreSQL
+  packages:
+    - name: google-cloud-alloydb
+      link: https://cloud.google.com/python/docs/reference/alloydb/latest
+- name: Backup for GKE
+  packages:
+    - name: google-cloud-gke-backup
+      link: https://cloud.google.com/python/docs/reference/gkebackup/latest
+- name: Cloud Asset Inventory
+  packages:
+    - name: google-cloud-asset
+      link: https://cloud.google.com/python/docs/reference/cloudasset/latest
+- name: Google Ad Manager API
+  packages:
+    - name: google-ads-admanager
+      link: https://googleapis.dev/python/google-ads-admanager/latest
+- name: Google Workspace add-ons
+  packages:
+    - name: google-cloud-gsuiteaddons
+      link: https://cloud.google.com/python/docs/reference/gsuiteaddons/latest
+- name: Infrastructure Manager
+  packages:
+    - name: google-cloud-config
+      link: https://cloud.google.com/python/docs/reference/config/latest
+- name: Web Risk
+  packages:
+    - name: google-cloud-webrisk
+      link: https://cloud.google.com/python/docs/reference/webrisk/latest
+- name: Cloud DNS
+  packages:
+    - name: google-cloud-dns
+      link: https://cloud.google.com/python/docs/reference/dns/latest
+- name: Eventarc Publishing API
+  packages:
+    - name: google-cloud-eventarc-publishing
+      link: https://cloud.google.com/python/docs/reference/eventarcpublishing/latest
+- name: Identity-Aware Proxy
+  packages:
+    - name: google-cloud-iap
+      link: https://cloud.google.com/python/docs/reference/iap/latest
+- name: Oracle Database@Google Cloud
+  packages:
+    - name: google-cloud-oracledatabase
+      link: https://cloud.google.com/python/docs/reference/google-cloud-oracledatabase/latest
+- name: Recommendations
+  packages:
+    - name: google-cloud-recommendations-ai
+      link: https://cloud.google.com/python/docs/reference/recommendationengine/latest
+- name: Secret Manager
+  packages:
+    - name: google-cloud-secret-manager
+      link: https://cloud.google.com/python/docs/reference/secretmanager/latest
+- name: Developer Connect
+  packages:
+    - name: google-cloud-developerconnect
+      link: https://cloud.google.com/python/docs/reference/google-cloud-developerconnect/latest
+- name: AutoML
+  packages:
+    - name: google-cloud-automl
+      link: https://cloud.google.com/python/docs/reference/automl/latest
+- name: Binary Authorization
+  packages:
+    - name: google-cloud-binary-authorization
+      link: https://cloud.google.com/python/docs/reference/binaryauthorization/latest
+- name: Confidential Space
+  packages:
+    - name: google-cloud-confidentialcomputing
+      link: https://cloud.google.com/python/docs/reference/confidentialcomputing/latest
+- name: Connect Gateway API
+  packages:
+    - name: google-cloud-gke-connect-gateway
+      link: https://cloud.google.com/python/docs/reference/connectgateway/latest
+- name: Artifact Registry
+  packages:
+    - name: google-cloud-artifact-registry
+      link: https://cloud.google.com/python/docs/reference/artifactregistry/latest
+- name: Capacity Planner
+  packages:
+    - name: google-cloud-capacityplanner
+      link: https://cloud.google.com/python/docs/reference/google-cloud-capacityplanner/latest
+- name: Cloud Runtime Config API
+  packages:
+    - name: google-cloud-runtimeconfig
+      link: https://cloud.google.com/python/docs/reference/runtimeconfig/latest
+- name: Cloud Scheduler
+  packages:
+    - name: google-cloud-scheduler
+      link: https://cloud.google.com/python/docs/reference/cloudscheduler/latest
+- name: Memorystore for Memcached
+  packages:
+    - name: google-cloud-memcache
+      link: https://cloud.google.com/python/docs/reference/memcache/latest
+- name: Places API
+  packages:
+    - name: google-maps-places
+      link: https://googleapis.dev/python/places/latest
+- name: Pub/Sub Lite
+  packages:
+    - name: google-cloud-pubsublite
+      link: https://cloud.google.com/python/docs/reference/pubsublite/latest
+- name: Service Management API
+  packages:
+    - name: google-cloud-service-management
+      link: https://cloud.google.com/python/docs/reference/servicemanagement/latest
+- name: Google Cloud VMware Engine
+  packages:
+    - name: google-cloud-vmwareengine
+      link: https://cloud.google.com/python/docs/reference/vmwareengine/latest
+- name: AI Platform
+  packages:
+    - name: google-cloud-aiplatform
+      link: https://cloud.google.com/python/docs/reference/aiplatform/latest
+- name: BigQuery Migration
+  packages:
+    - name: google-cloud-bigquery-migration
+      link: https://cloud.google.com/python/docs/reference/bigquerymigration/latest
+- name: Cloud Data Fusion
+  packages:
+    - name: google-cloud-data-fusion
+      link: https://cloud.google.com/python/docs/reference/datafusion/latest
+- name: Cloud Key Management Service
+  packages:
+    - name: google-cloud-kms
+      link: https://cloud.google.com/python/docs/reference/cloudkms/latest
+- name: Conversational Analytics API
+  packages:
+    - name: google-cloud-geminidataanalytics
+      link: https://cloud.google.com/python/docs/reference/google-cloud-geminidataanalytics/latest
+- name: Dataflow
+  packages:
+    - name: google-cloud-dataflow-client
+      link: https://cloud.google.com/python/docs/reference/dataflow/latest
+- name: Service Health
+  packages:
+    - name: google-cloud-servicehealth
+      link: https://cloud.google.com/python/docs/reference/google-cloud-servicehealth/latest
+- name: Cloud Tasks
+  packages:
+    - name: google-cloud-tasks
+      link: https://cloud.google.com/python/docs/reference/cloudtasks/latest
+- name: Container Analysis
+  packages:
+    - name: google-cloud-containeranalysis
+      link: https://cloud.google.com/python/docs/reference/containeranalysis/latest
+    - name: grafeas
+      link: https://googleapis.dev/python/grafeas/latest
+- name: Document AI
+  packages:
+    - name: google-cloud-documentai
+      link: https://cloud.google.com/python/docs/reference/documentai/latest
+- name: Enterprise Knowledge Graph
+  packages:
+    - name: google-cloud-enterpriseknowledgegraph
+      link: https://cloud.google.com/python/docs/reference/enterpriseknowledgegraph/latest
+- name: Cloud Deploy
+  packages:
+    - name: google-cloud-deploy
+      link: https://cloud.google.com/python/docs/reference/clouddeploy/latest
+- name: API Keys API
+  packages:
+    - name: google-cloud-api-keys
+      link: https://cloud.google.com/python/docs/reference/apikeys/latest
+- name: Analytics Hub API
+  packages:
+    - name: google-cloud-bigquery-analyticshub
+      link: https://cloud.google.com/python/docs/reference/analyticshub/latest
+    - name: google-cloud-bigquery-data-exchange
+      link: https://cloud.google.com/python/docs/reference/analyticshub/latest
+- name: Assured Workloads
+  packages:
+    - name: google-cloud-assured-workloads
+      link: https://cloud.google.com/python/docs/reference/assuredworkloads/latest
+- name: Dialogflow
+  packages:
+    - name: google-cloud-dialogflow
+      link: https://cloud.google.com/python/docs/reference/dialogflow/latest
+    - name: google-cloud-dialogflow-cx
+      link: https://cloud.google.com/python/docs/reference/dialogflow-cx/latest
+- name: Backup and DR
+  packages:
+    - name: google-cloud-backupdr
+      link: https://cloud.google.com/python/docs/reference/backupdr/latest
+- name: Cloud Logging
+  packages:
+    - name: google-cloud-logging
+      link: https://cloud.google.com/python/docs/reference/logging/latest
+- name: Cloud Natural Language API
+  packages:
+    - name: google-cloud-language
+      link: https://cloud.google.com/python/docs/reference/language/latest
+- name: Cloud Run functions
+  packages:
+    - name: google-cloud-functions
+      link: https://cloud.google.com/python/docs/reference/cloudfunctions/latest
+- name: Memorystore for Redis
+  packages:
+    - name: google-cloud-memorystore
+      link: https://cloud.google.com/python/docs/reference/google-cloud-memorystore/latest
+    - name: google-cloud-redis
+      link: https://cloud.google.com/python/docs/reference/redis/latest
+- name: Merchant API for Shopping
+  packages:
+    - name: google-shopping-merchant-quota
+      link: https://googleapis.dev/python/google-shopping-merchant-quota/latest
+- name: NetApp Volumes
+  packages:
+    - name: google-cloud-netapp
+      link: https://cloud.google.com/python/docs/reference/netapp/latest
+- name: App Engine Admin API
+  packages:
+    - name: google-cloud-appengine-admin
+      link: https://cloud.google.com/python/docs/reference/appengine/latest
+- name: BigQuery Data Transfer Service
+  packages:
+    - name: google-cloud-bigquery-datatransfer
+      link: https://cloud.google.com/python/docs/reference/bigquerydatatransfer/latest
+- name: Video Intelligence API
+  packages:
+    - name: google-cloud-videointelligence
+      link: https://cloud.google.com/python/docs/reference/videointelligence/latest
+- name: Cloud Billing Budget API
+  packages:
+    - name: google-cloud-billing-budgets
+      link: https://cloud.google.com/python/docs/reference/billingbudgets/latest
+- name: Compute Engine
+  packages:
+    - name: google-cloud-compute
+      link: https://cloud.google.com/python/docs/reference/compute/latest
+    - name: google-cloud-compute-v1beta
+      link: https://cloud.google.com/python/docs/reference/google-cloud-compute-v1beta/latest
+- name: Document AI Warehouse
+  packages:
+    - name: google-cloud-contentwarehouse
+      link: https://cloud.google.com/python/docs/reference/contentwarehouse/latest
+- name: Integration Connectors
+  packages:
+    - name: google-cloud-alloydb-connectors
+      link: https://cloud.google.com/python/docs/reference/connectors/latest
+- name: Managed Service for Microsoft Active Directory
+  packages:
+    - name: google-cloud-managed-identities
+      link: https://cloud.google.com/python/docs/reference/managedidentities/latest
+- name: Service Usage
+  packages:
+    - name: google-cloud-service-usage
+      link: https://cloud.google.com/python/docs/reference/serviceusage/latest
+- name: Cloud Life Sciences
+  packages:
+    - name: google-cloud-life-sciences
+      link: https://cloud.google.com/python/docs/reference/lifesciences/latest
+- name: Cloud Quotas
+  packages:
+    - name: google-cloud-quotas
+      link: https://cloud.google.com/python/docs/reference/google-cloud-cloudquotas/latest
+- name: Cloud Run
+  packages:
+    - name: google-cloud-run
+      link: https://cloud.google.com/python/docs/reference/run/latest
+- name: BigLake API
+  packages:
+    - name: google-cloud-biglake
+      link: https://cloud.google.com/python/docs/reference/google-cloud-biglake/latest
+    - name: google-cloud-bigquery-biglake
+      link: https://cloud.google.com/python/docs/reference/biglake/latest
+- name: Network Connectivity Center
+  packages:
+    - name: google-cloud-network-connectivity
+      link: https://cloud.google.com/python/docs/reference/networkconnectivity/latest
+- name: Batch
+  packages:
+    - name: google-cloud-batch
+      link: https://cloud.google.com/python/docs/reference/batch/latest
+- name: Cloud Monitoring
+  packages:
+    - name: google-cloud-monitoring
+      link: https://cloud.google.com/python/docs/reference/monitoring/latest
+    - name: google-cloud-monitoring-dashboards
+      link: https://cloud.google.com/python/docs/reference/monitoring-dashboards/latest
+    - name: google-cloud-monitoring-metrics-scopes
+      link: https://cloud.google.com/python/docs/reference/google-cloud-monitoring-metrics-scopes/latest
+- name: Firestore in Datastore mode
+  packages:
+    - name: google-cloud-datastore
+      link: https://cloud.google.com/python/docs/reference/datastore/latest
+    - name: google-cloud-ndb
+      link: https://googleapis.dev/python/python-ndb/latest
+- name: Migrate to Virtual Machines
+  packages:
+    - name: google-cloud-vm-migration
+      link: https://cloud.google.com/python/docs/reference/vmmigration/latest
+- name: Video Stitcher API
+  packages:
+    - name: google-cloud-video-stitcher
+      link: https://cloud.google.com/python/docs/reference/videostitcher/latest
+- name: Dataform
+  packages:
+    - name: google-cloud-dataform
+      link: https://cloud.google.com/python/docs/reference/dataform/latest
+- name: Secure Source Manager
+  packages:
+    - name: google-cloud-securesourcemanager
+      link: https://cloud.google.com/python/docs/reference/securesourcemanager/latest
+- name: Text-to-Speech
+  packages:
+    - name: google-cloud-texttospeech
+      link: https://cloud.google.com/python/docs/reference/texttospeech/latest
+- name: Apigee API hub
+  packages:
+    - name: google-cloud-apihub
+      link: https://cloud.google.com/python/docs/reference/google-cloud-apihub/latest
+- name: Apigee Connect API
+  packages:
+    - name: google-cloud-apigee-connect
+      link: https://cloud.google.com/python/docs/reference/apigeeconnect/latest
+- name: Cloud Talent Solution Job Search
+  packages:
+    - name: google-cloud-talent
+      link: https://cloud.google.com/python/docs/reference/talent/latest
+- name: Google Cloud Managed Service for Apache Kafka
+  packages:
+    - name: google-cloud-managedkafka
+      link: https://cloud.google.com/python/docs/reference/google-cloud-managedkafka/latest
+- name: Public Certificate Authority
+  packages:
+    - name: google-cloud-security-publicca
+      link: https://cloud.google.com/python/docs/reference/publicca/latest
+- name: Storage Transfer Service
+  packages:
+    - name: google-cloud-storage-transfer
+      link: https://cloud.google.com/python/docs/reference/storagetransfer/latest
+- name: App Hub
+  packages:
+    - name: google-cloud-apphub
+      link: https://cloud.google.com/python/docs/reference/google-cloud-apphub/latest
+- name: Certificate Authority Service
+  packages:
+    - name: google-cloud-private-ca
+      link: https://cloud.google.com/python/docs/reference/privateca/latest
+- name: Error Reporting
+  packages:
+    - name: google-cloud-error-reporting
+      link: https://cloud.google.com/python/docs/reference/clouderrorreporting/latest
+- name: GKE Hub API
+  packages:
+    - name: google-cloud-gke-hub
+      link: https://cloud.google.com/python/docs/reference/gkehub/latest
+- name: Live Stream API
+  packages:
+    - name: google-cloud-video-live-stream
+      link: https://cloud.google.com/python/docs/reference/livestream/latest
+- name: Parallelstore
+  packages:
+    - name: google-cloud-parallelstore
+      link: https://cloud.google.com/python/docs/reference/google-cloud-parallelstore/latest
+- name: Phishing Protection
+  packages:
+    - name: google-cloud-phishing-protection
+      link: https://cloud.google.com/python/docs/reference/phishingprotection/latest
+- name: BigQuery Connection API
+  packages:
+    - name: google-cloud-bigquery-connection
+      link: https://cloud.google.com/python/docs/reference/bigqueryconnection/latest
+- name: Cloud Shell
+  packages:
+    - name: google-cloud-shell
+      link: https://cloud.google.com/python/docs/reference/cloudshell/latest
+- name: Migration Center
+  packages:
+    - name: google-cloud-migrationcenter
+      link: https://cloud.google.com/python/docs/reference/migrationcenter/latest
+- name: Recommender
+  packages:
+    - name: google-cloud-recommender
+      link: https://cloud.google.com/python/docs/reference/recommender/latest
+- name: Security Command Center
+  packages:
+    - name: google-cloud-modelarmor
+      link: https://cloud.google.com/python/docs/reference/google-cloud-modelarmor/latest
+    - name: google-cloud-securitycenter
+      link: https://cloud.google.com/python/docs/reference/securitycenter/latest
+    - name: google-cloud-securitycentermanagement
+      link: https://cloud.google.com/python/docs/reference/google-cloud-securitycentermanagement/latest
+    - name: google-cloud-websecurityscanner
+      link: https://cloud.google.com/python/docs/reference/websecurityscanner/latest
+- name: Storage Insights
+  packages:
+    - name: google-cloud-storageinsights
+      link: https://cloud.google.com/python/docs/reference/storageinsights/latest
+- name: Analytics Data API
+  packages:
+    - name: google-analytics-data
+      link: https://googleapis.dev/python/analyticsdata/latest
+- name: Google Meet
+  packages:
+    - name: google-apps-meet
+      link: https://googleapis.dev/python/google-apps-meet/latest
+- name: Managed Lustre
+  packages:
+    - name: google-cloud-lustre
+      link: https://cloud.google.com/python/docs/reference/google-cloud-lustre/latest
+- name: Vertex AI Vision
+  packages:
+    - name: google-cloud-visionai
+      link: https://cloud.google.com/python/docs/reference/google-cloud-visionai/latest
+- name: Cloud IDS
+  packages:
+    - name: google-cloud-ids
+      link: https://cloud.google.com/python/docs/reference/ids/latest
+- name: Cloud Vision
+  packages:
+    - name: google-cloud-vision
+      link: https://cloud.google.com/python/docs/reference/vision/latest
+- name: Tables by Area 120
+  packages:
+    - name: google-area120-tables
+      link: https://googleapis.dev/python/area120tables/latest
+- name: Datastream
+  packages:
+    - name: google-cloud-datastream
+      link: https://cloud.google.com/python/docs/reference/datastream/latest
+- name: Google SecOps SIEM
+  packages:
+    - name: google-cloud-chronicle
+      link: https://cloud.google.com/python/docs/reference/google-cloud-chronicle/latest
+- name: Analytics Admin API
+  packages:
+    - name: google-analytics-admin
+      link: https://googleapis.dev/python/analyticsadmin/latest
+- name: Apigee Registry
+  packages:
+    - name: google-cloud-apigee-registry
+      link: https://cloud.google.com/python/docs/reference/apigeeregistry/latest
+- name: Cloud Trace
+  packages:
+    - name: google-cloud-trace
+      link: https://cloud.google.com/python/docs/reference/cloudtrace/latest
+- name: Cloud Workstations
+  packages:
+    - name: google-cloud-workstations
+      link: https://cloud.google.com/python/docs/reference/workstations/latest
+- name: Route Optimization API
+  packages:
+    - name: google-maps-routeoptimization
+      link: https://googleapis.dev/python/google-maps-routeoptimization/latest
+- name: Transcoder API
+  packages:
+    - name: google-cloud-video-transcoder
+      link: https://cloud.google.com/python/docs/reference/transcoder/latest
+- name: Cloud Composer
+  packages:
+    - name: google-cloud-orchestration-airflow
+      link: https://cloud.google.com/python/docs/reference/composer/latest
+- name: Cloud Domains
+  packages:
+    - name: google-cloud-domains
+      link: https://cloud.google.com/python/docs/reference/domains/latest
+- name: Cloud Storage
+  packages:
+    - name: google-cloud-storage
+      link: https://cloud.google.com/python/docs/reference/storage/latest
+    - name: google-cloud-storage-control
+      link: https://cloud.google.com/python/docs/reference/google-cloud-storage-control/latest
+- name: Dataproc Metastore
+  packages:
+    - name: google-cloud-dataproc-metastore
+      link: https://cloud.google.com/python/docs/reference/metastore/latest
+- name: Essential Contacts API
+  packages:
+    - name: google-cloud-essential-contacts
+      link: https://cloud.google.com/python/docs/reference/essentialcontacts/latest
+- name: Kubernetes Engine API
+  packages:
+    - name: google-cloud-container
+      link: https://cloud.google.com/python/docs/reference/container/latest
+- name: Media CDN
+  packages:
+    - name: google-cloud-network-services
+      link: https://cloud.google.com/python/docs/reference/networkservices/latest
+- name: Network Security API
+  packages:
+    - name: google-cloud-network-security
+      link: https://cloud.google.com/python/docs/reference/networksecurity/latest
+- name: Cloud Build
+  packages:
+    - name: google-cloud-build
+      link: https://cloud.google.com/python/docs/reference/cloudbuild/latest
+- name: Pub/Sub
+  packages:
+    - name: google-cloud-pubsub
+      link: https://cloud.google.com/python/docs/reference/pubsub/latest
+- name: Solar API
+  packages:
+    - name: google-maps-solar
+      link: https://googleapis.dev/python/google-maps-solar/latest
+- name: Spanner
+  packages:
+    - name: google-cloud-spanner
+      link: https://cloud.google.com/python/docs/reference/spanner/latest
+- name: Vertex AI
+  packages:
+    - name: google-cloud-aiplatform
+      link: https://cloud.google.com/python/docs/reference/aiplatform/latest
+- name: BigQuery Data QnA
+  packages:
+    - name: google-cloud-data-qna
+      link: https://cloud.google.com/python/docs/reference/dataqna/latest
+- name: API Gateway
+  packages:
+    - name: google-cloud-api-gateway
+      link: https://cloud.google.com/python/docs/reference/apigateway/latest
+- name: BigQuery Reservation API
+  packages:
+    - name: google-cloud-bigquery-reservation
+      link: https://cloud.google.com/python/docs/reference/bigqueryreservation/latest
+- name: Bigtable
+  packages:
+    - name: google-cloud-bigtable
+      link: https://cloud.google.com/python/docs/reference/bigtable/latest
+- name: Cloud OS Login API
+  packages:
+    - name: google-cloud-os-login
+      link: https://cloud.google.com/python/docs/reference/oslogin/latest
+- name: Retail API
+  packages:
+    - name: google-cloud-retail
+      link: https://cloud.google.com/python/docs/reference/retail/latest
+- name: Service Directory
+  packages:
+    - name: google-cloud-service-directory
+      link: https://cloud.google.com/python/docs/reference/servicedirectory/latest
+- name: Contact Center AI Insights
+  packages:
+    - name: google-cloud-contact-center-insights
+      link: https://cloud.google.com/python/docs/reference/contactcenterinsights/latest
+- name: IAM Service Account Credentials API
+  packages:
+    - name: google-cloud-iam
+      link: https://cloud.google.com/python/docs/reference/iam/latest
+- name: Cloud Database Migration Service
+  packages:
+    - name: google-cloud-dms
+      link: https://cloud.google.com/python/docs/reference/datamigration/latest
+- name: BigQuery
+  packages:
+    - name: bigframes
+      link: https://cloud.google.com/python/docs/reference/bigframes/latest
+    - name: google-cloud-bigquery
+      link: https://cloud.google.com/python/docs/reference/bigquery/latest
+- name: Cloud TPU
+  packages:
+    - name: google-cloud-tpu
+      link: https://cloud.google.com/python/docs/reference/tpu/latest
+- name: Media Translation
+  packages:
+    - name: google-cloud-media-translation
+      link: https://cloud.google.com/python/docs/reference/mediatranslation/latest
+- name: Workflows
+  packages:
+    - name: google-cloud-workflows
+      link: https://cloud.google.com/python/docs/reference/workflows/latest
+- name: Cloud Translation
+  packages:
+    - name: google-cloud-translate
+      link: https://cloud.google.com/python/docs/reference/translate/latest
+- name: Confidential VM
+  packages:
+    - name: google-cloud-confidentialcomputing
+      link: https://cloud.google.com/python/docs/reference/confidentialcomputing/latest
+- name: IAM Policy Troubleshooter API
+  packages:
+    - name: google-cloud-policy-troubleshooter
+      link: https://cloud.google.com/python/docs/reference/policytroubleshooter/latest
+- name: Sensitive Data Protection
+  packages:
+    - name: google-cloud-dlp
+      link: https://cloud.google.com/python/docs/reference/dlp/latest
+- name: reCAPTCHA
+  packages:
+    - name: google-cloud-recaptcha-enterprise
+      link: https://cloud.google.com/python/docs/reference/recaptchaenterprise/latest
+- name: Certificate Manager
+  packages:
+    - name: google-cloud-certificate-manager
+      link: https://cloud.google.com/python/docs/reference/certificatemanager/latest
+- name: Cloud Optimization AI
+  packages:
+    - name: google-cloud-optimization
+      link: https://cloud.google.com/python/docs/reference/optimization/latest
+- name: Firestore
+  packages:
+    - name: google-cloud-firestore
+      link: https://cloud.google.com/python/docs/reference/firestore/latest
+- name: Fleet Engine API
+  packages:
+    - name: google-maps-fleetengine
+      link: https://googleapis.dev/python/fleetengine/latest
+    - name: google-maps-fleetengine-delivery
+      link: https://googleapis.dev/python/fleetengine-delivery/latest
+- name: Parameter Manager
+  packages:
+    - name: google-cloud-parametermanager
+      link: https://cloud.google.com/python/docs/reference/google-cloud-parametermanager/latest
+- name: Resource Manager
+  packages:
+    - name: google-cloud-resource-manager
+      link: https://cloud.google.com/python/docs/reference/cloudresourcemanager/latest

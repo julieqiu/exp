@@ -1,0 +1,698 @@
+- name: Cloud Database Migration Service
+  packages:
+    - name: google/cloud-dms
+      link: https://cloud.google.com/php/docs/reference/cloud-dms/latest
+- name: Infrastructure Manager
+  packages:
+    - name: google/cloud-config
+      link: https://cloud.google.com/php/docs/reference/cloud-config/latest
+- name: Retail API
+  packages:
+    - name: google/cloud-retail
+      link: https://cloud.google.com/php/docs/reference/cloud-retail/latest
+- name: Storage Transfer Service
+  packages:
+    - name: google/cloud-storage-transfer
+      link: https://cloud.google.com/php/docs/reference/cloud-storage-transfer/latest
+- name: Artifact Registry
+  packages:
+    - name: google/cloud-artifact-registry
+      link: https://cloud.google.com/php/docs/reference/cloud-artifact-registry/latest
+- name: BigQuery DataPolicy API
+  packages:
+    - name: google/cloud-bigquery-datapolicies
+      link: https://cloud.google.com/php/docs/reference/cloud-bigquery-datapolicies/latest
+- name: Cloud OS Login API
+  packages:
+    - name: google/cloud-oslogin
+      link: https://cloud.google.com/php/docs/reference/cloud-oslogin/latest
+- name: Cloud Run functions
+  packages:
+    - name: google/cloud-functions
+      link: https://cloud.google.com/php/docs/reference/cloud-functions/latest
+- name: Cloud Scheduler
+  packages:
+    - name: google/cloud-scheduler
+      link: https://cloud.google.com/php/docs/reference/cloud-scheduler/latest
+- name: Cloud Shell
+  packages:
+    - name: google/cloud-shell
+      link: https://cloud.google.com/php/docs/reference/cloud-shell/latest
+- name: Fleet Engine API
+  packages:
+    - name: google/maps-fleetengine
+      link: https://cloud.google.com/php/docs/reference/maps-fleetengine/latest
+    - name: google/maps-fleetengine-delivery
+      link: https://cloud.google.com/php/docs/reference/maps-fleetengine-delivery/latest
+- name: Google Workspace Events API
+  packages:
+    - name: google/apps-events-subscriptions
+      link: https://cloud.google.com/php/docs/reference/apps-events-subscriptions/latest
+- name: Cloud Asset Inventory
+  packages:
+    - name: google/cloud-asset
+      link: https://cloud.google.com/php/docs/reference/cloud-asset/latest
+- name: Workflows
+  packages:
+    - name: google/cloud-workflows
+      link: https://cloud.google.com/php/docs/reference/cloud-workflows/latest
+- name: Advisory Notifications
+  packages:
+    - name: google/cloud-advisorynotifications
+      link: https://cloud.google.com/php/docs/reference/cloud-advisorynotifications/latest
+- name: Organization Policy Service
+  packages:
+    - name: google/cloud-org-policy
+      link: https://cloud.google.com/php/docs/reference/cloud-org-policy/latest
+- name: Web Security Scanner
+  packages:
+    - name: google/cloud-web-security-scanner
+      link: https://cloud.google.com/php/docs/reference/cloud-web-security-scanner/latest
+- name: Backup for GKE
+  packages:
+    - name: google/cloud-gke-backup
+      link: https://cloud.google.com/php/docs/reference/cloud-gke-backup/latest
+- name: Cloud Quotas
+  packages:
+    - name: google/cloud-quotas
+      link: https://cloud.google.com/php/docs/reference/cloud-quotas/latest
+- name: Cloud IDS
+  packages:
+    - name: google/cloud-ids
+      link: https://cloud.google.com/php/docs/reference/cloud-ids/latest
+- name: Error Reporting
+  packages:
+    - name: google/cloud-error-reporting
+      link: https://cloud.google.com/php/docs/reference/cloud-error-reporting/latest
+- name: Merchant API for Shopping
+  packages:
+    - name: google/shopping-merchant-accounts
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-accounts/latest
+    - name: google/shopping-merchant-conversions
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-conversions/latest
+    - name: google/shopping-merchant-datasources
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-datasources/latest
+    - name: google/shopping-merchant-issueresolution
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-issueresolution/latest
+    - name: google/shopping-merchant-lfp
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-lfp/latest
+    - name: google/shopping-merchant-notifications
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-notifications/latest
+    - name: google/shopping-merchant-ordertracking
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-ordertracking/latest
+    - name: google/shopping-merchant-products
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-products/latest
+    - name: google/shopping-merchant-promotions
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-promotions/latest
+    - name: google/shopping-merchant-quota
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-quota/latest
+    - name: google/shopping-merchant-reports
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-reports/latest
+    - name: google/shopping-merchant-reviews
+      link: https://cloud.google.com/php/docs/reference/shopping-merchant-reviews/latest
+- name: Apigee Connect API
+  packages:
+    - name: google/cloud-apigee-connect
+      link: https://cloud.google.com/php/docs/reference/cloud-apigee-connect/latest
+- name: Compute Engine
+  packages:
+    - name: google/cloud-compute
+      link: https://cloud.google.com/php/docs/reference/cloud-compute/latest
+- name: Eventarc
+  packages:
+    - name: google/cloud-eventarc
+      link: https://cloud.google.com/php/docs/reference/cloud-eventarc/latest
+- name: Eventarc Publishing API
+  packages:
+    - name: google/cloud-eventarc-publishing
+      link: https://cloud.google.com/php/docs/reference/cloud-eventarc-publishing/latest
+- name: Network Connectivity Center
+  packages:
+    - name: google/cloud-network-connectivity
+      link: https://cloud.google.com/php/docs/reference/cloud-network-connectivity/latest
+- name: Service Health
+  packages:
+    - name: google/cloud-servicehealth
+      link: https://cloud.google.com/php/docs/reference/cloud-servicehealth/latest
+- name: Text-to-Speech
+  packages:
+    - name: google/cloud-text-to-speech
+      link: https://cloud.google.com/php/docs/reference/cloud-text-to-speech/latest
+- name: Access Approval
+  packages:
+    - name: google/cloud-access-approval
+      link: https://cloud.google.com/php/docs/reference/cloud-access-approval/latest
+- name: Cloud TPU
+  packages:
+    - name: google/cloud-tpu
+      link: https://cloud.google.com/php/docs/reference/cloud-tpu/latest
+- name: Migrate to Virtual Machines
+  packages:
+    - name: google/cloud-vm-migration
+      link: https://cloud.google.com/php/docs/reference/cloud-vm-migration/latest
+- name: reCAPTCHA
+  packages:
+    - name: google/cloud-recaptcha-enterprise
+      link: https://cloud.google.com/php/docs/reference/cloud-recaptcha-enterprise/latest
+- name: Batch
+  packages:
+    - name: google/cloud-batch
+      link: https://cloud.google.com/php/docs/reference/cloud-batch/latest
+- name: Cloud Billing Budget API
+  packages:
+    - name: google/cloud-billing-budgets
+      link: https://cloud.google.com/php/docs/reference/cloud-billing-budgets/latest
+- name: Cloud Data Fusion
+  packages:
+    - name: google/cloud-data-fusion
+      link: https://cloud.google.com/php/docs/reference/cloud-data-fusion/latest
+- name: Cloud Run
+  packages:
+    - name: google/cloud-run
+      link: https://cloud.google.com/php/docs/reference/cloud-run/latest
+- name: Dataproc Metastore
+  packages:
+    - name: google/cloud-dataproc-metastore
+      link: https://cloud.google.com/php/docs/reference/cloud-dataproc-metastore/latest
+- name: Developer Connect
+  packages:
+    - name: google/cloud-developerconnect
+      link: https://cloud.google.com/php/docs/reference/cloud-developerconnect/latest
+- name: Oracle Database@Google Cloud
+  packages:
+    - name: google/cloud-oracledatabase
+      link: https://cloud.google.com/php/docs/reference/cloud-oracledatabase/latest
+- name: Speech-to-Text
+  packages:
+    - name: google/cloud-speech
+      link: https://cloud.google.com/php/docs/reference/cloud-speech/latest
+- name: Backup and DR
+  packages:
+    - name: google/cloud-backupdr
+      link: https://cloud.google.com/php/docs/reference/cloud-backupdr/latest
+- name: Bare Metal Solution
+  packages:
+    - name: google/cloud-bare-metal-solution
+      link: https://cloud.google.com/php/docs/reference/cloud-bare-metal-solution/latest
+- name: BigQuery Migration
+  packages:
+    - name: google/cloud-bigquery-migration
+      link: https://cloud.google.com/php/docs/reference/cloud-bigquery-migration/latest
+- name: Cloud Build
+  packages:
+    - name: google/cloud-build
+      link: https://cloud.google.com/php/docs/reference/cloud-build/latest
+- name: Cloud Monitoring
+  packages:
+    - name: google/cloud-monitoring
+      link: https://cloud.google.com/php/docs/reference/cloud-monitoring/latest
+- name: Dataplex
+  packages:
+    - name: google/cloud-dataplex
+      link: https://cloud.google.com/php/docs/reference/cloud-dataplex/latest
+- name: Discovery Engine API
+  packages:
+    - name: google/cloud-discoveryengine
+      link: https://cloud.google.com/php/docs/reference/cloud-discoveryengine/latest
+- name: Vertex AI
+  packages:
+    - name: google/cloud-ai-platform
+      link: https://cloud.google.com/php/docs/reference/cloud-ai-platform/latest
+- name: Chat API
+  packages:
+    - name: google/apps-chat
+      link: https://cloud.google.com/php/docs/reference/apps-chat/latest
+- name: Kubernetes Engine API
+  packages:
+    - name: google/cloud-container
+      link: https://cloud.google.com/php/docs/reference/cloud-container/latest
+- name: Security Command Center
+  packages:
+    - name: google/cloud-security-center
+      link: https://cloud.google.com/php/docs/reference/cloud-security-center/latest
+- name: Service Directory
+  packages:
+    - name: google/cloud-service-directory
+      link: https://cloud.google.com/php/docs/reference/cloud-service-directory/latest
+- name: App Engine Admin API
+  packages:
+    - name: google/cloud-appengine-admin
+      link: https://cloud.google.com/php/docs/reference/cloud-appengine-admin/latest
+- name: Media CDN
+  packages:
+    - name: google/cloud-networkservices
+      link: https://cloud.google.com/php/docs/reference/cloud-networkservices/latest
+- name: Recommender
+  packages:
+    - name: google/cloud-recommender
+      link: https://cloud.google.com/php/docs/reference/cloud-recommender/latest
+- name: Sensitive Data Protection
+  packages:
+    - name: google/cloud-dlp
+      link: https://cloud.google.com/php/docs/reference/cloud-dlp/latest
+- name: BigQuery Reservation API
+  packages:
+    - name: google/cloud-bigquery-reservation
+      link: https://cloud.google.com/php/docs/reference/cloud-bigquery-reservation/latest
+- name: Cloud Composer
+  packages:
+    - name: google/cloud-orchestration-airflow
+      link: https://cloud.google.com/php/docs/reference/cloud-orchestration-airflow/latest
+- name: Cloud SQL Admin API
+  packages:
+    - name: google/cloud-sql-admin
+      link: https://cloud.google.com/php/docs/reference/cloud-sql-admin/latest
+- name: Cloud Trace
+  packages:
+    - name: google/cloud-trace
+      link: https://cloud.google.com/php/docs/reference/cloud-trace/latest
+- name: Managed Service for Microsoft Active Directory
+  packages:
+    - name: google/cloud-managed-identities
+      link: https://cloud.google.com/php/docs/reference/cloud-managed-identities/latest
+- name: Secret Manager
+  packages:
+    - name: google/cloud-secret-manager
+      link: https://cloud.google.com/php/docs/reference/cloud-secret-manager/latest
+- name: Assured Workloads
+  packages:
+    - name: google/cloud-assured-workloads
+      link: https://cloud.google.com/php/docs/reference/cloud-assured-workloads/latest
+- name: Binary Authorization
+  packages:
+    - name: google/cloud-binary-authorization
+      link: https://cloud.google.com/php/docs/reference/cloud-binary-authorization/latest
+- name: Cloud Translation
+  packages:
+    - name: google/cloud-translate
+      link: https://cloud.google.com/php/docs/reference/cloud-translate/latest
+- name: Memorystore for Redis
+  packages:
+    - name: google/cloud-memorystore
+      link: https://cloud.google.com/php/docs/reference/cloud-memorystore/latest
+    - name: google/cloud-redis
+      link: https://cloud.google.com/php/docs/reference/cloud-redis/latest
+    - name: google/cloud-redis-cluster
+      link: https://cloud.google.com/php/docs/reference/cloud-redis-cluster/latest
+- name: AI Platform
+  packages:
+    - name: google/cloud-ai-platform
+      link: https://cloud.google.com/php/docs/reference/cloud-ai-platform/latest
+- name: AlloyDB for PostgreSQL
+  packages:
+    - name: google/cloud-alloydb
+      link: https://cloud.google.com/php/docs/reference/cloud-alloydb/latest
+- name: App Hub
+  packages:
+    - name: google/cloud-apphub
+      link: https://cloud.google.com/php/docs/reference/cloud-apphub/latest
+- name: Cloud Optimization AI
+  packages:
+    - name: google/cloud-optimization
+      link: https://cloud.google.com/php/docs/reference/cloud-optimization/latest
+- name: Conversational Analytics API
+  packages:
+    - name: google/cloud-geminidataanalytics
+      link: https://cloud.google.com/php/docs/reference/cloud-geminidataanalytics/latest
+- name: Migration Center
+  packages:
+    - name: google/cloud-migrationcenter
+      link: https://cloud.google.com/php/docs/reference/cloud-migrationcenter/latest
+- name: AI Platform Data Labeling Service
+  packages:
+    - name: google/cloud-datalabeling
+      link: https://cloud.google.com/php/docs/reference/cloud-datalabeling/latest
+- name: BigQuery Storage
+  packages:
+    - name: google/cloud-bigquery-storage
+      link: https://cloud.google.com/php/docs/reference/cloud-bigquery-storage/latest
+- name: Cloud Vision
+  packages:
+    - name: google/cloud-vision
+      link: https://cloud.google.com/php/docs/reference/cloud-vision/latest
+- name: Document AI
+  packages:
+    - name: google/cloud-document-ai
+      link: https://cloud.google.com/php/docs/reference/cloud-document-ai/latest
+- name: Service Control API
+  packages:
+    - name: google/cloud-service-control
+      link: https://cloud.google.com/php/docs/reference/cloud-service-control/latest
+- name: Video Intelligence API
+  packages:
+    - name: google/cloud-videointelligence
+      link: https://cloud.google.com/php/docs/reference/cloud-videointelligence/latest
+- name: Analytics Hub API
+  packages:
+    - name: google/cloud-bigquery-analyticshub
+      link: https://cloud.google.com/php/docs/reference/cloud-bigquery-analyticshub/latest
+    - name: google/cloud-bigquery-data-exchange
+      link: https://cloud.google.com/php/docs/reference/cloud-bigquery-data-exchange/latest
+- name: Bigtable
+  packages:
+    - name: google/cloud-bigtable
+      link: https://cloud.google.com/php/docs/reference/cloud-bigtable/latest
+- name: Cloud Billing
+  packages:
+    - name: google/cloud-billing
+      link: https://cloud.google.com/php/docs/reference/cloud-billing/latest
+- name: Container Analysis
+  packages:
+    - name: google/cloud-container-analysis
+      link: https://cloud.google.com/php/docs/reference/cloud-container-analysis/latest
+    - name: google/grafeas
+      link: https://cloud.google.com/php/docs/reference/grafeas/latest
+- name: Dataproc
+  packages:
+    - name: google/cloud-dataproc
+      link: https://cloud.google.com/php/docs/reference/cloud-dataproc/latest
+- name: Google Cloud VMware Engine
+  packages:
+    - name: google/cloud-vmware-engine
+      link: https://cloud.google.com/php/docs/reference/cloud-vmware-engine/latest
+- name: Google Meet
+  packages:
+    - name: google/apps-meet
+      link: https://cloud.google.com/php/docs/reference/apps-meet/latest
+- name: Identity and Access Management
+  packages:
+    - name: google/cloud-iam
+      link: https://cloud.google.com/php/docs/reference/cloud-iam/latest
+- name: Analytics Admin API
+  packages:
+    - name: google/analytics-admin
+      link: https://cloud.google.com/php/docs/reference/analytics-admin/latest
+- name: Certificate Manager
+  packages:
+    - name: google/cloud-certificate-manager
+      link: https://cloud.google.com/php/docs/reference/cloud-certificate-manager/latest
+- name: Cloud Storage
+  packages:
+    - name: google/cloud-storage
+      link: https://cloud.google.com/php/docs/reference/cloud-storage/latest
+    - name: google/cloud-storage-control
+      link: https://cloud.google.com/php/docs/reference/cloud-storage-control/latest
+- name: Filestore
+  packages:
+    - name: google/cloud-filestore
+      link: https://cloud.google.com/php/docs/reference/cloud-filestore/latest
+- name: Network Security API
+  packages:
+    - name: google/cloud-network-security
+      link: https://cloud.google.com/php/docs/reference/cloud-network-security/latest
+- name: Route Optimization API
+  packages:
+    - name: google/maps-routeoptimization
+      link: https://cloud.google.com/php/docs/reference/maps-routeoptimization/latest
+- name: Vertex AI Workbench
+  packages:
+    - name: google/cloud-notebooks
+      link: https://cloud.google.com/php/docs/reference/cloud-notebooks/latest
+- name: Apigee API hub
+  packages:
+    - name: google/cloud-apihub
+      link: https://cloud.google.com/php/docs/reference/cloud-apihub/latest
+- name: Data Catalog
+  packages:
+    - name: google/cloud-data-catalog
+      link: https://cloud.google.com/php/docs/reference/cloud-data-catalog/latest
+- name: Dataform
+  packages:
+    - name: google/cloud-dataform
+      link: https://cloud.google.com/php/docs/reference/cloud-dataform/latest
+- name: Parallelstore
+  packages:
+    - name: google/cloud-parallelstore
+      link: https://cloud.google.com/php/docs/reference/cloud-parallelstore/latest
+- name: Resource Manager
+  packages:
+    - name: google/cloud-resource-manager
+      link: https://cloud.google.com/php/docs/reference/cloud-resource-manager/latest
+- name: Cloud Profiler
+  packages:
+    - name: google/cloud-profiler
+      link: https://cloud.google.com/php/docs/reference/cloud-profiler/latest
+- name: Connect Gateway API
+  packages:
+    - name: google/cloud-gke-connect-gateway
+      link: https://cloud.google.com/php/docs/reference/cloud-gke-connect-gateway/latest
+- name: Essential Contacts API
+  packages:
+    - name: google/cloud-essential-contacts
+      link: https://cloud.google.com/php/docs/reference/cloud-essential-contacts/latest
+- name: Media Translation
+  packages:
+    - name: google/cloud-media-translation
+      link: https://cloud.google.com/php/docs/reference/cloud-media-translation/latest
+- name: Model Armor
+  packages:
+    - name: google/cloud-modelarmor
+      link: https://cloud.google.com/php/docs/reference/cloud-modelarmor/latest
+- name: Transcoder API
+  packages:
+    - name: google/cloud-video-transcoder
+      link: https://cloud.google.com/php/docs/reference/cloud-video-transcoder/latest
+- name: AutoML
+  packages:
+    - name: google/cloud-automl
+      link: https://cloud.google.com/php/docs/reference/cloud-automl/latest
+- name: Cloud Deploy
+  packages:
+    - name: google/cloud-deploy
+      link: https://cloud.google.com/php/docs/reference/cloud-deploy/latest
+- name: Firestore in Datastore mode
+  packages:
+    - name: google/cloud-datastore
+      link: https://cloud.google.com/php/docs/reference/cloud-datastore/latest
+    - name: google/cloud-datastore-admin
+      link: https://cloud.google.com/php/docs/reference/cloud-datastore-admin/latest
+- name: Recommendations
+  packages:
+    - name: google/cloud-recommendations-ai
+      link: https://cloud.google.com/php/docs/reference/cloud-recommendations-ai/latest
+- name: Unified Maintenance
+  packages:
+    - name: google/cloud-maintenance
+      link: https://cloud.google.com/php/docs/reference/cloud-maintenance/latest
+- name: Video Stitcher API
+  packages:
+    - name: google/cloud-video-stitcher
+      link: https://cloud.google.com/php/docs/reference/cloud-video-stitcher/latest
+- name: Web Risk
+  packages:
+    - name: google/cloud-web-risk
+      link: https://cloud.google.com/php/docs/reference/cloud-web-risk/latest
+- name: API Gateway
+  packages:
+    - name: google/cloud-api-gateway
+      link: https://cloud.google.com/php/docs/reference/cloud-api-gateway/latest
+- name: Dataflow
+  packages:
+    - name: google/cloud-dataflow
+      link: https://cloud.google.com/php/docs/reference/cloud-dataflow/latest
+- name: Google Cloud Managed Service for Apache Kafka
+  packages:
+    - name: google/cloud-managedkafka
+      link: https://cloud.google.com/php/docs/reference/cloud-managedkafka/latest
+    - name: google/cloud-managedkafka-schemaregistry
+      link: https://cloud.google.com/php/docs/reference/cloud-managedkafka-schemaregistry/latest
+- name: IAM Policy Troubleshooter API
+  packages:
+    - name: google/cloud-policy-troubleshooter
+      link: https://cloud.google.com/php/docs/reference/cloud-policy-troubleshooter/latest
+    - name: google/cloud-policytroubleshooter-iam
+      link: https://cloud.google.com/php/docs/reference/cloud-policytroubleshooter-iam/latest
+- name: Live Stream API
+  packages:
+    - name: google/cloud-video-live-stream
+      link: https://cloud.google.com/php/docs/reference/cloud-video-live-stream/latest
+- name: NetApp Volumes
+  packages:
+    - name: google/cloud-netapp
+      link: https://cloud.google.com/php/docs/reference/cloud-netapp/latest
+- name: API Keys API
+  packages:
+    - name: google/cloud-api-keys
+      link: https://cloud.google.com/php/docs/reference/cloud-api-keys/latest
+- name: Cloud Location Finder
+  packages:
+    - name: google/cloud-locationfinder
+      link: https://cloud.google.com/php/docs/reference/cloud-locationfinder/latest
+- name: Contact Center AI Insights
+  packages:
+    - name: google/cloud-contact-center-insights
+      link: https://cloud.google.com/php/docs/reference/cloud-contact-center-insights/latest
+- name: GKE Hub API
+  packages:
+    - name: google/cloud-gke-hub
+      link: https://cloud.google.com/php/docs/reference/cloud-gke-hub/latest
+- name: Managed Lustre
+  packages:
+    - name: google/cloud-lustre
+      link: https://cloud.google.com/php/docs/reference/cloud-lustre/latest
+- name: Public Certificate Authority
+  packages:
+    - name: google/cloud-security-public-ca
+      link: https://cloud.google.com/php/docs/reference/cloud-security-public-ca/latest
+- name: Secure Source Manager
+  packages:
+    - name: google/cloud-securesourcemanager
+      link: https://cloud.google.com/php/docs/reference/cloud-securesourcemanager/latest
+- name: BigQuery Connection API
+  packages:
+    - name: google/cloud-bigquery-connection
+      link: https://cloud.google.com/php/docs/reference/cloud-bigquery-connection/latest
+- name: BigQuery Data Transfer Service
+  packages:
+    - name: google/cloud-bigquerydatatransfer
+      link: https://cloud.google.com/php/docs/reference/cloud-bigquerydatatransfer/latest
+- name: Channel Services
+  packages:
+    - name: google/cloud-channel
+      link: https://cloud.google.com/php/docs/reference/cloud-channel/latest
+- name: Cloud Talent Solution Job Search
+  packages:
+    - name: google/cloud-talent
+      link: https://cloud.google.com/php/docs/reference/cloud-talent/latest
+- name: Network Management API
+  packages:
+    - name: google/cloud-network-management
+      link: https://cloud.google.com/php/docs/reference/cloud-network-management/latest
+- name: Pub/Sub
+  packages:
+    - name: google/cloud-pubsub
+      link: https://cloud.google.com/php/docs/reference/cloud-pubsub/latest
+- name: Capacity Planner
+  packages:
+    - name: google/cloud-capacityplanner
+      link: https://cloud.google.com/php/docs/reference/cloud-capacityplanner/latest
+- name: Cloud Domains
+  packages:
+    - name: google/cloud-domains
+      link: https://cloud.google.com/php/docs/reference/cloud-domains/latest
+- name: Confidential Space
+  packages:
+    - name: google/cloud-confidentialcomputing
+      link: https://cloud.google.com/php/docs/reference/cloud-confidentialcomputing/latest
+- name: Data Lineage
+  packages:
+    - name: google/cloud-datacatalog-lineage
+      link: https://cloud.google.com/php/docs/reference/cloud-datacatalog-lineage/latest
+- name: Google Workspace add-ons
+  packages:
+    - name: google/cloud-gsuite-addons
+      link: https://cloud.google.com/php/docs/reference/cloud-gsuite-addons/latest
+- name: Service Usage
+  packages:
+    - name: google/cloud-service-usage
+      link: https://cloud.google.com/php/docs/reference/cloud-service-usage/latest
+- name: Chrome Enterprise Premium
+  packages:
+    - name: google/cloud-beyondcorp-appconnections
+      link: https://cloud.google.com/php/docs/reference/cloud-beyondcorp-appconnections/latest
+    - name: google/cloud-beyondcorp-appconnectors
+      link: https://cloud.google.com/php/docs/reference/cloud-beyondcorp-appconnectors/latest
+    - name: google/cloud-beyondcorp-appgateways
+      link: https://cloud.google.com/php/docs/reference/cloud-beyondcorp-appgateways/latest
+    - name: google/cloud-beyondcorp-clientconnectorservices
+      link: https://cloud.google.com/php/docs/reference/cloud-beyondcorp-clientconnectorservices/latest
+    - name: google/cloud-beyondcorp-clientgateways
+      link: https://cloud.google.com/php/docs/reference/cloud-beyondcorp-clientgateways/latest
+- name: Cloud Life Sciences
+  packages:
+    - name: google/cloud-life-sciences
+      link: https://cloud.google.com/php/docs/reference/cloud-life-sciences/latest
+- name: Cloud Logging
+  packages:
+    - name: google/cloud-logging
+      link: https://cloud.google.com/php/docs/reference/cloud-logging/latest
+- name: Cloud Tasks
+  packages:
+    - name: google/cloud-tasks
+      link: https://cloud.google.com/php/docs/reference/cloud-tasks/latest
+- name: Dialogflow
+  packages:
+    - name: google/cloud-dialogflow
+      link: https://cloud.google.com/php/docs/reference/cloud-dialogflow/latest
+    - name: google/cloud-dialogflow-cx
+      link: https://cloud.google.com/php/docs/reference/cloud-dialogflow-cx/latest
+- name: Firestore
+  packages:
+    - name: google/cloud-firestore
+      link: https://cloud.google.com/php/docs/reference/cloud-firestore/latest
+- name: Memorystore for Memcached
+  packages:
+    - name: google/cloud-memcache
+      link: https://cloud.google.com/php/docs/reference/cloud-memcache/latest
+- name: Apigee Registry
+  packages:
+    - name: google/cloud-apigee-registry
+      link: https://cloud.google.com/php/docs/reference/cloud-apigee-registry/latest
+- name: Cloud OS Config
+  packages:
+    - name: google/cloud-osconfig
+      link: https://cloud.google.com/php/docs/reference/cloud-osconfig/latest
+- name: Access Context Manager
+  packages:
+    - name: google/access-context-manager
+      link: https://cloud.google.com/php/docs/reference/access-context-manager/latest
+- name: Cloud Natural Language API
+  packages:
+    - name: google/cloud-language
+      link: https://cloud.google.com/php/docs/reference/cloud-language/latest
+- name: Confidential VM
+  packages:
+    - name: google/cloud-confidentialcomputing
+      link: https://cloud.google.com/php/docs/reference/cloud-confidentialcomputing/latest
+- name: Storage Insights
+  packages:
+    - name: google/cloud-storageinsights
+      link: https://cloud.google.com/php/docs/reference/cloud-storageinsights/latest
+- name: IAM Service Account Credentials API
+  packages:
+    - name: google/cloud-iam-credentials
+      link: https://cloud.google.com/php/docs/reference/cloud-iam-credentials/latest
+- name: Parameter Manager
+  packages:
+    - name: google/cloud-parametermanager
+      link: https://cloud.google.com/php/docs/reference/cloud-parametermanager/latest
+- name: Service Management API
+  packages:
+    - name: google/cloud-service-management
+      link: https://cloud.google.com/php/docs/reference/cloud-service-management/latest
+- name: BigQuery
+  packages:
+    - name: google/cloud-bigquery
+      link: https://cloud.google.com/php/docs/reference/cloud-bigquery/latest
+- name: Cloud Key Management Service
+  packages:
+    - name: google/cloud-kms
+      link: https://cloud.google.com/php/docs/reference/cloud-kms/latest
+- name: Datastream
+  packages:
+    - name: google/cloud-datastream
+      link: https://cloud.google.com/php/docs/reference/cloud-datastream/latest
+- name: Spanner
+  packages:
+    - name: google/cloud-spanner
+      link: https://cloud.google.com/php/docs/reference/cloud-spanner/latest
+- name: Virtual Private Cloud
+  packages:
+    - name: google/cloud-vpc-access
+      link: https://cloud.google.com/php/docs/reference/cloud-vpc-access/latest
+- name: Identity-Aware Proxy
+  packages:
+    - name: google/cloud-iap
+      link: https://cloud.google.com/php/docs/reference/cloud-iap/latest
+- name: Analytics Data API
+  packages:
+    - name: google/analytics-data
+      link: https://cloud.google.com/php/docs/reference/analytics-data/latest
+- name: Certificate Authority Service
+  packages:
+    - name: google/cloud-security-private-ca
+      link: https://cloud.google.com/php/docs/reference/cloud-security-private-ca/latest
+- name: Google SecOps SIEM
+  packages:
+    - name: google/cloud-chronicle
+      link: https://cloud.google.com/php/docs/reference/cloud-chronicle/latest

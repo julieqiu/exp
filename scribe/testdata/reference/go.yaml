@@ -1,0 +1,992 @@
+- name: Datastream
+  packages:
+    - name: cloud.google.com/go/datastream/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/datastream/latest/apiv1
+    - name: cloud.google.com/go/datastream/apiv1alpha1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/datastream/latest/apiv1alpha1
+- name: Organization Policy Service
+  packages:
+    - name: cloud.google.com/go/orgpolicy/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/orgpolicy/latest/apiv2
+- name: Phishing Protection
+  packages:
+    - name: cloud.google.com/go/phishingprotection/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/phishingprotection/latest/apiv1beta1
+- name: Routes API
+  packages:
+    - name: cloud.google.com/go/maps/routing/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/maps/latest/routing/apiv2
+- name: Service Health
+  packages:
+    - name: cloud.google.com/go/servicehealth/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/servicehealth/latest/apiv1
+- name: BigQuery Storage
+  packages:
+    - name: cloud.google.com/go/bigquery/storage/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/storage/apiv1
+    - name: cloud.google.com/go/bigquery/storage/apiv1alpha
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/storage/apiv1alpha
+    - name: cloud.google.com/go/bigquery/storage/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/storage/apiv1beta
+    - name: cloud.google.com/go/bigquery/storage/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/storage/apiv1beta1
+    - name: cloud.google.com/go/bigquery/storage/apiv1beta2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/storage/apiv1beta2
+- name: Certificate Manager
+  packages:
+    - name: cloud.google.com/go/certificatemanager/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/certificatemanager/latest/apiv1
+- name: Cloud Key Management Service
+  packages:
+    - name: cloud.google.com/go/kms/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/kms/latest/apiv1
+- name: Container Analysis
+  packages:
+    - name: cloud.google.com/go/containeranalysis/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/containeranalysis/latest/apiv1beta1
+- name: Memorystore for Memcached
+  packages:
+    - name: cloud.google.com/go/memcache/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/memcache/latest/apiv1
+    - name: cloud.google.com/go/memcache/apiv1beta2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/memcache/latest/apiv1beta2
+- name: Network Connectivity Center
+  packages:
+    - name: cloud.google.com/go/networkconnectivity/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/networkconnectivity/latest/apiv1
+    - name: cloud.google.com/go/networkconnectivity/apiv1alpha1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/networkconnectivity/latest/apiv1alpha1
+- name: Service Management API
+  packages:
+    - name: cloud.google.com/go/servicemanagement/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/servicemanagement/latest/apiv1
+- name: Web Risk
+  packages:
+    - name: cloud.google.com/go/webrisk/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/webrisk/latest/apiv1
+    - name: cloud.google.com/go/webrisk/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/webrisk/latest/apiv1beta1
+- name: Cloud Deploy
+  packages:
+    - name: cloud.google.com/go/deploy/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/deploy/latest/apiv1
+- name: Media CDN
+  packages:
+    - name: cloud.google.com/go/networkservices/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/networkservices/latest/apiv1
+- name: Migrate to Virtual Machines
+  packages:
+    - name: cloud.google.com/go/vmmigration/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/vmmigration/latest/apiv1
+- name: Pub/Sub
+  packages:
+    - name: cloud.google.com/go/pubsub
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/pubsub/latest
+    - name: cloud.google.com/go/pubsub/v2/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/pubsub/v2/latest/apiv1
+- name: Vertex AI Workbench
+  packages:
+    - name: cloud.google.com/go/notebooks/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/notebooks/latest/apiv1
+    - name: cloud.google.com/go/notebooks/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/notebooks/latest/apiv1beta1
+    - name: cloud.google.com/go/notebooks/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/notebooks/latest/apiv2
+- name: BigQuery Data Transfer Service
+  packages:
+    - name: cloud.google.com/go/bigquery/datatransfer/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/datatransfer/apiv1
+- name: Cloud Translation
+  packages:
+    - name: cloud.google.com/go/translate/apiv3
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/translate/latest/apiv3
+- name: Essential Contacts API
+  packages:
+    - name: cloud.google.com/go/essentialcontacts/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/essentialcontacts/latest/apiv1
+- name: Access Approval
+  packages:
+    - name: cloud.google.com/go/accessapproval/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/accessapproval/latest/apiv1
+- name: Assured Workloads
+  packages:
+    - name: cloud.google.com/go/assuredworkloads/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/assuredworkloads/latest/apiv1
+    - name: cloud.google.com/go/assuredworkloads/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/assuredworkloads/latest/apiv1beta1
+- name: BigQuery Reservation API
+  packages:
+    - name: cloud.google.com/go/bigquery/reservation/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/reservation/apiv1
+- name: Channel Services
+  packages:
+    - name: cloud.google.com/go/channel/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/channel/latest/apiv1
+- name: Cloud Optimization AI
+  packages:
+    - name: cloud.google.com/go/optimization/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/optimization/latest/apiv1
+- name: Cloud Trace
+  packages:
+    - name: cloud.google.com/go/trace/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/trace/latest/apiv1
+    - name: cloud.google.com/go/trace/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/trace/latest/apiv2
+- name: Compute Engine
+  packages:
+    - name: cloud.google.com/go/compute/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1
+    - name: cloud.google.com/go/compute/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1beta
+- name: Dataproc Metastore
+  packages:
+    - name: cloud.google.com/go/metastore/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/metastore/latest/apiv1
+    - name: cloud.google.com/go/metastore/apiv1alpha
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/metastore/latest/apiv1alpha
+    - name: cloud.google.com/go/metastore/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/metastore/latest/apiv1beta
+- name: Google Workspace add-ons
+  packages:
+    - name: cloud.google.com/go/gsuiteaddons/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/gsuiteaddons/latest/apiv1
+- name: API Keys API
+  packages:
+    - name: cloud.google.com/go/apikeys/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/apikeys/latest/apiv2
+- name: Batch
+  packages:
+    - name: cloud.google.com/go/batch/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/batch/latest/apiv1
+- name: BigQuery Data QnA
+  packages:
+    - name: cloud.google.com/go/dataqna/apiv1alpha
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/dataqna/latest/apiv1alpha
+- name: Chat API
+  packages:
+    - name: cloud.google.com/go/chat/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/chat/latest/apiv1
+- name: Cloud Domains
+  packages:
+    - name: cloud.google.com/go/domains/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/domains/latest/apiv1beta1
+- name: Cloud Shell
+  packages:
+    - name: cloud.google.com/go/shell/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shell/latest/apiv1
+- name: Cloud Storage
+  packages:
+    - name: cloud.google.com/go/storage
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest
+    - name: cloud.google.com/go/storage/control/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2
+    - name: cloud.google.com/go/storage/internal/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/internal/apiv2
+- name: Access Context Manager
+  packages:
+    - name: cloud.google.com/go/accesscontextmanager/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/accesscontextmanager/latest/apiv1
+- name: Cloud Workstations
+  packages:
+    - name: cloud.google.com/go/workstations/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/workstations/latest/apiv1
+    - name: cloud.google.com/go/workstations/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/workstations/latest/apiv1beta
+- name: Dataform
+  packages:
+    - name: cloud.google.com/go/dataform/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/dataform/latest/apiv1
+    - name: cloud.google.com/go/dataform/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/dataform/latest/apiv1beta1
+- name: Firestore in Datastore mode
+  packages:
+    - name: cloud.google.com/go/datastore
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/datastore/latest
+    - name: cloud.google.com/go/datastore/admin/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/datastore/latest/admin/apiv1
+    - name: cloud.google.com/go/datastore/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/datastore/latest/apiv1
+- name: Media Translation
+  packages:
+    - name: cloud.google.com/go/mediatranslation/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/mediatranslation/latest/apiv1beta1
+- name: Model Armor
+  packages:
+    - name: cloud.google.com/go/modelarmor/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/modelarmor/latest/apiv1
+    - name: cloud.google.com/go/modelarmor/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/modelarmor/latest/apiv1beta
+- name: Storage Transfer Service
+  packages:
+    - name: cloud.google.com/go/storagetransfer/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1
+- name: Workflows
+  packages:
+    - name: cloud.google.com/go/workflows/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/workflows/latest/apiv1
+    - name: cloud.google.com/go/workflows/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/workflows/latest/apiv1beta
+- name: Document AI
+  packages:
+    - name: cloud.google.com/go/documentai/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/documentai/latest/apiv1
+    - name: cloud.google.com/go/documentai/apiv1beta3
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/documentai/latest/apiv1beta3
+- name: Error Reporting
+  packages:
+    - name: cloud.google.com/go/errorreporting
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/errorreporting/latest
+    - name: cloud.google.com/go/errorreporting/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/latest/errorreporting/apiv1beta1
+- name: NetApp Volumes
+  packages:
+    - name: cloud.google.com/go/netapp/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/netapp/latest/apiv1
+- name: Places API
+  packages:
+    - name: cloud.google.com/go/maps/places/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/maps/latest/places/apiv1
+- name: Publish API
+  packages:
+    - name: cloud.google.com/go/streetview/publish/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/streetview/latest/publish/apiv1
+- name: Resource Manager
+  packages:
+    - name: cloud.google.com/go/resourcemanager/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/resourcemanager/latest/apiv2
+    - name: cloud.google.com/go/resourcemanager/apiv3
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/resourcemanager/latest/apiv3
+- name: Route Optimization API
+  packages:
+    - name: cloud.google.com/go/maps/routeoptimization/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/maps/latest/routeoptimization/apiv1
+- name: Secure Source Manager
+  packages:
+    - name: cloud.google.com/go/securesourcemanager/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/securesourcemanager/latest/apiv1
+- name: API Gateway
+  packages:
+    - name: cloud.google.com/go/apigateway/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/apigateway/latest/apiv1
+- name: Advisory Notifications
+  packages:
+    - name: cloud.google.com/go/advisorynotifications/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/advisorynotifications/latest/apiv1
+- name: BigQuery DataPolicy API
+  packages:
+    - name: cloud.google.com/go/bigquery/datapolicies/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/datapolicies/apiv1
+    - name: cloud.google.com/go/bigquery/datapolicies/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/datapolicies/apiv1beta1
+    - name: cloud.google.com/go/bigquery/datapolicies/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/datapolicies/apiv2
+    - name: cloud.google.com/go/bigquery/datapolicies/apiv2beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/datapolicies/apiv2beta1
+- name: Cloud Database Migration Service
+  packages:
+    - name: cloud.google.com/go/clouddms/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/clouddms/latest/apiv1
+- name: Cloud Run
+  packages:
+    - name: cloud.google.com/go/run/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/run/latest/apiv2
+- name: Merchant API for Shopping
+  packages:
+    - name: cloud.google.com/go/shopping/merchant/accounts/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/accounts/apiv1
+    - name: cloud.google.com/go/shopping/merchant/accounts/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/accounts/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/conversions/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/conversions/apiv1
+    - name: cloud.google.com/go/shopping/merchant/conversions/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/conversions/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/datasources/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/datasources/apiv1
+    - name: cloud.google.com/go/shopping/merchant/datasources/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/datasources/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/inventories/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/inventories/apiv1
+    - name: cloud.google.com/go/shopping/merchant/inventories/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/inventories/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/issueresolution/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/issueresolution/apiv1
+    - name: cloud.google.com/go/shopping/merchant/issueresolution/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/issueresolution/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/lfp/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/lfp/apiv1
+    - name: cloud.google.com/go/shopping/merchant/lfp/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/lfp/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/notifications/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/notifications/apiv1
+    - name: cloud.google.com/go/shopping/merchant/notifications/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/notifications/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/ordertracking/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/ordertracking/apiv1
+    - name: cloud.google.com/go/shopping/merchant/ordertracking/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/ordertracking/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/products/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/products/apiv1
+    - name: cloud.google.com/go/shopping/merchant/products/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/products/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/productstudio/apiv1alpha
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/productstudio/apiv1alpha
+    - name: cloud.google.com/go/shopping/merchant/promotions/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/promotions/apiv1
+    - name: cloud.google.com/go/shopping/merchant/promotions/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/promotions/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/quota/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/quota/apiv1
+    - name: cloud.google.com/go/shopping/merchant/quota/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/quota/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/reports/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/reports/apiv1
+    - name: cloud.google.com/go/shopping/merchant/reports/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/reports/apiv1beta
+    - name: cloud.google.com/go/shopping/merchant/reviews/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/reviews/apiv1beta
+- name: Security Command Center
+  packages:
+    - name: cloud.google.com/go/securitycenter/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/securitycenter/latest/apiv1
+    - name: cloud.google.com/go/securitycenter/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/securitycenter/latest/apiv1beta1
+    - name: cloud.google.com/go/securitycenter/apiv1p1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/securitycenter/latest/apiv1p1beta1
+    - name: cloud.google.com/go/securitycenter/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/securitycenter/latest/apiv2
+    - name: cloud.google.com/go/securitycenter/settings/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/securitycenter/latest/settings/apiv1beta1
+- name: Service Directory
+  packages:
+    - name: cloud.google.com/go/servicedirectory/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/servicedirectory/latest/apiv1
+    - name: cloud.google.com/go/servicedirectory/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/servicedirectory/latest/apiv1beta1
+- name: Backup and DR
+  packages:
+    - name: cloud.google.com/go/backupdr/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/backupdr/latest/apiv1
+- name: BigQuery
+  packages:
+    - name: cloud.google.com/go/bigquery
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest
+    - name: cloud.google.com/go/bigquery/v2/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/v2/latest/apiv2
+- name: Chrome Enterprise Premium
+  packages:
+    - name: cloud.google.com/go/beyondcorp/appconnections/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/beyondcorp/latest/appconnections/apiv1
+    - name: cloud.google.com/go/beyondcorp/appconnectors/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/beyondcorp/latest/appconnectors/apiv1
+    - name: cloud.google.com/go/beyondcorp/appgateways/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/beyondcorp/latest/appgateways/apiv1
+    - name: cloud.google.com/go/beyondcorp/clientconnectorservices/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/beyondcorp/latest/clientconnectorservices/apiv1
+    - name: cloud.google.com/go/beyondcorp/clientgateways/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/beyondcorp/latest/clientgateways/apiv1
+- name: Cloud Talent Solution Job Search
+  packages:
+    - name: cloud.google.com/go/talent/apiv4
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/talent/latest/apiv4
+    - name: cloud.google.com/go/talent/apiv4beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/talent/latest/apiv4beta1
+- name: Recommendations
+  packages:
+    - name: cloud.google.com/go/recommendationengine/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/recommendationengine/latest/apiv1beta1
+- name: Vertex AI
+  packages:
+    - name: cloud.google.com/go/aiplatform/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/aiplatform/latest/apiv1
+    - name: cloud.google.com/go/aiplatform/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/aiplatform/latest/apiv1beta1
+- name: App Hub
+  packages:
+    - name: cloud.google.com/go/apphub/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/apphub/latest/apiv1
+- name: Cloud Run functions
+  packages:
+    - name: cloud.google.com/go/functions/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/functions/latest/apiv1
+    - name: cloud.google.com/go/functions/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/functions/latest/apiv2
+    - name: cloud.google.com/go/functions/apiv2beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/functions/latest/apiv2beta
+- name: Dialogflow
+  packages:
+    - name: cloud.google.com/go/dialogflow/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/dialogflow/latest/apiv2
+    - name: cloud.google.com/go/dialogflow/apiv2beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/dialogflow/latest/apiv2beta1
+    - name: cloud.google.com/go/dialogflow/cx/apiv3
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/dialogflow/latest/cx/apiv3
+    - name: cloud.google.com/go/dialogflow/cx/apiv3beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/dialogflow/latest/cx/apiv3beta1
+- name: BigLake API
+  packages:
+    - name: cloud.google.com/go/bigquery/biglake/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/biglake/apiv1
+    - name: cloud.google.com/go/bigquery/biglake/apiv1alpha1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/biglake/apiv1alpha1
+- name: Cloud Composer
+  packages:
+    - name: cloud.google.com/go/orchestration/airflow/service/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/orchestration/latest/airflow/service/apiv1
+- name: Dataproc
+  packages:
+    - name: cloud.google.com/go/dataproc/v2/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/dataproc/v2/latest/apiv1
+- name: Firestore
+  packages:
+    - name: cloud.google.com/go/firestore
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/firestore/latest
+    - name: cloud.google.com/go/firestore/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/firestore/latest/apiv1
+    - name: cloud.google.com/go/firestore/apiv1/admin
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/firestore/latest/apiv1/admin
+- name: Google Cloud Managed Service for Apache Kafka
+  packages:
+    - name: cloud.google.com/go/managedkafka/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/managedkafka/latest/apiv1
+    - name: cloud.google.com/go/managedkafka/schemaregistry/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/managedkafka/latest/schemaregistry/apiv1
+- name: Service Control API
+  packages:
+    - name: cloud.google.com/go/servicecontrol/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/servicecontrol/latest/apiv1
+- name: Tables by Area 120
+  packages:
+    - name: cloud.google.com/go/area120/tables/apiv1alpha1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/area120/latest/tables/apiv1alpha1
+- name: Cloud Monitoring
+  packages:
+    - name: cloud.google.com/go/monitoring/apiv3/v2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/monitoring/latest/apiv3/v2
+    - name: cloud.google.com/go/monitoring/dashboard/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/monitoring/latest/dashboard/apiv1
+    - name: cloud.google.com/go/monitoring/metricsscope/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/monitoring/latest/metricsscope/apiv1
+- name: AutoML
+  packages:
+    - name: cloud.google.com/go/automl/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/automl/latest/apiv1
+    - name: cloud.google.com/go/automl/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/automl/latest/apiv1beta1
+- name: Address Validation API
+  packages:
+    - name: cloud.google.com/go/maps/addressvalidation/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/maps/latest/addressvalidation/apiv1
+- name: Confidential Space
+  packages:
+    - name: cloud.google.com/go/confidentialcomputing/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/confidentialcomputing/latest/apiv1
+    - name: cloud.google.com/go/confidentialcomputing/apiv1alpha1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/confidentialcomputing/latest/apiv1alpha1
+- name: Google SecOps SIEM
+  packages:
+    - name: cloud.google.com/go/chronicle/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/chronicle/latest/apiv1
+- name: Parameter Manager
+  packages:
+    - name: cloud.google.com/go/parametermanager/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/parametermanager/latest/apiv1
+- name: Contact Center AI Insights
+  packages:
+    - name: cloud.google.com/go/contactcenterinsights/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/contactcenterinsights/latest/apiv1
+- name: Filestore
+  packages:
+    - name: cloud.google.com/go/filestore/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/filestore/latest/apiv1
+- name: IAM Policy Troubleshooter API
+  packages:
+    - name: cloud.google.com/go/policytroubleshooter/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/policytroubleshooter/latest/apiv1
+    - name: cloud.google.com/go/policytroubleshooter/iam/apiv3
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/policytroubleshooter/latest/iam/apiv3
+- name: Identity Platform
+  packages:
+    - name: cloud.google.com/go/identitytoolkit/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/identitytoolkit/latest/apiv2
+- name: Identity-Aware Proxy
+  packages:
+    - name: cloud.google.com/go/iap/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/iap/latest/apiv1
+- name: Kubernetes Engine API
+  packages:
+    - name: cloud.google.com/go/container/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/container/latest/apiv1
+- name: AI Platform Data Labeling Service
+  packages:
+    - name: cloud.google.com/go/datalabeling/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/datalabeling/latest/apiv1beta1
+- name: Analytics Hub API
+  packages:
+    - name: cloud.google.com/go/bigquery/analyticshub/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/analyticshub/apiv1
+    - name: cloud.google.com/go/bigquery/dataexchange/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/dataexchange/apiv1beta1
+- name: Cloud Tasks
+  packages:
+    - name: cloud.google.com/go/cloudtasks/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/cloudtasks/latest/apiv2
+    - name: cloud.google.com/go/cloudtasks/apiv2beta2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/cloudtasks/latest/apiv2beta2
+    - name: cloud.google.com/go/cloudtasks/apiv2beta3
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/cloudtasks/latest/apiv2beta3
+- name: Google Cloud VMware Engine
+  packages:
+    - name: cloud.google.com/go/vmwareengine/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/vmwareengine/latest/apiv1
+- name: Cloud Location Finder
+  packages:
+    - name: cloud.google.com/go/locationfinder/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/locationfinder/latest/apiv1
+- name: Apigee Registry
+  packages:
+    - name: cloud.google.com/go/apigeeregistry/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/apigeeregistry/latest/apiv1
+- name: Cloud IDS
+  packages:
+    - name: cloud.google.com/go/ids/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/ids/latest/apiv1
+- name: Public Certificate Authority
+  packages:
+    - name: cloud.google.com/go/security/publicca/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/security/latest/publicca/apiv1
+    - name: cloud.google.com/go/security/publicca/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/security/latest/publicca/apiv1beta1
+- name: Vertex AI Vision
+  packages:
+    - name: cloud.google.com/go/visionai/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/visionai/latest/apiv1
+- name: Certificate Authority Service
+  packages:
+    - name: cloud.google.com/go/security/privateca/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/security/latest/privateca/apiv1
+- name: Cloud Bigtable Admin API
+  packages:
+    - name: cloud.google.com/go/bigtable/admin/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigtable/latest/admin/apiv2
+- name: Cloud OS Login API
+  packages:
+    - name: cloud.google.com/go/oslogin/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/oslogin/latest/apiv1
+    - name: cloud.google.com/go/oslogin/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/oslogin/latest/apiv1beta
+- name: Memorystore for Redis
+  packages:
+    - name: cloud.google.com/go/memorystore/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/memorystore/latest/apiv1
+    - name: cloud.google.com/go/memorystore/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/memorystore/latest/apiv1beta
+    - name: cloud.google.com/go/redis/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/redis/latest/apiv1
+    - name: cloud.google.com/go/redis/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/redis/latest/apiv1beta1
+    - name: cloud.google.com/go/redis/cluster/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/redis/latest/cluster/apiv1
+- name: Sensitive Data Protection
+  packages:
+    - name: cloud.google.com/go/dlp/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2
+- name: Video Intelligence API
+  packages:
+    - name: cloud.google.com/go/videointelligence/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/videointelligence/latest/apiv1
+    - name: cloud.google.com/go/videointelligence/apiv1beta2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/videointelligence/latest/apiv1beta2
+    - name: cloud.google.com/go/videointelligence/apiv1p3beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/videointelligence/latest/apiv1p3beta1
+- name: Network Security API
+  packages:
+    - name: cloud.google.com/go/networksecurity/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/networksecurity/latest/apiv1beta1
+- name: AlloyDB for PostgreSQL
+  packages:
+    - name: cloud.google.com/go/alloydb/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/alloydb/latest/apiv1
+    - name: cloud.google.com/go/alloydb/apiv1alpha
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/alloydb/latest/apiv1alpha
+    - name: cloud.google.com/go/alloydb/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/alloydb/latest/apiv1beta
+- name: BigQuery Migration
+  packages:
+    - name: cloud.google.com/go/bigquery/migration/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/migration/apiv2
+    - name: cloud.google.com/go/bigquery/migration/apiv2alpha
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/migration/apiv2alpha
+- name: Data Lineage
+  packages:
+    - name: cloud.google.com/go/datacatalog/lineage/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/datacatalog/latest/lineage/apiv1
+- name: Web Security Scanner
+  packages:
+    - name: cloud.google.com/go/websecurityscanner/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/websecurityscanner/latest/apiv1
+- name: Cloud Asset Inventory
+  packages:
+    - name: cloud.google.com/go/asset/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/asset/latest/apiv1
+    - name: cloud.google.com/go/asset/apiv1p2beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/asset/latest/apiv1p2beta1
+    - name: cloud.google.com/go/asset/apiv1p5beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/asset/latest/apiv1p5beta1
+- name: Cloud Data Fusion
+  packages:
+    - name: cloud.google.com/go/datafusion/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/datafusion/latest/apiv1
+- name: Compute Metadata API
+  packages:
+    - name: cloud.google.com/go/compute/metadata
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/metadata
+- name: Dataflow
+  packages:
+    - name: cloud.google.com/go/dataflow/apiv1beta3
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/dataflow/latest/apiv1beta3
+- name: Discovery Engine API
+  packages:
+    - name: cloud.google.com/go/discoveryengine/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/discoveryengine/latest/apiv1
+    - name: cloud.google.com/go/discoveryengine/apiv1alpha
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/discoveryengine/latest/apiv1alpha
+    - name: cloud.google.com/go/discoveryengine/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/discoveryengine/latest/apiv1beta
+- name: Google Meet
+  packages:
+    - name: cloud.google.com/go/apps/meet/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/apps/latest/meet/apiv2
+    - name: cloud.google.com/go/apps/meet/apiv2beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/apps/latest/meet/apiv2beta
+- name: Integration Connectors
+  packages:
+    - name: cloud.google.com/go/alloydb/connectors/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/alloydb/latest/connectors/apiv1
+    - name: cloud.google.com/go/alloydb/connectors/apiv1alpha
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/alloydb/latest/connectors/apiv1alpha
+    - name: cloud.google.com/go/alloydb/connectors/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/alloydb/latest/connectors/apiv1beta
+- name: Network Management API
+  packages:
+    - name: cloud.google.com/go/networkmanagement/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/networkmanagement/latest/apiv1
+- name: Cloud Billing
+  packages:
+    - name: cloud.google.com/go/billing/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/billing/latest/apiv1
+- name: Cloud Natural Language API
+  packages:
+    - name: cloud.google.com/go/language/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/language/latest/apiv1
+    - name: cloud.google.com/go/language/apiv1beta2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/language/latest/apiv1beta2
+    - name: cloud.google.com/go/language/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/language/latest/apiv2
+- name: Cloud Vision
+  packages:
+    - name: cloud.google.com/go/vision/v2/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1
+    - name: cloud.google.com/go/vision/v2/apiv1p1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1p1beta1
+- name: Infrastructure Manager
+  packages:
+    - name: cloud.google.com/go/config/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/config/latest/apiv1
+- name: Speech-to-Text
+  packages:
+    - name: cloud.google.com/go/speech/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/speech/latest/apiv1
+    - name: cloud.google.com/go/speech/apiv1p1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/speech/latest/apiv1p1beta1
+    - name: cloud.google.com/go/speech/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/speech/latest/apiv2
+- name: Transcoder API
+  packages:
+    - name: cloud.google.com/go/video/transcoder/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/video/latest/transcoder/apiv1
+- name: reCAPTCHA
+  packages:
+    - name: cloud.google.com/go/recaptchaenterprise/v2/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/recaptchaenterprise/v2/latest/apiv1
+    - name: cloud.google.com/go/recaptchaenterprise/v2/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/recaptchaenterprise/v2/latest/apiv1beta1
+- name: BigQuery Connection API
+  packages:
+    - name: cloud.google.com/go/bigquery/connection/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/connection/apiv1
+    - name: cloud.google.com/go/bigquery/connection/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigquery/latest/connection/apiv1beta1
+- name: Cloud Logging
+  packages:
+    - name: cloud.google.com/go/logging
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/logging/latest
+    - name: cloud.google.com/go/logging/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/logging/latest/apiv2
+- name: Cloud Quotas
+  packages:
+    - name: cloud.google.com/go/cloudquotas/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/cloudquotas/latest/apiv1
+    - name: cloud.google.com/go/cloudquotas/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/cloudquotas/latest/apiv1beta
+- name: Confidential VM
+  packages:
+    - name: cloud.google.com/go/confidentialcomputing/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/confidentialcomputing/latest/apiv1
+    - name: cloud.google.com/go/confidentialcomputing/apiv1alpha1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/confidentialcomputing/latest/apiv1alpha1
+- name: Secret Manager
+  packages:
+    - name: cloud.google.com/go/secretmanager/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/secretmanager/latest/apiv1
+    - name: cloud.google.com/go/secretmanager/apiv1beta2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/secretmanager/latest/apiv1beta2
+- name: Cloud TPU
+  packages:
+    - name: cloud.google.com/go/tpu/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/tpu/latest/apiv1
+- name: Eventarc Publishing API
+  packages:
+    - name: cloud.google.com/go/eventarc/publishing/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/eventarc/latest/publishing/apiv1
+- name: GKE Hub API
+  packages:
+    - name: cloud.google.com/go/gkehub/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/gkehub/latest/apiv1beta1
+- name: Spanner
+  packages:
+    - name: cloud.google.com/go/spanner
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest
+    - name: cloud.google.com/go/spanner/adapter/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/adapter/apiv1
+    - name: cloud.google.com/go/spanner/admin/database/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/database/apiv1
+    - name: cloud.google.com/go/spanner/admin/instance/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/instance/apiv1
+    - name: cloud.google.com/go/spanner/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/apiv1
+- name: Cloud Life Sciences
+  packages:
+    - name: cloud.google.com/go/lifesciences/apiv2beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/lifesciences/latest/apiv2beta
+- name: Connect Gateway API
+  packages:
+    - name: cloud.google.com/go/gkeconnect/gateway/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/gkeconnect/latest/gateway/apiv1
+    - name: cloud.google.com/go/gkeconnect/gateway/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/gkeconnect/latest/gateway/apiv1beta1
+- name: Conversational Analytics API
+  packages:
+    - name: cloud.google.com/go/geminidataanalytics/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/geminidataanalytics/latest/apiv1beta
+- name: Developer Connect
+  packages:
+    - name: cloud.google.com/go/developerconnect/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/developerconnect/latest/apiv1
+- name: Storage Insights
+  packages:
+    - name: cloud.google.com/go/storageinsights/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/storageinsights/latest/apiv1
+- name: Cloud Scheduler
+  packages:
+    - name: cloud.google.com/go/scheduler/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/scheduler/latest/apiv1
+    - name: cloud.google.com/go/scheduler/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/scheduler/latest/apiv1beta1
+- name: IAM Service Account Credentials API
+  packages:
+    - name: cloud.google.com/go/iam/credentials/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/credentials/apiv1
+- name: Managed Service for Microsoft Active Directory
+  packages:
+    - name: cloud.google.com/go/managedidentities/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/managedidentities/latest/apiv1
+- name: Oracle Database@Google Cloud
+  packages:
+    - name: cloud.google.com/go/oracledatabase/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/oracledatabase/latest/apiv1
+- name: Service Usage
+  packages:
+    - name: cloud.google.com/go/serviceusage/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/serviceusage/latest/apiv1
+- name: Virtual Private Cloud
+  packages:
+    - name: cloud.google.com/go/vpcaccess/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/vpcaccess/latest/apiv1
+- name: Workflow Executions API
+  packages:
+    - name: cloud.google.com/go/workflows/executions/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/workflows/latest/executions/apiv1
+    - name: cloud.google.com/go/workflows/executions/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/workflows/latest/executions/apiv1beta
+- name: Identity and Access Management
+  packages:
+    - name: cloud.google.com/go/iam
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest
+    - name: cloud.google.com/go/iam/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/apiv2
+    - name: cloud.google.com/go/iam/apiv3
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/apiv3
+    - name: cloud.google.com/go/iam/apiv3beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/apiv3beta
+- name: IoT Core
+  packages:
+    - name: cloud.google.com/go/iot/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/iot/latest/apiv1
+- name: Managed Lustre
+  packages:
+    - name: cloud.google.com/go/lustre/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/lustre/latest/apiv1
+- name: Apigee API hub
+  packages:
+    - name: cloud.google.com/go/apihub/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/apihub/latest/apiv1
+- name: Cloud Billing Budget API
+  packages:
+    - name: cloud.google.com/go/billing/budgets/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/billing/latest/budgets/apiv1
+    - name: cloud.google.com/go/billing/budgets/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/billing/latest/budgets/apiv1beta1
+- name: Cloud OS Config
+  packages:
+    - name: cloud.google.com/go/osconfig/agentendpoint/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/osconfig/latest/agentendpoint/apiv1
+    - name: cloud.google.com/go/osconfig/agentendpoint/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/osconfig/latest/agentendpoint/apiv1beta
+    - name: cloud.google.com/go/osconfig/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/osconfig/latest/apiv1
+    - name: cloud.google.com/go/osconfig/apiv1alpha
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/osconfig/latest/apiv1alpha
+    - name: cloud.google.com/go/osconfig/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/osconfig/latest/apiv1beta
+- name: Cloud Profiler
+  packages:
+    - name: cloud.google.com/go/cloudprofiler/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/cloudprofiler/latest/apiv2
+    - name: cloud.google.com/go/profiler
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/profiler/latest
+- name: Eventarc
+  packages:
+    - name: cloud.google.com/go/eventarc/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/eventarc/latest/apiv1
+- name: Fleet Engine API
+  packages:
+    - name: cloud.google.com/go/maps/fleetengine/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/maps/latest/fleetengine/apiv1
+    - name: cloud.google.com/go/maps/fleetengine/delivery/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/maps/latest/fleetengine/delivery/apiv1
+- name: Solar API
+  packages:
+    - name: cloud.google.com/go/maps/solar/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/maps/latest/solar/apiv1
+- name: Text-to-Speech
+  packages:
+    - name: cloud.google.com/go/texttospeech/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/texttospeech/latest/apiv1
+- name: Video Stitcher API
+  packages:
+    - name: cloud.google.com/go/video/stitcher/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/video/latest/stitcher/apiv1
+- name: Live Stream API
+  packages:
+    - name: cloud.google.com/go/video/livestream/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/video/latest/livestream/apiv1
+- name: Migration Center
+  packages:
+    - name: cloud.google.com/go/migrationcenter/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/migrationcenter/latest/apiv1
+- name: Unified Maintenance
+  packages:
+    - name: cloud.google.com/go/maintenance/api/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/maintenance/latest/api/apiv1beta
+- name: AI Platform
+  packages:
+    - name: cloud.google.com/go/aiplatform/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/aiplatform/latest/apiv1
+    - name: cloud.google.com/go/aiplatform/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/aiplatform/latest/apiv1beta1
+- name: Apigee Connect API
+  packages:
+    - name: cloud.google.com/go/apigeeconnect/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/apigeeconnect/latest/apiv1
+- name: Bigtable
+  packages:
+    - name: cloud.google.com/go/bigtable
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigtable/latest
+    - name: cloud.google.com/go/bigtable/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/bigtable/latest/apiv2
+- name: Data Catalog
+  packages:
+    - name: cloud.google.com/go/datacatalog/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/datacatalog/latest/apiv1
+    - name: cloud.google.com/go/datacatalog/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/datacatalog/latest/apiv1beta1
+- name: Parallelstore
+  packages:
+    - name: cloud.google.com/go/parallelstore/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/parallelstore/latest/apiv1
+    - name: cloud.google.com/go/parallelstore/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/parallelstore/latest/apiv1beta
+- name: Retail API
+  packages:
+    - name: cloud.google.com/go/retail/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/retail/latest/apiv2
+    - name: cloud.google.com/go/retail/apiv2alpha
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/retail/latest/apiv2alpha
+    - name: cloud.google.com/go/retail/apiv2beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/retail/latest/apiv2beta
+- name: Analytics Admin API
+  packages:
+    - name: cloud.google.com/go/analytics/admin/apiv1alpha
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/analytics/latest/admin/apiv1alpha
+- name: Backup for GKE
+  packages:
+    - name: cloud.google.com/go/gkebackup/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/gkebackup/latest/apiv1
+- name: Bare Metal Solution
+  packages:
+    - name: cloud.google.com/go/baremetalsolution/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/baremetalsolution/latest/apiv2
+- name: Binary Authorization
+  packages:
+    - name: cloud.google.com/go/binaryauthorization/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/binaryauthorization/latest/apiv1
+    - name: cloud.google.com/go/binaryauthorization/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/binaryauthorization/latest/apiv1beta1
+- name: Cloud Build
+  packages:
+    - name: cloud.google.com/go/cloudbuild/apiv1/v2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/cloudbuild/latest/apiv1/v2
+    - name: cloud.google.com/go/cloudbuild/apiv2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/cloudbuild/latest/apiv2
+- name: Google Workspace Events API
+  packages:
+    - name: cloud.google.com/go/apps/events/subscriptions/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/apps/latest/events/subscriptions/apiv1
+    - name: cloud.google.com/go/apps/events/subscriptions/apiv1beta
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/apps/latest/events/subscriptions/apiv1beta
+- name: Pub/Sub Lite
+  packages:
+    - name: cloud.google.com/go/pubsublite
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/pubsublite/latest
+    - name: cloud.google.com/go/pubsublite/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/pubsublite/latest/apiv1
+- name: Recommender
+  packages:
+    - name: cloud.google.com/go/recommender/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/recommender/latest/apiv1
+    - name: cloud.google.com/go/recommender/apiv1beta1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/recommender/latest/apiv1beta1
+- name: App Engine Admin API
+  packages:
+    - name: cloud.google.com/go/appengine/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/appengine/latest/apiv1
+- name: Artifact Registry
+  packages:
+    - name: cloud.google.com/go/artifactregistry/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/artifactregistry/latest/apiv1
+    - name: cloud.google.com/go/artifactregistry/apiv1beta2
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/artifactregistry/latest/apiv1beta2
+- name: Dataplex
+  packages:
+    - name: cloud.google.com/go/dataplex/apiv1
+      link: https://cloud.google.com/go/docs/reference/cloud.google.com/go/dataplex/latest/apiv1

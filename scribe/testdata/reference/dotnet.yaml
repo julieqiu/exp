@@ -1,0 +1,894 @@
+- name: Batch
+  packages:
+    - name: Google.Cloud.Batch.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Batch.V1/latest
+    - name: Google.Cloud.Batch.V1Alpha
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Batch.V1Alpha/latest
+- name: Data Catalog
+  packages:
+    - name: Google.Cloud.DataCatalog.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.DataCatalog.V1/latest
+- name: Identity-Aware Proxy
+  packages:
+    - name: Google.Cloud.Iap.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Iap.V1/latest
+- name: NetApp Volumes
+  packages:
+    - name: Google.Cloud.NetApp.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.NetApp.V1/latest
+- name: Service Management API
+  packages:
+    - name: Google.Cloud.ServiceManagement.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ServiceManagement.V1/latest
+- name: Apigee Connect API
+  packages:
+    - name: Google.Cloud.ApigeeConnect.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ApigeeConnect.V1/latest
+- name: Artifact Registry
+  packages:
+    - name: Google.Cloud.ArtifactRegistry.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ArtifactRegistry.V1/latest
+    - name: Google.Cloud.ArtifactRegistry.V1Beta2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ArtifactRegistry.V1Beta2/latest
+- name: Chat API
+  packages:
+    - name: Google.Apps.Chat.V1
+      link: https://googleapis.dev/dotnet/Google.Apps.Chat.V1/latest
+- name: Cloud IDS
+  packages:
+    - name: Google.Cloud.Ids.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Ids.V1/latest
+- name: Cloud Logging
+  packages:
+    - name: Google.Cloud.Logging.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Logging.V2/latest
+- name: Dataform
+  packages:
+    - name: Google.Cloud.Dataform.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataform.V1/latest
+    - name: Google.Cloud.Dataform.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataform.V1Beta1/latest
+- name: Routes API
+  packages:
+    - name: Google.Maps.Routing.V2
+      link: https://googleapis.dev/dotnet/Google.Maps.Routing.V2/latest
+- name: Service Directory
+  packages:
+    - name: Google.Cloud.ServiceDirectory.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ServiceDirectory.V1/latest
+    - name: Google.Cloud.ServiceDirectory.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ServiceDirectory.V1Beta1/latest
+- name: Cloud Profiler
+  packages:
+    - name: Google.Cloud.Profiler.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Profiler.V2/latest
+- name: Cloud TPU
+  packages:
+    - name: Google.Cloud.Tpu.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Tpu.V1/latest
+- name: Container Analysis
+  packages:
+    - name: Google.Cloud.DevTools.ContainerAnalysis.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.DevTools.ContainerAnalysis.V1/latest
+    - name: Grafeas.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Grafeas.V1/latest
+- name: Security Command Center
+  packages:
+    - name: Google.Cloud.SecurityCenter.Settings.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.SecurityCenter.Settings.V1Beta1/latest
+    - name: Google.Cloud.SecurityCenter.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.SecurityCenter.V1/latest
+    - name: Google.Cloud.SecurityCenter.V1P1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.SecurityCenter.V1P1Beta1/latest
+    - name: Google.Cloud.SecurityCenter.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.SecurityCenter.V2/latest
+- name: Advisory Notifications
+  packages:
+    - name: Google.Cloud.AdvisoryNotifications.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AdvisoryNotifications.V1/latest
+- name: AlloyDB for PostgreSQL
+  packages:
+    - name: Google.Cloud.AlloyDb.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1/latest
+    - name: Google.Cloud.AlloyDb.V1Alpha
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1Alpha/latest
+    - name: Google.Cloud.AlloyDb.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AlloyDb.V1Beta/latest
+- name: Google Cloud Managed Service for Apache Kafka
+  packages:
+    - name: Google.Cloud.ManagedKafka.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ManagedKafka.V1/latest
+- name: Google Cloud VMware Engine
+  packages:
+    - name: Google.Cloud.VmwareEngine.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.VmwareEngine.V1/latest
+- name: Model Armor
+  packages:
+    - name: Google.Cloud.ModelArmor.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ModelArmor.V1/latest
+    - name: Google.Cloud.ModelArmor.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ModelArmor.V1Beta/latest
+- name: Resource Manager
+  packages:
+    - name: Google.Cloud.ResourceManager.V3
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ResourceManager.V3/latest
+- name: App Hub
+  packages:
+    - name: Google.Cloud.AppHub.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AppHub.V1/latest
+- name: BigQuery Connection API
+  packages:
+    - name: Google.Cloud.BigQuery.Connection.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.Connection.V1/latest
+- name: Cloud Asset Inventory
+  packages:
+    - name: Google.Cloud.Asset.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Asset.V1/latest
+- name: Contact Center AI Insights
+  packages:
+    - name: Google.Cloud.ContactCenterInsights.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ContactCenterInsights.V1/latest
+- name: IAM Service Account Credentials API
+  packages:
+    - name: Google.Cloud.Iam.Credentials.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Iam.Credentials.V1/latest
+- name: Network Connectivity Center
+  packages:
+    - name: Google.Cloud.NetworkConnectivity.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.NetworkConnectivity.V1/latest
+    - name: Google.Cloud.NetworkConnectivity.V1Alpha1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.NetworkConnectivity.V1Alpha1/latest
+- name: Retail API
+  packages:
+    - name: Google.Cloud.Retail.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Retail.V2/latest
+- name: Video Intelligence API
+  packages:
+    - name: Google.Cloud.VideoIntelligence.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.VideoIntelligence.V1/latest
+- name: Apigee Registry
+  packages:
+    - name: Google.Cloud.ApigeeRegistry.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ApigeeRegistry.V1/latest
+- name: App Engine Admin API
+  packages:
+    - name: Google.Cloud.AppEngine.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AppEngine.V1/latest
+- name: Firestore in Datastore mode
+  packages:
+    - name: Google.Cloud.Datastore.Admin.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Datastore.Admin.V1/latest
+    - name: Google.Cloud.Datastore.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Datastore.V1/latest
+- name: Google Ad Manager API
+  packages:
+    - name: Google.Ads.AdManager.V1
+      link: https://googleapis.dev/dotnet/Google.Ads.AdManager.V1/latest
+- name: Migration Center
+  packages:
+    - name: Google.Cloud.MigrationCenter.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.MigrationCenter.V1/latest
+- name: Workflow Executions API
+  packages:
+    - name: Google.Cloud.Workflows.Executions.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Workflows.Executions.V1/latest
+    - name: Google.Cloud.Workflows.Executions.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Workflows.Executions.V1Beta/latest
+- name: Assured Workloads
+  packages:
+    - name: Google.Cloud.AssuredWorkloads.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AssuredWorkloads.V1/latest
+    - name: Google.Cloud.AssuredWorkloads.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AssuredWorkloads.V1Beta1/latest
+- name: Chrome Enterprise Premium
+  packages:
+    - name: Google.Cloud.BeyondCorp.AppConnections.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BeyondCorp.AppConnections.V1/latest
+    - name: Google.Cloud.BeyondCorp.AppConnectors.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BeyondCorp.AppConnectors.V1/latest
+    - name: Google.Cloud.BeyondCorp.AppGateways.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BeyondCorp.AppGateways.V1/latest
+    - name: Google.Cloud.BeyondCorp.ClientGateways.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BeyondCorp.ClientGateways.V1/latest
+- name: Connect Gateway API
+  packages:
+    - name: Google.Cloud.GkeConnect.Gateway.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.GkeConnect.Gateway.V1/latest
+- name: Essential Contacts API
+  packages:
+    - name: Google.Cloud.EssentialContacts.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.EssentialContacts.V1/latest
+- name: Google Meet
+  packages:
+    - name: Google.Apps.Meet.V2
+      link: https://googleapis.dev/dotnet/Google.Apps.Meet.V2/latest
+    - name: Google.Apps.Meet.V2Beta
+      link: https://googleapis.dev/dotnet/Google.Apps.Meet.V2Beta/latest
+- name: Migrate to Virtual Machines
+  packages:
+    - name: Google.Cloud.VMMigration.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.VMMigration.V1/latest
+- name: Pub/Sub
+  packages:
+    - name: Google.Cloud.PubSub.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.PubSub.V1/latest
+- name: API Gateway
+  packages:
+    - name: Google.Cloud.ApiGateway.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ApiGateway.V1/latest
+- name: Cloud Billing
+  packages:
+    - name: Google.Cloud.Billing.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Billing.V1/latest
+- name: Cloud Domains
+  packages:
+    - name: Google.Cloud.Domains.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Domains.V1/latest
+    - name: Google.Cloud.Domains.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Domains.V1Beta1/latest
+- name: BigQuery
+  packages:
+    - name: Google.Cloud.BigQuery.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.V2/latest
+- name: BigQuery Migration
+  packages:
+    - name: Google.Cloud.BigQuery.Migration.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.Migration.V2/latest
+- name: Cloud Natural Language API
+  packages:
+    - name: Google.Cloud.Language.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Language.V1/latest
+    - name: Google.Cloud.Language.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Language.V2/latest
+- name: Error Reporting
+  packages:
+    - name: Google.Cloud.ErrorReporting.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ErrorReporting.V1Beta1/latest
+- name: Infrastructure Manager
+  packages:
+    - name: Google.Cloud.Config.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Config.V1/latest
+- name: Media CDN
+  packages:
+    - name: Google.Cloud.NetworkServices.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.NetworkServices.V1/latest
+- name: Cloud Optimization AI
+  packages:
+    - name: Google.Cloud.Optimization.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Optimization.V1/latest
+- name: Managed Lustre
+  packages:
+    - name: Google.Cloud.Lustre.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Lustre.V1/latest
+- name: Merchant API for Shopping
+  packages:
+    - name: Google.Shopping.Merchant.Accounts.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Accounts.V1/latest
+    - name: Google.Shopping.Merchant.Accounts.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Accounts.V1Beta/latest
+    - name: Google.Shopping.Merchant.Conversions.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Conversions.V1/latest
+    - name: Google.Shopping.Merchant.Conversions.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Conversions.V1Beta/latest
+    - name: Google.Shopping.Merchant.DataSources.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.DataSources.V1/latest
+    - name: Google.Shopping.Merchant.DataSources.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.DataSources.V1Beta/latest
+    - name: Google.Shopping.Merchant.Inventories.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Inventories.V1/latest
+    - name: Google.Shopping.Merchant.Inventories.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Inventories.V1Beta/latest
+    - name: Google.Shopping.Merchant.IssueResolution.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.IssueResolution.V1/latest
+    - name: Google.Shopping.Merchant.IssueResolution.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.IssueResolution.V1Beta/latest
+    - name: Google.Shopping.Merchant.Lfp.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Lfp.V1/latest
+    - name: Google.Shopping.Merchant.Lfp.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Lfp.V1Beta/latest
+    - name: Google.Shopping.Merchant.Notifications.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Notifications.V1/latest
+    - name: Google.Shopping.Merchant.Notifications.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Notifications.V1Beta/latest
+    - name: Google.Shopping.Merchant.OrderTracking.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.OrderTracking.V1/latest
+    - name: Google.Shopping.Merchant.OrderTracking.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.OrderTracking.V1Beta/latest
+    - name: Google.Shopping.Merchant.Products.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Products.V1/latest
+    - name: Google.Shopping.Merchant.Products.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Products.V1Beta/latest
+    - name: Google.Shopping.Merchant.Promotions.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Promotions.V1/latest
+    - name: Google.Shopping.Merchant.Promotions.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Promotions.V1Beta/latest
+    - name: Google.Shopping.Merchant.Quota.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Quota.V1/latest
+    - name: Google.Shopping.Merchant.Quota.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Quota.V1Beta/latest
+    - name: Google.Shopping.Merchant.Reports.V1
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Reports.V1/latest
+    - name: Google.Shopping.Merchant.Reports.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Reports.V1Beta/latest
+    - name: Google.Shopping.Merchant.Reviews.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Shopping.Merchant.Reviews.V1Beta/latest
+- name: Places API
+  packages:
+    - name: Google.Maps.Places.V1
+      link: https://googleapis.dev/dotnet/Google.Maps.Places.V1/latest
+- name: Transcoder API
+  packages:
+    - name: Google.Cloud.Video.Transcoder.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Transcoder.V1/latest
+- name: Web Risk
+  packages:
+    - name: Google.Cloud.WebRisk.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.WebRisk.V1/latest
+    - name: Google.Cloud.WebRisk.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.WebRisk.V1Beta1/latest
+- name: Address Validation API
+  packages:
+    - name: Google.Maps.AddressValidation.V1
+      link: https://googleapis.dev/dotnet/Google.Maps.AddressValidation.V1/latest
+- name: Cloud Deploy
+  packages:
+    - name: Google.Cloud.Deploy.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Deploy.V1/latest
+- name: Cloud Tasks
+  packages:
+    - name: Google.Cloud.Tasks.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Tasks.V2/latest
+    - name: Google.Cloud.Tasks.V2Beta3
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Tasks.V2Beta3/latest
+- name: Organization Policy Service
+  packages:
+    - name: Google.Cloud.OrgPolicy.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.OrgPolicy.V2/latest
+- name: IAM Policy Troubleshooter API
+  packages:
+    - name: Google.Cloud.PolicyTroubleshooter.Iam.V3
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.PolicyTroubleshooter.Iam.V3/latest
+    - name: Google.Cloud.PolicyTroubleshooter.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.PolicyTroubleshooter.V1/latest
+- name: Access Context Manager
+  packages:
+    - name: Google.Identity.AccessContextManager.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Identity.AccessContextManager.V1/latest
+- name: Backup and DR
+  packages:
+    - name: Google.Cloud.BackupDR.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BackupDR.V1/latest
+- name: Confidential Space
+  packages:
+    - name: Google.Cloud.ConfidentialComputing.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ConfidentialComputing.V1/latest
+    - name: Google.Cloud.ConfidentialComputing.V1Alpha1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ConfidentialComputing.V1Alpha1/latest
+- name: Datastream
+  packages:
+    - name: Google.Cloud.Datastream.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Datastream.V1/latest
+    - name: Google.Cloud.Datastream.V1Alpha1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Datastream.V1Alpha1/latest
+- name: Secret Manager
+  packages:
+    - name: Google.Cloud.SecretManager.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.SecretManager.V1/latest
+    - name: Google.Cloud.SecretManager.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.SecretManager.V1Beta1/latest
+    - name: Google.Cloud.SecretManager.V1Beta2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.SecretManager.V1Beta2/latest
+- name: Virtual Private Cloud
+  packages:
+    - name: Google.Cloud.VpcAccess.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.VpcAccess.V1/latest
+- name: Web Security Scanner
+  packages:
+    - name: Google.Cloud.WebSecurityScanner.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.WebSecurityScanner.V1/latest
+- name: API Keys API
+  packages:
+    - name: Google.Cloud.ApiKeys.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ApiKeys.V2/latest
+- name: reCAPTCHA
+  packages:
+    - name: Google.Cloud.RecaptchaEnterprise.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.RecaptchaEnterprise.V1/latest
+    - name: Google.Cloud.RecaptchaEnterprise.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.RecaptchaEnterprise.V1Beta1/latest
+- name: Certificate Manager
+  packages:
+    - name: Google.Cloud.CertificateManager.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.CertificateManager.V1/latest
+- name: Cloud Composer
+  packages:
+    - name: Google.Cloud.Orchestration.Airflow.Service.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Orchestration.Airflow.Service.V1/latest
+- name: Managed Service for Microsoft Active Directory
+  packages:
+    - name: Google.Cloud.ManagedIdentities.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ManagedIdentities.V1/latest
+- name: Service Health
+  packages:
+    - name: Google.Cloud.ServiceHealth.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ServiceHealth.V1/latest
+- name: Vertex AI
+  packages:
+    - name: Google.Cloud.AIPlatform.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AIPlatform.V1/latest
+    - name: Google.Cloud.AIPlatform.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AIPlatform.V1Beta1/latest
+- name: Cloud Billing Budget API
+  packages:
+    - name: Google.Cloud.Billing.Budgets.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Billing.Budgets.V1/latest
+    - name: Google.Cloud.Billing.Budgets.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Billing.Budgets.V1Beta1/latest
+- name: Dialogflow
+  packages:
+    - name: Google.Cloud.Dialogflow.Cx.V3
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Dialogflow.Cx.V3/latest
+    - name: Google.Cloud.Dialogflow.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Dialogflow.V2/latest
+    - name: Google.Cloud.Dialogflow.V2Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Dialogflow.V2Beta1/latest
+- name: Discovery Engine API
+  packages:
+    - name: Google.Cloud.DiscoveryEngine.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.DiscoveryEngine.V1/latest
+    - name: Google.Cloud.DiscoveryEngine.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.DiscoveryEngine.V1Beta/latest
+- name: Media Translation
+  packages:
+    - name: Google.Cloud.MediaTranslation.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.MediaTranslation.V1Beta1/latest
+- name: Memorystore for Redis
+  packages:
+    - name: Google.Cloud.Memorystore.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Memorystore.V1/latest
+    - name: Google.Cloud.Memorystore.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Memorystore.V1Beta/latest
+    - name: Google.Cloud.Redis.Cluster.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Redis.Cluster.V1/latest
+    - name: Google.Cloud.Redis.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Redis.V1/latest
+    - name: Google.Cloud.Redis.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Redis.V1Beta1/latest
+- name: SaaS Runtime
+  packages:
+    - name: Google.Cloud.SaasPlatform.SaasServiceMgmt.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.SaasPlatform.SaasServiceMgmt.V1Beta1/latest
+- name: BigQuery DataPolicy API
+  packages:
+    - name: Google.Cloud.BigQuery.DataPolicies.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.DataPolicies.V1/latest
+    - name: Google.Cloud.BigQuery.DataPolicies.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.DataPolicies.V1Beta1/latest
+- name: Analytics Data API
+  packages:
+    - name: Google.Analytics.Data.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Analytics.Data.V1Beta/latest
+- name: Tables by Area 120
+  packages:
+    - name: Google.Area120.Tables.V1Alpha1
+      link: https://googleapis.dev/dotnet/Google.Area120.Tables.V1Alpha1/latest
+- name: Access Approval
+  packages:
+    - name: Google.Cloud.AccessApproval.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AccessApproval.V1/latest
+- name: Backup for GKE
+  packages:
+    - name: Google.Cloud.GkeBackup.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.GkeBackup.V1/latest
+- name: BigQuery Data Transfer Service
+  packages:
+    - name: Google.Cloud.BigQuery.DataTransfer.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.DataTransfer.V1/latest
+- name: Cloud Quotas
+  packages:
+    - name: Google.Cloud.CloudQuotas.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.CloudQuotas.V1/latest
+    - name: Google.Cloud.CloudQuotas.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.CloudQuotas.V1Beta/latest
+- name: Cloud Trace
+  packages:
+    - name: Google.Cloud.Trace.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Trace.V1/latest
+    - name: Google.Cloud.Trace.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Trace.V2/latest
+- name: Confidential VM
+  packages:
+    - name: Google.Cloud.ConfidentialComputing.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ConfidentialComputing.V1/latest
+    - name: Google.Cloud.ConfidentialComputing.V1Alpha1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ConfidentialComputing.V1Alpha1/latest
+- name: Google Workspace add-ons
+  packages:
+    - name: Google.Cloud.GSuiteAddOns.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.GSuiteAddOns.V1/latest
+- name: Network Management API
+  packages:
+    - name: Google.Cloud.NetworkManagement.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.NetworkManagement.V1/latest
+- name: Cloud Location Finder
+  packages:
+    - name: Google.Cloud.LocationFinder.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.LocationFinder.V1/latest
+- name: Cloud Monitoring
+  packages:
+    - name: Google.Cloud.Monitoring.V3
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Monitoring.V3/latest
+- name: Eventarc
+  packages:
+    - name: Google.Cloud.Eventarc.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Eventarc.V1/latest
+- name: Phishing Protection
+  packages:
+    - name: Google.Cloud.PhishingProtection.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.PhishingProtection.V1Beta1/latest
+- name: Unified Maintenance
+  packages:
+    - name: Google.Cloud.Maintenance.Api.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Maintenance.Api.V1Beta/latest
+- name: Bigtable
+  packages:
+    - name: Google.Cloud.Bigtable.Common.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Bigtable.Common.V2/latest
+    - name: Google.Cloud.Bigtable.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Bigtable.V2/latest
+- name: Cloud Scheduler
+  packages:
+    - name: Google.Cloud.Scheduler.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Scheduler.V1/latest
+- name: Compute Engine
+  packages:
+    - name: Google.Cloud.Compute.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest
+- name: Data Lineage
+  packages:
+    - name: Google.Cloud.DataCatalog.Lineage.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.DataCatalog.Lineage.V1/latest
+- name: Apigee API hub
+  packages:
+    - name: Google.Cloud.ApiHub.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ApiHub.V1/latest
+- name: Capacity Planner
+  packages:
+    - name: Google.Cloud.CapacityPlanner.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.CapacityPlanner.V1Beta/latest
+- name: Firestore
+  packages:
+    - name: Google.Cloud.Firestore
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Firestore/latest
+    - name: Google.Cloud.Firestore.Admin.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Firestore.Admin.V1/latest
+    - name: Google.Cloud.Firestore.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Firestore.V1/latest
+- name: Cloud OS Login API
+  packages:
+    - name: Google.Cloud.OsLogin.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.OsLogin.V1/latest
+    - name: Google.Cloud.OsLogin.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.OsLogin.V1Beta/latest
+- name: Cloud Run functions
+  packages:
+    - name: Google.Cloud.Functions.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Functions.V1/latest
+    - name: Google.Cloud.Functions.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Functions.V2/latest
+    - name: Google.Cloud.Functions.V2Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Functions.V2Beta/latest
+- name: Cloud Shell
+  packages:
+    - name: Google.Cloud.Shell.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Shell.V1/latest
+- name: Google SecOps SIEM
+  packages:
+    - name: Google.Cloud.Chronicle.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Chronicle.V1/latest
+- name: Google Workspace Events API
+  packages:
+    - name: Google.Apps.Events.Subscriptions.V1
+      link: https://googleapis.dev/dotnet/Google.Apps.Events.Subscriptions.V1/latest
+    - name: Google.Apps.Events.Subscriptions.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Apps.Events.Subscriptions.V1Beta/latest
+- name: Route Optimization API
+  packages:
+    - name: Google.Maps.RouteOptimization.V1
+      link: https://googleapis.dev/dotnet/Google.Maps.RouteOptimization.V1/latest
+- name: Sensitive Data Protection
+  packages:
+    - name: Google.Cloud.Dlp.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest
+- name: Analytics Admin API
+  packages:
+    - name: Google.Analytics.Admin.V1Alpha
+      link: https://googleapis.dev/dotnet/Google.Analytics.Admin.V1Alpha/latest
+    - name: Google.Analytics.Admin.V1Beta
+      link: https://googleapis.dev/dotnet/Google.Analytics.Admin.V1Beta/latest
+- name: BigQuery Reservation API
+  packages:
+    - name: Google.Cloud.BigQuery.Reservation.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.Reservation.V1/latest
+- name: Certificate Authority Service
+  packages:
+    - name: Google.Cloud.Security.PrivateCA.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Security.PrivateCA.V1/latest
+- name: Cloud Life Sciences
+  packages:
+    - name: Google.Cloud.LifeSciences.V2Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.LifeSciences.V2Beta/latest
+- name: Cloud Talent Solution Job Search
+  packages:
+    - name: Google.Cloud.Talent.V4
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Talent.V4/latest
+    - name: Google.Cloud.Talent.V4Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Talent.V4Beta1/latest
+- name: Cloud Workstations
+  packages:
+    - name: Google.Cloud.Workstations.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Workstations.V1/latest
+- name: Vertex AI Workbench
+  packages:
+    - name: Google.Cloud.Notebooks.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Notebooks.V1/latest
+    - name: Google.Cloud.Notebooks.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Notebooks.V1Beta1/latest
+    - name: Google.Cloud.Notebooks.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Notebooks.V2/latest
+- name: Binary Authorization
+  packages:
+    - name: Google.Cloud.BinaryAuthorization.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BinaryAuthorization.V1/latest
+    - name: Google.Cloud.BinaryAuthorization.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BinaryAuthorization.V1Beta1/latest
+- name: Cloud Key Management Service
+  packages:
+    - name: Google.Cloud.Kms.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Kms.V1/latest
+- name: Cloud Storage
+  packages:
+    - name: Google.Cloud.Storage.Control.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.Control.V2/latest
+    - name: Google.Cloud.Storage.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest
+- name: Filestore
+  packages:
+    - name: Google.Cloud.Filestore.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Filestore.V1/latest
+- name: Network Security API
+  packages:
+    - name: Google.Cloud.NetworkSecurity.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.NetworkSecurity.V1Beta1/latest
+- name: AutoML
+  packages:
+    - name: Google.Cloud.AutoML.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AutoML.V1/latest
+- name: Channel Services
+  packages:
+    - name: Google.Cloud.Channel.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Channel.V1/latest
+- name: Dataproc
+  packages:
+    - name: Google.Cloud.Dataproc.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataproc.V1/latest
+- name: Parallelstore
+  packages:
+    - name: Google.Cloud.Parallelstore.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Parallelstore.V1/latest
+    - name: Google.Cloud.Parallelstore.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Parallelstore.V1Beta/latest
+- name: Public Certificate Authority
+  packages:
+    - name: Google.Cloud.Security.PublicCA.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Security.PublicCA.V1/latest
+    - name: Google.Cloud.Security.PublicCA.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Security.PublicCA.V1Beta1/latest
+- name: Recommendations
+  packages:
+    - name: Google.Cloud.RecommendationEngine.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.RecommendationEngine.V1Beta1/latest
+- name: Recommender
+  packages:
+    - name: Google.Cloud.Recommender.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Recommender.V1/latest
+- name: Spanner
+  packages:
+    - name: Google.Cloud.Spanner.Admin.Database.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest
+    - name: Google.Cloud.Spanner.Admin.Instance.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Instance.V1/latest
+    - name: Google.Cloud.Spanner.Common.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest
+    - name: Google.Cloud.Spanner.Data
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Data/latest
+    - name: Google.Cloud.Spanner.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.V1/latest
+- name: AI Platform
+  packages:
+    - name: Google.Cloud.AIPlatform.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AIPlatform.V1/latest
+    - name: Google.Cloud.AIPlatform.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.AIPlatform.V1Beta1/latest
+- name: Cloud OS Config
+  packages:
+    - name: Google.Cloud.OsConfig.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.OsConfig.V1/latest
+    - name: Google.Cloud.OsConfig.V1Alpha
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.OsConfig.V1Alpha/latest
+- name: Cloud Translation
+  packages:
+    - name: Google.Cloud.Translate.V3
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Translate.V3/latest
+    - name: Google.Cloud.Translation.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Translation.V2/latest
+- name: Dataproc Metastore
+  packages:
+    - name: Google.Cloud.Metastore.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Metastore.V1/latest
+    - name: Google.Cloud.Metastore.V1Alpha
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Metastore.V1Alpha/latest
+    - name: Google.Cloud.Metastore.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Metastore.V1Beta/latest
+- name: Developer Connect
+  packages:
+    - name: Google.Cloud.DeveloperConnect.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.DeveloperConnect.V1/latest
+- name: Identity and Access Management
+  packages:
+    - name: Google.Cloud.Iam.Admin.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Iam.Admin.V1/latest
+    - name: Google.Cloud.Iam.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Iam.V2/latest
+    - name: Google.Cloud.Iam.V3
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Iam.V3/latest
+    - name: Google.Cloud.Iam.V3Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Iam.V3Beta/latest
+- name: Text-to-Speech
+  packages:
+    - name: Google.Cloud.TextToSpeech.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.TextToSpeech.V1/latest
+    - name: Google.Cloud.TextToSpeech.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.TextToSpeech.V1Beta1/latest
+- name: Bare Metal Solution
+  packages:
+    - name: Google.Cloud.BareMetalSolution.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BareMetalSolution.V2/latest
+- name: Cloud Build
+  packages:
+    - name: Google.Cloud.CloudBuild.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.CloudBuild.V1/latest
+    - name: Google.Cloud.CloudBuild.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.CloudBuild.V2/latest
+- name: Conversational Analytics API
+  packages:
+    - name: Google.Cloud.GeminiDataAnalytics.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.GeminiDataAnalytics.V1Beta/latest
+- name: Workflows
+  packages:
+    - name: Google.Cloud.Workflows.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Workflows.V1/latest
+    - name: Google.Cloud.Workflows.V1Beta
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Workflows.V1Beta/latest
+- name: Aerial View API
+  packages:
+    - name: Google.Maps.AerialView.V1
+      link: https://googleapis.dev/dotnet/Google.Maps.AerialView.V1/latest
+- name: Cloud Bigtable Admin API
+  packages:
+    - name: Google.Cloud.Bigtable.Admin.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Bigtable.Admin.V2/latest
+- name: Cloud Database Migration Service
+  packages:
+    - name: Google.Cloud.CloudDms.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.CloudDms.V1/latest
+- name: Document AI
+  packages:
+    - name: Google.Cloud.DocumentAI.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.DocumentAI.V1/latest
+    - name: Google.Cloud.DocumentAI.V1Beta3
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.DocumentAI.V1Beta3/latest
+- name: Live Stream API
+  packages:
+    - name: Google.Cloud.Video.LiveStream.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.LiveStream.V1/latest
+- name: Parameter Manager
+  packages:
+    - name: Google.Cloud.ParameterManager.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ParameterManager.V1/latest
+- name: Service Usage
+  packages:
+    - name: Google.Cloud.ServiceUsage.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ServiceUsage.V1/latest
+- name: Storage Insights
+  packages:
+    - name: Google.Cloud.StorageInsights.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.StorageInsights.V1/latest
+- name: Cloud Vision
+  packages:
+    - name: Google.Cloud.Vision.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Vision.V1/latest
+- name: Fleet Engine API
+  packages:
+    - name: Google.Maps.FleetEngine.Delivery.V1
+      link: https://googleapis.dev/dotnet/Google.Maps.FleetEngine.Delivery.V1/latest
+    - name: Google.Maps.FleetEngine.V1
+      link: https://googleapis.dev/dotnet/Google.Maps.FleetEngine.V1/latest
+- name: Storage Transfer Service
+  packages:
+    - name: Google.Cloud.StorageTransfer.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.StorageTransfer.V1/latest
+- name: Video Stitcher API
+  packages:
+    - name: Google.Cloud.Video.Stitcher.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Video.Stitcher.V1/latest
+- name: Cloud Data Fusion
+  packages:
+    - name: Google.Cloud.DataFusion.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.DataFusion.V1/latest
+- name: GKE Hub API
+  packages:
+    - name: Google.Cloud.GkeHub.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.GkeHub.V1/latest
+    - name: Google.Cloud.GkeHub.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.GkeHub.V1Beta1/latest
+- name: Integration Connectors
+  packages:
+    - name: Google.Cloud.Connectors.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Connectors.V1/latest
+- name: Dataflow
+  packages:
+    - name: Google.Cloud.Dataflow.V1Beta3
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataflow.V1Beta3/latest
+- name: Dataplex
+  packages:
+    - name: Google.Cloud.Dataplex.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Dataplex.V1/latest
+- name: Enterprise Knowledge Graph
+  packages:
+    - name: Google.Cloud.EnterpriseKnowledgeGraph.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.EnterpriseKnowledgeGraph.V1/latest
+- name: Kubernetes Engine API
+  packages:
+    - name: Google.Cloud.Container.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Container.V1/latest
+- name: Oracle Database@Google Cloud
+  packages:
+    - name: Google.Cloud.OracleDatabase.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.OracleDatabase.V1/latest
+- name: Speech-to-Text
+  packages:
+    - name: Google.Cloud.Speech.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Speech.V1/latest
+    - name: Google.Cloud.Speech.V1P1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Speech.V1P1Beta1/latest
+    - name: Google.Cloud.Speech.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Speech.V2/latest
+- name: Analytics Hub API
+  packages:
+    - name: Google.Cloud.BigQuery.AnalyticsHub.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.AnalyticsHub.V1/latest
+    - name: Google.Cloud.BigQuery.DataExchange.V1Beta1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.DataExchange.V1Beta1/latest
+- name: Eventarc Publishing API
+  packages:
+    - name: Google.Cloud.Eventarc.Publishing.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Eventarc.Publishing.V1/latest
+- name: Memorystore for Memcached
+  packages:
+    - name: Google.Cloud.Memcache.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Memcache.V1/latest
+    - name: Google.Cloud.Memcache.V1Beta2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Memcache.V1Beta2/latest
+- name: Service Control API
+  packages:
+    - name: Google.Cloud.ServiceControl.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.ServiceControl.V1/latest
+- name: BigQuery Storage
+  packages:
+    - name: Google.Cloud.BigQuery.Storage.V1
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.BigQuery.Storage.V1/latest
+- name: Cloud Run
+  packages:
+    - name: Google.Cloud.Run.V2
+      link: https://cloud.google.com/dotnet/docs/reference/Google.Cloud.Run.V2/latest
