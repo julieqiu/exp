@@ -30,6 +30,23 @@ var supportedLanguages = []string{
 	"rust",
 }
 
+var languageTitles = map[string]string{
+	"cpp":    "C++",
+	"dotnet": ".NET",
+	"go":     "Go",
+	"java":   "Java",
+	"nodejs": "Node.js",
+	"php":    "PHP",
+	"python": "Python",
+	"ruby":   "Ruby",
+	"rust":   "Rust",
+}
+
+type LanguageInfo struct {
+	Code string
+	Name string
+}
+
 type Server struct {
 	librariesCache map[string][]scraper.Library
 }
@@ -132,7 +149,14 @@ func (s *Server) handleRoot(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) handleLanguageList(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "languages.html", supportedLanguages)
+	var languages []LanguageInfo
+	for _, lang := range supportedLanguages {
+		languages = append(languages, LanguageInfo{
+			Code: lang,
+			Name: languageTitles[lang],
+		})
+	}
+	templates.ExecuteTemplate(w, "languages.html", languages)
 }
 
 func (s *Server) handleLanguageTOC(w http.ResponseWriter, r *http.Request, language string) {
@@ -142,18 +166,10 @@ func (s *Server) handleLanguageTOC(w http.ResponseWriter, r *http.Request, langu
 		return
 	}
 
-	// Format language title
-	var languageTitle string
-	switch language {
-	case "cpp":
-		languageTitle = "C++"
-	case "nodejs":
-		languageTitle = "Node.js"
-	case "dotnet":
-		languageTitle = ".NET"
-	default:
-		// Capitalize first letter for other languages
-		languageTitle = strings.ToUpper(language[:1]) + language[1:]
+	languageTitle, ok := languageTitles[language]
+	if !ok {
+		http.NotFound(w, r)
+		return
 	}
 
 	// Generate original docs URL
