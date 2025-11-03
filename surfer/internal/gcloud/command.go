@@ -117,10 +117,13 @@ func DeriveCommandName(methodName string) string {
 	if lower == "getinstance" {
 		return "describe"
 	}
+	if strings.HasPrefix(lower, "get") {
+		return "describe"
+	}
 	if strings.HasPrefix(lower, "backup") {
 		return "backup"
 	}
-	verbs := []string{"get", "list", "create", "update", "delete", "import", "export"}
+	verbs := []string{"list", "create", "update", "delete", "import", "export"}
 	for _, verb := range verbs {
 		if strings.HasPrefix(lower, verb) {
 			return verb

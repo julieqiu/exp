@@ -72,6 +72,22 @@ type API struct {
 	// methods within this API. This allows customization of how asynchronous
 	// operations are handled and displayed.
 	CommandOperationsConfig []*CommandOperationsConfig `yaml:"command_operations_config,omitempty"`
+
+	// MethodGenerationFilters defines rules for filtering which methods are
+	// generated. This allows for fine-grained control over the generated CLI
+	// surface, enabling the exclusion or inclusion of specific API methods.
+	MethodGenerationFilters []MethodGenerationFilter `yaml:"method_generation_filters,omitempty"`
+}
+
+// MethodGenerationFilter defines a rule for including or excluding a method
+// from code generation.
+type MethodGenerationFilter struct {
+	// Selector is a comma-separated list of patterns for the method to filter.
+	Selector string `yaml:"selector,omitempty"`
+
+	// Include indicates whether the method should be included (true) or
+	// excluded (false) from generation. Defaults to true if omitted.
+	Include bool `yaml:"include,omitempty"`
 }
 
 // HelpText contains rules for various types of help text within an API

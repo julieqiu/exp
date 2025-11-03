@@ -1,0 +1,180 @@
+# Copyright 2025 Google LLC. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# The content below is copied from
+# http://google3/cloud/sdk/tools/gen_sfc/staging/apis/parametermanager/gcloud.yaml;rcl=774790062
+config_version: v2.0
+service_name: parametermanager.googleapis.com
+apis:
+# v1
+- name: ParameterManager
+  api_version: v1
+  supports_star_update_masks: false
+  release_tracks:
+  - BETA
+  - GA
+  generated_flags:
+  - selector: google.cloud.parametermanager.v1.ParameterVersionPayload.data
+    from_file: true
+  help_text:
+    service_rules:
+    - selector: google.cloud.parametermanager.v1.ParameterManager
+      help_text:
+        brief: Single store for all your application parameters
+        description: |-  # Provide additional surface/service level details here.
+          Parameter Manager is a single source of truth to store, access and manage the lifecycle
+          of your application parameters. Parameter Manager aims to make management of
+          sensitive application parameters effortless for customers without diminishing focus
+          on security.
+    message_rules:
+    - selector: google.cloud.parametermanager.v1.Parameter
+      help_text:
+        brief: Manage Parameter Manager parameter resources
+        description: |- # Provide additional surface/service level details here.
+          Manage Parameter Manager parameter resources.
+    - selector: google.cloud.parametermanager.v1.ParameterVersion
+      help_text:
+        brief: Manage Parameter Manager parameter version resources
+        description: |- # Provide additional surface/service level details here.
+          Manage Parameter Manager parameter version resources.
+    method_rules:
+    - selector: google.cloud.parametermanager.v1.ParameterManager.ListParameters
+      help_text:
+        brief: Lists Parameter Manager parameters
+        description: | # Provide additional content and context for the command here.
+          List all parameter names belonging to a location within a project.
+        examples:  # Add more realistic examples here
+        - |-
+          To list all parameters in location `global` run:
+
+          $ {command} --location=global
+    - selector: google.cloud.parametermanager.v1.ParameterManager.GetParameter
+      help_text:
+        brief: Gets a single Parameter Manager parameter
+        description: | # Provide additional content and context for the command here.
+          Gets a single parameter resource.
+        examples:  # Add more realistic examples here
+        - |-
+          To get a single parameter `my-parameter` in location `global` run:
+
+          $ {command} my-parameter --location=global
+    - selector: google.cloud.parametermanager.v1.ParameterManager.CreateParameter
+      help_text:
+        brief: Creates a Parameter Manager parameter
+        description: | # Provide additional content and context for the command here.
+          Creates a parameter resource with the specified name and properties. If a parameter of the given
+          name already exists, this command will return an error.
+        examples:  # Add more realistic examples here
+        - |-
+          To create a parameter `my-parameter` in location `global` run:
+
+          $ {command} my-parameter --location=global
+    - selector: google.cloud.parametermanager.v1.ParameterManager.UpdateParameter
+      help_text:
+        brief: Updates the metadata of an Parameter Manager parameter resource
+        description: | # Provide additional content and context for the command here.
+          Update the metadata of a parameter (e.g. labels). This command will return an error
+          if you specify a parameter that does not exist.
+        examples:  # Add more realistic examples here
+        - |-
+          To update a parameter `my-parameter` in location `global` run:
+
+          $ {command} my-parameter --location=global
+    - selector: google.cloud.parametermanager.v1.ParameterManager.DeleteParameter
+      help_text:
+        brief: Deletes a single Parameter Manager parameter resource
+        description: | # Provide additional content and context for the command here.
+          Deletes a parameter. This action is irreversible.
+        examples:  # Add more realistic examples here
+        - |-
+          To delete a parameter `my-parameter` in location `global` run:
+
+          $ {command} my-parameter --location=global
+    - selector: google.cloud.parametermanager.v1.ParameterManager.ListParameterVersions
+      help_text:
+        brief: List Parameter Manager parameter versions
+        description: | # Provide additional content and context for the command here.
+          List all parameter versions belonging to a parameter and their status.
+        examples:  # Add more realistic examples here
+        - |-
+          To list all parameter versions of a parameter `my-parameter` in location `global` run:
+
+          $ {command} --parameter=my-parameter --location=global
+    - selector: google.cloud.parametermanager.v1.ParameterManager.GetParameterVersion
+      help_text:
+        brief: Gets a single Parameter Manager parameter version
+        description: | # Provide additional content and context for the command here.
+          Gets a single parameter version, along with payload supplied by the user at the
+          time of creation. If the payload contains any references to secrets, these will not be
+          rendered in the output.
+        examples:  # Add more realistic examples here
+        - |-
+          To get a single parameter version `my-parameter-version` of parameter `my-parameter` in location `global` run:
+
+          $ {command} my-parameter-version --parameter=my-parameter --location=global
+    - selector: google.cloud.parametermanager.v1.ParameterManager.CreateParameterVersion
+      help_text:
+        brief: Creates an Parameter Manager parameter version
+        description: | # Provide additional content and context for the command here.
+          Creates a new parameter version using the provided parameter data.
+        examples:  # Add more realistic examples here
+        - |-
+          To create a parameter version `my-parameter-version` of parameter `my-parameter` in location `global` run:
+
+          $ {command} my-parameter-version --parameter=my-parameter --location=global
+    - selector: google.cloud.parametermanager.v1.ParameterManager.UpdateParameterVersion
+      help_text:
+        brief: Updates the properties of a single Parameter Manager parameter version
+        description: | # Provide additional content and context for the command here.
+          Updates the properties of a single parameter version, including status of the parameter version
+          (enabled/disabled).
+        examples:  # Add more realistic examples here
+        - |-
+          To update a parameter version `my-parameter-version` of parameter `my-parameter` in location `global` run:
+
+          $ {command} my-parameter-version --parameter=my-parameter --location=global
+    - selector: google.cloud.parametermanager.v1.ParameterManager.DeleteParameterVersion
+      help_text:
+        brief: Deletes a single Parameter Manager parameter version
+        description: | # Provide additional content and context for the command here.
+          Deletes a single parameter version along with its metadata. This action is irreversible.
+        examples:  # Add more realistic examples here
+        - |-
+          To delete a parameter version `my-parameter-version` of parameter `my-parameter` in location `global` run:
+
+          $ {command} my-parameter-version --parameter=my-parameter --location=global
+    - selector: google.cloud.parametermanager.v1.ParameterManager.RenderParameterVersion
+      help_text:
+        brief: Gets a single Parameter Manager parameter version render
+        description: | # Provide additional content and context for the command here.
+          Gets a single parameter version render resource.
+        examples:  # Add more realistic examples here
+        - |-
+          To get a single parameter version render `my-parameter-version` of a parameter `my-parameter` in location `global` run:
+
+          $ {command} my-parameter-version --parameter=my-parameter --location=global
+  output_formatting:
+  - selector: google.cloud.parametermanager.v1.ParameterManager.ListParameters
+    format: |-
+      table(name,
+            format,
+            policyMember,
+            createTime,
+            updateTime)
+  - selector: google.cloud.parametermanager.v1.ParameterManager.ListParameterVersions
+    format: |-
+      table(name,
+            disabled,
+            createTime,
+            updateTime)

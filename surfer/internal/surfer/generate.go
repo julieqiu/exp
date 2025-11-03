@@ -87,15 +87,30 @@ func generateCommands(model *api.API, cfg *gcloudyaml.Config, outputDir string) 
 	serviceName := strings.Split(cfg.ServiceName, ".")[0]
 	serviceDir := filepath.Join(outputDir, serviceName)
 
-	// Create a set of methods defined in the gcloud.yaml
-	methodsInGcloudYAML := make(map[string]bool)
-	for _, apiCfg := range cfg.APIs {
-		for _, rule := range apiCfg.HelpText.MethodRules {
-			methodsInGcloudYAML["."+rule.Selector] = true
+	// Filter out nil services
+	var validServices []*api.Service
+	for _, s := range model.Services {
+		if s != nil {
+			validServices = append(validServices, s)
 		}
 	}
 
-	for _, service := range model.Services {
+	// Create a set of methods to exclude from generation
+	methodsToExclude := make(map[string]bool)
+	if cfg.APIs != nil {
+		for _, apiCfg := range cfg.APIs {
+			for _, filter := range apiCfg.MethodGenerationFilters {
+				if !filter.Include {
+					methodsToExclude["."+filter.Selector] = true
+				}
+			}
+		}
+	}
+
+	for _, service := range validServices {
+		if service == nil || service.Name == "" {
+			continue
+		}
 		resourceName := strings.TrimSuffix(service.Name, "Service")
 		partialsDir := filepath.Join(serviceDir, "_partials")
 
@@ -104,7 +119,7 @@ func generateCommands(model *api.API, cfg *gcloudyaml.Config, outputDir string) 
 		}
 
 		for _, method := range service.Methods {
-			if _, ok := methodsInGcloudYAML[method.ID]; !ok {
+			if methodsToExclude[method.ID] {
 				continue
 			}
 			cmdName := gcloud.DeriveCommandName(method.Name)
@@ -132,6 +147,10 @@ func generateCommandFiles(resourceDir, partialsDir, cmdName string, method *api.
 		return fmt.Errorf("could not find API config for method %s", method.ID)
 	}
 
+	if apiCfg.ReleaseTracks == nil {
+		return fmt.Errorf("API config for method %s has nil ReleaseTracks", method.ID)
+	}
+
 	for _, track := range apiCfg.ReleaseTracks {
 		trackStr := strings.ToLower(string(track))
 		partialFile := filepath.Join(partialsDir, fmt.Sprintf("_%s_%s.yaml", cmdName, trackStr))
@@ -156,8 +175,20 @@ func generateCommandFiles(resourceDir, partialsDir, cmdName string, method *api.
 }
 
 func findAPIConfig(cfg *gcloudyaml.Config, method *api.Method) *gcloudyaml.API {
+	// method.ID is like ".google.cloud.apihub.v1.HostProjectRegistrationService.CreateHostProjectRegistration"
+	// We want to extract "apihub" as the product name.
+	parts := strings.Split(method.ID, ".")
+	if len(parts) < 4 { // Expecting at least "", "google", "cloud", "apihub"
+		return nil
+	}
+	// The product name is typically the fourth part (index 3) in the fully qualified name.
+	// e.g., ".google.cloud.apihub.v1.HostProjectRegistrationService.CreateHostProjectRegistration" -> "apihub"
+	productName := parts[3]
+
 	for i, apiCfg := range cfg.APIs {
-		if strings.Contains(method.ID, apiCfg.Name) {
+		// apiCfg.Name is like "ApiHub", "LintingService", "InsightsInternal"
+		// We need to compare productName (e.g., "apihub") with apiCfg.Name (e.g., "ApiHub") case-insensitively.
+		if strings.EqualFold(productName, apiCfg.Name) {
 			return &cfg.APIs[i]
 		}
 	}
