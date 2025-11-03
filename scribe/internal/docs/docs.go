@@ -189,6 +189,9 @@ func (s *Server) handlePackageRedirect(w http.ResponseWriter, r *http.Request, l
 				if language == "go" {
 					// For Go, redirect to pkg.go.dev
 					redirectURL = "https://pkg.go.dev/" + pkg.Name
+				} else if language == "dotnet" && strings.Contains(pkg.Link, "googleapis.dev") {
+					// For .NET packages on googleapis.dev, add the /api/{packageName}.html suffix
+					redirectURL = fmt.Sprintf("%s/api/%s.html", pkg.Link, pkg.Name)
 				} else {
 					// For other languages, use the package link
 					redirectURL = pkg.Link
