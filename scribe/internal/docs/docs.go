@@ -221,7 +221,8 @@ func (s *Server) handlePackageRedirect(w http.ResponseWriter, r *http.Request, l
 					redirectURL = "https://rubygems.org/gems/" + pkg.Name
 				} else if language == "java" {
 					// For Java, redirect to mvnrepository.com
-					redirectURL = "https://mvnrepository.com/artifact/com.google.cloud/" + pkg.Name
+					mavenPackageName := strings.ReplaceAll(pkg.Name, ":", "/")
+					redirectURL = "https://mvnrepository.com/artifact/" + mavenPackageName
 				} else if language == "php" {
 					// For PHP, redirect to packagist.org
 					redirectURL = "https://packagist.org/packages/google/" + pkg.Name
