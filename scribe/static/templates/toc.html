@@ -39,7 +39,7 @@
                     <td>{{.Name}}</td>
                     <td>
                     {{range .Packages}}
-                        <a href="/{{$.Language}}/{{.Name}}">{{.Name}}</a><br/>
+                        <a href="{{.Link}}" target="_blank">{{.Name}}</a><br/>
                     {{end}}
                     </td>
                 </tr>

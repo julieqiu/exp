@@ -139,13 +139,6 @@ func (s *Server) handleRoot(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if len(parts) == 2 {
-		// /{language}/{package} - redirect to package docs
-		// Package name is everything after the language
-		s.handlePackageRedirect(w, r, parts[0], parts[1])
-		return
-	}
-
 	http.NotFound(w, r)
 }
 
@@ -177,6 +170,37 @@ func (s *Server) handleLanguageTOC(w http.ResponseWriter, r *http.Request, langu
 		return libraries[i].Name < libraries[j].Name
 	})
 
+	// Update package links to point to external repositories
+	for i, lib := range libraries {
+		for j, pkg := range lib.Packages {
+			var redirectURL string
+			switch language {
+			case "go":
+				redirectURL = "https://pkg.go.dev/" + pkg.Name
+			case "nodejs":
+				redirectURL = "https://www.npmjs.com/package/" + pkg.Name
+			case "python":
+				redirectURL = "https://pypi.org/project/" + pkg.Name + "/"
+			case "ruby":
+				redirectURL = "https://rubygems.org/gems/" + pkg.Name
+			case "java":
+				mavenPackageName := strings.ReplaceAll(pkg.Name, ":", "/")
+				redirectURL = "https://mvnrepository.com/artifact/" + mavenPackageName
+			case "php":
+				redirectURL = "https://packagist.org/packages/" + pkg.Name
+			case "dotnet":
+				if strings.Contains(pkg.Link, "googleapis.dev") {
+					redirectURL = fmt.Sprintf("%s/api/%s.html", pkg.Link, pkg.Name)
+				} else {
+					redirectURL = pkg.Link
+				}
+			default:
+				redirectURL = pkg.Link
+			}
+			libraries[i].Packages[j].Link = redirectURL
+		}
+	}
+
 	// Generate original docs URL
 	originalDocsURL := fmt.Sprintf("https://cloud.google.com/%s/docs/reference", language)
 
@@ -193,51 +217,4 @@ func (s *Server) handleLanguageTOC(w http.ResponseWriter, r *http.Request, langu
 	}
 
 	templates.ExecuteTemplate(w, "toc.html", data)
-}
-
-func (s *Server) handlePackageRedirect(w http.ResponseWriter, r *http.Request, language, packageName string) {
-	libraries, ok := s.librariesCache[language]
-	if !ok {
-		http.NotFound(w, r)
-		return
-	}
-
-	// Find the package and redirect to its link
-	for _, lib := range libraries {
-		for _, pkg := range lib.Packages {
-			if pkg.Name == packageName {
-				var redirectURL string
-				if language == "go" {
-					// For Go, redirect to pkg.go.dev
-					redirectURL = "https://pkg.go.dev/" + pkg.Name
-				} else if language == "nodejs" {
-					// For Node.js, redirect to npmjs.com
-					redirectURL = "https://www.npmjs.com/package/" + pkg.Name
-				} else if language == "python" {
-					// For Python, redirect to pypi.org
-					redirectURL = "https://pypi.org/project/" + pkg.Name + "/"
-				} else if language == "ruby" {
-					// For Ruby, redirect to rubygems.org
-					redirectURL = "https://rubygems.org/gems/" + pkg.Name
-				} else if language == "java" {
-					// For Java, redirect to mvnrepository.com
-					mavenPackageName := strings.ReplaceAll(pkg.Name, ":", "/")
-					redirectURL = "https://mvnrepository.com/artifact/" + mavenPackageName
-				} else if language == "php" {
-					// For PHP, redirect to packagist.org
-					redirectURL = "https://packagist.org/packages/google/" + pkg.Name
-				} else if language == "dotnet" && strings.Contains(pkg.Link, "googleapis.dev") {
-					// For .NET packages on googleapis.dev, add the /api/{packageName}.html suffix
-					redirectURL = fmt.Sprintf("%s/api/%s.html", pkg.Link, pkg.Name)
-				} else {
-					// For other languages, use the package link
-					redirectURL = pkg.Link
-				}
-				http.Redirect(w, r, redirectURL, http.StatusFound)
-				return
-			}
-		}
-	}
-
-	http.NotFound(w, r)
 }
