@@ -20,18 +20,36 @@ type Artifact struct {
 
 // GenerateState tracks generation metadata.
 type GenerateState struct {
-	APIs          []API  `yaml:"apis"`
-	Commit        string `yaml:"commit"`
-	Librarian     string `yaml:"librarian"`
-	Image         string `yaml:"image"`
-	GoogleapisSHA string `yaml:"googleapis-sha,omitempty"`
-	DiscoverySHA  string `yaml:"discovery-sha,omitempty"`
+	APIs       []API            `yaml:"apis"`
+	Commit     string           `yaml:"commit"`
+	Librarian  string           `yaml:"librarian"`
+	Container  ContainerState   `yaml:"container"`
+	Googleapis GoogleapisState  `yaml:"googleapis"`
+	Discovery  DiscoveryState   `yaml:"discovery"`
+}
+
+// ContainerState tracks container metadata.
+type ContainerState struct {
+	Image string `yaml:"image"`
+	Tag   string `yaml:"tag"`
+}
+
+// GoogleapisState tracks googleapis metadata.
+type GoogleapisState struct {
+	Repo string `yaml:"repo"`
+	Ref  string `yaml:"ref"`
+}
+
+// DiscoveryState tracks discovery metadata.
+type DiscoveryState struct {
+	Repo string `yaml:"repo"`
+	Ref  string `yaml:"ref"`
 }
 
 // ReleaseState tracks release metadata.
 type ReleaseState struct {
-	LastReleasedAt *ReleaseInfo `yaml:"last_released_at,omitempty"`
-	NextReleaseAt  *ReleaseInfo `yaml:"next_release_at,omitempty"`
+	Version      string       `yaml:"version"`
+	Prepared     *ReleaseInfo `yaml:"prepared,omitempty"`
 }
 
 // ReleaseInfo contains information about a specific release.

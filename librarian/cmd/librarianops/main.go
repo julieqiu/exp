@@ -58,11 +58,9 @@ func automateGenerateCommand(ctx context.Context, cmd *cli.Command) error {
 		fmt.Printf("Running automated generation workflow (project: %s)...\n", project)
 	}
 
-	fmt.Println("\nStep 1: Updating config to latest versions")
-	fmt.Println("  librarian config update --all --commit")
-	fmt.Println("\nStep 2: Regenerating all artifacts")
+	fmt.Println("\nStep 1: Regenerating all artifacts")
 	fmt.Println("  librarian generate --all --commit")
-	fmt.Println("\nStep 3: Creating pull request")
+	fmt.Println("\nStep 2: Creating pull request")
 	fmt.Println("  gh pr create --with-token=$(fetch token) --fill")
 
 	if !dryRun {
