@@ -189,11 +189,9 @@ func (s *Server) handleLanguageTOC(w http.ResponseWriter, r *http.Request, langu
 			case "php":
 				redirectURL = "https://packagist.org/packages/" + pkg.Name
 			case "dotnet":
-				if strings.Contains(pkg.Link, "googleapis.dev") {
-					redirectURL = fmt.Sprintf("%s/api/%s.html", pkg.Link, pkg.Name)
-				} else {
-					redirectURL = pkg.Link
-				}
+				dotnetPackageName := strings.ReplaceAll(pkg.Name, "Google.Cloud", "Google.Apis")
+				dotnetPackageName = strings.ReplaceAll(dotnetPackageName, "V1", "v1")
+				redirectURL = fmt.Sprintf("https://googleapis.dev/dotnet/%s/latest/api/%s.html", dotnetPackageName, dotnetPackageName)
 			default:
 				redirectURL = pkg.Link
 			}
