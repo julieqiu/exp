@@ -1,91 +1,31 @@
-- name: Bare Metal Solution
+- name: AI Platform
   packages:
-    - name: google-cloud-cpp::baremetalsolution::v2
-      link: https://cloud.google.com/cpp/docs/reference/baremetalsolution/latest
-- name: Datastream
+    - name: google-cloud-cpp::aiplatform::v1
+      link: https://cloud.google.com/cpp/docs/reference/aiplatform/latest
+- name: API Gateway
   packages:
-    - name: google-cloud-cpp::datastream::v1
-      link: https://cloud.google.com/cpp/docs/reference/datastream/latest
-- name: Google Cloud Managed Service for Apache Kafka
+    - name: google-cloud-cpp::apigateway::v1
+      link: https://cloud.google.com/cpp/docs/reference/apigateway/latest
+- name: API Keys API
   packages:
-    - name: google-cloud-cpp::managedkafka::schemaregistry::v1
-      link: https://cloud.google.com/cpp/docs/reference/managedkafka/latest
-    - name: google-cloud-cpp::managedkafka::v1
-      link: https://cloud.google.com/cpp/docs/reference/managedkafka/latest
-- name: Cloud Quotas
+    - name: google-cloud-cpp::apikeys::v2
+      link: https://cloud.google.com/cpp/docs/reference/apikeys/latest
+- name: Access Approval
   packages:
-    - name: google-cloud-cpp::cloudquotas::v1
-      link: https://cloud.google.com/cpp/docs/reference/cloudquotas/latest
+    - name: google-cloud-cpp::accessapproval::v1
+      link: https://cloud.google.com/cpp/docs/reference/accessapproval/latest
+- name: Access Context Manager
+  packages:
+    - name: google-cloud-cpp::accesscontextmanager::v1
+      link: https://cloud.google.com/cpp/docs/reference/accesscontextmanager/latest
+- name: Advisory Notifications
+  packages:
+    - name: google-cloud-cpp::advisorynotifications::v1
+      link: https://cloud.google.com/cpp/docs/reference/advisorynotifications/latest
 - name: AlloyDB for PostgreSQL
   packages:
     - name: google-cloud-cpp::alloydb::v1
       link: https://cloud.google.com/cpp/docs/reference/alloydb/latest
-- name: BigQuery DataPolicy API
-  packages:
-    - name: google-cloud-cpp::bigquery::datapolicies::v1
-      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
-    - name: google-cloud-cpp::bigquery::datapolicies::v2
-      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
-- name: GKE Hub API
-  packages:
-    - name: google-cloud-cpp::gkehub::v1
-      link: https://cloud.google.com/cpp/docs/reference/gkehub/latest
-- name: Infrastructure Manager
-  packages:
-    - name: google-cloud-cpp::config::v1
-      link: https://cloud.google.com/cpp/docs/reference/config/latest
-- name: Live Stream API
-  packages:
-    - name: google-cloud-cpp::video::livestream::v1
-      link: https://cloud.google.com/cpp/docs/reference/video/latest
-- name: Bigtable
-  packages:
-    - name: google-cloud-cpp::bigtable
-      link: https://cloud.google.com/cpp/docs/reference/bigtable/latest
-- name: Cloud Optimization AI
-  packages:
-    - name: google-cloud-cpp::optimization::v1
-      link: https://cloud.google.com/cpp/docs/reference/optimization/latest
-- name: Eventarc
-  packages:
-    - name: google-cloud-cpp::eventarc::v1
-      link: https://cloud.google.com/cpp/docs/reference/eventarc/latest
-- name: Memorystore for Redis
-  packages:
-    - name: google-cloud-cpp::memorystore::v1
-      link: https://cloud.google.com/cpp/docs/reference/memorystore/latest
-    - name: google-cloud-cpp::redis::cluster::v1
-      link: https://cloud.google.com/cpp/docs/reference/redis/latest
-    - name: google-cloud-cpp::redis::v1
-      link: https://cloud.google.com/cpp/docs/reference/redis/latest
-- name: Recommender
-  packages:
-    - name: google-cloud-cpp::recommender::v1
-      link: https://cloud.google.com/cpp/docs/reference/recommender/latest
-- name: Retail API
-  packages:
-    - name: google-cloud-cpp::retail::v2
-      link: https://cloud.google.com/cpp/docs/reference/retail/latest
-- name: Service Health
-  packages:
-    - name: google-cloud-cpp::servicehealth::v1
-      link: https://cloud.google.com/cpp/docs/reference/servicehealth/latest
-- name: Assured Workloads
-  packages:
-    - name: google-cloud-cpp::assuredworkloads::v1
-      link: https://cloud.google.com/cpp/docs/reference/assuredworkloads/latest
-- name: Cloud SQL Admin API
-  packages:
-    - name: google-cloud-cpp::sql::v1
-      link: https://cloud.google.com/cpp/docs/reference/sql/latest
-- name: Dataplex
-  packages:
-    - name: google-cloud-cpp::dataplex::v1
-      link: https://cloud.google.com/cpp/docs/reference/dataplex/latest
-- name: IAM Service Account Credentials API
-  packages:
-    - name: google-cloud-cpp::iam::credentials::v1
-      link: https://cloud.google.com/cpp/docs/reference/iam/latest
 - name: Analytics Hub API
   packages:
     - name: google-cloud-cpp::bigquery::analyticshub::v1
@@ -94,258 +34,96 @@
   packages:
     - name: google-cloud-cpp::apigeeconnect::v1
       link: https://cloud.google.com/cpp/docs/reference/apigeeconnect/latest
-- name: Cloud TPU
+- name: App Engine Admin API
   packages:
-    - name: google-cloud-cpp::tpu::v1
-      link: https://cloud.google.com/cpp/docs/reference/tpu/latest
-    - name: google-cloud-cpp::tpu::v2
-      link: https://cloud.google.com/cpp/docs/reference/tpu/latest
-- name: Google SecOps SIEM
-  packages:
-    - name: google-cloud-cpp::chronicle::v1
-      link: https://cloud.google.com/cpp/docs/reference/chronicle/latest
-- name: reCAPTCHA
-  packages:
-    - name: google-cloud-cpp::recaptchaenterprise::v1
-      link: https://cloud.google.com/cpp/docs/reference/recaptchaenterprise/latest
-- name: Cloud Key Management Service
-  packages:
-    - name: google-cloud-cpp::kms::v1
-      link: https://cloud.google.com/cpp/docs/reference/kms/latest
-- name: Firestore in Datastore mode
-  packages:
-    - name: google-cloud-cpp::datastore::v1
-      link: https://cloud.google.com/cpp/docs/reference/datastore/latest
-- name: API Gateway
-  packages:
-    - name: google-cloud-cpp::apigateway::v1
-      link: https://cloud.google.com/cpp/docs/reference/apigateway/latest
-- name: Certificate Authority Service
-  packages:
-    - name: google-cloud-cpp::privateca::v1
-      link: https://cloud.google.com/cpp/docs/reference/privateca/latest
-- name: Cloud Talent Solution Job Search
-  packages:
-    - name: google-cloud-cpp::talent::v4
-      link: https://cloud.google.com/cpp/docs/reference/talent/latest
-- name: Identity and Access Management
-  packages:
-    - name: google-cloud-cpp::iam::admin::v1
-      link: https://cloud.google.com/cpp/docs/reference/iam/latest
-    - name: google-cloud-cpp::iam::v2
-      link: https://cloud.google.com/cpp/docs/reference/iam/latest
-    - name: google-cloud-cpp::iam::v3
-      link: https://cloud.google.com/cpp/docs/reference/iam/latest
-- name: Channel Services
-  packages:
-    - name: google-cloud-cpp::channel::v1
-      link: https://cloud.google.com/cpp/docs/reference/channel/latest
-- name: Cloud Run
-  packages:
-    - name: google-cloud-cpp::run::v2
-      link: https://cloud.google.com/cpp/docs/reference/run/latest
-- name: Data Lineage
-  packages:
-    - name: google-cloud-cpp::datacatalog::lineage::v1
-      link: https://cloud.google.com/cpp/docs/reference/datacatalog/latest
-- name: Dataproc
-  packages:
-    - name: google-cloud-cpp::dataproc::v1
-      link: https://cloud.google.com/cpp/docs/reference/dataproc/latest
-- name: API Keys API
-  packages:
-    - name: google-cloud-cpp::apikeys::v2
-      link: https://cloud.google.com/cpp/docs/reference/apikeys/latest
-- name: BigQuery Data Transfer Service
-  packages:
-    - name: google-cloud-cpp::bigquery::datatransfer::v1
-      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
-- name: Certificate Manager
-  packages:
-    - name: google-cloud-cpp::certificatemanager::v1
-      link: https://cloud.google.com/cpp/docs/reference/certificatemanager/latest
-- name: Cloud Scheduler
-  packages:
-    - name: google-cloud-cpp::scheduler::v1
-      link: https://cloud.google.com/cpp/docs/reference/scheduler/latest
-- name: Developer Connect
-  packages:
-    - name: google-cloud-cpp::developerconnect::v1
-      link: https://cloud.google.com/cpp/docs/reference/developerconnect/latest
-- name: Google Cloud VMware Engine
-  packages:
-    - name: google-cloud-cpp::vmwareengine::v1
-      link: https://cloud.google.com/cpp/docs/reference/vmwareengine/latest
-- name: Speech-to-Text
-  packages:
-    - name: google-cloud-cpp::speech::v1
-      link: https://cloud.google.com/cpp/docs/reference/speech/latest
-    - name: google-cloud-cpp::speech::v2
-      link: https://cloud.google.com/cpp/docs/reference/speech/latest
-- name: Access Context Manager
-  packages:
-    - name: google-cloud-cpp::accesscontextmanager::v1
-      link: https://cloud.google.com/cpp/docs/reference/accesscontextmanager/latest
-- name: Cloud Composer
-  packages:
-    - name: google-cloud-cpp::composer::v1
-      link: https://cloud.google.com/cpp/docs/reference/composer/latest
-- name: Integration Connectors
-  packages:
-    - name: google-cloud-cpp::connectors::v1
-      link: https://cloud.google.com/cpp/docs/reference/connectors/latest
-- name: Service Directory
-  packages:
-    - name: google-cloud-cpp::servicedirectory::v1
-      link: https://cloud.google.com/cpp/docs/reference/servicedirectory/latest
-- name: Cloud Billing
-  packages:
-    - name: google-cloud-cpp::billing::v1
-      link: https://cloud.google.com/cpp/docs/reference/billing/latest
-- name: Confidential VM
-  packages:
-    - name: google-cloud-cpp::confidentialcomputing::v1
-      link: https://cloud.google.com/cpp/docs/reference/confidentialcomputing/latest
-- name: Network Connectivity Center
-  packages:
-    - name: google-cloud-cpp::networkconnectivity::v1
-      link: https://cloud.google.com/cpp/docs/reference/networkconnectivity/latest
-- name: BigQuery Storage
-  packages:
-    - name: google-cloud-cpp::bigquery::storage::v1
-      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
-- name: Contact Center AI Insights
-  packages:
-    - name: google-cloud-cpp::contactcenterinsights::v1
-      link: https://cloud.google.com/cpp/docs/reference/contactcenterinsights/latest
-- name: Document AI Warehouse
-  packages:
-    - name: google-cloud-cpp::contentwarehouse::v1
-      link: https://cloud.google.com/cpp/docs/reference/contentwarehouse/latest
-- name: Storage Insights
-  packages:
-    - name: google-cloud-cpp::storageinsights::v1
-      link: https://cloud.google.com/cpp/docs/reference/storageinsights/latest
-- name: Access Approval
-  packages:
-    - name: google-cloud-cpp::accessapproval::v1
-      link: https://cloud.google.com/cpp/docs/reference/accessapproval/latest
-- name: Cloud Deploy
-  packages:
-    - name: google-cloud-cpp::deploy::v1
-      link: https://cloud.google.com/cpp/docs/reference/deploy/latest
-- name: Cloud Natural Language API
-  packages:
-    - name: google-cloud-cpp::language::v1
-      link: https://cloud.google.com/cpp/docs/reference/language/latest
-    - name: google-cloud-cpp::language::v2
-      link: https://cloud.google.com/cpp/docs/reference/language/latest
-- name: Backup and DR
-  packages:
-    - name: google-cloud-cpp::backupdr::v1
-      link: https://cloud.google.com/cpp/docs/reference/backupdr/latest
-- name: Cloud Profiler
-  packages:
-    - name: google-cloud-cpp::profiler::v2
-      link: https://cloud.google.com/cpp/docs/reference/profiler/latest
-- name: Cloud Storage
-  packages:
-    - name: google-cloud-cpp::storage
-      link: https://cloud.google.com/cpp/docs/reference/storage/latest
-    - name: google-cloud-cpp::storagecontrol::v2
-      link: https://cloud.google.com/cpp/docs/reference/storagecontrol/latest
-- name: Memorystore for Memcached
-  packages:
-    - name: google-cloud-cpp::memcache::v1
-      link: https://cloud.google.com/cpp/docs/reference/memcache/latest
-- name: Service Control API
-  packages:
-    - name: google-cloud-cpp::servicecontrol::v1
-      link: https://cloud.google.com/cpp/docs/reference/servicecontrol/latest
-    - name: google-cloud-cpp::servicecontrol::v2
-      link: https://cloud.google.com/cpp/docs/reference/servicecontrol/latest
-- name: Workflows
-  packages:
-    - name: google-cloud-cpp::workflows::v1
-      link: https://cloud.google.com/cpp/docs/reference/workflows/latest
-- name: Artifact Registry
-  packages:
-    - name: google-cloud-cpp::artifactregistry::v1
-      link: https://cloud.google.com/cpp/docs/reference/artifactregistry/latest
-- name: Confidential Space
-  packages:
-    - name: google-cloud-cpp::confidentialcomputing::v1
-      link: https://cloud.google.com/cpp/docs/reference/confidentialcomputing/latest
-- name: Dialogflow
-  packages:
-    - name: google-cloud-cpp::dialogflow_cx
-      link: https://cloud.google.com/cpp/docs/reference/dialogflow_cx/latest
-    - name: google-cloud-cpp::dialogflow_es
-      link: https://cloud.google.com/cpp/docs/reference/dialogflow_es/latest
-- name: Essential Contacts API
-  packages:
-    - name: google-cloud-cpp::essentialcontacts::v1
-      link: https://cloud.google.com/cpp/docs/reference/essentialcontacts/latest
-- name: AutoML
-  packages:
-    - name: google-cloud-cpp::automl::v1
-      link: https://cloud.google.com/cpp/docs/reference/automl/latest
-- name: Cloud Domains
-  packages:
-    - name: google-cloud-cpp::domains::v1
-      link: https://cloud.google.com/cpp/docs/reference/domains/latest
-- name: Compute Engine
-  packages:
-    - name: google-cloud-cpp::compute
-      link: https://cloud.google.com/cpp/docs/reference/compute/latest
-    - name: google-cloud-cpp::compute::v1
-      link: https://cloud.google.com/cpp/docs/reference/compute/latest
-- name: Migration Center
-  packages:
-    - name: google-cloud-cpp::migrationcenter::v1
-      link: https://cloud.google.com/cpp/docs/reference/migrationcenter/latest
-- name: Storage Transfer Service
-  packages:
-    - name: google-cloud-cpp::storagetransfer::v1
-      link: https://cloud.google.com/cpp/docs/reference/storagetransfer/latest
-- name: Vertex AI
-  packages:
-    - name: google-cloud-cpp::aiplatform::v1
-      link: https://cloud.google.com/cpp/docs/reference/aiplatform/latest
-- name: BigQuery Connection API
-  packages:
-    - name: google-cloud-cpp::bigquery::connection::v1
-      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
-- name: IAM Policy Troubleshooter API
-  packages:
-    - name: google-cloud-cpp::policytroubleshooter::iam::v3
-      link: https://cloud.google.com/cpp/docs/reference/policytroubleshooter/latest
-    - name: google-cloud-cpp::policytroubleshooter::v1
-      link: https://cloud.google.com/cpp/docs/reference/policytroubleshooter/latest
-- name: Sensitive Data Protection
-  packages:
-    - name: google-cloud-cpp::dlp::v2
-      link: https://cloud.google.com/cpp/docs/reference/dlp/latest
+    - name: google-cloud-cpp::appengine::v1
+      link: https://cloud.google.com/cpp/docs/reference/appengine/latest
 - name: App Hub
   packages:
     - name: google-cloud-cpp::apphub::v1
       link: https://cloud.google.com/cpp/docs/reference/apphub/latest
-- name: Document AI
+- name: Artifact Registry
   packages:
-    - name: google-cloud-cpp::documentai::v1
-      link: https://cloud.google.com/cpp/docs/reference/documentai/latest
-- name: Public Certificate Authority
+    - name: google-cloud-cpp::artifactregistry::v1
+      link: https://cloud.google.com/cpp/docs/reference/artifactregistry/latest
+- name: Assured Workloads
   packages:
-    - name: google-cloud-cpp::publicca::v1
-      link: https://cloud.google.com/cpp/docs/reference/publicca/latest
-- name: Service Management API
+    - name: google-cloud-cpp::assuredworkloads::v1
+      link: https://cloud.google.com/cpp/docs/reference/assuredworkloads/latest
+- name: AutoML
   packages:
-    - name: google-cloud-cpp::servicemanagement::v1
-      link: https://cloud.google.com/cpp/docs/reference/servicemanagement/latest
-- name: Virtual Private Cloud
+    - name: google-cloud-cpp::automl::v1
+      link: https://cloud.google.com/cpp/docs/reference/automl/latest
+- name: Backup and DR
   packages:
-    - name: google-cloud-cpp::vpcaccess::v1
-      link: https://cloud.google.com/cpp/docs/reference/vpcaccess/latest
+    - name: google-cloud-cpp::backupdr::v1
+      link: https://cloud.google.com/cpp/docs/reference/backupdr/latest
+- name: Backup for GKE
+  packages:
+    - name: google-cloud-cpp::gkebackup::v1
+      link: https://cloud.google.com/cpp/docs/reference/gkebackup/latest
+- name: Bare Metal Solution
+  packages:
+    - name: google-cloud-cpp::baremetalsolution::v2
+      link: https://cloud.google.com/cpp/docs/reference/baremetalsolution/latest
+- name: Batch
+  packages:
+    - name: google-cloud-cpp::batch::v1
+      link: https://cloud.google.com/cpp/docs/reference/batch/latest
+- name: BigLake API
+  packages:
+    - name: google-cloud-cpp::bigquery::biglake::v1
+      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
+- name: BigQuery
+  packages:
+    - name: google-cloud-cpp::bigquerycontrol::v2
+      link: https://cloud.google.com/cpp/docs/reference/bigquerycontrol/latest
+- name: BigQuery Connection API
+  packages:
+    - name: google-cloud-cpp::bigquery::connection::v1
+      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
+- name: BigQuery Data Transfer Service
+  packages:
+    - name: google-cloud-cpp::bigquery::datatransfer::v1
+      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
+- name: BigQuery DataPolicy API
+  packages:
+    - name: google-cloud-cpp::bigquery::datapolicies::v1
+      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
+    - name: google-cloud-cpp::bigquery::datapolicies::v2
+      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
+- name: BigQuery Migration
+  packages:
+    - name: google-cloud-cpp::bigquery::migration::v2
+      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
+- name: BigQuery Reservation API
+  packages:
+    - name: google-cloud-cpp::bigquery::reservation::v1
+      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
+- name: BigQuery Storage
+  packages:
+    - name: google-cloud-cpp::bigquery::storage::v1
+      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
+- name: Bigtable
+  packages:
+    - name: google-cloud-cpp::bigtable
+      link: https://cloud.google.com/cpp/docs/reference/bigtable/latest
+- name: Binary Authorization
+  packages:
+    - name: google-cloud-cpp::binaryauthorization::v1
+      link: https://cloud.google.com/cpp/docs/reference/binaryauthorization/latest
+- name: Certificate Authority Service
+  packages:
+    - name: google-cloud-cpp::privateca::v1
+      link: https://cloud.google.com/cpp/docs/reference/privateca/latest
+- name: Certificate Manager
+  packages:
+    - name: google-cloud-cpp::certificatemanager::v1
+      link: https://cloud.google.com/cpp/docs/reference/certificatemanager/latest
+- name: Channel Services
+  packages:
+    - name: google-cloud-cpp::channel::v1
+      link: https://cloud.google.com/cpp/docs/reference/channel/latest
 - name: Chrome Enterprise Premium
   packages:
     - name: google-cloud-cpp::beyondcorp::appconnections::v1
@@ -354,42 +132,56 @@
       link: https://cloud.google.com/cpp/docs/reference/beyondcorp/latest
     - name: google-cloud-cpp::beyondcorp::appgateways::v1
       link: https://cloud.google.com/cpp/docs/reference/beyondcorp/latest
+- name: Cloud Asset Inventory
+  packages:
+    - name: google-cloud-cpp::asset::v1
+      link: https://cloud.google.com/cpp/docs/reference/asset/latest
+- name: Cloud Billing
+  packages:
+    - name: google-cloud-cpp::billing::v1
+      link: https://cloud.google.com/cpp/docs/reference/billing/latest
+- name: Cloud Billing Budget API
+  packages:
+    - name: google-cloud-cpp::billing::budgets::v1
+      link: https://cloud.google.com/cpp/docs/reference/billing/latest
+- name: Cloud Build
+  packages:
+    - name: google-cloud-cpp::cloudbuild::v1
+      link: https://cloud.google.com/cpp/docs/reference/cloudbuild/latest
+    - name: google-cloud-cpp::cloudbuild::v2
+      link: https://cloud.google.com/cpp/docs/reference/cloudbuild/latest
+- name: Cloud Composer
+  packages:
+    - name: google-cloud-cpp::composer::v1
+      link: https://cloud.google.com/cpp/docs/reference/composer/latest
+- name: Cloud Data Fusion
+  packages:
+    - name: google-cloud-cpp::datafusion::v1
+      link: https://cloud.google.com/cpp/docs/reference/datafusion/latest
 - name: Cloud Database Migration Service
   packages:
     - name: google-cloud-cpp::datamigration::v1
       link: https://cloud.google.com/cpp/docs/reference/datamigration/latest
-- name: Cloud Translation
+- name: Cloud Deploy
   packages:
-    - name: google-cloud-cpp::translate::v3
-      link: https://cloud.google.com/cpp/docs/reference/translate/latest
-- name: Parallelstore
+    - name: google-cloud-cpp::deploy::v1
+      link: https://cloud.google.com/cpp/docs/reference/deploy/latest
+- name: Cloud Domains
   packages:
-    - name: google-cloud-cpp::parallelstore::v1
-      link: https://cloud.google.com/cpp/docs/reference/parallelstore/latest
-- name: Pub/Sub
+    - name: google-cloud-cpp::domains::v1
+      link: https://cloud.google.com/cpp/docs/reference/domains/latest
+- name: Cloud IDS
   packages:
-    - name: google-cloud-cpp::pubsub
-      link: https://cloud.google.com/cpp/docs/reference/pubsub/latest
-- name: Video Intelligence API
+    - name: google-cloud-cpp::ids::v1
+      link: https://cloud.google.com/cpp/docs/reference/ids/latest
+- name: Cloud Key Management Service
   packages:
-    - name: google-cloud-cpp::videointelligence::v1
-      link: https://cloud.google.com/cpp/docs/reference/videointelligence/latest
-- name: Video Stitcher API
+    - name: google-cloud-cpp::kms::v1
+      link: https://cloud.google.com/cpp/docs/reference/kms/latest
+- name: Cloud Logging
   packages:
-    - name: google-cloud-cpp::video::stitcher::v1
-      link: https://cloud.google.com/cpp/docs/reference/video/latest
-- name: Dataform
-  packages:
-    - name: google-cloud-cpp::dataform::v1
-      link: https://cloud.google.com/cpp/docs/reference/dataform/latest
-- name: Spanner
-  packages:
-    - name: google-cloud-cpp::spanner
-      link: https://cloud.google.com/cpp/docs/reference/spanner/latest
-- name: BigLake API
-  packages:
-    - name: google-cloud-cpp::bigquery::biglake::v1
-      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
+    - name: google-cloud-cpp::logging::v2
+      link: https://cloud.google.com/cpp/docs/reference/logging/latest
 - name: Cloud Monitoring
   packages:
     - name: google-cloud-cpp::monitoring::dashboard::v1
@@ -398,118 +190,12 @@
       link: https://cloud.google.com/cpp/docs/reference/monitoring/latest
     - name: google-cloud-cpp::monitoring::v3
       link: https://cloud.google.com/cpp/docs/reference/monitoring/latest
-- name: Text-to-Speech
+- name: Cloud Natural Language API
   packages:
-    - name: google-cloud-cpp::texttospeech::v1
-      link: https://cloud.google.com/cpp/docs/reference/texttospeech/latest
-- name: Web Security Scanner
-  packages:
-    - name: google-cloud-cpp::websecurityscanner::v1
-      link: https://cloud.google.com/cpp/docs/reference/websecurityscanner/latest
-- name: App Engine Admin API
-  packages:
-    - name: google-cloud-cpp::appengine::v1
-      link: https://cloud.google.com/cpp/docs/reference/appengine/latest
-- name: Cloud Workstations
-  packages:
-    - name: google-cloud-cpp::workstations::v1
-      link: https://cloud.google.com/cpp/docs/reference/workstations/latest
-- name: Managed Service for Microsoft Active Directory
-  packages:
-    - name: google-cloud-cpp::managedidentities::v1
-      link: https://cloud.google.com/cpp/docs/reference/managedidentities/latest
-- name: Batch
-  packages:
-    - name: google-cloud-cpp::batch::v1
-      link: https://cloud.google.com/cpp/docs/reference/batch/latest
-- name: Cloud Data Fusion
-  packages:
-    - name: google-cloud-cpp::datafusion::v1
-      link: https://cloud.google.com/cpp/docs/reference/datafusion/latest
-- name: Cloud Trace
-  packages:
-    - name: google-cloud-cpp::trace::v1
-      link: https://cloud.google.com/cpp/docs/reference/trace/latest
-    - name: google-cloud-cpp::trace::v2
-      link: https://cloud.google.com/cpp/docs/reference/trace/latest
-- name: Vertex AI Workbench
-  packages:
-    - name: google-cloud-cpp::notebooks::v1
-      link: https://cloud.google.com/cpp/docs/reference/notebooks/latest
-    - name: google-cloud-cpp::notebooks::v2
-      link: https://cloud.google.com/cpp/docs/reference/notebooks/latest
-- name: Cloud IDS
-  packages:
-    - name: google-cloud-cpp::ids::v1
-      link: https://cloud.google.com/cpp/docs/reference/ids/latest
-- name: Advisory Notifications
-  packages:
-    - name: google-cloud-cpp::advisorynotifications::v1
-      link: https://cloud.google.com/cpp/docs/reference/advisorynotifications/latest
-- name: Cloud Asset Inventory
-  packages:
-    - name: google-cloud-cpp::asset::v1
-      link: https://cloud.google.com/cpp/docs/reference/asset/latest
-- name: Cloud Billing Budget API
-  packages:
-    - name: google-cloud-cpp::billing::budgets::v1
-      link: https://cloud.google.com/cpp/docs/reference/billing/latest
-- name: Eventarc Publishing API
-  packages:
-    - name: google-cloud-cpp::eventarc::publishing::v1
-      link: https://cloud.google.com/cpp/docs/reference/eventarc/latest
-- name: Network Security API
-  packages:
-    - name: google-cloud-cpp::networksecurity::v1
-      link: https://cloud.google.com/cpp/docs/reference/networksecurity/latest
-- name: Service Usage
-  packages:
-    - name: google-cloud-cpp::serviceusage::v1
-      link: https://cloud.google.com/cpp/docs/reference/serviceusage/latest
-- name: BigQuery
-  packages:
-    - name: google-cloud-cpp::bigquerycontrol::v2
-      link: https://cloud.google.com/cpp/docs/reference/bigquerycontrol/latest
-- name: BigQuery Reservation API
-  packages:
-    - name: google-cloud-cpp::bigquery::reservation::v1
-      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
-- name: Cloud Tasks
-  packages:
-    - name: google-cloud-cpp::tasks::v2
-      link: https://cloud.google.com/cpp/docs/reference/tasks/latest
-- name: Filestore
-  packages:
-    - name: google-cloud-cpp::filestore::v1
-      link: https://cloud.google.com/cpp/docs/reference/filestore/latest
-- name: Kubernetes Engine API
-  packages:
-    - name: google-cloud-cpp::container::v1
-      link: https://cloud.google.com/cpp/docs/reference/container/latest
-- name: Secret Manager
-  packages:
-    - name: google-cloud-cpp::secretmanager::v1
-      link: https://cloud.google.com/cpp/docs/reference/secretmanager/latest
-- name: Security Command Center
-  packages:
-    - name: google-cloud-cpp::securitycenter::v1
-      link: https://cloud.google.com/cpp/docs/reference/securitycenter/latest
-    - name: google-cloud-cpp::securitycenter::v2
-      link: https://cloud.google.com/cpp/docs/reference/securitycenter/latest
-- name: Backup for GKE
-  packages:
-    - name: google-cloud-cpp::gkebackup::v1
-      link: https://cloud.google.com/cpp/docs/reference/gkebackup/latest
-- name: Binary Authorization
-  packages:
-    - name: google-cloud-cpp::binaryauthorization::v1
-      link: https://cloud.google.com/cpp/docs/reference/binaryauthorization/latest
-- name: Cloud Build
-  packages:
-    - name: google-cloud-cpp::cloudbuild::v1
-      link: https://cloud.google.com/cpp/docs/reference/cloudbuild/latest
-    - name: google-cloud-cpp::cloudbuild::v2
-      link: https://cloud.google.com/cpp/docs/reference/cloudbuild/latest
+    - name: google-cloud-cpp::language::v1
+      link: https://cloud.google.com/cpp/docs/reference/language/latest
+    - name: google-cloud-cpp::language::v2
+      link: https://cloud.google.com/cpp/docs/reference/language/latest
 - name: Cloud OS Config
   packages:
     - name: google-cloud-cpp::osconfig::agentendpoint::v1
@@ -520,103 +206,417 @@
   packages:
     - name: google-cloud-cpp::oslogin::v1
       link: https://cloud.google.com/cpp/docs/reference/oslogin/latest
-- name: Connect Gateway API
+- name: Cloud Optimization AI
   packages:
-    - name: google-cloud-cpp::gkeconnect::gateway::v1
-      link: https://cloud.google.com/cpp/docs/reference/gkeconnect/latest
-- name: Discovery Engine API
+    - name: google-cloud-cpp::optimization::v1
+      link: https://cloud.google.com/cpp/docs/reference/optimization/latest
+- name: Cloud Profiler
   packages:
-    - name: google-cloud-cpp::discoveryengine::v1
-      link: https://cloud.google.com/cpp/docs/reference/discoveryengine/latest
-- name: Identity-Aware Proxy
+    - name: google-cloud-cpp::profiler::v2
+      link: https://cloud.google.com/cpp/docs/reference/profiler/latest
+- name: Cloud Quotas
   packages:
-    - name: google-cloud-cpp::iap::v1
-      link: https://cloud.google.com/cpp/docs/reference/iap/latest
-- name: Cloud Logging
+    - name: google-cloud-cpp::cloudquotas::v1
+      link: https://cloud.google.com/cpp/docs/reference/cloudquotas/latest
+- name: Cloud Run
   packages:
-    - name: google-cloud-cpp::logging::v2
-      link: https://cloud.google.com/cpp/docs/reference/logging/latest
+    - name: google-cloud-cpp::run::v2
+      link: https://cloud.google.com/cpp/docs/reference/run/latest
 - name: Cloud Run functions
   packages:
     - name: google-cloud-cpp::functions::v1
       link: https://cloud.google.com/cpp/docs/reference/functions/latest
-- name: Cloud Vision
+- name: Cloud SQL Admin API
   packages:
-    - name: google-cloud-cpp::vision::v1
-      link: https://cloud.google.com/cpp/docs/reference/vision/latest
-- name: Data Catalog
+    - name: google-cloud-cpp::sql::v1
+      link: https://cloud.google.com/cpp/docs/reference/sql/latest
+- name: Cloud Scheduler
   packages:
-    - name: google-cloud-cpp::datacatalog::v1
-      link: https://cloud.google.com/cpp/docs/reference/datacatalog/latest
-- name: Media CDN
-  packages:
-    - name: google-cloud-cpp::networkservices::v1
-      link: https://cloud.google.com/cpp/docs/reference/networkservices/latest
-- name: Pub/Sub Lite
-  packages:
-    - name: google-cloud-cpp::pubsublite
-      link: https://cloud.google.com/cpp/docs/reference/pubsublite/latest
-- name: Secure Source Manager
-  packages:
-    - name: google-cloud-cpp::securesourcemanager::v1
-      link: https://cloud.google.com/cpp/docs/reference/securesourcemanager/latest
-- name: Workflow Executions API
-  packages:
-    - name: google-cloud-cpp::workflows::executions::v1
-      link: https://cloud.google.com/cpp/docs/reference/workflows/latest
-- name: AI Platform
-  packages:
-    - name: google-cloud-cpp::aiplatform::v1
-      link: https://cloud.google.com/cpp/docs/reference/aiplatform/latest
-- name: BigQuery Migration
-  packages:
-    - name: google-cloud-cpp::bigquery::migration::v2
-      link: https://cloud.google.com/cpp/docs/reference/bigquery/latest
-- name: Dataproc Metastore
-  packages:
-    - name: google-cloud-cpp::metastore::v1
-      link: https://cloud.google.com/cpp/docs/reference/metastore/latest
-- name: Network Management API
-  packages:
-    - name: google-cloud-cpp::networkmanagement::v1
-      link: https://cloud.google.com/cpp/docs/reference/networkmanagement/latest
-- name: Organization Policy Service
-  packages:
-    - name: google-cloud-cpp::orgpolicy::v2
-      link: https://cloud.google.com/cpp/docs/reference/orgpolicy/latest
+    - name: google-cloud-cpp::scheduler::v1
+      link: https://cloud.google.com/cpp/docs/reference/scheduler/latest
 - name: Cloud Shell
   packages:
     - name: google-cloud-cpp::shell::v1
       link: https://cloud.google.com/cpp/docs/reference/shell/latest
-- name: Managed Lustre
+- name: Cloud Storage
   packages:
-    - name: google-cloud-cpp::lustre::v1
-      link: https://cloud.google.com/cpp/docs/reference/lustre/latest
-- name: Migrate to Virtual Machines
+    - name: google-cloud-cpp::storage
+      link: https://cloud.google.com/cpp/docs/reference/storage/latest
+    - name: google-cloud-cpp::storagecontrol::v2
+      link: https://cloud.google.com/cpp/docs/reference/storagecontrol/latest
+- name: Cloud TPU
   packages:
-    - name: google-cloud-cpp::vmmigration::v1
-      link: https://cloud.google.com/cpp/docs/reference/vmmigration/latest
-- name: Resource Manager
+    - name: google-cloud-cpp::tpu::v1
+      link: https://cloud.google.com/cpp/docs/reference/tpu/latest
+    - name: google-cloud-cpp::tpu::v2
+      link: https://cloud.google.com/cpp/docs/reference/tpu/latest
+- name: Cloud Talent Solution Job Search
   packages:
-    - name: google-cloud-cpp::resourcemanager::v3
-      link: https://cloud.google.com/cpp/docs/reference/resourcemanager/latest
-- name: Web Risk
+    - name: google-cloud-cpp::talent::v4
+      link: https://cloud.google.com/cpp/docs/reference/talent/latest
+- name: Cloud Tasks
   packages:
-    - name: google-cloud-cpp::webrisk::v1
-      link: https://cloud.google.com/cpp/docs/reference/webrisk/latest
+    - name: google-cloud-cpp::tasks::v2
+      link: https://cloud.google.com/cpp/docs/reference/tasks/latest
+- name: Cloud Trace
+  packages:
+    - name: google-cloud-cpp::trace::v1
+      link: https://cloud.google.com/cpp/docs/reference/trace/latest
+    - name: google-cloud-cpp::trace::v2
+      link: https://cloud.google.com/cpp/docs/reference/trace/latest
+- name: Cloud Translation
+  packages:
+    - name: google-cloud-cpp::translate::v3
+      link: https://cloud.google.com/cpp/docs/reference/translate/latest
+- name: Cloud Vision
+  packages:
+    - name: google-cloud-cpp::vision::v1
+      link: https://cloud.google.com/cpp/docs/reference/vision/latest
+- name: Cloud Workstations
+  packages:
+    - name: google-cloud-cpp::workstations::v1
+      link: https://cloud.google.com/cpp/docs/reference/workstations/latest
+- name: Compute Engine
+  packages:
+    - name: google-cloud-cpp::compute
+      link: https://cloud.google.com/cpp/docs/reference/compute/latest
+    - name: google-cloud-cpp::compute::v1
+      link: https://cloud.google.com/cpp/docs/reference/compute/latest
+- name: Confidential Space
+  packages:
+    - name: google-cloud-cpp::confidentialcomputing::v1
+      link: https://cloud.google.com/cpp/docs/reference/confidentialcomputing/latest
+- name: Confidential VM
+  packages:
+    - name: google-cloud-cpp::confidentialcomputing::v1
+      link: https://cloud.google.com/cpp/docs/reference/confidentialcomputing/latest
+- name: Connect Gateway API
+  packages:
+    - name: google-cloud-cpp::gkeconnect::gateway::v1
+      link: https://cloud.google.com/cpp/docs/reference/gkeconnect/latest
+- name: Contact Center AI Insights
+  packages:
+    - name: google-cloud-cpp::contactcenterinsights::v1
+      link: https://cloud.google.com/cpp/docs/reference/contactcenterinsights/latest
 - name: Container Analysis
   packages:
     - name: google-cloud-cpp::containeranalysis::v1
       link: https://cloud.google.com/cpp/docs/reference/containeranalysis/latest
+- name: Data Catalog
+  packages:
+    - name: google-cloud-cpp::datacatalog::v1
+      link: https://cloud.google.com/cpp/docs/reference/datacatalog/latest
+- name: Data Lineage
+  packages:
+    - name: google-cloud-cpp::datacatalog::lineage::v1
+      link: https://cloud.google.com/cpp/docs/reference/datacatalog/latest
+- name: Dataform
+  packages:
+    - name: google-cloud-cpp::dataform::v1
+      link: https://cloud.google.com/cpp/docs/reference/dataform/latest
+- name: Dataplex
+  packages:
+    - name: google-cloud-cpp::dataplex::v1
+      link: https://cloud.google.com/cpp/docs/reference/dataplex/latest
+- name: Dataproc
+  packages:
+    - name: google-cloud-cpp::dataproc::v1
+      link: https://cloud.google.com/cpp/docs/reference/dataproc/latest
+- name: Dataproc Metastore
+  packages:
+    - name: google-cloud-cpp::metastore::v1
+      link: https://cloud.google.com/cpp/docs/reference/metastore/latest
+- name: Datastream
+  packages:
+    - name: google-cloud-cpp::datastream::v1
+      link: https://cloud.google.com/cpp/docs/reference/datastream/latest
+- name: Developer Connect
+  packages:
+    - name: google-cloud-cpp::developerconnect::v1
+      link: https://cloud.google.com/cpp/docs/reference/developerconnect/latest
+- name: Dialogflow
+  packages:
+    - name: google-cloud-cpp::dialogflow_cx
+      link: https://cloud.google.com/cpp/docs/reference/dialogflow_cx/latest
+    - name: google-cloud-cpp::dialogflow_es
+      link: https://cloud.google.com/cpp/docs/reference/dialogflow_es/latest
+- name: Discovery Engine API
+  packages:
+    - name: google-cloud-cpp::discoveryengine::v1
+      link: https://cloud.google.com/cpp/docs/reference/discoveryengine/latest
+- name: Document AI
+  packages:
+    - name: google-cloud-cpp::documentai::v1
+      link: https://cloud.google.com/cpp/docs/reference/documentai/latest
+- name: Document AI Warehouse
+  packages:
+    - name: google-cloud-cpp::contentwarehouse::v1
+      link: https://cloud.google.com/cpp/docs/reference/contentwarehouse/latest
+- name: Essential Contacts API
+  packages:
+    - name: google-cloud-cpp::essentialcontacts::v1
+      link: https://cloud.google.com/cpp/docs/reference/essentialcontacts/latest
+- name: Eventarc
+  packages:
+    - name: google-cloud-cpp::eventarc::v1
+      link: https://cloud.google.com/cpp/docs/reference/eventarc/latest
+- name: Eventarc Publishing API
+  packages:
+    - name: google-cloud-cpp::eventarc::publishing::v1
+      link: https://cloud.google.com/cpp/docs/reference/eventarc/latest
+- name: Filestore
+  packages:
+    - name: google-cloud-cpp::filestore::v1
+      link: https://cloud.google.com/cpp/docs/reference/filestore/latest
+- name: Firestore in Datastore mode
+  packages:
+    - name: google-cloud-cpp::datastore::v1
+      link: https://cloud.google.com/cpp/docs/reference/datastore/latest
+- name: GKE Hub API
+  packages:
+    - name: google-cloud-cpp::gkehub::v1
+      link: https://cloud.google.com/cpp/docs/reference/gkehub/latest
+- name: Google Cloud Managed Service for Apache Kafka
+  packages:
+    - name: google-cloud-cpp::managedkafka::schemaregistry::v1
+      link: https://cloud.google.com/cpp/docs/reference/managedkafka/latest
+    - name: google-cloud-cpp::managedkafka::v1
+      link: https://cloud.google.com/cpp/docs/reference/managedkafka/latest
+- name: Google Cloud VMware Engine
+  packages:
+    - name: google-cloud-cpp::vmwareengine::v1
+      link: https://cloud.google.com/cpp/docs/reference/vmwareengine/latest
+- name: Google SecOps SIEM
+  packages:
+    - name: google-cloud-cpp::chronicle::v1
+      link: https://cloud.google.com/cpp/docs/reference/chronicle/latest
+- name: IAM Policy Troubleshooter API
+  packages:
+    - name: google-cloud-cpp::policytroubleshooter::iam::v3
+      link: https://cloud.google.com/cpp/docs/reference/policytroubleshooter/latest
+    - name: google-cloud-cpp::policytroubleshooter::v1
+      link: https://cloud.google.com/cpp/docs/reference/policytroubleshooter/latest
+- name: IAM Service Account Credentials API
+  packages:
+    - name: google-cloud-cpp::iam::credentials::v1
+      link: https://cloud.google.com/cpp/docs/reference/iam/latest
+- name: Identity and Access Management
+  packages:
+    - name: google-cloud-cpp::iam::admin::v1
+      link: https://cloud.google.com/cpp/docs/reference/iam/latest
+    - name: google-cloud-cpp::iam::v2
+      link: https://cloud.google.com/cpp/docs/reference/iam/latest
+    - name: google-cloud-cpp::iam::v3
+      link: https://cloud.google.com/cpp/docs/reference/iam/latest
+- name: Identity-Aware Proxy
+  packages:
+    - name: google-cloud-cpp::iap::v1
+      link: https://cloud.google.com/cpp/docs/reference/iap/latest
+- name: Infrastructure Manager
+  packages:
+    - name: google-cloud-cpp::config::v1
+      link: https://cloud.google.com/cpp/docs/reference/config/latest
+- name: Integration Connectors
+  packages:
+    - name: google-cloud-cpp::connectors::v1
+      link: https://cloud.google.com/cpp/docs/reference/connectors/latest
+- name: Kubernetes Engine API
+  packages:
+    - name: google-cloud-cpp::container::v1
+      link: https://cloud.google.com/cpp/docs/reference/container/latest
+- name: Live Stream API
+  packages:
+    - name: google-cloud-cpp::video::livestream::v1
+      link: https://cloud.google.com/cpp/docs/reference/video/latest
+- name: Managed Lustre
+  packages:
+    - name: google-cloud-cpp::lustre::v1
+      link: https://cloud.google.com/cpp/docs/reference/lustre/latest
+- name: Managed Service for Microsoft Active Directory
+  packages:
+    - name: google-cloud-cpp::managedidentities::v1
+      link: https://cloud.google.com/cpp/docs/reference/managedidentities/latest
+- name: Media CDN
+  packages:
+    - name: google-cloud-cpp::networkservices::v1
+      link: https://cloud.google.com/cpp/docs/reference/networkservices/latest
+- name: Memorystore for Memcached
+  packages:
+    - name: google-cloud-cpp::memcache::v1
+      link: https://cloud.google.com/cpp/docs/reference/memcache/latest
+- name: Memorystore for Redis
+  packages:
+    - name: google-cloud-cpp::memorystore::v1
+      link: https://cloud.google.com/cpp/docs/reference/memorystore/latest
+    - name: google-cloud-cpp::redis::cluster::v1
+      link: https://cloud.google.com/cpp/docs/reference/redis/latest
+    - name: google-cloud-cpp::redis::v1
+      link: https://cloud.google.com/cpp/docs/reference/redis/latest
+- name: Migrate to Virtual Machines
+  packages:
+    - name: google-cloud-cpp::vmmigration::v1
+      link: https://cloud.google.com/cpp/docs/reference/vmmigration/latest
+- name: Migration Center
+  packages:
+    - name: google-cloud-cpp::migrationcenter::v1
+      link: https://cloud.google.com/cpp/docs/reference/migrationcenter/latest
 - name: NetApp Volumes
   packages:
     - name: google-cloud-cpp::netapp::v1
       link: https://cloud.google.com/cpp/docs/reference/netapp/latest
+- name: Network Connectivity Center
+  packages:
+    - name: google-cloud-cpp::networkconnectivity::v1
+      link: https://cloud.google.com/cpp/docs/reference/networkconnectivity/latest
+- name: Network Management API
+  packages:
+    - name: google-cloud-cpp::networkmanagement::v1
+      link: https://cloud.google.com/cpp/docs/reference/networkmanagement/latest
+- name: Network Security API
+  packages:
+    - name: google-cloud-cpp::networksecurity::v1
+      link: https://cloud.google.com/cpp/docs/reference/networksecurity/latest
 - name: Oracle Database@Google Cloud
   packages:
     - name: google-cloud-cpp::oracledatabase::v1
       link: https://cloud.google.com/cpp/docs/reference/oracledatabase/latest
+- name: Organization Policy Service
+  packages:
+    - name: google-cloud-cpp::orgpolicy::v2
+      link: https://cloud.google.com/cpp/docs/reference/orgpolicy/latest
+- name: Parallelstore
+  packages:
+    - name: google-cloud-cpp::parallelstore::v1
+      link: https://cloud.google.com/cpp/docs/reference/parallelstore/latest
+- name: Pub/Sub
+  packages:
+    - name: google-cloud-cpp::pubsub
+      link: https://cloud.google.com/cpp/docs/reference/pubsub/latest
+- name: Pub/Sub Lite
+  packages:
+    - name: google-cloud-cpp::pubsublite
+      link: https://cloud.google.com/cpp/docs/reference/pubsublite/latest
+- name: Public Certificate Authority
+  packages:
+    - name: google-cloud-cpp::publicca::v1
+      link: https://cloud.google.com/cpp/docs/reference/publicca/latest
+- name: Recommender
+  packages:
+    - name: google-cloud-cpp::recommender::v1
+      link: https://cloud.google.com/cpp/docs/reference/recommender/latest
+- name: Resource Manager
+  packages:
+    - name: google-cloud-cpp::resourcemanager::v3
+      link: https://cloud.google.com/cpp/docs/reference/resourcemanager/latest
+- name: Retail API
+  packages:
+    - name: google-cloud-cpp::retail::v2
+      link: https://cloud.google.com/cpp/docs/reference/retail/latest
+- name: Secret Manager
+  packages:
+    - name: google-cloud-cpp::secretmanager::v1
+      link: https://cloud.google.com/cpp/docs/reference/secretmanager/latest
+- name: Secure Source Manager
+  packages:
+    - name: google-cloud-cpp::securesourcemanager::v1
+      link: https://cloud.google.com/cpp/docs/reference/securesourcemanager/latest
+- name: Security Command Center
+  packages:
+    - name: google-cloud-cpp::securitycenter::v1
+      link: https://cloud.google.com/cpp/docs/reference/securitycenter/latest
+    - name: google-cloud-cpp::securitycenter::v2
+      link: https://cloud.google.com/cpp/docs/reference/securitycenter/latest
+- name: Sensitive Data Protection
+  packages:
+    - name: google-cloud-cpp::dlp::v2
+      link: https://cloud.google.com/cpp/docs/reference/dlp/latest
+- name: Service Control API
+  packages:
+    - name: google-cloud-cpp::servicecontrol::v1
+      link: https://cloud.google.com/cpp/docs/reference/servicecontrol/latest
+    - name: google-cloud-cpp::servicecontrol::v2
+      link: https://cloud.google.com/cpp/docs/reference/servicecontrol/latest
+- name: Service Directory
+  packages:
+    - name: google-cloud-cpp::servicedirectory::v1
+      link: https://cloud.google.com/cpp/docs/reference/servicedirectory/latest
+- name: Service Health
+  packages:
+    - name: google-cloud-cpp::servicehealth::v1
+      link: https://cloud.google.com/cpp/docs/reference/servicehealth/latest
+- name: Service Management API
+  packages:
+    - name: google-cloud-cpp::servicemanagement::v1
+      link: https://cloud.google.com/cpp/docs/reference/servicemanagement/latest
+- name: Service Usage
+  packages:
+    - name: google-cloud-cpp::serviceusage::v1
+      link: https://cloud.google.com/cpp/docs/reference/serviceusage/latest
+- name: Spanner
+  packages:
+    - name: google-cloud-cpp::spanner
+      link: https://cloud.google.com/cpp/docs/reference/spanner/latest
+- name: Speech-to-Text
+  packages:
+    - name: google-cloud-cpp::speech::v1
+      link: https://cloud.google.com/cpp/docs/reference/speech/latest
+    - name: google-cloud-cpp::speech::v2
+      link: https://cloud.google.com/cpp/docs/reference/speech/latest
+- name: Storage Insights
+  packages:
+    - name: google-cloud-cpp::storageinsights::v1
+      link: https://cloud.google.com/cpp/docs/reference/storageinsights/latest
+- name: Storage Transfer Service
+  packages:
+    - name: google-cloud-cpp::storagetransfer::v1
+      link: https://cloud.google.com/cpp/docs/reference/storagetransfer/latest
+- name: Text-to-Speech
+  packages:
+    - name: google-cloud-cpp::texttospeech::v1
+      link: https://cloud.google.com/cpp/docs/reference/texttospeech/latest
 - name: Transcoder API
   packages:
     - name: google-cloud-cpp::video::transcoder::v1
       link: https://cloud.google.com/cpp/docs/reference/video/latest
+- name: Vertex AI
+  packages:
+    - name: google-cloud-cpp::aiplatform::v1
+      link: https://cloud.google.com/cpp/docs/reference/aiplatform/latest
+- name: Vertex AI Workbench
+  packages:
+    - name: google-cloud-cpp::notebooks::v1
+      link: https://cloud.google.com/cpp/docs/reference/notebooks/latest
+    - name: google-cloud-cpp::notebooks::v2
+      link: https://cloud.google.com/cpp/docs/reference/notebooks/latest
+- name: Video Intelligence API
+  packages:
+    - name: google-cloud-cpp::videointelligence::v1
+      link: https://cloud.google.com/cpp/docs/reference/videointelligence/latest
+- name: Video Stitcher API
+  packages:
+    - name: google-cloud-cpp::video::stitcher::v1
+      link: https://cloud.google.com/cpp/docs/reference/video/latest
+- name: Virtual Private Cloud
+  packages:
+    - name: google-cloud-cpp::vpcaccess::v1
+      link: https://cloud.google.com/cpp/docs/reference/vpcaccess/latest
+- name: Web Risk
+  packages:
+    - name: google-cloud-cpp::webrisk::v1
+      link: https://cloud.google.com/cpp/docs/reference/webrisk/latest
+- name: Web Security Scanner
+  packages:
+    - name: google-cloud-cpp::websecurityscanner::v1
+      link: https://cloud.google.com/cpp/docs/reference/websecurityscanner/latest
+- name: Workflow Executions API
+  packages:
+    - name: google-cloud-cpp::workflows::executions::v1
+      link: https://cloud.google.com/cpp/docs/reference/workflows/latest
+- name: Workflows
+  packages:
+    - name: google-cloud-cpp::workflows::v1
+      link: https://cloud.google.com/cpp/docs/reference/workflows/latest
+- name: reCAPTCHA
+  packages:
+    - name: google-cloud-cpp::recaptchaenterprise::v1
+      link: https://cloud.google.com/cpp/docs/reference/recaptchaenterprise/latest

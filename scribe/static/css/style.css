@@ -1,0 +1,181 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #202124;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    background: #fff;
+    border-bottom: 1px solid #e8eaed;
+    padding: 16px 24px;
+}
+
+.header-content {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.home-link {
+    color: #1967d2;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.home-link:hover {
+    text-decoration: underline;
+}
+
+/* Main content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #5f6368;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb a {
+    color: #1967d2;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.original-link {
+    margin-left: 8px;
+    color: #1967d2;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.original-link:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-family: 'Google Sans', Arial, sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #202124;
+    margin-bottom: 24px;
+}
+
+p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.intro-text {
+    margin-bottom: 32px;
+}
+
+.intro-text a {
+    color: #1967d2;
+    text-decoration: none;
+}
+
+.intro-text a:hover {
+    text-decoration: underline;
+}
+
+.table-intro {
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+/* Table styling - matching Google Cloud docs */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dadce0;
+    margin: 24px 0;
+    background: #fff;
+}
+
+thead {
+    background: #f1f3f4;
+}
+
+th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 500;
+    color: #202124;
+    border-bottom: 1px solid #dadce0;
+}
+
+tbody tr {
+    border-bottom: 1px solid #dadce0;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+td {
+    padding: 16px;
+    vertical-align: top;
+}
+
+td:first-child {
+    width: 35%;
+    font-weight: 400;
+}
+
+td:last-child {
+    width: 65%;
+}
+
+td a {
+    color: #1967d2;
+    text-decoration: none;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+br {
+    line-height: 2;
+}
+
+/* Language list specific styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+li a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+li a:hover {
+    text-decoration: underline;
+}

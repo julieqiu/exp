@@ -3,6 +3,7 @@ package scraper
 import (
 	"fmt"
 	"net/http"
+	"sort"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -110,6 +111,11 @@ func Scrape(language string) ([]Library, error) {
 	for _, lib := range libraryMap {
 		libraries = append(libraries, *lib)
 	}
+
+	// Sort libraries alphabetically by name
+	sort.Slice(libraries, func(i, j int) bool {
+		return libraries[i].Name < libraries[j].Name
+	})
 
 	return libraries, nil
 }

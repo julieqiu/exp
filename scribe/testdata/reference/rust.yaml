@@ -1,459 +1,31 @@
-- name: google-cloud-securitycenter-v2
+- name: google-cloud-accessapproval-v1
   packages:
-    - name: google-cloud-securitycenter-v2
-      link: https://docs.rs/google-cloud-securitycenter-v2/latest
-- name: google-cloud-api-servicecontrol-v1
+    - name: google-cloud-accessapproval-v1
+      link: https://docs.rs/google-cloud-accessapproval-v1/latest
+- name: google-cloud-advisorynotifications-v1
   packages:
-    - name: google-cloud-api-servicecontrol-v1
-      link: https://docs.rs/google-cloud-api-servicecontrol-v1/latest
-- name: google-cloud-apigeeconnect-v1
-  packages:
-    - name: google-cloud-apigeeconnect-v1
-      link: https://docs.rs/google-cloud-apigeeconnect-v1/latest
-- name: google-cloud-discoveryengine-v1
-  packages:
-    - name: google-cloud-discoveryengine-v1
-      link: https://docs.rs/google-cloud-discoveryengine-v1/latest
-- name: google-cloud-iap-v1
-  packages:
-    - name: google-cloud-iap-v1
-      link: https://docs.rs/google-cloud-iap-v1/latest
-- name: google-cloud-iam-v2
-  packages:
-    - name: google-cloud-iam-v2
-      link: https://docs.rs/google-cloud-iam-v2/latest
-- name: google-cloud-securesourcemanager-v1
-  packages:
-    - name: google-cloud-securesourcemanager-v1
-      link: https://docs.rs/google-cloud-securesourcemanager-v1/latest
-- name: google-cloud-security-privateca-v1
-  packages:
-    - name: google-cloud-security-privateca-v1
-      link: https://docs.rs/google-cloud-security-privateca-v1/latest
-- name: google-cloud-container-v1
-  packages:
-    - name: google-cloud-container-v1
-      link: https://docs.rs/google-cloud-container-v1/latest
-- name: google-cloud-optimization-v1
-  packages:
-    - name: google-cloud-optimization-v1
-      link: https://docs.rs/google-cloud-optimization-v1/latest
-- name: google-cloud-longrunning
-  packages:
-    - name: google-cloud-longrunning
-      link: https://docs.rs/google-cloud-longrunning/latest
-- name: google-cloud-grafeas-v1
-  packages:
-    - name: google-cloud-grafeas-v1
-      link: https://docs.rs/google-cloud-grafeas-v1/latest
-- name: google-cloud-documentai-v1
-  packages:
-    - name: google-cloud-documentai-v1
-      link: https://docs.rs/google-cloud-documentai-v1/latest
-- name: google-cloud-redis-v1
-  packages:
-    - name: google-cloud-redis-v1
-      link: https://docs.rs/google-cloud-redis-v1/latest
-- name: google-cloud-security-publicca-v1
-  packages:
-    - name: google-cloud-security-publicca-v1
-      link: https://docs.rs/google-cloud-security-publicca-v1/latest
-- name: google-cloud-video-transcoder-v1
-  packages:
-    - name: google-cloud-video-transcoder-v1
-      link: https://docs.rs/google-cloud-video-transcoder-v1/latest
-- name: google-cloud-iam-v1
-  packages:
-    - name: google-cloud-iam-v1
-      link: https://docs.rs/google-cloud-iam-v1/latest
-- name: google-cloud-location
-  packages:
-    - name: google-cloud-location
-      link: https://docs.rs/google-cloud-location/latest
-- name: google-cloud-secretmanager-v1
-  packages:
-    - name: google-cloud-secretmanager-v1
-      link: https://docs.rs/google-cloud-secretmanager-v1/latest
-- name: google-cloud-metastore-v1
-  packages:
-    - name: google-cloud-metastore-v1
-      link: https://docs.rs/google-cloud-metastore-v1/latest
-- name: google-cloud-rapidmigrationassessment-v1
-  packages:
-    - name: google-cloud-rapidmigrationassessment-v1
-      link: https://docs.rs/google-cloud-rapidmigrationassessment-v1/latest
-- name: google-cloud-tasks-v2
-  packages:
-    - name: google-cloud-tasks-v2
-      link: https://docs.rs/google-cloud-tasks-v2/latest
-- name: google-cloud-bigquery-datapolicies-v1
-  packages:
-    - name: google-cloud-bigquery-datapolicies-v1
-      link: https://docs.rs/google-cloud-bigquery-datapolicies-v1/latest
-- name: google-cloud-kms-inventory-v1
-  packages:
-    - name: google-cloud-kms-inventory-v1
-      link: https://docs.rs/google-cloud-kms-inventory-v1/latest
-- name: google-cloud-netapp-v1
-  packages:
-    - name: google-cloud-netapp-v1
-      link: https://docs.rs/google-cloud-netapp-v1/latest
-- name: google-cloud-webrisk-v1
-  packages:
-    - name: google-cloud-webrisk-v1
-      link: https://docs.rs/google-cloud-webrisk-v1/latest
-- name: google-cloud-monitoring-metricsscope-v1
-  packages:
-    - name: google-cloud-monitoring-metricsscope-v1
-      link: https://docs.rs/google-cloud-monitoring-metricsscope-v1/latest
-- name: google-cloud-storage
-  packages:
-    - name: google-cloud-storage
-      link: https://docs.rs/google-cloud-storage/latest
-- name: google-cloud-chronicle-v1
-  packages:
-    - name: google-cloud-chronicle-v1
-      link: https://docs.rs/google-cloud-chronicle-v1/latest
-- name: google-cloud-datastream-v1
-  packages:
-    - name: google-cloud-datastream-v1
-      link: https://docs.rs/google-cloud-datastream-v1/latest
-- name: google-cloud-lustre-v1
-  packages:
-    - name: google-cloud-lustre-v1
-      link: https://docs.rs/google-cloud-lustre-v1/latest
-- name: google-cloud-memcache-v1
-  packages:
-    - name: google-cloud-memcache-v1
-      link: https://docs.rs/google-cloud-memcache-v1/latest
-- name: google-cloud-recommender-v1
-  packages:
-    - name: google-cloud-recommender-v1
-      link: https://docs.rs/google-cloud-recommender-v1/latest
-- name: google-cloud-video-stitcher-v1
-  packages:
-    - name: google-cloud-video-stitcher-v1
-      link: https://docs.rs/google-cloud-video-stitcher-v1/latest
-- name: google-cloud-beyondcorp-appconnectors-v1
-  packages:
-    - name: google-cloud-beyondcorp-appconnectors-v1
-      link: https://docs.rs/google-cloud-beyondcorp-appconnectors-v1/latest
-- name: google-cloud-dataproc-v1
-  packages:
-    - name: google-cloud-dataproc-v1
-      link: https://docs.rs/google-cloud-dataproc-v1/latest
-- name: google-cloud-dialogflow-cx-v3
-  packages:
-    - name: google-cloud-dialogflow-cx-v3
-      link: https://docs.rs/google-cloud-dialogflow-cx-v3/latest
-- name: google-cloud-memorystore-v1
-  packages:
-    - name: google-cloud-memorystore-v1
-      link: https://docs.rs/google-cloud-memorystore-v1/latest
-- name: google-cloud-storagebatchoperations-v1
-  packages:
-    - name: google-cloud-storagebatchoperations-v1
-      link: https://docs.rs/google-cloud-storagebatchoperations-v1/latest
-- name: google-cloud-support-v2
-  packages:
-    - name: google-cloud-support-v2
-      link: https://docs.rs/google-cloud-support-v2/latest
-- name: google-cloud-texttospeech-v1
-  packages:
-    - name: google-cloud-texttospeech-v1
-      link: https://docs.rs/google-cloud-texttospeech-v1/latest
-- name: google-cloud-vmmigration-v1
-  packages:
-    - name: google-cloud-vmmigration-v1
-      link: https://docs.rs/google-cloud-vmmigration-v1/latest
-- name: google-cloud-api-servicecontrol-v2
-  packages:
-    - name: google-cloud-api-servicecontrol-v2
-      link: https://docs.rs/google-cloud-api-servicecontrol-v2/latest
-- name: google-cloud-bigtable-admin-v2
-  packages:
-    - name: google-cloud-bigtable-admin-v2
-      link: https://docs.rs/google-cloud-bigtable-admin-v2/latest
-- name: google-cloud-policytroubleshooter-iam-v3
-  packages:
-    - name: google-cloud-policytroubleshooter-iam-v3
-      link: https://docs.rs/google-cloud-policytroubleshooter-iam-v3/latest
-- name: google-cloud-build-v2
-  packages:
-    - name: google-cloud-build-v2
-      link: https://docs.rs/google-cloud-build-v2/latest
-- name: google-cloud-speech-v2
-  packages:
-    - name: google-cloud-speech-v2
-      link: https://docs.rs/google-cloud-speech-v2/latest
-- name: google-cloud-appengine-v1
-  packages:
-    - name: google-cloud-appengine-v1
-      link: https://docs.rs/google-cloud-appengine-v1/latest
-- name: google-cloud-licensemanager-v1
-  packages:
-    - name: google-cloud-licensemanager-v1
-      link: https://docs.rs/google-cloud-licensemanager-v1/latest
-- name: google-cloud-networkconnectivity-v1
-  packages:
-    - name: google-cloud-networkconnectivity-v1
-      link: https://docs.rs/google-cloud-networkconnectivity-v1/latest
-- name: google-cloud-bigquery-analyticshub-v1
-  packages:
-    - name: google-cloud-bigquery-analyticshub-v1
-      link: https://docs.rs/google-cloud-bigquery-analyticshub-v1/latest
-- name: google-cloud-cloudsecuritycompliance-v1
-  packages:
-    - name: google-cloud-cloudsecuritycompliance-v1
-      link: https://docs.rs/google-cloud-cloudsecuritycompliance-v1/latest
-- name: google-cloud-contactcenterinsights-v1
-  packages:
-    - name: google-cloud-contactcenterinsights-v1
-      link: https://docs.rs/google-cloud-contactcenterinsights-v1/latest
-- name: google-cloud-kms-v1
-  packages:
-    - name: google-cloud-kms-v1
-      link: https://docs.rs/google-cloud-kms-v1/latest
-- name: google-cloud-telcoautomation-v1
-  packages:
-    - name: google-cloud-telcoautomation-v1
-      link: https://docs.rs/google-cloud-telcoautomation-v1/latest
-- name: google-cloud-beyondcorp-appgateways-v1
-  packages:
-    - name: google-cloud-beyondcorp-appgateways-v1
-      link: https://docs.rs/google-cloud-beyondcorp-appgateways-v1/latest
-- name: google-cloud-commerce-consumer-procurement-v1
-  packages:
-    - name: google-cloud-commerce-consumer-procurement-v1
-      link: https://docs.rs/google-cloud-commerce-consumer-procurement-v1/latest
-- name: google-cloud-redis-cluster-v1
-  packages:
-    - name: google-cloud-redis-cluster-v1
-      link: https://docs.rs/google-cloud-redis-cluster-v1/latest
-- name: google-cloud-monitoring-v3
-  packages:
-    - name: google-cloud-monitoring-v3
-      link: https://docs.rs/google-cloud-monitoring-v3/latest
-- name: google-cloud-iam-credentials-v1
-  packages:
-    - name: google-cloud-iam-credentials-v1
-      link: https://docs.rs/google-cloud-iam-credentials-v1/latest
-- name: google-cloud-confidentialcomputing-v1
-  packages:
-    - name: google-cloud-confidentialcomputing-v1
-      link: https://docs.rs/google-cloud-confidentialcomputing-v1/latest
-- name: google-cloud-dataplex-v1
-  packages:
-    - name: google-cloud-dataplex-v1
-      link: https://docs.rs/google-cloud-dataplex-v1/latest
-- name: google-cloud-financialservices-v1
-  packages:
-    - name: google-cloud-financialservices-v1
-      link: https://docs.rs/google-cloud-financialservices-v1/latest
-- name: google-cloud-modelarmor-v1
-  packages:
-    - name: google-cloud-modelarmor-v1
-      link: https://docs.rs/google-cloud-modelarmor-v1/latest
-- name: google-cloud-networkservices-v1
-  packages:
-    - name: google-cloud-networkservices-v1
-      link: https://docs.rs/google-cloud-networkservices-v1/latest
-- name: google-cloud-talent-v4
-  packages:
-    - name: google-cloud-talent-v4
-      link: https://docs.rs/google-cloud-talent-v4/latest
-- name: google-cloud-vision-v1
-  packages:
-    - name: google-cloud-vision-v1
-      link: https://docs.rs/google-cloud-vision-v1/latest
-- name: google-cloud-bigquery-connection-v1
-  packages:
-    - name: google-cloud-bigquery-connection-v1
-      link: https://docs.rs/google-cloud-bigquery-connection-v1/latest
-- name: google-cloud-filestore-v1
-  packages:
-    - name: google-cloud-filestore-v1
-      link: https://docs.rs/google-cloud-filestore-v1/latest
-- name: google-cloud-managedkafka-schemaregistry-v1
-  packages:
-    - name: google-cloud-managedkafka-schemaregistry-v1
-      link: https://docs.rs/google-cloud-managedkafka-schemaregistry-v1/latest
-- name: google-cloud-timeseriesinsights-v1
-  packages:
-    - name: google-cloud-timeseriesinsights-v1
-      link: https://docs.rs/google-cloud-timeseriesinsights-v1/latest
-- name: google-cloud-monitoring-dashboard-v1
-  packages:
-    - name: google-cloud-monitoring-dashboard-v1
-      link: https://docs.rs/google-cloud-monitoring-dashboard-v1/latest
-- name: google-cloud-apikeys-v2
-  packages:
-    - name: google-cloud-apikeys-v2
-      link: https://docs.rs/google-cloud-apikeys-v2/latest
-- name: google-cloud-bigquery-migration-v2
-  packages:
-    - name: google-cloud-bigquery-migration-v2
-      link: https://docs.rs/google-cloud-bigquery-migration-v2/latest
-- name: google-cloud-gkebackup-v1
-  packages:
-    - name: google-cloud-gkebackup-v1
-      link: https://docs.rs/google-cloud-gkebackup-v1/latest
-- name: google-cloud-ids-v1
-  packages:
-    - name: google-cloud-ids-v1
-      link: https://docs.rs/google-cloud-ids-v1/latest
-- name: google-cloud-policytroubleshooter-v1
-  packages:
-    - name: google-cloud-policytroubleshooter-v1
-      link: https://docs.rs/google-cloud-policytroubleshooter-v1/latest
-- name: google-cloud-servicedirectory-v1
-  packages:
-    - name: google-cloud-servicedirectory-v1
-      link: https://docs.rs/google-cloud-servicedirectory-v1/latest
-- name: google-cloud-datastore-admin-v1
-  packages:
-    - name: google-cloud-datastore-admin-v1
-      link: https://docs.rs/google-cloud-datastore-admin-v1/latest
-- name: google-cloud-api-cloudquotas-v1
-  packages:
-    - name: google-cloud-api-cloudquotas-v1
-      link: https://docs.rs/google-cloud-api-cloudquotas-v1/latest
-- name: google-cloud-assuredworkloads-v1
-  packages:
-    - name: google-cloud-assuredworkloads-v1
-      link: https://docs.rs/google-cloud-assuredworkloads-v1/latest
-- name: google-cloud-configdelivery-v1
-  packages:
-    - name: google-cloud-configdelivery-v1
-      link: https://docs.rs/google-cloud-configdelivery-v1/latest
-- name: google-cloud-gkehub-v1
-  packages:
-    - name: google-cloud-gkehub-v1
-      link: https://docs.rs/google-cloud-gkehub-v1/latest
-- name: google-cloud-parametermanager-v1
-  packages:
-    - name: google-cloud-parametermanager-v1
-      link: https://docs.rs/google-cloud-parametermanager-v1/latest
-- name: google-cloud-privilegedaccessmanager-v1
-  packages:
-    - name: google-cloud-privilegedaccessmanager-v1
-      link: https://docs.rs/google-cloud-privilegedaccessmanager-v1/latest
-- name: google-cloud-video-livestream-v1
-  packages:
-    - name: google-cloud-video-livestream-v1
-      link: https://docs.rs/google-cloud-video-livestream-v1/latest
-- name: google-cloud-essentialcontacts-v1
-  packages:
-    - name: google-cloud-essentialcontacts-v1
-      link: https://docs.rs/google-cloud-essentialcontacts-v1/latest
-- name: google-cloud-networkmanagement-v1
-  packages:
-    - name: google-cloud-networkmanagement-v1
-      link: https://docs.rs/google-cloud-networkmanagement-v1/latest
-- name: google-cloud-recaptchaenterprise-v1
-  packages:
-    - name: google-cloud-recaptchaenterprise-v1
-      link: https://docs.rs/google-cloud-recaptchaenterprise-v1/latest
-- name: google-cloud-vpcaccess-v1
-  packages:
-    - name: google-cloud-vpcaccess-v1
-      link: https://docs.rs/google-cloud-vpcaccess-v1/latest
-- name: google-cloud-language-v2
-  packages:
-    - name: google-cloud-language-v2
-      link: https://docs.rs/google-cloud-language-v2/latest
-- name: google-cloud-asset-v1
-  packages:
-    - name: google-cloud-asset-v1
-      link: https://docs.rs/google-cloud-asset-v1/latest
-- name: google-cloud-bigquery-datatransfer-v1
-  packages:
-    - name: google-cloud-bigquery-datatransfer-v1
-      link: https://docs.rs/google-cloud-bigquery-datatransfer-v1/latest
-- name: google-cloud-cloudcontrolspartner-v1
-  packages:
-    - name: google-cloud-cloudcontrolspartner-v1
-      link: https://docs.rs/google-cloud-cloudcontrolspartner-v1/latest
-- name: google-cloud-edgecontainer-v1
-  packages:
-    - name: google-cloud-edgecontainer-v1
-      link: https://docs.rs/google-cloud-edgecontainer-v1/latest
-- name: google-cloud-gkemulticloud-v1
-  packages:
-    - name: google-cloud-gkemulticloud-v1
-      link: https://docs.rs/google-cloud-gkemulticloud-v1/latest
-- name: google-cloud-websecurityscanner-v1
-  packages:
-    - name: google-cloud-websecurityscanner-v1
-      link: https://docs.rs/google-cloud-websecurityscanner-v1/latest
-- name: google-cloud-containeranalysis-v1
-  packages:
-    - name: google-cloud-containeranalysis-v1
-      link: https://docs.rs/google-cloud-containeranalysis-v1/latest
+    - name: google-cloud-advisorynotifications-v1
+      link: https://docs.rs/google-cloud-advisorynotifications-v1/latest
 - name: google-cloud-aiplatform-v1
   packages:
     - name: google-cloud-aiplatform-v1
       link: https://docs.rs/google-cloud-aiplatform-v1/latest
-- name: google-cloud-workflows-executions-v1
-  packages:
-    - name: google-cloud-workflows-executions-v1
-      link: https://docs.rs/google-cloud-workflows-executions-v1/latest
 - name: google-cloud-alloydb-v1
   packages:
     - name: google-cloud-alloydb-v1
       link: https://docs.rs/google-cloud-alloydb-v1/latest
-- name: google-cloud-beyondcorp-appconnections-v1
+- name: google-cloud-api-cloudquotas-v1
   packages:
-    - name: google-cloud-beyondcorp-appconnections-v1
-      link: https://docs.rs/google-cloud-beyondcorp-appconnections-v1/latest
-- name: google-cloud-certificatemanager-v1
+    - name: google-cloud-api-cloudquotas-v1
+      link: https://docs.rs/google-cloud-api-cloudquotas-v1/latest
+- name: google-cloud-api-servicecontrol-v1
   packages:
-    - name: google-cloud-certificatemanager-v1
-      link: https://docs.rs/google-cloud-certificatemanager-v1/latest
-- name: google-cloud-dialogflow-v2
+    - name: google-cloud-api-servicecontrol-v1
+      link: https://docs.rs/google-cloud-api-servicecontrol-v1/latest
+- name: google-cloud-api-servicecontrol-v2
   packages:
-    - name: google-cloud-dialogflow-v2
-      link: https://docs.rs/google-cloud-dialogflow-v2/latest
-- name: google-cloud-gkeconnect-gateway-v1
-  packages:
-    - name: google-cloud-gkeconnect-gateway-v1
-      link: https://docs.rs/google-cloud-gkeconnect-gateway-v1/latest
-- name: google-cloud-run-v2
-  packages:
-    - name: google-cloud-run-v2
-      link: https://docs.rs/google-cloud-run-v2/latest
-- name: google-cloud-binaryauthorization-v1
-  packages:
-    - name: google-cloud-binaryauthorization-v1
-      link: https://docs.rs/google-cloud-binaryauthorization-v1/latest
-- name: google-cloud-config-v1
-  packages:
-    - name: google-cloud-config-v1
-      link: https://docs.rs/google-cloud-config-v1/latest
-- name: google-cloud-developerconnect-v1
-  packages:
-    - name: google-cloud-developerconnect-v1
-      link: https://docs.rs/google-cloud-developerconnect-v1/latest
-- name: google-cloud-vmwareengine-v1
-  packages:
-    - name: google-cloud-vmwareengine-v1
-      link: https://docs.rs/google-cloud-vmwareengine-v1/latest
-- name: google-cloud-trace-v2
-  packages:
-    - name: google-cloud-trace-v2
-      link: https://docs.rs/google-cloud-trace-v2/latest
-- name: google-cloud-firestore-admin-v1
-  packages:
-    - name: google-cloud-firestore-admin-v1
-      link: https://docs.rs/google-cloud-firestore-admin-v1/latest
-- name: google-cloud-iam-v3
-  packages:
-    - name: google-cloud-iam-v3
-      link: https://docs.rs/google-cloud-iam-v3/latest
-- name: google-cloud-logging-v2
-  packages:
-    - name: google-cloud-logging-v2
-      link: https://docs.rs/google-cloud-logging-v2/latest
+    - name: google-cloud-api-servicecontrol-v2
+      link: https://docs.rs/google-cloud-api-servicecontrol-v2/latest
 - name: google-cloud-api-servicemanagement-v1
   packages:
     - name: google-cloud-api-servicemanagement-v1
@@ -462,98 +34,442 @@
   packages:
     - name: google-cloud-api-serviceusage-v1
       link: https://docs.rs/google-cloud-api-serviceusage-v1/latest
-- name: google-cloud-backupdr-v1
-  packages:
-    - name: google-cloud-backupdr-v1
-      link: https://docs.rs/google-cloud-backupdr-v1/latest
-- name: google-cloud-devicestreaming-v1
-  packages:
-    - name: google-cloud-devicestreaming-v1
-      link: https://docs.rs/google-cloud-devicestreaming-v1/latest
-- name: google-cloud-storageinsights-v1
-  packages:
-    - name: google-cloud-storageinsights-v1
-      link: https://docs.rs/google-cloud-storageinsights-v1/latest
-- name: google-cloud-privacy-dlp-v2
-  packages:
-    - name: google-cloud-privacy-dlp-v2
-      link: https://docs.rs/google-cloud-privacy-dlp-v2/latest
-- name: google-cloud-spanner-admin-database-v1
-  packages:
-    - name: google-cloud-spanner-admin-database-v1
-      link: https://docs.rs/google-cloud-spanner-admin-database-v1/latest
-- name: google-cloud-sql-v1
-  packages:
-    - name: google-cloud-sql-v1
-      link: https://docs.rs/google-cloud-sql-v1/latest
-- name: google-cloud-baremetalsolution-v2
-  packages:
-    - name: google-cloud-baremetalsolution-v2
-      link: https://docs.rs/google-cloud-baremetalsolution-v2/latest
-- name: google-cloud-billing-v1
-  packages:
-    - name: google-cloud-billing-v1
-      link: https://docs.rs/google-cloud-billing-v1/latest
-- name: google-cloud-datacatalog-lineage-v1
-  packages:
-    - name: google-cloud-datacatalog-lineage-v1
-      link: https://docs.rs/google-cloud-datacatalog-lineage-v1/latest
-- name: google-cloud-edgenetwork-v1
-  packages:
-    - name: google-cloud-edgenetwork-v1
-      link: https://docs.rs/google-cloud-edgenetwork-v1/latest
-- name: google-cloud-functions-v2
-  packages:
-    - name: google-cloud-functions-v2
-      link: https://docs.rs/google-cloud-functions-v2/latest
-- name: google-cloud-resourcemanager-v3
-  packages:
-    - name: google-cloud-resourcemanager-v3
-      link: https://docs.rs/google-cloud-resourcemanager-v3/latest
-- name: google-cloud-retail-v2
-  packages:
-    - name: google-cloud-retail-v2
-      link: https://docs.rs/google-cloud-retail-v2/latest
-- name: google-cloud-advisorynotifications-v1
-  packages:
-    - name: google-cloud-advisorynotifications-v1
-      link: https://docs.rs/google-cloud-advisorynotifications-v1/latest
-- name: google-cloud-dataform-v1
-  packages:
-    - name: google-cloud-dataform-v1
-      link: https://docs.rs/google-cloud-dataform-v1/latest
-- name: google-cloud-domains-v1
-  packages:
-    - name: google-cloud-domains-v1
-      link: https://docs.rs/google-cloud-domains-v1/latest
-- name: google-cloud-parallelstore-v1
-  packages:
-    - name: google-cloud-parallelstore-v1
-      link: https://docs.rs/google-cloud-parallelstore-v1/latest
-- name: google-cloud-servicehealth-v1
-  packages:
-    - name: google-cloud-servicehealth-v1
-      link: https://docs.rs/google-cloud-servicehealth-v1/latest
-- name: google-cloud-videointelligence-v1
-  packages:
-    - name: google-cloud-videointelligence-v1
-      link: https://docs.rs/google-cloud-videointelligence-v1/latest
-- name: google-cloud-workstations-v1
-  packages:
-    - name: google-cloud-workstations-v1
-      link: https://docs.rs/google-cloud-workstations-v1/latest
-- name: google-cloud-artifactregistry-v1
-  packages:
-    - name: google-cloud-artifactregistry-v1
-      link: https://docs.rs/google-cloud-artifactregistry-v1/latest
-- name: google-cloud-networksecurity-v1
-  packages:
-    - name: google-cloud-networksecurity-v1
-      link: https://docs.rs/google-cloud-networksecurity-v1/latest
 - name: google-cloud-apigateway-v1
   packages:
     - name: google-cloud-apigateway-v1
       link: https://docs.rs/google-cloud-apigateway-v1/latest
+- name: google-cloud-apigeeconnect-v1
+  packages:
+    - name: google-cloud-apigeeconnect-v1
+      link: https://docs.rs/google-cloud-apigeeconnect-v1/latest
+- name: google-cloud-apihub-v1
+  packages:
+    - name: google-cloud-apihub-v1
+      link: https://docs.rs/google-cloud-apihub-v1/latest
+- name: google-cloud-apikeys-v2
+  packages:
+    - name: google-cloud-apikeys-v2
+      link: https://docs.rs/google-cloud-apikeys-v2/latest
+- name: google-cloud-appengine-v1
+  packages:
+    - name: google-cloud-appengine-v1
+      link: https://docs.rs/google-cloud-appengine-v1/latest
+- name: google-cloud-apphub-v1
+  packages:
+    - name: google-cloud-apphub-v1
+      link: https://docs.rs/google-cloud-apphub-v1/latest
+- name: google-cloud-artifactregistry-v1
+  packages:
+    - name: google-cloud-artifactregistry-v1
+      link: https://docs.rs/google-cloud-artifactregistry-v1/latest
+- name: google-cloud-asset-v1
+  packages:
+    - name: google-cloud-asset-v1
+      link: https://docs.rs/google-cloud-asset-v1/latest
+- name: google-cloud-assuredworkloads-v1
+  packages:
+    - name: google-cloud-assuredworkloads-v1
+      link: https://docs.rs/google-cloud-assuredworkloads-v1/latest
+- name: google-cloud-backupdr-v1
+  packages:
+    - name: google-cloud-backupdr-v1
+      link: https://docs.rs/google-cloud-backupdr-v1/latest
+- name: google-cloud-baremetalsolution-v2
+  packages:
+    - name: google-cloud-baremetalsolution-v2
+      link: https://docs.rs/google-cloud-baremetalsolution-v2/latest
+- name: google-cloud-beyondcorp-appconnections-v1
+  packages:
+    - name: google-cloud-beyondcorp-appconnections-v1
+      link: https://docs.rs/google-cloud-beyondcorp-appconnections-v1/latest
+- name: google-cloud-beyondcorp-appconnectors-v1
+  packages:
+    - name: google-cloud-beyondcorp-appconnectors-v1
+      link: https://docs.rs/google-cloud-beyondcorp-appconnectors-v1/latest
+- name: google-cloud-beyondcorp-appgateways-v1
+  packages:
+    - name: google-cloud-beyondcorp-appgateways-v1
+      link: https://docs.rs/google-cloud-beyondcorp-appgateways-v1/latest
+- name: google-cloud-beyondcorp-clientconnectorservices-v1
+  packages:
+    - name: google-cloud-beyondcorp-clientconnectorservices-v1
+      link: https://docs.rs/google-cloud-beyondcorp-clientconnectorservices-v1/latest
+- name: google-cloud-beyondcorp-clientgateways-v1
+  packages:
+    - name: google-cloud-beyondcorp-clientgateways-v1
+      link: https://docs.rs/google-cloud-beyondcorp-clientgateways-v1/latest
+- name: google-cloud-bigquery-analyticshub-v1
+  packages:
+    - name: google-cloud-bigquery-analyticshub-v1
+      link: https://docs.rs/google-cloud-bigquery-analyticshub-v1/latest
+- name: google-cloud-bigquery-connection-v1
+  packages:
+    - name: google-cloud-bigquery-connection-v1
+      link: https://docs.rs/google-cloud-bigquery-connection-v1/latest
+- name: google-cloud-bigquery-datapolicies-v1
+  packages:
+    - name: google-cloud-bigquery-datapolicies-v1
+      link: https://docs.rs/google-cloud-bigquery-datapolicies-v1/latest
+- name: google-cloud-bigquery-datapolicies-v2
+  packages:
+    - name: google-cloud-bigquery-datapolicies-v2
+      link: https://docs.rs/google-cloud-bigquery-datapolicies-v2/latest
+- name: google-cloud-bigquery-datatransfer-v1
+  packages:
+    - name: google-cloud-bigquery-datatransfer-v1
+      link: https://docs.rs/google-cloud-bigquery-datatransfer-v1/latest
+- name: google-cloud-bigquery-migration-v2
+  packages:
+    - name: google-cloud-bigquery-migration-v2
+      link: https://docs.rs/google-cloud-bigquery-migration-v2/latest
+- name: google-cloud-bigquery-reservation-v1
+  packages:
+    - name: google-cloud-bigquery-reservation-v1
+      link: https://docs.rs/google-cloud-bigquery-reservation-v1/latest
+- name: google-cloud-bigtable-admin-v2
+  packages:
+    - name: google-cloud-bigtable-admin-v2
+      link: https://docs.rs/google-cloud-bigtable-admin-v2/latest
+- name: google-cloud-billing-v1
+  packages:
+    - name: google-cloud-billing-v1
+      link: https://docs.rs/google-cloud-billing-v1/latest
+- name: google-cloud-binaryauthorization-v1
+  packages:
+    - name: google-cloud-binaryauthorization-v1
+      link: https://docs.rs/google-cloud-binaryauthorization-v1/latest
+- name: google-cloud-build-v1
+  packages:
+    - name: google-cloud-build-v1
+      link: https://docs.rs/google-cloud-build-v1/latest
+- name: google-cloud-build-v2
+  packages:
+    - name: google-cloud-build-v2
+      link: https://docs.rs/google-cloud-build-v2/latest
+- name: google-cloud-certificatemanager-v1
+  packages:
+    - name: google-cloud-certificatemanager-v1
+      link: https://docs.rs/google-cloud-certificatemanager-v1/latest
+- name: google-cloud-chronicle-v1
+  packages:
+    - name: google-cloud-chronicle-v1
+      link: https://docs.rs/google-cloud-chronicle-v1/latest
+- name: google-cloud-cloudcontrolspartner-v1
+  packages:
+    - name: google-cloud-cloudcontrolspartner-v1
+      link: https://docs.rs/google-cloud-cloudcontrolspartner-v1/latest
+- name: google-cloud-clouddms-v1
+  packages:
+    - name: google-cloud-clouddms-v1
+      link: https://docs.rs/google-cloud-clouddms-v1/latest
+- name: google-cloud-cloudsecuritycompliance-v1
+  packages:
+    - name: google-cloud-cloudsecuritycompliance-v1
+      link: https://docs.rs/google-cloud-cloudsecuritycompliance-v1/latest
+- name: google-cloud-commerce-consumer-procurement-v1
+  packages:
+    - name: google-cloud-commerce-consumer-procurement-v1
+      link: https://docs.rs/google-cloud-commerce-consumer-procurement-v1/latest
+- name: google-cloud-confidentialcomputing-v1
+  packages:
+    - name: google-cloud-confidentialcomputing-v1
+      link: https://docs.rs/google-cloud-confidentialcomputing-v1/latest
+- name: google-cloud-config-v1
+  packages:
+    - name: google-cloud-config-v1
+      link: https://docs.rs/google-cloud-config-v1/latest
+- name: google-cloud-configdelivery-v1
+  packages:
+    - name: google-cloud-configdelivery-v1
+      link: https://docs.rs/google-cloud-configdelivery-v1/latest
+- name: google-cloud-connectors-v1
+  packages:
+    - name: google-cloud-connectors-v1
+      link: https://docs.rs/google-cloud-connectors-v1/latest
+- name: google-cloud-contactcenterinsights-v1
+  packages:
+    - name: google-cloud-contactcenterinsights-v1
+      link: https://docs.rs/google-cloud-contactcenterinsights-v1/latest
+- name: google-cloud-container-v1
+  packages:
+    - name: google-cloud-container-v1
+      link: https://docs.rs/google-cloud-container-v1/latest
+- name: google-cloud-containeranalysis-v1
+  packages:
+    - name: google-cloud-containeranalysis-v1
+      link: https://docs.rs/google-cloud-containeranalysis-v1/latest
+- name: google-cloud-datacatalog-lineage-v1
+  packages:
+    - name: google-cloud-datacatalog-lineage-v1
+      link: https://docs.rs/google-cloud-datacatalog-lineage-v1/latest
+- name: google-cloud-datacatalog-v1
+  packages:
+    - name: google-cloud-datacatalog-v1
+      link: https://docs.rs/google-cloud-datacatalog-v1/latest
+- name: google-cloud-dataform-v1
+  packages:
+    - name: google-cloud-dataform-v1
+      link: https://docs.rs/google-cloud-dataform-v1/latest
+- name: google-cloud-datafusion-v1
+  packages:
+    - name: google-cloud-datafusion-v1
+      link: https://docs.rs/google-cloud-datafusion-v1/latest
+- name: google-cloud-dataplex-v1
+  packages:
+    - name: google-cloud-dataplex-v1
+      link: https://docs.rs/google-cloud-dataplex-v1/latest
+- name: google-cloud-dataproc-v1
+  packages:
+    - name: google-cloud-dataproc-v1
+      link: https://docs.rs/google-cloud-dataproc-v1/latest
+- name: google-cloud-datastore-admin-v1
+  packages:
+    - name: google-cloud-datastore-admin-v1
+      link: https://docs.rs/google-cloud-datastore-admin-v1/latest
+- name: google-cloud-datastream-v1
+  packages:
+    - name: google-cloud-datastream-v1
+      link: https://docs.rs/google-cloud-datastream-v1/latest
+- name: google-cloud-deploy-v1
+  packages:
+    - name: google-cloud-deploy-v1
+      link: https://docs.rs/google-cloud-deploy-v1/latest
+- name: google-cloud-developerconnect-v1
+  packages:
+    - name: google-cloud-developerconnect-v1
+      link: https://docs.rs/google-cloud-developerconnect-v1/latest
+- name: google-cloud-devicestreaming-v1
+  packages:
+    - name: google-cloud-devicestreaming-v1
+      link: https://docs.rs/google-cloud-devicestreaming-v1/latest
+- name: google-cloud-dialogflow-cx-v3
+  packages:
+    - name: google-cloud-dialogflow-cx-v3
+      link: https://docs.rs/google-cloud-dialogflow-cx-v3/latest
+- name: google-cloud-dialogflow-v2
+  packages:
+    - name: google-cloud-dialogflow-v2
+      link: https://docs.rs/google-cloud-dialogflow-v2/latest
+- name: google-cloud-discoveryengine-v1
+  packages:
+    - name: google-cloud-discoveryengine-v1
+      link: https://docs.rs/google-cloud-discoveryengine-v1/latest
+- name: google-cloud-documentai-v1
+  packages:
+    - name: google-cloud-documentai-v1
+      link: https://docs.rs/google-cloud-documentai-v1/latest
+- name: google-cloud-domains-v1
+  packages:
+    - name: google-cloud-domains-v1
+      link: https://docs.rs/google-cloud-domains-v1/latest
+- name: google-cloud-edgecontainer-v1
+  packages:
+    - name: google-cloud-edgecontainer-v1
+      link: https://docs.rs/google-cloud-edgecontainer-v1/latest
+- name: google-cloud-edgenetwork-v1
+  packages:
+    - name: google-cloud-edgenetwork-v1
+      link: https://docs.rs/google-cloud-edgenetwork-v1/latest
+- name: google-cloud-essentialcontacts-v1
+  packages:
+    - name: google-cloud-essentialcontacts-v1
+      link: https://docs.rs/google-cloud-essentialcontacts-v1/latest
+- name: google-cloud-eventarc-v1
+  packages:
+    - name: google-cloud-eventarc-v1
+      link: https://docs.rs/google-cloud-eventarc-v1/latest
+- name: google-cloud-filestore-v1
+  packages:
+    - name: google-cloud-filestore-v1
+      link: https://docs.rs/google-cloud-filestore-v1/latest
+- name: google-cloud-financialservices-v1
+  packages:
+    - name: google-cloud-financialservices-v1
+      link: https://docs.rs/google-cloud-financialservices-v1/latest
+- name: google-cloud-firestore-admin-v1
+  packages:
+    - name: google-cloud-firestore-admin-v1
+      link: https://docs.rs/google-cloud-firestore-admin-v1/latest
+- name: google-cloud-functions-v2
+  packages:
+    - name: google-cloud-functions-v2
+      link: https://docs.rs/google-cloud-functions-v2/latest
+- name: google-cloud-gkebackup-v1
+  packages:
+    - name: google-cloud-gkebackup-v1
+      link: https://docs.rs/google-cloud-gkebackup-v1/latest
+- name: google-cloud-gkeconnect-gateway-v1
+  packages:
+    - name: google-cloud-gkeconnect-gateway-v1
+      link: https://docs.rs/google-cloud-gkeconnect-gateway-v1/latest
+- name: google-cloud-gkehub-v1
+  packages:
+    - name: google-cloud-gkehub-v1
+      link: https://docs.rs/google-cloud-gkehub-v1/latest
+- name: google-cloud-gkemulticloud-v1
+  packages:
+    - name: google-cloud-gkemulticloud-v1
+      link: https://docs.rs/google-cloud-gkemulticloud-v1/latest
+- name: google-cloud-gkerecommender-v1
+  packages:
+    - name: google-cloud-gkerecommender-v1
+      link: https://docs.rs/google-cloud-gkerecommender-v1/latest
+- name: google-cloud-grafeas-v1
+  packages:
+    - name: google-cloud-grafeas-v1
+      link: https://docs.rs/google-cloud-grafeas-v1/latest
+- name: google-cloud-gsuiteaddons-v1
+  packages:
+    - name: google-cloud-gsuiteaddons-v1
+      link: https://docs.rs/google-cloud-gsuiteaddons-v1/latest
+- name: google-cloud-iam-admin-v1
+  packages:
+    - name: google-cloud-iam-admin-v1
+      link: https://docs.rs/google-cloud-iam-admin-v1/latest
+- name: google-cloud-iam-credentials-v1
+  packages:
+    - name: google-cloud-iam-credentials-v1
+      link: https://docs.rs/google-cloud-iam-credentials-v1/latest
+- name: google-cloud-iam-v1
+  packages:
+    - name: google-cloud-iam-v1
+      link: https://docs.rs/google-cloud-iam-v1/latest
+- name: google-cloud-iam-v2
+  packages:
+    - name: google-cloud-iam-v2
+      link: https://docs.rs/google-cloud-iam-v2/latest
+- name: google-cloud-iam-v3
+  packages:
+    - name: google-cloud-iam-v3
+      link: https://docs.rs/google-cloud-iam-v3/latest
+- name: google-cloud-iap-v1
+  packages:
+    - name: google-cloud-iap-v1
+      link: https://docs.rs/google-cloud-iap-v1/latest
+- name: google-cloud-identity-accesscontextmanager-v1
+  packages:
+    - name: google-cloud-identity-accesscontextmanager-v1
+      link: https://docs.rs/google-cloud-identity-accesscontextmanager-v1/latest
+- name: google-cloud-ids-v1
+  packages:
+    - name: google-cloud-ids-v1
+      link: https://docs.rs/google-cloud-ids-v1/latest
+- name: google-cloud-kms-inventory-v1
+  packages:
+    - name: google-cloud-kms-inventory-v1
+      link: https://docs.rs/google-cloud-kms-inventory-v1/latest
+- name: google-cloud-kms-v1
+  packages:
+    - name: google-cloud-kms-v1
+      link: https://docs.rs/google-cloud-kms-v1/latest
+- name: google-cloud-language-v2
+  packages:
+    - name: google-cloud-language-v2
+      link: https://docs.rs/google-cloud-language-v2/latest
+- name: google-cloud-licensemanager-v1
+  packages:
+    - name: google-cloud-licensemanager-v1
+      link: https://docs.rs/google-cloud-licensemanager-v1/latest
+- name: google-cloud-location
+  packages:
+    - name: google-cloud-location
+      link: https://docs.rs/google-cloud-location/latest
+- name: google-cloud-logging-v2
+  packages:
+    - name: google-cloud-logging-v2
+      link: https://docs.rs/google-cloud-logging-v2/latest
+- name: google-cloud-longrunning
+  packages:
+    - name: google-cloud-longrunning
+      link: https://docs.rs/google-cloud-longrunning/latest
+- name: google-cloud-lustre-v1
+  packages:
+    - name: google-cloud-lustre-v1
+      link: https://docs.rs/google-cloud-lustre-v1/latest
+- name: google-cloud-managedidentities-v1
+  packages:
+    - name: google-cloud-managedidentities-v1
+      link: https://docs.rs/google-cloud-managedidentities-v1/latest
+- name: google-cloud-managedkafka-schemaregistry-v1
+  packages:
+    - name: google-cloud-managedkafka-schemaregistry-v1
+      link: https://docs.rs/google-cloud-managedkafka-schemaregistry-v1/latest
+- name: google-cloud-managedkafka-v1
+  packages:
+    - name: google-cloud-managedkafka-v1
+      link: https://docs.rs/google-cloud-managedkafka-v1/latest
+- name: google-cloud-memcache-v1
+  packages:
+    - name: google-cloud-memcache-v1
+      link: https://docs.rs/google-cloud-memcache-v1/latest
+- name: google-cloud-memorystore-v1
+  packages:
+    - name: google-cloud-memorystore-v1
+      link: https://docs.rs/google-cloud-memorystore-v1/latest
+- name: google-cloud-metastore-v1
+  packages:
+    - name: google-cloud-metastore-v1
+      link: https://docs.rs/google-cloud-metastore-v1/latest
+- name: google-cloud-migrationcenter-v1
+  packages:
+    - name: google-cloud-migrationcenter-v1
+      link: https://docs.rs/google-cloud-migrationcenter-v1/latest
+- name: google-cloud-modelarmor-v1
+  packages:
+    - name: google-cloud-modelarmor-v1
+      link: https://docs.rs/google-cloud-modelarmor-v1/latest
+- name: google-cloud-monitoring-dashboard-v1
+  packages:
+    - name: google-cloud-monitoring-dashboard-v1
+      link: https://docs.rs/google-cloud-monitoring-dashboard-v1/latest
+- name: google-cloud-monitoring-metricsscope-v1
+  packages:
+    - name: google-cloud-monitoring-metricsscope-v1
+      link: https://docs.rs/google-cloud-monitoring-metricsscope-v1/latest
+- name: google-cloud-monitoring-v3
+  packages:
+    - name: google-cloud-monitoring-v3
+      link: https://docs.rs/google-cloud-monitoring-v3/latest
+- name: google-cloud-netapp-v1
+  packages:
+    - name: google-cloud-netapp-v1
+      link: https://docs.rs/google-cloud-netapp-v1/latest
+- name: google-cloud-networkconnectivity-v1
+  packages:
+    - name: google-cloud-networkconnectivity-v1
+      link: https://docs.rs/google-cloud-networkconnectivity-v1/latest
+- name: google-cloud-networkmanagement-v1
+  packages:
+    - name: google-cloud-networkmanagement-v1
+      link: https://docs.rs/google-cloud-networkmanagement-v1/latest
+- name: google-cloud-networksecurity-v1
+  packages:
+    - name: google-cloud-networksecurity-v1
+      link: https://docs.rs/google-cloud-networksecurity-v1/latest
+- name: google-cloud-networkservices-v1
+  packages:
+    - name: google-cloud-networkservices-v1
+      link: https://docs.rs/google-cloud-networkservices-v1/latest
+- name: google-cloud-notebooks-v2
+  packages:
+    - name: google-cloud-notebooks-v2
+      link: https://docs.rs/google-cloud-notebooks-v2/latest
+- name: google-cloud-optimization-v1
+  packages:
+    - name: google-cloud-optimization-v1
+      link: https://docs.rs/google-cloud-optimization-v1/latest
+- name: google-cloud-oracledatabase-v1
+  packages:
+    - name: google-cloud-oracledatabase-v1
+      link: https://docs.rs/google-cloud-oracledatabase-v1/latest
+- name: google-cloud-orchestration-airflow-service-v1
+  packages:
+    - name: google-cloud-orchestration-airflow-service-v1
+      link: https://docs.rs/google-cloud-orchestration-airflow-service-v1/latest
+- name: google-cloud-orgpolicy-v2
+  packages:
+    - name: google-cloud-orgpolicy-v2
+      link: https://docs.rs/google-cloud-orgpolicy-v2/latest
 - name: google-cloud-osconfig-v1
   packages:
     - name: google-cloud-osconfig-v1
@@ -562,143 +478,227 @@
   packages:
     - name: google-cloud-oslogin-v1
       link: https://docs.rs/google-cloud-oslogin-v1/latest
+- name: google-cloud-parallelstore-v1
+  packages:
+    - name: google-cloud-parallelstore-v1
+      link: https://docs.rs/google-cloud-parallelstore-v1/latest
+- name: google-cloud-parametermanager-v1
+  packages:
+    - name: google-cloud-parametermanager-v1
+      link: https://docs.rs/google-cloud-parametermanager-v1/latest
 - name: google-cloud-policysimulator-v1
   packages:
     - name: google-cloud-policysimulator-v1
       link: https://docs.rs/google-cloud-policysimulator-v1/latest
-- name: google-cloud-translation-v3
+- name: google-cloud-policytroubleshooter-iam-v3
   packages:
-    - name: google-cloud-translation-v3
-      link: https://docs.rs/google-cloud-translation-v3/latest
+    - name: google-cloud-policytroubleshooter-iam-v3
+      link: https://docs.rs/google-cloud-policytroubleshooter-iam-v3/latest
+- name: google-cloud-policytroubleshooter-v1
+  packages:
+    - name: google-cloud-policytroubleshooter-v1
+      link: https://docs.rs/google-cloud-policytroubleshooter-v1/latest
+- name: google-cloud-privacy-dlp-v2
+  packages:
+    - name: google-cloud-privacy-dlp-v2
+      link: https://docs.rs/google-cloud-privacy-dlp-v2/latest
+- name: google-cloud-privilegedaccessmanager-v1
+  packages:
+    - name: google-cloud-privilegedaccessmanager-v1
+      link: https://docs.rs/google-cloud-privilegedaccessmanager-v1/latest
 - name: google-cloud-profiler-v2
   packages:
     - name: google-cloud-profiler-v2
       link: https://docs.rs/google-cloud-profiler-v2/latest
-- name: google-cloud-iam-admin-v1
+- name: google-cloud-rapidmigrationassessment-v1
   packages:
-    - name: google-cloud-iam-admin-v1
-      link: https://docs.rs/google-cloud-iam-admin-v1/latest
-- name: google-cloud-accessapproval-v1
+    - name: google-cloud-rapidmigrationassessment-v1
+      link: https://docs.rs/google-cloud-rapidmigrationassessment-v1/latest
+- name: google-cloud-recaptchaenterprise-v1
   packages:
-    - name: google-cloud-accessapproval-v1
-      link: https://docs.rs/google-cloud-accessapproval-v1/latest
-- name: google-cloud-bigquery-reservation-v1
+    - name: google-cloud-recaptchaenterprise-v1
+      link: https://docs.rs/google-cloud-recaptchaenterprise-v1/latest
+- name: google-cloud-recommender-v1
   packages:
-    - name: google-cloud-bigquery-reservation-v1
-      link: https://docs.rs/google-cloud-bigquery-reservation-v1/latest
-- name: google-cloud-spanner-admin-instance-v1
+    - name: google-cloud-recommender-v1
+      link: https://docs.rs/google-cloud-recommender-v1/latest
+- name: google-cloud-redis-cluster-v1
   packages:
-    - name: google-cloud-spanner-admin-instance-v1
-      link: https://docs.rs/google-cloud-spanner-admin-instance-v1/latest
-- name: google-cloud-beyondcorp-clientconnectorservices-v1
+    - name: google-cloud-redis-cluster-v1
+      link: https://docs.rs/google-cloud-redis-cluster-v1/latest
+- name: google-cloud-redis-v1
   packages:
-    - name: google-cloud-beyondcorp-clientconnectorservices-v1
-      link: https://docs.rs/google-cloud-beyondcorp-clientconnectorservices-v1/latest
-- name: google-cloud-managedidentities-v1
+    - name: google-cloud-redis-v1
+      link: https://docs.rs/google-cloud-redis-v1/latest
+- name: google-cloud-resourcemanager-v3
   packages:
-    - name: google-cloud-managedidentities-v1
-      link: https://docs.rs/google-cloud-managedidentities-v1/latest
-- name: google-cloud-orchestration-airflow-service-v1
+    - name: google-cloud-resourcemanager-v3
+      link: https://docs.rs/google-cloud-resourcemanager-v3/latest
+- name: google-cloud-retail-v2
   packages:
-    - name: google-cloud-orchestration-airflow-service-v1
-      link: https://docs.rs/google-cloud-orchestration-airflow-service-v1/latest
-- name: google-cloud-tpu-v2
+    - name: google-cloud-retail-v2
+      link: https://docs.rs/google-cloud-retail-v2/latest
+- name: google-cloud-run-v2
   packages:
-    - name: google-cloud-tpu-v2
-      link: https://docs.rs/google-cloud-tpu-v2/latest
-- name: google-cloud-datacatalog-v1
-  packages:
-    - name: google-cloud-datacatalog-v1
-      link: https://docs.rs/google-cloud-datacatalog-v1/latest
-- name: google-cloud-gkerecommender-v1
-  packages:
-    - name: google-cloud-gkerecommender-v1
-      link: https://docs.rs/google-cloud-gkerecommender-v1/latest
-- name: google-cloud-securityposture-v1
-  packages:
-    - name: google-cloud-securityposture-v1
-      link: https://docs.rs/google-cloud-securityposture-v1/latest
-- name: google-cloud-bigquery-datapolicies-v2
-  packages:
-    - name: google-cloud-bigquery-datapolicies-v2
-      link: https://docs.rs/google-cloud-bigquery-datapolicies-v2/latest
-- name: google-cloud-gsuiteaddons-v1
-  packages:
-    - name: google-cloud-gsuiteaddons-v1
-      link: https://docs.rs/google-cloud-gsuiteaddons-v1/latest
-- name: google-cloud-oracledatabase-v1
-  packages:
-    - name: google-cloud-oracledatabase-v1
-      link: https://docs.rs/google-cloud-oracledatabase-v1/latest
-- name: google-cloud-storagetransfer-v1
-  packages:
-    - name: google-cloud-storagetransfer-v1
-      link: https://docs.rs/google-cloud-storagetransfer-v1/latest
-- name: google-cloud-deploy-v1
-  packages:
-    - name: google-cloud-deploy-v1
-      link: https://docs.rs/google-cloud-deploy-v1/latest
-- name: google-cloud-eventarc-v1
-  packages:
-    - name: google-cloud-eventarc-v1
-      link: https://docs.rs/google-cloud-eventarc-v1/latest
-- name: google-cloud-managedkafka-v1
-  packages:
-    - name: google-cloud-managedkafka-v1
-      link: https://docs.rs/google-cloud-managedkafka-v1/latest
-- name: google-cloud-migrationcenter-v1
-  packages:
-    - name: google-cloud-migrationcenter-v1
-      link: https://docs.rs/google-cloud-migrationcenter-v1/latest
-- name: google-cloud-workflows-v1
-  packages:
-    - name: google-cloud-workflows-v1
-      link: https://docs.rs/google-cloud-workflows-v1/latest
-- name: google-cloud-clouddms-v1
-  packages:
-    - name: google-cloud-clouddms-v1
-      link: https://docs.rs/google-cloud-clouddms-v1/latest
-- name: google-cloud-connectors-v1
-  packages:
-    - name: google-cloud-connectors-v1
-      link: https://docs.rs/google-cloud-connectors-v1/latest
-- name: google-cloud-datafusion-v1
-  packages:
-    - name: google-cloud-datafusion-v1
-      link: https://docs.rs/google-cloud-datafusion-v1/latest
-- name: google-cloud-build-v1
-  packages:
-    - name: google-cloud-build-v1
-      link: https://docs.rs/google-cloud-build-v1/latest
-- name: google-cloud-identity-accesscontextmanager-v1
-  packages:
-    - name: google-cloud-identity-accesscontextmanager-v1
-      link: https://docs.rs/google-cloud-identity-accesscontextmanager-v1/latest
-- name: google-cloud-notebooks-v2
-  packages:
-    - name: google-cloud-notebooks-v2
-      link: https://docs.rs/google-cloud-notebooks-v2/latest
-- name: google-cloud-shell-v1
-  packages:
-    - name: google-cloud-shell-v1
-      link: https://docs.rs/google-cloud-shell-v1/latest
-- name: google-cloud-beyondcorp-clientgateways-v1
-  packages:
-    - name: google-cloud-beyondcorp-clientgateways-v1
-      link: https://docs.rs/google-cloud-beyondcorp-clientgateways-v1/latest
-- name: google-cloud-apihub-v1
-  packages:
-    - name: google-cloud-apihub-v1
-      link: https://docs.rs/google-cloud-apihub-v1/latest
-- name: google-cloud-apphub-v1
-  packages:
-    - name: google-cloud-apphub-v1
-      link: https://docs.rs/google-cloud-apphub-v1/latest
-- name: google-cloud-orgpolicy-v2
-  packages:
-    - name: google-cloud-orgpolicy-v2
-      link: https://docs.rs/google-cloud-orgpolicy-v2/latest
+    - name: google-cloud-run-v2
+      link: https://docs.rs/google-cloud-run-v2/latest
 - name: google-cloud-scheduler-v1
   packages:
     - name: google-cloud-scheduler-v1
       link: https://docs.rs/google-cloud-scheduler-v1/latest
+- name: google-cloud-secretmanager-v1
+  packages:
+    - name: google-cloud-secretmanager-v1
+      link: https://docs.rs/google-cloud-secretmanager-v1/latest
+- name: google-cloud-securesourcemanager-v1
+  packages:
+    - name: google-cloud-securesourcemanager-v1
+      link: https://docs.rs/google-cloud-securesourcemanager-v1/latest
+- name: google-cloud-security-privateca-v1
+  packages:
+    - name: google-cloud-security-privateca-v1
+      link: https://docs.rs/google-cloud-security-privateca-v1/latest
+- name: google-cloud-security-publicca-v1
+  packages:
+    - name: google-cloud-security-publicca-v1
+      link: https://docs.rs/google-cloud-security-publicca-v1/latest
+- name: google-cloud-securitycenter-v2
+  packages:
+    - name: google-cloud-securitycenter-v2
+      link: https://docs.rs/google-cloud-securitycenter-v2/latest
+- name: google-cloud-securityposture-v1
+  packages:
+    - name: google-cloud-securityposture-v1
+      link: https://docs.rs/google-cloud-securityposture-v1/latest
+- name: google-cloud-servicedirectory-v1
+  packages:
+    - name: google-cloud-servicedirectory-v1
+      link: https://docs.rs/google-cloud-servicedirectory-v1/latest
+- name: google-cloud-servicehealth-v1
+  packages:
+    - name: google-cloud-servicehealth-v1
+      link: https://docs.rs/google-cloud-servicehealth-v1/latest
+- name: google-cloud-shell-v1
+  packages:
+    - name: google-cloud-shell-v1
+      link: https://docs.rs/google-cloud-shell-v1/latest
+- name: google-cloud-spanner-admin-database-v1
+  packages:
+    - name: google-cloud-spanner-admin-database-v1
+      link: https://docs.rs/google-cloud-spanner-admin-database-v1/latest
+- name: google-cloud-spanner-admin-instance-v1
+  packages:
+    - name: google-cloud-spanner-admin-instance-v1
+      link: https://docs.rs/google-cloud-spanner-admin-instance-v1/latest
+- name: google-cloud-speech-v2
+  packages:
+    - name: google-cloud-speech-v2
+      link: https://docs.rs/google-cloud-speech-v2/latest
+- name: google-cloud-sql-v1
+  packages:
+    - name: google-cloud-sql-v1
+      link: https://docs.rs/google-cloud-sql-v1/latest
+- name: google-cloud-storage
+  packages:
+    - name: google-cloud-storage
+      link: https://docs.rs/google-cloud-storage/latest
+- name: google-cloud-storagebatchoperations-v1
+  packages:
+    - name: google-cloud-storagebatchoperations-v1
+      link: https://docs.rs/google-cloud-storagebatchoperations-v1/latest
+- name: google-cloud-storageinsights-v1
+  packages:
+    - name: google-cloud-storageinsights-v1
+      link: https://docs.rs/google-cloud-storageinsights-v1/latest
+- name: google-cloud-storagetransfer-v1
+  packages:
+    - name: google-cloud-storagetransfer-v1
+      link: https://docs.rs/google-cloud-storagetransfer-v1/latest
+- name: google-cloud-support-v2
+  packages:
+    - name: google-cloud-support-v2
+      link: https://docs.rs/google-cloud-support-v2/latest
+- name: google-cloud-talent-v4
+  packages:
+    - name: google-cloud-talent-v4
+      link: https://docs.rs/google-cloud-talent-v4/latest
+- name: google-cloud-tasks-v2
+  packages:
+    - name: google-cloud-tasks-v2
+      link: https://docs.rs/google-cloud-tasks-v2/latest
+- name: google-cloud-telcoautomation-v1
+  packages:
+    - name: google-cloud-telcoautomation-v1
+      link: https://docs.rs/google-cloud-telcoautomation-v1/latest
+- name: google-cloud-texttospeech-v1
+  packages:
+    - name: google-cloud-texttospeech-v1
+      link: https://docs.rs/google-cloud-texttospeech-v1/latest
+- name: google-cloud-timeseriesinsights-v1
+  packages:
+    - name: google-cloud-timeseriesinsights-v1
+      link: https://docs.rs/google-cloud-timeseriesinsights-v1/latest
+- name: google-cloud-tpu-v2
+  packages:
+    - name: google-cloud-tpu-v2
+      link: https://docs.rs/google-cloud-tpu-v2/latest
+- name: google-cloud-trace-v2
+  packages:
+    - name: google-cloud-trace-v2
+      link: https://docs.rs/google-cloud-trace-v2/latest
+- name: google-cloud-translation-v3
+  packages:
+    - name: google-cloud-translation-v3
+      link: https://docs.rs/google-cloud-translation-v3/latest
+- name: google-cloud-video-livestream-v1
+  packages:
+    - name: google-cloud-video-livestream-v1
+      link: https://docs.rs/google-cloud-video-livestream-v1/latest
+- name: google-cloud-video-stitcher-v1
+  packages:
+    - name: google-cloud-video-stitcher-v1
+      link: https://docs.rs/google-cloud-video-stitcher-v1/latest
+- name: google-cloud-video-transcoder-v1
+  packages:
+    - name: google-cloud-video-transcoder-v1
+      link: https://docs.rs/google-cloud-video-transcoder-v1/latest
+- name: google-cloud-videointelligence-v1
+  packages:
+    - name: google-cloud-videointelligence-v1
+      link: https://docs.rs/google-cloud-videointelligence-v1/latest
+- name: google-cloud-vision-v1
+  packages:
+    - name: google-cloud-vision-v1
+      link: https://docs.rs/google-cloud-vision-v1/latest
+- name: google-cloud-vmmigration-v1
+  packages:
+    - name: google-cloud-vmmigration-v1
+      link: https://docs.rs/google-cloud-vmmigration-v1/latest
+- name: google-cloud-vmwareengine-v1
+  packages:
+    - name: google-cloud-vmwareengine-v1
+      link: https://docs.rs/google-cloud-vmwareengine-v1/latest
+- name: google-cloud-vpcaccess-v1
+  packages:
+    - name: google-cloud-vpcaccess-v1
+      link: https://docs.rs/google-cloud-vpcaccess-v1/latest
+- name: google-cloud-webrisk-v1
+  packages:
+    - name: google-cloud-webrisk-v1
+      link: https://docs.rs/google-cloud-webrisk-v1/latest
+- name: google-cloud-websecurityscanner-v1
+  packages:
+    - name: google-cloud-websecurityscanner-v1
+      link: https://docs.rs/google-cloud-websecurityscanner-v1/latest
+- name: google-cloud-workflows-executions-v1
+  packages:
+    - name: google-cloud-workflows-executions-v1
+      link: https://docs.rs/google-cloud-workflows-executions-v1/latest
+- name: google-cloud-workflows-v1
+  packages:
+    - name: google-cloud-workflows-v1
+      link: https://docs.rs/google-cloud-workflows-v1/latest
+- name: google-cloud-workstations-v1
+  packages:
+    - name: google-cloud-workstations-v1
+      link: https://docs.rs/google-cloud-workstations-v1/latest

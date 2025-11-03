@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"text/tabwriter"
 
+	"github.com/julieqiu/exp/scribe/internal/docs"
 	"github.com/julieqiu/exp/scribe/internal/scraper"
 	"github.com/urfave/cli/v3"
 	"gopkg.in/yaml.v3"
@@ -27,10 +28,14 @@ var supportedLanguages = []string{
 // Run creates and executes the scribe CLI command.
 func Run(ctx context.Context, args []string) error {
 	cmd := &cli.Command{
-		Name:      "scribe",
-		Usage:     "scrape Google Cloud documentation for language libraries",
-		ArgsUsage: "<language>",
-		Description: `Supported languages:
+		Name:  "scribe",
+		Usage: "scrape Google Cloud documentation for language libraries",
+		Commands: []*cli.Command{
+			{
+				Name:      "scrape",
+				Usage:     "scrape Google Cloud documentation for language libraries",
+				ArgsUsage: "<language>",
+				Description: `Supported languages:
   - cpp
   - dotnet
   - go
@@ -40,19 +45,47 @@ func Run(ctx context.Context, args []string) error {
   - python
   - ruby
   - rust`,
+				Flags: []cli.Flag{
+					&cli.BoolFlag{
+						Name:  "all",
+						Usage: "scrape all supported languages",
+					},
+				},
+				Action: runScrape,
+			},
+			{
+				Name:  "docs",
+				Usage: "run a local HTTP server to browse scraped documentation",
+				Flags: []cli.Flag{
+					&cli.StringFlag{
+						Name:  "port",
+						Value: "8080",
+						Usage: "port to run the server on",
+					},
+				},
+				Action: func(ctx context.Context, cmd *cli.Command) error {
+					return docs.Run(ctx, os.Args[1:])
+				},
+			},
+		},
+		// Default action when no subcommand is provided
+		Action: func(ctx context.Context, cmd *cli.Command) error {
+			// Assume it's the scrape command for backward compatibility
+			return runScrape(ctx, cmd)
+		},
 		Flags: []cli.Flag{
 			&cli.BoolFlag{
 				Name:  "all",
 				Usage: "scrape all supported languages",
 			},
 		},
-		Action: run,
+		ArgsUsage: "<language>",
 	}
 
 	return cmd.Run(ctx, args)
 }
 
-func run(ctx context.Context, cmd *cli.Command) error {
+func runScrape(ctx context.Context, cmd *cli.Command) error {
 	all := cmd.Bool("all")
 
 	var languages []string

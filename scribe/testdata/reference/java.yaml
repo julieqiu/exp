@@ -1,475 +1,103 @@
+- name: AI Platform
+  packages:
+    - name: com.google.cloud:google-cloud-aiplatform
+      link: https://cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/overview
+- name: AI Platform Data Labeling Service
+  packages:
+    - name: com.google.cloud:google-cloud-datalabeling
+      link: https://cloud.google.com/java/docs/reference/google-cloud-datalabeling/latest/overview
+- name: API Gateway
+  packages:
+    - name: com.google.cloud:google-cloud-api-gateway
+      link: https://cloud.google.com/java/docs/reference/google-cloud-api-gateway/latest/overview
+- name: API Keys API
+  packages:
+    - name: com.google.cloud:google-cloud-apikeys
+      link: https://cloud.google.com/java/docs/reference/google-cloud-apikeys/latest/overview
+- name: Access Approval
+  packages:
+    - name: com.google.cloud:google-cloud-accessapproval
+      link: https://cloud.google.com/java/docs/reference/google-cloud-accessapproval/latest/overview
+- name: Access Context Manager
+  packages:
+    - name: com.google.cloud:google-identity-accesscontextmanager
+      link: https://cloud.google.com/java/docs/reference/google-identity-accesscontextmanager/latest/overview
+- name: Advisory Notifications
+  packages:
+    - name: com.google.cloud:google-cloud-advisorynotifications
+      link: https://cloud.google.com/java/docs/reference/google-cloud-advisorynotifications/latest/overview
 - name: AlloyDB for PostgreSQL
   packages:
     - name: com.google.cloud:google-cloud-alloydb
       link: https://cloud.google.com/java/docs/reference/google-cloud-alloydb/latest/overview
     - name: com.google.cloud:google-cloud-alloydb-connectors
       link: https://cloud.google.com/java/docs/reference/google-cloud-alloydb-connectors/latest/overview
-- name: Cloud Asset Inventory
-  packages:
-    - name: com.google.cloud:google-cloud-asset
-      link: https://cloud.google.com/java/docs/reference/google-cloud-asset/latest/overview
-- name: Cloud Quotas
-  packages:
-    - name: com.google.cloud:google-cloud-cloudquotas
-      link: https://cloud.google.com/java/docs/reference/google-cloud-cloudquotas/latest/overview
-- name: Cloud Vision
-  packages:
-    - name: com.google.cloud:google-cloud-vision
-      link: https://cloud.google.com/java/docs/reference/google-cloud-vision/latest/overview
-- name: Service Health
-  packages:
-    - name: com.google.cloud:google-cloud-servicehealth
-      link: https://cloud.google.com/java/docs/reference/google-cloud-servicehealth/latest/overview
-- name: Cloud Billing Budget API
-  packages:
-    - name: com.google.cloud:google-cloud-billingbudgets
-      link: https://cloud.google.com/java/docs/reference/google-cloud-billingbudgets/latest/overview
-- name: Cloud Build
-  packages:
-    - name: com.google.cloud:google-cloud-build
-      link: https://cloud.google.com/java/docs/reference/google-cloud-build/latest/overview
-- name: Text-to-Speech
-  packages:
-    - name: com.google.cloud:google-cloud-texttospeech
-      link: https://cloud.google.com/java/docs/reference/google-cloud-texttospeech/latest/overview
-- name: Vertex AI Workbench
-  packages:
-    - name: com.google.cloud:google-cloud-notebooks
-      link: https://cloud.google.com/java/docs/reference/google-cloud-notebooks/latest/overview
-- name: Certificate Manager
-  packages:
-    - name: com.google.cloud:google-cloud-certificate-manager
-      link: https://cloud.google.com/java/docs/reference/google-cloud-certificate-manager/latest/overview
-- name: Channel Services
-  packages:
-    - name: com.google.cloud:google-cloud-channel
-      link: https://cloud.google.com/java/docs/reference/google-cloud-channel/latest/overview
-- name: Cloud Run
-  packages:
-    - name: com.google.cloud:google-cloud-run
-      link: https://cloud.google.com/java/docs/reference/google-cloud-run/latest/overview
-- name: Dataform
-  packages:
-    - name: com.google.cloud:google-cloud-dataform
-      link: https://cloud.google.com/java/docs/reference/google-cloud-dataform/latest/overview
-- name: Workflows
-  packages:
-    - name: com.google.cloud:google-cloud-workflows
-      link: https://cloud.google.com/java/docs/reference/google-cloud-workflows/latest/overview
-- name: reCAPTCHA
-  packages:
-    - name: com.google.cloud:google-cloud-recaptchaenterprise
-      link: https://cloud.google.com/java/docs/reference/google-cloud-recaptchaenterprise/latest/overview
-- name: Dataproc Metastore
-  packages:
-    - name: com.google.cloud:google-cloud-dataproc-metastore
-      link: https://cloud.google.com/java/docs/reference/google-cloud-dataproc-metastore/latest/overview
-- name: Google Cloud VMware Engine
-  packages:
-    - name: com.google.cloud:google-cloud-vmwareengine
-      link: https://cloud.google.com/java/docs/reference/google-cloud-vmwareengine/latest/overview
-- name: Media CDN
-  packages:
-    - name: com.google.cloud:google-cloud-networkservices
-      link: https://cloud.google.com/java/docs/reference/google-cloud-networkservices/latest/overview
-- name: Storage Transfer Service
-  packages:
-    - name: com.google.cloud:google-cloud-storage-transfer
-      link: https://cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/overview
-- name: App Engine Admin API
-  packages:
-    - name: com.google.cloud:google-cloud-appengine-admin
-      link: https://cloud.google.com/java/docs/reference/google-cloud-appengine-admin/latest/overview
-- name: BigLake API
-  packages:
-    - name: com.google.cloud:google-cloud-biglake
-      link: https://cloud.google.com/java/docs/reference/google-cloud-biglake/latest/overview
-- name: Cloud Monitoring Dashboards
-  packages:
-    - name: com.google.cloud:google-cloud-monitoring-dashboard
-      link: https://cloud.google.com/java/docs/reference/google-cloud-monitoring-dashboard/latest/overview
-- name: Data Catalog
-  packages:
-    - name: com.google.cloud:google-cloud-datacatalog
-      link: https://cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/overview
-- name: Live Stream API
-  packages:
-    - name: com.google.cloud:google-cloud-live-stream
-      link: https://cloud.google.com/java/docs/reference/google-cloud-live-stream/latest/overview
-- name: Batch
-  packages:
-    - name: com.google.cloud:google-cloud-batch
-      link: https://cloud.google.com/java/docs/reference/google-cloud-batch/latest/overview
-- name: Managed Lustre
-  packages:
-    - name: com.google.cloud:google-cloud-lustre
-      link: https://cloud.google.com/java/docs/reference/google-cloud-lustre/latest/overview
-- name: Video Stitcher API
-  packages:
-    - name: com.google.cloud:google-cloud-video-stitcher
-      link: https://cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/overview
-- name: BigQuery Reservation API
-  packages:
-    - name: com.google.cloud:google-cloud-bigqueryreservation
-      link: https://cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/overview
-- name: Apigee API hub
-  packages:
-    - name: com.google.cloud:google-cloud-apihub
-      link: https://cloud.google.com/java/docs/reference/google-cloud-apihub/latest/overview
-- name: Cloud DNS
-  packages:
-    - name: com.google.cloud:google-cloud-dns
-      link: https://cloud.google.com/java/docs/reference/google-cloud-dns/latest/overview
-- name: Public Certificate Authority
-  packages:
-    - name: com.google.cloud:google-cloud-publicca
-      link: https://cloud.google.com/java/docs/reference/google-cloud-publicca/latest/overview
 - name: Analytics Hub API
   packages:
     - name: com.google.cloud:google-cloud-analyticshub
       link: https://cloud.google.com/java/docs/reference/google-cloud-analyticshub/latest/overview
     - name: com.google.cloud:google-cloud-bigquery-data-exchange
       link: https://cloud.google.com/java/docs/reference/google-cloud-bigquery-data-exchange/latest/overview
-- name: BigQuery Connection API
+- name: Apigee API hub
   packages:
-    - name: com.google.cloud:google-cloud-bigqueryconnection
-      link: https://cloud.google.com/bigquery/docs/reference/reservations/rpc/google.cloud.bigquery.reservation.v1beta1
-- name: Contact Center AI Insights
-  packages:
-    - name: com.google.cloud:google-cloud-contact-center-insights
-      link: https://cloud.google.com/java/docs/reference/google-cloud-contact-center-insights/latest/overview
-- name: Developer Connect
-  packages:
-    - name: com.google.cloud:google-cloud-developerconnect
-      link: https://cloud.google.com/java/docs/reference/google-cloud-developerconnect/latest/overview
-- name: Dialogflow
-  packages:
-    - name: com.google.cloud:google-cloud-dialogflow
-      link: https://cloud.google.com/java/docs/reference/google-cloud-dialogflow/latest/overview
-- name: Apigee Registry
-  packages:
-    - name: com.google.cloud:google-cloud-apigee-registry
-      link: https://cloud.google.com/java/docs/reference/google-cloud-apigee-registry/latest/overview
-- name: Cloud Data Fusion
-  packages:
-    - name: com.google.cloud:google-cloud-data-fusion
-      link: https://cloud.google.com/java/docs/reference/google-cloud-data-fusion/latest/overview
-- name: Kubernetes Engine API
-  packages:
-    - name: com.google.cloud:google-cloud-container
-      link: https://cloud.google.com/java/docs/reference/google-cloud-container/latest/overview
-- name: Phishing Protection
-  packages:
-    - name: com.google.cloud:google-cloud-phishingprotection
-      link: https://cloud.google.com/java/docs/reference/google-cloud-phishingprotection/latest/overview
-- name: Sensitive Data Protection
-  packages:
-    - name: com.google.cloud:google-cloud-dlp
-      link: https://cloud.google.com/java/docs/reference/google-cloud-dlp/latest/overview
-- name: API Keys API
-  packages:
-    - name: com.google.cloud:google-cloud-apikeys
-      link: https://cloud.google.com/java/docs/reference/google-cloud-apikeys/latest/overview
-- name: BigQuery Data Transfer Service
-  packages:
-    - name: com.google.cloud:google-cloud-bigquerydatatransfer
-      link: https://cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/overview
-- name: Confidential Space
-  packages:
-    - name: com.google.cloud:google-cloud-confidentialcomputing
-      link: https://cloud.google.com/java/docs/reference/google-cloud-confidentialcomputing/latest/overview
-- name: Google Distributed Cloud connected
-  packages:
-    - name: com.google.cloud:google-cloud-distributedcloudedge
-      link: https://cloud.google.com/java/docs/reference/google-cloud-distributedcloudedge/latest/overview
-- name: Migration Center
-  packages:
-    - name: com.google.cloud:google-cloud-migrationcenter
-      link: https://cloud.google.com/java/docs/reference/google-cloud-migrationcenter/latest/overview
-- name: Network Security API
-  packages:
-    - name: com.google.cloud:google-cloud-network-security
-      link: https://cloud.google.com/java/docs/reference/google-cloud-network-security/latest/overview
-- name: Workflow Executions API
-  packages:
-    - name: com.google.cloud:google-cloud-workflow-executions
-      link: https://cloud.google.com/java/docs/reference/google-cloud-workflow-executions/latest/overview
-- name: Access Context Manager
-  packages:
-    - name: com.google.cloud:google-identity-accesscontextmanager
-      link: https://cloud.google.com/java/docs/reference/google-identity-accesscontextmanager/latest/overview
-- name: Artifact Registry
-  packages:
-    - name: com.google.cloud:google-cloud-artifact-registry
-      link: https://cloud.google.com/java/docs/reference/google-cloud-artifact-registry/latest/overview
-- name: Bare Metal Solution
-  packages:
-    - name: com.google.cloud:google-cloud-bare-metal-solution
-      link: https://cloud.google.com/java/docs/reference/google-cloud-bare-metal-solution/latest/overview
-- name: IoT Core
-  packages:
-    - name: com.google.cloud:google-cloud-iot
-      link: https://cloud.google.com/java/docs/reference/google-cloud-iot/latest/overview
-- name: Retail API
-  packages:
-    - name: com.google.cloud:google-cloud-retail
-      link: https://cloud.google.com/java/docs/reference/google-cloud-retail/latest/overview
-- name: Storage Insights
-  packages:
-    - name: com.google.cloud:google-cloud-storageinsights
-      link: https://cloud.google.com/java/docs/reference/google-cloud-storageinsights/latest/overview
-- name: Cloud TPU
-  packages:
-    - name: com.google.cloud:google-cloud-tpu
-      link: https://cloud.google.com/java/docs/reference/google-cloud-tpu/latest/overview
-- name: Essential Contacts API
-  packages:
-    - name: com.google.cloud:google-cloud-essential-contacts
-      link: https://cloud.google.com/java/docs/reference/google-cloud-essential-contacts/latest/overview
-- name: Google Cloud Managed Service for Apache Kafka
-  packages:
-    - name: com.google.cloud:google-cloud-managedkafka
-      link: https://cloud.google.com/java/docs/reference/google-cloud-managedkafka/latest/overview
-- name: Recommender
-  packages:
-    - name: com.google.cloud:google-cloud-recommender
-      link: https://cloud.google.com/java/docs/reference/google-cloud-recommender/latest/overview
-- name: App Hub
-  packages:
-    - name: com.google.cloud:google-cloud-apphub
-      link: https://cloud.google.com/java/docs/reference/google-cloud-apphub/latest/overview
-- name: API Gateway
-  packages:
-    - name: com.google.cloud:google-cloud-api-gateway
-      link: https://cloud.google.com/java/docs/reference/google-cloud-api-gateway/latest/overview
-- name: Cloud OS Config
-  packages:
-    - name: com.google.cloud:google-cloud-os-config
-      link: https://cloud.google.com/java/docs/reference/google-cloud-os-config/latest/overview
-- name: Cloud Tasks
-  packages:
-    - name: com.google.cloud:google-cloud-tasks
-      link: https://cloud.google.com/java/docs/reference/google-cloud-tasks/latest/overview
-- name: Discovery Engine API
-  packages:
-    - name: com.google.cloud:google-cloud-discoveryengine
-      link: https://cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/overview
-- name: Document AI
-  packages:
-    - name: com.google.cloud:google-cloud-document-ai
-      link: https://cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/overview
-- name: Filestore
-  packages:
-    - name: com.google.cloud:google-cloud-filestore
-      link: https://cloud.google.com/java/docs/reference/google-cloud-filestore/latest/overview
-- name: Firestore in Datastore mode
-  packages:
-    - name: com.google.cloud:google-cloud-datastore
-      link: https://cloud.google.com/java/docs/reference/google-cloud-datastore/latest/history
-- name: Bigtable
-  packages:
-    - name: com.google.cloud:google-cloud-bigtable
-      link: https://cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/history
-- name: Cloud Life Sciences
-  packages:
-    - name: com.google.cloud:google-cloud-life-sciences
-      link: https://cloud.google.com/java/docs/reference/google-cloud-life-sciences/latest/overview
-- name: IAM Policy Troubleshooter API
-  packages:
-    - name: com.google.cloud:google-cloud-policy-troubleshooter
-      link: https://cloud.google.com/java/docs/reference/google-cloud-policy-troubleshooter/latest/overview
-- name: Model Armor
-  packages:
-    - name: com.google.cloud:google-cloud-modelarmor
-      link: https://cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/overview
-- name: Security Command Center
-  packages:
-    - name: com.google.cloud:google-cloud-securitycenter
-      link: https://cloud.google.com/java/docs/reference/google-cloud-securitycenter/latest/overview
-    - name: com.google.cloud:google-cloud-securitycenter-settings
-      link: https://cloud.google.com/java/docs/reference/google-cloud-securitycenter-settings/latest/overview
-- name: Service Directory
-  packages:
-    - name: com.google.cloud:google-cloud-servicedirectory
-      link: https://cloud.google.com/java/docs/reference/google-cloud-servicedirectory/latest/overview
-- name: Spanner
-  packages:
-    - name: com.google.cloud:google-cloud-spanner
-      link: https://cloud.google.com/java/docs/reference/google-cloud-spanner/latest/history
-- name: Transcoder API
-  packages:
-    - name: com.google.cloud:google-cloud-video-transcoder
-      link: https://cloud.google.com/java/docs/reference/google-cloud-video-transcoder/latest/overview
-- name: Cloud Billing
-  packages:
-    - name: com.google.cloud:google-cloud-billing
-      link: https://cloud.google.com/java/docs/reference/google-cloud-billing/latest/overview
-- name: IAM Service Account Credentials API
-  packages:
-    - name: com.google.cloud:google-cloud-iamcredentials
-      link: https://cloud.google.com/java/docs/reference/google-cloud-iamcredentials/latest/overview
-- name: Cloud Deploy
-  packages:
-    - name: com.google.cloud:google-cloud-deploy
-      link: https://cloud.google.com/java/docs/reference/google-cloud-deploy/latest/overview
-- name: Dataflow
-  packages:
-    - name: com.google.cloud:google-cloud-dataflow
-      link: https://cloud.google.com/java/docs/reference/google-cloud-dataflow/latest/overview
-- name: Eventarc
-  packages:
-    - name: com.google.cloud:google-cloud-eventarc
-      link: https://cloud.google.com/java/docs/reference/google-cloud-eventarc/latest/overview
-- name: Managed Service for Microsoft Active Directory
-  packages:
-    - name: com.google.cloud:google-cloud-managed-identities
-      link: https://cloud.google.com/java/docs/reference/google-cloud-managed-identities/latest/overview
-- name: Memorystore for Redis
-  packages:
-    - name: com.google.cloud:google-cloud-redis
-      link: https://cloud.google.com/java/docs/reference/google-cloud-redis/latest/overview
-    - name: com.google.cloud:google-cloud-valkey
-      link: https://cloud.google.com/java/docs/reference/google-cloud-memorystore/latest/overview
-- name: Pub/Sub Lite
-  packages:
-    - name: com.google.cloud:google-cloud-pubsublite
-      link: https://cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/history
-    - name: com.google.cloud:pubsublite-kafka
-      link: https://cloud.google.com/java/docs/reference/pubsublite-kafka/latest/history
-- name: Service Management API
-  packages:
-    - name: com.google.cloud:google-cloud-service-management
-      link: https://cloud.google.com/java/docs/reference/google-cloud-service-management/latest/overview
-- name: Virtual Private Cloud
-  packages:
-    - name: com.google.cloud:google-cloud-vpcaccess
-      link: https://cloud.google.com/java/docs/reference/google-cloud-vpcaccess/latest/overview
-- name: Cloud Key Management Service
-  packages:
-    - name: com.google.cloud:google-cloud-kms
-      link: https://cloud.google.com/java/docs/reference/google-cloud-kms/latest/overview
-- name: Secret Manager
-  packages:
-    - name: com.google.cloud:google-cloud-secretmanager
-      link: https://cloud.google.com/java/docs/reference/google-cloud-secretmanager/latest/overview
-- name: Web Risk
-  packages:
-    - name: com.google.cloud:google-cloud-webrisk
-      link: https://cloud.google.com/java/docs/reference/google-cloud-webrisk/latest/overview
+    - name: com.google.cloud:google-cloud-apihub
+      link: https://cloud.google.com/java/docs/reference/google-cloud-apihub/latest/overview
 - name: Apigee Connect API
   packages:
     - name: com.google.cloud:google-cloud-apigee-connect
       link: https://cloud.google.com/java/docs/reference/google-cloud-apigee-connect/latest/overview
-- name: Chat API
+- name: Apigee Registry
   packages:
-    - name: com.google.cloud:google-cloud-chat
-      link: https://cloud.google.com/java/docs/reference/google-cloud-chat/latest/overview
-- name: Cloud Scheduler
+    - name: com.google.cloud:google-cloud-apigee-registry
+      link: https://cloud.google.com/java/docs/reference/google-cloud-apigee-registry/latest/overview
+- name: App Engine Admin API
   packages:
-    - name: com.google.cloud:google-cloud-scheduler
-      link: https://cloud.google.com/java/docs/reference/google-cloud-scheduler/latest/overview
-- name: Cloud Shell
+    - name: com.google.cloud:google-cloud-appengine-admin
+      link: https://cloud.google.com/java/docs/reference/google-cloud-appengine-admin/latest/overview
+- name: App Hub
   packages:
-    - name: com.google.cloud:google-cloud-shell
-      link: https://cloud.google.com/java/docs/reference/google-cloud-shell/latest/overview
-- name: Cloud Translation
+    - name: com.google.cloud:google-cloud-apphub
+      link: https://cloud.google.com/java/docs/reference/google-cloud-apphub/latest/overview
+- name: Artifact Registry
   packages:
-    - name: com.google.cloud:google-cloud-translate
-      link: https://cloud.google.com/java/docs/reference/google-cloud-translate/latest/overview
-- name: NetApp Volumes
+    - name: com.google.cloud:google-cloud-artifact-registry
+      link: https://cloud.google.com/java/docs/reference/google-cloud-artifact-registry/latest/overview
+- name: Assured Workloads
   packages:
-    - name: com.google.cloud:google-cloud-netapp
-      link: https://cloud.google.com/java/docs/reference/google-cloud-netapp/latest/overview
-- name: Oracle Database@Google Cloud
+    - name: com.google.cloud:google-cloud-assured-workloads
+      link: https://cloud.google.com/java/docs/reference/google-cloud-assured-workloads/latest/overview
+- name: AutoML
   packages:
-    - name: com.google.cloud:google-cloud-oracledatabase
-      link: https://cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/overview
-- name: BigQuery Storage
+    - name: com.google.cloud:google-cloud-automl
+      link: https://cloud.google.com/java/docs/reference/google-cloud-automl/latest/overview
+- name: Backup and DR
   packages:
-    - name: com.google.cloud:google-cloud-bigquerystorage
-      link: https://cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/history
-- name: Cloud Natural Language API
+    - name: com.google.cloud:google-cloud-backupdr
+      link: https://cloud.google.com/java/docs/reference/google-cloud-backupdr/latest/overview
+- name: Bare Metal Solution
   packages:
-    - name: com.google.cloud:google-cloud-language
-      link: https://cloud.google.com/java/docs/reference/google-cloud-language/latest/overview
-- name: Cloud Optimization AI
+    - name: com.google.cloud:google-cloud-bare-metal-solution
+      link: https://cloud.google.com/java/docs/reference/google-cloud-bare-metal-solution/latest/overview
+- name: Batch
   packages:
-    - name: com.google.cloud:google-cloud-optimization
-      link: https://cloud.google.com/java/docs/reference/google-cloud-optimization/latest/overview
-- name: Datastream
+    - name: com.google.cloud:google-cloud-batch
+      link: https://cloud.google.com/java/docs/reference/google-cloud-batch/latest/overview
+- name: BigLake API
   packages:
-    - name: com.google.cloud:google-cloud-datastream
-      link: https://cloud.google.com/java/docs/reference/google-cloud-datastream/latest/overview
-- name: Error Reporting
+    - name: com.google.cloud:google-cloud-biglake
+      link: https://cloud.google.com/java/docs/reference/google-cloud-biglake/latest/overview
+- name: BigQuery
   packages:
-    - name: com.google.cloud:google-cloud-errorreporting
-      link: https://cloud.google.com/java/docs/reference/google-cloud-errorreporting/latest/overview
-- name: Firestore
+    - name: com.google.cloud:google-cloud-bigquery
+      link: https://cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/history
+- name: BigQuery Connection API
   packages:
-    - name: com.google.cloud:google-cloud-firestore
-      link: https://cloud.google.com/java/docs/reference/google-cloud-firestore/latest/history
-- name: Google Meet
+    - name: com.google.cloud:google-cloud-bigqueryconnection
+      link: https://cloud.google.com/bigquery/docs/reference/reservations/rpc/google.cloud.bigquery.reservation.v1beta1
+- name: BigQuery Data Transfer Service
   packages:
-    - name: com.google.cloud:google-cloud-meet
-      link: https://cloud.google.com/java/docs/reference/google-cloud-meet/latest/overview
-- name: Network Connectivity Center
-  packages:
-    - name: com.google.cloud:google-cloud-networkconnectivity
-      link: https://cloud.google.com/java/docs/reference/google-cloud-networkconnectivity/latest/overview
-- name: Advisory Notifications
-  packages:
-    - name: com.google.cloud:google-cloud-advisorynotifications
-      link: https://cloud.google.com/java/docs/reference/google-cloud-advisorynotifications/latest/overview
-- name: Cloud Talent Solution Job Search
-  packages:
-    - name: com.google.cloud:google-cloud-talent
-      link: https://cloud.google.com/java/docs/reference/google-cloud-talent/latest/overview
-- name: Confidential VM
-  packages:
-    - name: com.google.cloud:google-cloud-confidentialcomputing
-      link: https://cloud.google.com/java/docs/reference/google-cloud-confidentialcomputing/latest/overview
-- name: Data Lineage
-  packages:
-    - name: com.google.cloud:google-cloud-datalineage
-      link: https://cloud.google.com/java/docs/reference/google-cloud-datalineage/latest/overview
-- name: Dataplex
-  packages:
-    - name: com.google.cloud:google-cloud-dataplex
-      link: https://cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview
-- name: Organization Policy Service
-  packages:
-    - name: com.google.cloud:google-cloud-orgpolicy
-      link: https://cloud.google.com/java/docs/reference/proto-google-cloud-orgpolicy-v1/latest/overview
-- name: Resource Manager
-  packages:
-    - name: com.google.cloud:google-cloud-resourcemanager
-      link: https://cloud.google.com/java/docs/reference/google-cloud-resourcemanager/latest/overview
-- name: Vertex AI Vision
-  packages:
-    - name: com.google.cloud:google-cloud-visionai
-      link: https://cloud.google.com/java/docs/reference/google-cloud-visionai/latest/overview
-- name: Cloud IDS
-  packages:
-    - name: com.google.cloud:google-cloud-ids
-      link: https://cloud.google.com/java/docs/reference/google-cloud-ids/latest/overview
-- name: GKE Hub API
-  packages:
-    - name: com.google.cloud:google-cloud-gkehub
-      link: https://cloud.google.com/java/docs/reference/google-cloud-gkehub/latest/overview
-- name: Speech-to-Text
-  packages:
-    - name: com.google.cloud:google-cloud-speech
-      link: https://cloud.google.com/java/docs/reference/google-cloud-speech/latest/overview
-- name: Connect Gateway API
-  packages:
-    - name: com.google.cloud:google-cloud-connectgateway
-      link: https://cloud.google.com/java/docs/reference/google-cloud-connectgateway/latest/overview
-    - name: com.google.cloud:google-cloud-gke-connect-gateway
-      link: https://cloud.google.com/java/docs/reference/google-cloud-gke-connect-gateway/latest/overview
-- name: Identity-Aware Proxy
-  packages:
-    - name: com.google.cloud:google-cloud-iap
-      link: https://cloud.google.com/java/docs/reference/google-cloud-iap/latest/overview
+    - name: com.google.cloud:google-cloud-bigquerydatatransfer
+      link: https://cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/overview
 - name: BigQuery DataPolicy API
   packages:
     - name: com.google.cloud:google-cloud-bigquerydatapolicy
@@ -478,70 +106,356 @@
   packages:
     - name: com.google.cloud:google-cloud-bigquerymigration
       link: https://cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/overview
-- name: Cloud Profiler
+- name: BigQuery Reservation API
   packages:
-    - name: com.google.cloud:google-cloud-profiler
-      link: https://cloud.google.com/java/docs/reference/google-cloud-profiler/latest/overview
-- name: Cloud Storage
+    - name: com.google.cloud:google-cloud-bigqueryreservation
+      link: https://cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/overview
+- name: BigQuery Storage
   packages:
-    - name: com.google.cloud:google-cloud-storage
-      link: https://cloud.google.com/java/docs/reference/google-cloud-storage/latest/history
-- name: Compute Engine
+    - name: com.google.cloud:google-cloud-bigquerystorage
+      link: https://cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/history
+- name: Bigtable
   packages:
-    - name: com.google.cloud:google-cloud-compute
-      link: https://cloud.google.com/java/docs/reference/google-cloud-compute/latest/overview
-- name: Network Management API
+    - name: com.google.cloud:google-cloud-bigtable
+      link: https://cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/history
+- name: Binary Authorization
   packages:
-    - name: com.google.cloud:google-cloud-network-management
-      link: https://cloud.google.com/java/docs/reference/google-cloud-network-management/latest/overview
-- name: Access Approval
+    - name: com.google.cloud:google-cloud-binary-authorization
+      link: https://cloud.google.com/java/docs/reference/google-cloud-binary-authorization/latest/overview
+- name: Certificate Authority Service
   packages:
-    - name: com.google.cloud:google-cloud-accessapproval
-      link: https://cloud.google.com/java/docs/reference/google-cloud-accessapproval/latest/overview
-- name: Parallelstore
+    - name: com.google.cloud:google-cloud-security-private-ca
+      link: https://cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/overview
+- name: Certificate Manager
   packages:
-    - name: com.google.cloud:google-cloud-parallelstore
-      link: https://cloud.google.com/java/docs/reference/google-cloud-parallelstore/latest/overview
-- name: Vertex AI
+    - name: com.google.cloud:google-cloud-certificate-manager
+      link: https://cloud.google.com/java/docs/reference/google-cloud-certificate-manager/latest/overview
+- name: Channel Services
   packages:
-    - name: com.google.cloud:google-cloud-aiplatform
-      link: https://cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/overview
-- name: AI Platform Data Labeling Service
+    - name: com.google.cloud:google-cloud-channel
+      link: https://cloud.google.com/java/docs/reference/google-cloud-channel/latest/overview
+- name: Chat API
   packages:
-    - name: com.google.cloud:google-cloud-datalabeling
-      link: https://cloud.google.com/java/docs/reference/google-cloud-datalabeling/latest/overview
+    - name: com.google.cloud:google-cloud-chat
+      link: https://cloud.google.com/java/docs/reference/google-cloud-chat/latest/overview
+- name: Cloud Asset Inventory
+  packages:
+    - name: com.google.cloud:google-cloud-asset
+      link: https://cloud.google.com/java/docs/reference/google-cloud-asset/latest/overview
+- name: Cloud Billing
+  packages:
+    - name: com.google.cloud:google-cloud-billing
+      link: https://cloud.google.com/java/docs/reference/google-cloud-billing/latest/overview
+- name: Cloud Billing Budget API
+  packages:
+    - name: com.google.cloud:google-cloud-billingbudgets
+      link: https://cloud.google.com/java/docs/reference/google-cloud-billingbudgets/latest/overview
+- name: Cloud Build
+  packages:
+    - name: com.google.cloud:google-cloud-build
+      link: https://cloud.google.com/java/docs/reference/google-cloud-build/latest/overview
+- name: Cloud DNS
+  packages:
+    - name: com.google.cloud:google-cloud-dns
+      link: https://cloud.google.com/java/docs/reference/google-cloud-dns/latest/overview
+- name: Cloud Data Fusion
+  packages:
+    - name: com.google.cloud:google-cloud-data-fusion
+      link: https://cloud.google.com/java/docs/reference/google-cloud-data-fusion/latest/overview
+- name: Cloud Database Migration Service
+  packages:
+    - name: com.google.cloud:google-cloud-dms
+      link: https://cloud.google.com/java/docs/reference/google-cloud-dms/latest/overview
+- name: Cloud Deploy
+  packages:
+    - name: com.google.cloud:google-cloud-deploy
+      link: https://cloud.google.com/java/docs/reference/google-cloud-deploy/latest/overview
 - name: Cloud Domains
   packages:
     - name: com.google.cloud:google-cloud-domains
       link: https://cloud.google.com/java/docs/reference/google-cloud-domains/latest/overview
-- name: Recommendations
+- name: Cloud IDS
   packages:
-    - name: com.google.cloud:google-cloud-recommendations-ai
-      link: https://cloud.google.com/java/docs/reference/google-cloud-recommendations-ai/latest/overview
-- name: Secure Source Manager
+    - name: com.google.cloud:google-cloud-ids
+      link: https://cloud.google.com/java/docs/reference/google-cloud-ids/latest/overview
+- name: Cloud Key Management Service
   packages:
-    - name: com.google.cloud:google-cloud-securesourcemanager
-      link: https://cloud.google.com/java/docs/reference/google-cloud-securesourcemanager/latest/overview
+    - name: com.google.cloud:google-cloud-kms
+      link: https://cloud.google.com/java/docs/reference/google-cloud-kms/latest/overview
+- name: Cloud Life Sciences
+  packages:
+    - name: com.google.cloud:google-cloud-life-sciences
+      link: https://cloud.google.com/java/docs/reference/google-cloud-life-sciences/latest/overview
 - name: Cloud Logging
   packages:
     - name: com.google.cloud:google-cloud-logging
       link: https://cloud.google.com/java/docs/reference/google-cloud-logging/latest/history
+- name: Cloud Monitoring
+  packages:
+    - name: com.google.cloud:google-cloud-monitoring
+      link: https://cloud.google.com/java/docs/reference/google-cloud-monitoring/latest/overview
+- name: Cloud Monitoring Dashboards
+  packages:
+    - name: com.google.cloud:google-cloud-monitoring-dashboard
+      link: https://cloud.google.com/java/docs/reference/google-cloud-monitoring-dashboard/latest/overview
+- name: Cloud Natural Language API
+  packages:
+    - name: com.google.cloud:google-cloud-language
+      link: https://cloud.google.com/java/docs/reference/google-cloud-language/latest/overview
+- name: Cloud OS Config
+  packages:
+    - name: com.google.cloud:google-cloud-os-config
+      link: https://cloud.google.com/java/docs/reference/google-cloud-os-config/latest/overview
+- name: Cloud OS Login API
+  packages:
+    - name: com.google.cloud:google-cloud-os-login
+      link: https://cloud.google.com/java/docs/reference/google-cloud-os-login/latest/overview
+- name: Cloud Optimization AI
+  packages:
+    - name: com.google.cloud:google-cloud-optimization
+      link: https://cloud.google.com/java/docs/reference/google-cloud-optimization/latest/overview
+- name: Cloud Profiler
+  packages:
+    - name: com.google.cloud:google-cloud-profiler
+      link: https://cloud.google.com/java/docs/reference/google-cloud-profiler/latest/overview
+- name: Cloud Quotas
+  packages:
+    - name: com.google.cloud:google-cloud-cloudquotas
+      link: https://cloud.google.com/java/docs/reference/google-cloud-cloudquotas/latest/overview
+- name: Cloud Run
+  packages:
+    - name: com.google.cloud:google-cloud-run
+      link: https://cloud.google.com/java/docs/reference/google-cloud-run/latest/overview
 - name: Cloud Run functions
   packages:
     - name: com.google.cloud:google-cloud-functions
       link: https://cloud.google.com/java/docs/reference/google-cloud-functions/latest/overview
+- name: Cloud Scheduler
+  packages:
+    - name: com.google.cloud:google-cloud-scheduler
+      link: https://cloud.google.com/java/docs/reference/google-cloud-scheduler/latest/overview
+- name: Cloud Shell
+  packages:
+    - name: com.google.cloud:google-cloud-shell
+      link: https://cloud.google.com/java/docs/reference/google-cloud-shell/latest/overview
+- name: Cloud Storage
+  packages:
+    - name: com.google.cloud:google-cloud-storage
+      link: https://cloud.google.com/java/docs/reference/google-cloud-storage/latest/history
+- name: Cloud TPU
+  packages:
+    - name: com.google.cloud:google-cloud-tpu
+      link: https://cloud.google.com/java/docs/reference/google-cloud-tpu/latest/overview
+- name: Cloud Talent Solution Job Search
+  packages:
+    - name: com.google.cloud:google-cloud-talent
+      link: https://cloud.google.com/java/docs/reference/google-cloud-talent/latest/overview
+- name: Cloud Tasks
+  packages:
+    - name: com.google.cloud:google-cloud-tasks
+      link: https://cloud.google.com/java/docs/reference/google-cloud-tasks/latest/overview
+- name: Cloud Trace
+  packages:
+    - name: com.google.cloud:google-cloud-trace
+      link: https://cloud.google.com/java/docs/reference/google-cloud-trace/latest/overview
+- name: Cloud Translation
+  packages:
+    - name: com.google.cloud:google-cloud-translate
+      link: https://cloud.google.com/java/docs/reference/google-cloud-translate/latest/overview
+- name: Cloud Vision
+  packages:
+    - name: com.google.cloud:google-cloud-vision
+      link: https://cloud.google.com/java/docs/reference/google-cloud-vision/latest/overview
 - name: Cloud Workstations
   packages:
     - name: com.google.cloud:google-cloud-workstations
       link: https://cloud.google.com/java/docs/reference/google-cloud-workstations/latest/overview
+- name: Compute Engine
+  packages:
+    - name: com.google.cloud:google-cloud-compute
+      link: https://cloud.google.com/java/docs/reference/google-cloud-compute/latest/overview
+- name: Confidential Space
+  packages:
+    - name: com.google.cloud:google-cloud-confidentialcomputing
+      link: https://cloud.google.com/java/docs/reference/google-cloud-confidentialcomputing/latest/overview
+- name: Confidential VM
+  packages:
+    - name: com.google.cloud:google-cloud-confidentialcomputing
+      link: https://cloud.google.com/java/docs/reference/google-cloud-confidentialcomputing/latest/overview
+- name: Connect Gateway API
+  packages:
+    - name: com.google.cloud:google-cloud-connectgateway
+      link: https://cloud.google.com/java/docs/reference/google-cloud-connectgateway/latest/overview
+    - name: com.google.cloud:google-cloud-gke-connect-gateway
+      link: https://cloud.google.com/java/docs/reference/google-cloud-gke-connect-gateway/latest/overview
+- name: Contact Center AI Insights
+  packages:
+    - name: com.google.cloud:google-cloud-contact-center-insights
+      link: https://cloud.google.com/java/docs/reference/google-cloud-contact-center-insights/latest/overview
+- name: Container Analysis
+  packages:
+    - name: com.google.cloud:google-cloud-containeranalysis
+      link: https://cloud.google.com/java/docs/reference/google-cloud-containeranalysis/latest/overview
+- name: Data Catalog
+  packages:
+    - name: com.google.cloud:google-cloud-datacatalog
+      link: https://cloud.google.com/java/docs/reference/google-cloud-datacatalog/latest/overview
+- name: Data Lineage
+  packages:
+    - name: com.google.cloud:google-cloud-datalineage
+      link: https://cloud.google.com/java/docs/reference/google-cloud-datalineage/latest/overview
+- name: Dataflow
+  packages:
+    - name: com.google.cloud:google-cloud-dataflow
+      link: https://cloud.google.com/java/docs/reference/google-cloud-dataflow/latest/overview
+- name: Dataform
+  packages:
+    - name: com.google.cloud:google-cloud-dataform
+      link: https://cloud.google.com/java/docs/reference/google-cloud-dataform/latest/overview
+- name: Dataplex
+  packages:
+    - name: com.google.cloud:google-cloud-dataplex
+      link: https://cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/overview
+- name: Dataproc
+  packages:
+    - name: com.google.cloud:google-cloud-dataproc
+      link: https://cloud.google.com/java/docs/reference/google-cloud-dataproc/latest/overview
+- name: Dataproc Metastore
+  packages:
+    - name: com.google.cloud:google-cloud-dataproc-metastore
+      link: https://cloud.google.com/java/docs/reference/google-cloud-dataproc-metastore/latest/overview
+- name: Datastream
+  packages:
+    - name: com.google.cloud:google-cloud-datastream
+      link: https://cloud.google.com/java/docs/reference/google-cloud-datastream/latest/overview
+- name: Developer Connect
+  packages:
+    - name: com.google.cloud:google-cloud-developerconnect
+      link: https://cloud.google.com/java/docs/reference/google-cloud-developerconnect/latest/overview
+- name: Dialogflow
+  packages:
+    - name: com.google.cloud:google-cloud-dialogflow
+      link: https://cloud.google.com/java/docs/reference/google-cloud-dialogflow/latest/overview
 - name: Dialogflow CX
   packages:
     - name: com.google.cloud:google-cloud-dialogflow-cx
       link: https://cloud.google.com/java/docs/reference/google-cloud-dialogflow-cx/latest/overview
+- name: Discovery Engine API
+  packages:
+    - name: com.google.cloud:google-cloud-discoveryengine
+      link: https://cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/overview
+- name: Document AI
+  packages:
+    - name: com.google.cloud:google-cloud-document-ai
+      link: https://cloud.google.com/java/docs/reference/google-cloud-document-ai/latest/overview
+- name: Document AI Warehouse
+  packages:
+    - name: com.google.cloud:google-cloud-contentwarehouse
+      link: https://cloud.google.com/java/docs/reference/google-cloud-contentwarehouse/latest/overview
 - name: Enterprise Knowledge Graph
   packages:
     - name: com.google.cloud:google-cloud-enterpriseknowledgegraph
       link: https://cloud.google.com/java/docs/reference/google-cloud-enterpriseknowledgegraph/latest/overview
+- name: Error Reporting
+  packages:
+    - name: com.google.cloud:google-cloud-errorreporting
+      link: https://cloud.google.com/java/docs/reference/google-cloud-errorreporting/latest/overview
+- name: Essential Contacts API
+  packages:
+    - name: com.google.cloud:google-cloud-essential-contacts
+      link: https://cloud.google.com/java/docs/reference/google-cloud-essential-contacts/latest/overview
+- name: Eventarc
+  packages:
+    - name: com.google.cloud:google-cloud-eventarc
+      link: https://cloud.google.com/java/docs/reference/google-cloud-eventarc/latest/overview
+- name: Eventarc Publishing API
+  packages:
+    - name: com.google.cloud:google-cloud-eventarc-publishing
+      link: https://cloud.google.com/java/docs/reference/google-cloud-eventarc-publishing/latest/overview
+- name: Filestore
+  packages:
+    - name: com.google.cloud:google-cloud-filestore
+      link: https://cloud.google.com/java/docs/reference/google-cloud-filestore/latest/overview
+- name: Firestore
+  packages:
+    - name: com.google.cloud:google-cloud-firestore
+      link: https://cloud.google.com/java/docs/reference/google-cloud-firestore/latest/history
+- name: Firestore in Datastore mode
+  packages:
+    - name: com.google.cloud:google-cloud-datastore
+      link: https://cloud.google.com/java/docs/reference/google-cloud-datastore/latest/history
+- name: GKE Hub API
+  packages:
+    - name: com.google.cloud:google-cloud-gkehub
+      link: https://cloud.google.com/java/docs/reference/google-cloud-gkehub/latest/overview
+- name: Google Cloud Managed Service for Apache Kafka
+  packages:
+    - name: com.google.cloud:google-cloud-managedkafka
+      link: https://cloud.google.com/java/docs/reference/google-cloud-managedkafka/latest/overview
+- name: Google Cloud VMware Engine
+  packages:
+    - name: com.google.cloud:google-cloud-vmwareengine
+      link: https://cloud.google.com/java/docs/reference/google-cloud-vmwareengine/latest/overview
+- name: Google Distributed Cloud connected
+  packages:
+    - name: com.google.cloud:google-cloud-distributedcloudedge
+      link: https://cloud.google.com/java/docs/reference/google-cloud-distributedcloudedge/latest/overview
+- name: Google Meet
+  packages:
+    - name: com.google.cloud:google-cloud-meet
+      link: https://cloud.google.com/java/docs/reference/google-cloud-meet/latest/overview
+- name: Google SecOps SIEM
+  packages:
+    - name: com.google.cloud:google-cloud-chronicle
+      link: https://cloud.google.com/java/docs/reference/google-cloud-chronicle/latest/overview
+- name: Google Workspace Events API
+  packages:
+    - name: com.google.cloud:google-cloud-workspaceevents
+      link: https://cloud.google.com/java/docs/reference/google-cloud-workspaceevents/latest/overview
+- name: Google Workspace add-ons
+  packages:
+    - name: com.google.cloud:google-cloud-gsuite-addons
+      link: https://cloud.google.com/java/docs/reference/google-cloud-gsuite-addons/latest/overview
+- name: IAM Policy Troubleshooter API
+  packages:
+    - name: com.google.cloud:google-cloud-policy-troubleshooter
+      link: https://cloud.google.com/java/docs/reference/google-cloud-policy-troubleshooter/latest/overview
+- name: IAM Service Account Credentials API
+  packages:
+    - name: com.google.cloud:google-cloud-iamcredentials
+      link: https://cloud.google.com/java/docs/reference/google-cloud-iamcredentials/latest/overview
+- name: Identity and Access Management
+  packages:
+    - name: com.google.cloud:google-iam-policy
+      link: https://cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/history
+- name: Identity-Aware Proxy
+  packages:
+    - name: com.google.cloud:google-cloud-iap
+      link: https://cloud.google.com/java/docs/reference/google-cloud-iap/latest/overview
+- name: IoT Core
+  packages:
+    - name: com.google.cloud:google-cloud-iot
+      link: https://cloud.google.com/java/docs/reference/google-cloud-iot/latest/overview
+- name: Kubernetes Engine API
+  packages:
+    - name: com.google.cloud:google-cloud-container
+      link: https://cloud.google.com/java/docs/reference/google-cloud-container/latest/overview
+- name: Live Stream API
+  packages:
+    - name: com.google.cloud:google-cloud-live-stream
+      link: https://cloud.google.com/java/docs/reference/google-cloud-live-stream/latest/overview
+- name: Managed Lustre
+  packages:
+    - name: com.google.cloud:google-cloud-lustre
+      link: https://cloud.google.com/java/docs/reference/google-cloud-lustre/latest/overview
+- name: Managed Service for Microsoft Active Directory
+  packages:
+    - name: com.google.cloud:google-cloud-managed-identities
+      link: https://cloud.google.com/java/docs/reference/google-cloud-managed-identities/latest/overview
+- name: Media CDN
+  packages:
+    - name: com.google.cloud:google-cloud-networkservices
+      link: https://cloud.google.com/java/docs/reference/google-cloud-networkservices/latest/overview
 - name: Media Translation
   packages:
     - name: com.google.cloud:google-cloud-mediatranslation
@@ -550,111 +464,197 @@
   packages:
     - name: com.google.cloud:google-cloud-memcache
       link: https://cloud.google.com/java/docs/reference/google-cloud-memcache/latest/overview
+- name: Memorystore for Redis
+  packages:
+    - name: com.google.cloud:google-cloud-redis
+      link: https://cloud.google.com/java/docs/reference/google-cloud-redis/latest/overview
+    - name: com.google.cloud:google-cloud-valkey
+      link: https://cloud.google.com/java/docs/reference/google-cloud-memorystore/latest/overview
 - name: Migrate to Virtual Machines
   packages:
     - name: com.google.cloud:google-cloud-vmmigration
       link: https://cloud.google.com/java/docs/reference/google-cloud-vmmigration/latest/overview
-- name: Certificate Authority Service
+- name: Migration Center
   packages:
-    - name: com.google.cloud:google-cloud-security-private-ca
-      link: https://cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/overview
-- name: Google Workspace Events API
+    - name: com.google.cloud:google-cloud-migrationcenter
+      link: https://cloud.google.com/java/docs/reference/google-cloud-migrationcenter/latest/overview
+- name: Model Armor
   packages:
-    - name: com.google.cloud:google-cloud-workspaceevents
-      link: https://cloud.google.com/java/docs/reference/google-cloud-workspaceevents/latest/overview
+    - name: com.google.cloud:google-cloud-modelarmor
+      link: https://cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/overview
+- name: NetApp Volumes
+  packages:
+    - name: com.google.cloud:google-cloud-netapp
+      link: https://cloud.google.com/java/docs/reference/google-cloud-netapp/latest/overview
+- name: Network Connectivity Center
+  packages:
+    - name: com.google.cloud:google-cloud-networkconnectivity
+      link: https://cloud.google.com/java/docs/reference/google-cloud-networkconnectivity/latest/overview
+- name: Network Management API
+  packages:
+    - name: com.google.cloud:google-cloud-network-management
+      link: https://cloud.google.com/java/docs/reference/google-cloud-network-management/latest/overview
+- name: Network Security API
+  packages:
+    - name: com.google.cloud:google-cloud-network-security
+      link: https://cloud.google.com/java/docs/reference/google-cloud-network-security/latest/overview
+- name: Oracle Database@Google Cloud
+  packages:
+    - name: com.google.cloud:google-cloud-oracledatabase
+      link: https://cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/overview
+- name: Organization Policy Service
+  packages:
+    - name: com.google.cloud:google-cloud-orgpolicy
+      link: https://cloud.google.com/java/docs/reference/proto-google-cloud-orgpolicy-v1/latest/overview
+- name: Parallelstore
+  packages:
+    - name: com.google.cloud:google-cloud-parallelstore
+      link: https://cloud.google.com/java/docs/reference/google-cloud-parallelstore/latest/overview
 - name: Parameter Manager
   packages:
     - name: com.google.cloud:google-cloud-parametermanager
       link: https://cloud.google.com/java/docs/reference/google-cloud-parametermanager/latest/overview
-- name: Route Optimization API
+- name: Phishing Protection
   packages:
-    - name: com.google.maps:google-maps-routeoptimization
-      link: https://cloud.google.com/java/docs/reference/google-maps-routeoptimization/latest/overview
-- name: Video Intelligence API
-  packages:
-    - name: com.google.cloud:google-cloud-video-intelligence
-      link: https://cloud.google.com/java/docs/reference/google-cloud-video-intelligence/latest/overview
-- name: AI Platform
-  packages:
-    - name: com.google.cloud:google-cloud-aiplatform
-      link: https://cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/overview
-- name: BigQuery
-  packages:
-    - name: com.google.cloud:google-cloud-bigquery
-      link: https://cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/history
-- name: Web Security Scanner
-  packages:
-    - name: com.google.cloud:google-cloud-websecurityscanner
-      link: https://cloud.google.com/java/docs/reference/google-cloud-websecurityscanner/latest/overview
-- name: Assured Workloads
-  packages:
-    - name: com.google.cloud:google-cloud-assured-workloads
-      link: https://cloud.google.com/java/docs/reference/google-cloud-assured-workloads/latest/overview
-- name: Dataproc
-  packages:
-    - name: com.google.cloud:google-cloud-dataproc
-      link: https://cloud.google.com/java/docs/reference/google-cloud-dataproc/latest/overview
-- name: Document AI Warehouse
-  packages:
-    - name: com.google.cloud:google-cloud-contentwarehouse
-      link: https://cloud.google.com/java/docs/reference/google-cloud-contentwarehouse/latest/overview
-- name: Eventarc Publishing API
-  packages:
-    - name: com.google.cloud:google-cloud-eventarc-publishing
-      link: https://cloud.google.com/java/docs/reference/google-cloud-eventarc-publishing/latest/overview
-- name: Service Control API
-  packages:
-    - name: com.google.cloud:google-cloud-service-control
-      link: https://cloud.google.com/java/docs/reference/google-cloud-service-control/latest/overview
-- name: AutoML
-  packages:
-    - name: com.google.cloud:google-cloud-automl
-      link: https://cloud.google.com/java/docs/reference/google-cloud-automl/latest/overview
-- name: Binary Authorization
-  packages:
-    - name: com.google.cloud:google-cloud-binary-authorization
-      link: https://cloud.google.com/java/docs/reference/google-cloud-binary-authorization/latest/overview
-- name: Cloud Database Migration Service
-  packages:
-    - name: com.google.cloud:google-cloud-dms
-      link: https://cloud.google.com/java/docs/reference/google-cloud-dms/latest/overview
-- name: Cloud OS Login API
-  packages:
-    - name: com.google.cloud:google-cloud-os-login
-      link: https://cloud.google.com/java/docs/reference/google-cloud-os-login/latest/overview
-- name: Container Analysis
-  packages:
-    - name: com.google.cloud:google-cloud-containeranalysis
-      link: https://cloud.google.com/java/docs/reference/google-cloud-containeranalysis/latest/overview
-- name: Google SecOps SIEM
-  packages:
-    - name: com.google.cloud:google-cloud-chronicle
-      link: https://cloud.google.com/java/docs/reference/google-cloud-chronicle/latest/overview
-- name: Google Workspace add-ons
-  packages:
-    - name: com.google.cloud:google-cloud-gsuite-addons
-      link: https://cloud.google.com/java/docs/reference/google-cloud-gsuite-addons/latest/overview
-- name: Identity and Access Management
-  packages:
-    - name: com.google.cloud:google-iam-policy
-      link: https://cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/history
-- name: Backup and DR
-  packages:
-    - name: com.google.cloud:google-cloud-backupdr
-      link: https://cloud.google.com/java/docs/reference/google-cloud-backupdr/latest/overview
-- name: Cloud Monitoring
-  packages:
-    - name: com.google.cloud:google-cloud-monitoring
-      link: https://cloud.google.com/java/docs/reference/google-cloud-monitoring/latest/overview
-- name: Cloud Trace
-  packages:
-    - name: com.google.cloud:google-cloud-trace
-      link: https://cloud.google.com/java/docs/reference/google-cloud-trace/latest/overview
+    - name: com.google.cloud:google-cloud-phishingprotection
+      link: https://cloud.google.com/java/docs/reference/google-cloud-phishingprotection/latest/overview
 - name: Pub/Sub
   packages:
     - name: com.google.cloud:google-cloud-pubsub
       link: https://cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/history
+- name: Pub/Sub Lite
+  packages:
+    - name: com.google.cloud:google-cloud-pubsublite
+      link: https://cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/history
+    - name: com.google.cloud:pubsublite-kafka
+      link: https://cloud.google.com/java/docs/reference/pubsublite-kafka/latest/history
+- name: Public Certificate Authority
+  packages:
+    - name: com.google.cloud:google-cloud-publicca
+      link: https://cloud.google.com/java/docs/reference/google-cloud-publicca/latest/overview
+- name: Recommendations
+  packages:
+    - name: com.google.cloud:google-cloud-recommendations-ai
+      link: https://cloud.google.com/java/docs/reference/google-cloud-recommendations-ai/latest/overview
+- name: Recommender
+  packages:
+    - name: com.google.cloud:google-cloud-recommender
+      link: https://cloud.google.com/java/docs/reference/google-cloud-recommender/latest/overview
+- name: Resource Manager
+  packages:
+    - name: com.google.cloud:google-cloud-resourcemanager
+      link: https://cloud.google.com/java/docs/reference/google-cloud-resourcemanager/latest/overview
+- name: Retail API
+  packages:
+    - name: com.google.cloud:google-cloud-retail
+      link: https://cloud.google.com/java/docs/reference/google-cloud-retail/latest/overview
+- name: Route Optimization API
+  packages:
+    - name: com.google.maps:google-maps-routeoptimization
+      link: https://cloud.google.com/java/docs/reference/google-maps-routeoptimization/latest/overview
+- name: Secret Manager
+  packages:
+    - name: com.google.cloud:google-cloud-secretmanager
+      link: https://cloud.google.com/java/docs/reference/google-cloud-secretmanager/latest/overview
+- name: Secure Source Manager
+  packages:
+    - name: com.google.cloud:google-cloud-securesourcemanager
+      link: https://cloud.google.com/java/docs/reference/google-cloud-securesourcemanager/latest/overview
+- name: Security Command Center
+  packages:
+    - name: com.google.cloud:google-cloud-securitycenter
+      link: https://cloud.google.com/java/docs/reference/google-cloud-securitycenter/latest/overview
+    - name: com.google.cloud:google-cloud-securitycenter-settings
+      link: https://cloud.google.com/java/docs/reference/google-cloud-securitycenter-settings/latest/overview
+- name: Sensitive Data Protection
+  packages:
+    - name: com.google.cloud:google-cloud-dlp
+      link: https://cloud.google.com/java/docs/reference/google-cloud-dlp/latest/overview
+- name: Service Control API
+  packages:
+    - name: com.google.cloud:google-cloud-service-control
+      link: https://cloud.google.com/java/docs/reference/google-cloud-service-control/latest/overview
+- name: Service Directory
+  packages:
+    - name: com.google.cloud:google-cloud-servicedirectory
+      link: https://cloud.google.com/java/docs/reference/google-cloud-servicedirectory/latest/overview
+- name: Service Health
+  packages:
+    - name: com.google.cloud:google-cloud-servicehealth
+      link: https://cloud.google.com/java/docs/reference/google-cloud-servicehealth/latest/overview
+- name: Service Management API
+  packages:
+    - name: com.google.cloud:google-cloud-service-management
+      link: https://cloud.google.com/java/docs/reference/google-cloud-service-management/latest/overview
 - name: Service Usage
   packages:
     - name: com.google.cloud:google-cloud-service-usage
       link: https://cloud.google.com/java/docs/reference/google-cloud-service-usage/latest/overview
+- name: Spanner
+  packages:
+    - name: com.google.cloud:google-cloud-spanner
+      link: https://cloud.google.com/java/docs/reference/google-cloud-spanner/latest/history
+- name: Speech-to-Text
+  packages:
+    - name: com.google.cloud:google-cloud-speech
+      link: https://cloud.google.com/java/docs/reference/google-cloud-speech/latest/overview
+- name: Storage Insights
+  packages:
+    - name: com.google.cloud:google-cloud-storageinsights
+      link: https://cloud.google.com/java/docs/reference/google-cloud-storageinsights/latest/overview
+- name: Storage Transfer Service
+  packages:
+    - name: com.google.cloud:google-cloud-storage-transfer
+      link: https://cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/overview
+- name: Text-to-Speech
+  packages:
+    - name: com.google.cloud:google-cloud-texttospeech
+      link: https://cloud.google.com/java/docs/reference/google-cloud-texttospeech/latest/overview
+- name: Transcoder API
+  packages:
+    - name: com.google.cloud:google-cloud-video-transcoder
+      link: https://cloud.google.com/java/docs/reference/google-cloud-video-transcoder/latest/overview
+- name: Vertex AI
+  packages:
+    - name: com.google.cloud:google-cloud-aiplatform
+      link: https://cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/overview
+- name: Vertex AI Vision
+  packages:
+    - name: com.google.cloud:google-cloud-visionai
+      link: https://cloud.google.com/java/docs/reference/google-cloud-visionai/latest/overview
+- name: Vertex AI Workbench
+  packages:
+    - name: com.google.cloud:google-cloud-notebooks
+      link: https://cloud.google.com/java/docs/reference/google-cloud-notebooks/latest/overview
+- name: Video Intelligence API
+  packages:
+    - name: com.google.cloud:google-cloud-video-intelligence
+      link: https://cloud.google.com/java/docs/reference/google-cloud-video-intelligence/latest/overview
+- name: Video Stitcher API
+  packages:
+    - name: com.google.cloud:google-cloud-video-stitcher
+      link: https://cloud.google.com/java/docs/reference/google-cloud-video-stitcher/latest/overview
+- name: Virtual Private Cloud
+  packages:
+    - name: com.google.cloud:google-cloud-vpcaccess
+      link: https://cloud.google.com/java/docs/reference/google-cloud-vpcaccess/latest/overview
+- name: Web Risk
+  packages:
+    - name: com.google.cloud:google-cloud-webrisk
+      link: https://cloud.google.com/java/docs/reference/google-cloud-webrisk/latest/overview
+- name: Web Security Scanner
+  packages:
+    - name: com.google.cloud:google-cloud-websecurityscanner
+      link: https://cloud.google.com/java/docs/reference/google-cloud-websecurityscanner/latest/overview
+- name: Workflow Executions API
+  packages:
+    - name: com.google.cloud:google-cloud-workflow-executions
+      link: https://cloud.google.com/java/docs/reference/google-cloud-workflow-executions/latest/overview
+- name: Workflows
+  packages:
+    - name: com.google.cloud:google-cloud-workflows
+      link: https://cloud.google.com/java/docs/reference/google-cloud-workflows/latest/overview
+- name: reCAPTCHA
+  packages:
+    - name: com.google.cloud:google-cloud-recaptchaenterprise
+      link: https://cloud.google.com/java/docs/reference/google-cloud-recaptchaenterprise/latest/overview

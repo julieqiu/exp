@@ -1,11 +1,535 @@
-- name: Google Workspace Events API
+- name: AI Platform
   packages:
-    - name: google-apps-events-subscriptions
-      link: https://cloud.google.com/ruby/docs/reference/google-apps-events-subscriptions/latest
-    - name: google-apps-events-subscriptions-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-apps-events-subscriptions-v1/latest
-    - name: google-apps-events-subscriptions-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-apps-events-subscriptions-v1beta/latest
+    - name: google-cloud-ai_platform
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ai_platform/latest
+    - name: google-cloud-ai_platform-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ai_platform-v1/latest
+- name: AI Platform Data Labeling Service
+  packages:
+    - name: google-cloud-data_labeling
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_labeling/latest
+    - name: google-cloud-data_labeling-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_labeling-v1beta1/latest
+- name: API Gateway
+  packages:
+    - name: google-cloud-api_gateway
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_gateway/latest
+    - name: google-cloud-api_gateway-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_gateway-v1/latest
+- name: API Keys API
+  packages:
+    - name: google-cloud-api_keys
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_keys/latest
+    - name: google-cloud-api_keys-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_keys-v2/latest
+- name: Access Approval
+  packages:
+    - name: google-cloud-access_approval
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-access_approval/latest
+    - name: google-cloud-access_approval-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-access_approval-v1/latest
+- name: Access Context Manager
+  packages:
+    - name: google-identity-access_context_manager
+      link: https://cloud.google.com/ruby/docs/reference/google-identity-access_context_manager/latest
+    - name: google-identity-access_context_manager-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-identity-access_context_manager-v1/latest
+- name: Advisory Notifications
+  packages:
+    - name: google-cloud-advisory_notifications
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-advisory_notifications/latest
+    - name: google-cloud-advisory_notifications-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-advisory_notifications-v1/latest
+- name: AlloyDB for PostgreSQL
+  packages:
+    - name: google-cloud-alloy_db
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-alloy_db/latest
+    - name: google-cloud-alloy_db-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-alloy_db-v1/latest
+    - name: google-cloud-alloy_db-v1alpha
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-alloy_db-v1alpha/latest
+    - name: google-cloud-alloy_db-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-alloy_db-v1beta/latest
+- name: Analytics Admin API
+  packages:
+    - name: google-analytics-admin
+      link: https://rubydoc.info/gems/google-analytics-admin
+    - name: google-analytics-admin-v1alpha
+      link: https://rubydoc.info/gems/google-analytics-admin-v1alpha
+- name: Analytics Data API
+  packages:
+    - name: google-analytics-data
+      link: https://rubydoc.info/gems/google-analytics-data
+    - name: google-analytics-data-v1beta
+      link: https://rubydoc.info/gems/google-analytics-data-v1beta
+- name: Analytics Hub API
+  packages:
+    - name: google-cloud-bigquery-analytics_hub
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-analytics_hub/latest
+    - name: google-cloud-bigquery-analytics_hub-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-analytics_hub-v1/latest
+    - name: google-cloud-bigquery-data_exchange
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange/latest
+    - name: google-cloud-bigquery-data_exchange-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange-v1beta1/latest
+- name: Apigee API hub
+  packages:
+    - name: google-cloud-api_hub
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_hub/latest
+    - name: google-cloud-api_hub-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_hub-v1/latest
+- name: Apigee Connect API
+  packages:
+    - name: google-cloud-apigee_connect
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-apigee_connect/latest
+    - name: google-cloud-apigee_connect-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-apigee_connect-v1/latest
+- name: Apigee Registry
+  packages:
+    - name: google-cloud-apigee_registry
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-apigee_registry/latest
+    - name: google-cloud-apigee_registry-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-apigee_registry-v1/latest
+- name: App Engine Admin API
+  packages:
+    - name: google-cloud-app_engine
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-app_engine/latest
+    - name: google-cloud-app_engine-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-app_engine-v1/latest
+- name: App Hub
+  packages:
+    - name: google-cloud-app_hub
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-app_hub/latest
+    - name: google-cloud-app_hub-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-app_hub-v1/latest
+- name: Artifact Registry
+  packages:
+    - name: google-cloud-artifact_registry
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-artifact_registry/latest
+    - name: google-cloud-artifact_registry-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-artifact_registry-v1/latest
+    - name: google-cloud-artifact_registry-v1beta2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-artifact_registry-v1beta2/latest
+- name: Assured Workloads
+  packages:
+    - name: google-cloud-assured_workloads
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-assured_workloads/latest
+    - name: google-cloud-assured_workloads-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-assured_workloads-v1/latest
+    - name: google-cloud-assured_workloads-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-assured_workloads-v1beta1/latest
+- name: AutoML
+  packages:
+    - name: google-cloud-automl
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-automl/latest
+    - name: google-cloud-automl-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-automl-v1/latest
+    - name: google-cloud-automl-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-automl-v1beta1/latest
+- name: Backup and DR
+  packages:
+    - name: google-cloud-backupdr
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-backupdr/latest
+    - name: google-cloud-backupdr-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-backupdr-v1/latest
+- name: Backup for GKE
+  packages:
+    - name: google-cloud-gke_backup
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_backup/latest
+    - name: google-cloud-gke_backup-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_backup-v1/latest
+- name: Bare Metal Solution
+  packages:
+    - name: google-cloud-bare_metal_solution
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bare_metal_solution/latest
+    - name: google-cloud-bare_metal_solution-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bare_metal_solution-v2/latest
+- name: Batch
+  packages:
+    - name: google-cloud-batch
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-batch/latest
+    - name: google-cloud-batch-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-batch-v1/latest
+- name: BigQuery
+  packages:
+    - name: google-cloud-bigquery
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest
+- name: BigQuery Connection API
+  packages:
+    - name: google-cloud-bigquery-connection
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-connection/latest
+    - name: google-cloud-bigquery-connection-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-connection-v1/latest
+- name: BigQuery Data QnA
+  packages:
+    - name: google-cloud-dataqna
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataqna/latest
+    - name: google-cloud-dataqna-v1alpha
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataqna-v1alpha/latest
+- name: BigQuery Data Transfer Service
+  packages:
+    - name: google-cloud-bigquery-data_transfer
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_transfer/latest
+    - name: google-cloud-bigquery-data_transfer-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_transfer-v1/latest
+- name: BigQuery DataPolicy API
+  packages:
+    - name: google-cloud-bigquery-data_policies
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_policies/latest
+    - name: google-cloud-bigquery-data_policies-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_policies-v1/latest
+    - name: google-cloud-bigquery-data_policies-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_policies-v1beta1/latest
+- name: BigQuery Migration
+  packages:
+    - name: google-cloud-bigquery-migration
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest
+    - name: google-cloud-bigquery-migration-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest
+- name: BigQuery Reservation API
+  packages:
+    - name: google-cloud-bigquery-reservation
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-reservation/latest
+    - name: google-cloud-bigquery-reservation-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-reservation-v1/latest
+- name: BigQuery Storage
+  packages:
+    - name: google-cloud-bigquery-storage
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-storage/latest
+    - name: google-cloud-bigquery-storage-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-storage-v1/latest
+- name: Bigtable
+  packages:
+    - name: google-cloud-bigtable
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest
+    - name: google-cloud-bigtable-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigtable-v2/latest
+- name: Binary Authorization
+  packages:
+    - name: google-cloud-binary_authorization
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-binary_authorization/latest
+    - name: google-cloud-binary_authorization-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-binary_authorization-v1/latest
+    - name: google-cloud-binary_authorization-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-binary_authorization-v1beta1/latest
+- name: Capacity Planner
+  packages:
+    - name: google-cloud-capacity_planner
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-capacity_planner/latest
+    - name: google-cloud-capacity_planner-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-capacity_planner-v1beta/latest
+- name: Certificate Authority Service
+  packages:
+    - name: google-cloud-security-private_ca
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-private_ca/latest
+    - name: google-cloud-security-private_ca-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-private_ca-v1/latest
+    - name: google-cloud-security-private_ca-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-private_ca-v1beta1/latest
+- name: Certificate Manager
+  packages:
+    - name: google-cloud-certificate_manager
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-certificate_manager/latest
+    - name: google-cloud-certificate_manager-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-certificate_manager-v1/latest
+- name: Channel Services
+  packages:
+    - name: google-cloud-channel
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-channel/latest
+    - name: google-cloud-channel-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-channel-v1/latest
+- name: Chat API
+  packages:
+    - name: google-apps-chat
+      link: https://cloud.google.com/ruby/docs/reference/google-apps-chat/latest
+    - name: google-apps-chat-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-apps-chat-v1/latest
+- name: Chrome Enterprise Premium
+  packages:
+    - name: google-cloud-beyond_corp
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-beyond_corp/latest
+    - name: google-cloud-beyond_corp-app_connections-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-beyond_corp-app_connections-v1/latest
+    - name: google-cloud-beyond_corp-app_connectors-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-beyond_corp-app_connectors-v1/latest
+    - name: google-cloud-beyond_corp-app_gateways-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-beyond_corp-app_gateways-v1/latest
+    - name: google-cloud-beyond_corp-client_gateways-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-beyond_corp-client_gateways-v1/latest
+- name: Cloud Asset Inventory
+  packages:
+    - name: google-cloud-asset
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-asset/latest
+    - name: google-cloud-asset-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest
+- name: Cloud Bigtable Admin API
+  packages:
+    - name: google-cloud-bigtable-admin-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigtable-admin-v2/latest
+- name: Cloud Billing
+  packages:
+    - name: google-cloud-billing
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-billing/latest
+    - name: google-cloud-billing-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-billing-v1/latest
+- name: Cloud Billing Budget API
+  packages:
+    - name: google-cloud-billing-budgets
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-billing-budgets/latest
+    - name: google-cloud-billing-budgets-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-billing-budgets-v1/latest
+    - name: google-cloud-billing-budgets-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-billing-budgets-v1beta1/latest
+- name: Cloud Build
+  packages:
+    - name: google-cloud-build
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-build/latest
+    - name: google-cloud-build-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-build-v1/latest
+    - name: google-cloud-build-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-build-v2/latest
+- name: Cloud Composer
+  packages:
+    - name: google-cloud-orchestration-airflow-service
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-orchestration-airflow-service/latest
+    - name: google-cloud-orchestration-airflow-service-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-orchestration-airflow-service-v1/latest
+- name: Cloud DNS
+  packages:
+    - name: google-cloud-dns
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dns/latest
+- name: Cloud Data Fusion
+  packages:
+    - name: google-cloud-data_fusion
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_fusion/latest
+    - name: google-cloud-data_fusion-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_fusion-v1/latest
+- name: Cloud Database Migration Service
+  packages:
+    - name: google-cloud-cloud_dms
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-cloud_dms/latest
+    - name: google-cloud-cloud_dms-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-cloud_dms-v1/latest
+- name: Cloud Deploy
+  packages:
+    - name: google-cloud-deploy
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-deploy/latest
+    - name: google-cloud-deploy-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-deploy-v1/latest
+- name: Cloud Domains
+  packages:
+    - name: google-cloud-domains
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-domains/latest
+    - name: google-cloud-domains-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-domains-v1/latest
+    - name: google-cloud-domains-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-domains-v1beta1/latest
+- name: Cloud IDS
+  packages:
+    - name: google-cloud-ids
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ids/latest
+    - name: google-cloud-ids-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ids-v1/latest
+- name: Cloud Key Management Service
+  packages:
+    - name: google-cloud-kms
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-kms/latest
+    - name: google-cloud-kms-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest
+- name: Cloud Life Sciences
+  packages:
+    - name: google-cloud-life_sciences
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-life_sciences/latest
+    - name: google-cloud-life_sciences-v2beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-life_sciences-v2beta/latest
+- name: Cloud Logging
+  packages:
+    - name: google-cloud-logging
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-logging/latest
+    - name: google-cloud-logging-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-logging-v2/latest
+- name: Cloud Monitoring
+  packages:
+    - name: google-cloud-monitoring
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-monitoring/latest
+    - name: google-cloud-monitoring-dashboard-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-monitoring-dashboard-v1/latest
+    - name: google-cloud-monitoring-metrics_scope-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-monitoring-metrics_scope-v1/latest
+    - name: google-cloud-monitoring-v3
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-monitoring-v3/latest
+- name: Cloud Natural Language API
+  packages:
+    - name: google-cloud-language
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-language/latest
+    - name: google-cloud-language-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-language-v1/latest
+    - name: google-cloud-language-v1beta2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-language-v1beta2/latest
+    - name: google-cloud-language-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-language-v2/latest
+- name: Cloud OS Config
+  packages:
+    - name: google-cloud-os_config
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_config/latest
+    - name: google-cloud-os_config-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_config-v1/latest
+    - name: google-cloud-os_config-v1alpha
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_config-v1alpha/latest
+- name: Cloud OS Login API
+  packages:
+    - name: google-cloud-os_login
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_login/latest
+    - name: google-cloud-os_login-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_login-v1/latest
+    - name: google-cloud-os_login-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_login-v1beta/latest
+- name: Cloud Optimization AI
+  packages:
+    - name: google-cloud-optimization
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-optimization/latest
+    - name: google-cloud-optimization-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-optimization-v1/latest
+- name: Cloud Profiler
+  packages:
+    - name: google-cloud-profiler
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-profiler/latest
+    - name: google-cloud-profiler-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-profiler-v2/latest
+- name: Cloud Quotas
+  packages:
+    - name: google-cloud-cloud_quotas
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-cloud_quotas/latest
+    - name: google-cloud-cloud_quotas-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-cloud_quotas-v1/latest
+    - name: google-cloud-cloud_quotas-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-cloud_quotas-v1beta/latest
+- name: Cloud Run
+  packages:
+    - name: google-cloud-run-client
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-run-client/latest
+    - name: google-cloud-run-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-run-v2/latest
+- name: Cloud Run functions
+  packages:
+    - name: google-cloud-functions
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-functions/latest
+    - name: google-cloud-functions-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-functions-v1/latest
+    - name: google-cloud-functions-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-functions-v2/latest
+- name: Cloud Scheduler
+  packages:
+    - name: google-cloud-scheduler
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-scheduler/latest
+    - name: google-cloud-scheduler-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-scheduler-v1/latest
+    - name: google-cloud-scheduler-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-scheduler-v1beta1/latest
+- name: Cloud Shell
+  packages:
+    - name: google-cloud-shell
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-shell/latest
+    - name: google-cloud-shell-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-shell-v1/latest
+- name: Cloud Storage
+  packages:
+    - name: google-cloud-storage
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage/latest
+    - name: google-cloud-storage-control
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest
+    - name: google-cloud-storage-control-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest
+- name: Cloud TPU
+  packages:
+    - name: google-cloud-tpu
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tpu/latest
+    - name: google-cloud-tpu-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tpu-v1/latest
+- name: Cloud Talent Solution Job Search
+  packages:
+    - name: google-cloud-talent
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-talent/latest
+    - name: google-cloud-talent-v4
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-talent-v4/latest
+    - name: google-cloud-talent-v4beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-talent-v4beta1/latest
+- name: Cloud Tasks
+  packages:
+    - name: google-cloud-tasks
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tasks/latest
+    - name: google-cloud-tasks-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tasks-v2/latest
+    - name: google-cloud-tasks-v2beta2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tasks-v2beta2/latest
+    - name: google-cloud-tasks-v2beta3
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tasks-v2beta3/latest
+- name: Cloud Trace
+  packages:
+    - name: google-cloud-trace
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-trace/latest
+    - name: google-cloud-trace-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-trace-v1/latest
+    - name: google-cloud-trace-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-trace-v2/latest
+- name: Cloud Translation
+  packages:
+    - name: google-cloud-translate
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-translate/latest
+    - name: google-cloud-translate-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-translate-v2/latest
+    - name: google-cloud-translate-v3
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-translate-v3/latest
+- name: Cloud Vision
+  packages:
+    - name: google-cloud-vision
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision/latest
+    - name: google-cloud-vision-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision-v1/latest
+    - name: google-cloud-vision-v1p3beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision-v1p3beta1/latest
+    - name: google-cloud-vision-v1p4beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision-v1p4beta1/latest
+- name: Cloud Workstations
+  packages:
+    - name: google-cloud-workstations
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-workstations/latest
+    - name: google-cloud-workstations-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-workstations-v1/latest
+    - name: google-cloud-workstations-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-workstations-v1beta/latest
+- name: Compute Engine
+  packages:
+    - name: google-cloud-compute
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-compute/latest
+    - name: google-cloud-compute-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-compute-v1/latest
+- name: Confidential Space
+  packages:
+    - name: google-cloud-confidential_computing
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-confidential_computing/latest
+    - name: google-cloud-confidential_computing-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-confidential_computing-v1/latest
+- name: Confidential VM
+  packages:
+    - name: google-cloud-confidential_computing
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-confidential_computing/latest
+    - name: google-cloud-confidential_computing-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-confidential_computing-v1/latest
+- name: Connect Gateway API
+  packages:
+    - name: google-cloud-gke_connect-gateway
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_connect-gateway/latest
+    - name: google-cloud-gke_connect-gateway-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_connect-gateway-v1/latest
+    - name: google-cloud-gke_connect-gateway-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_connect-gateway-v1beta1/latest
+- name: Contact Center AI Insights
+  packages:
+    - name: google-cloud-contact_center_insights
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-contact_center_insights/latest
+    - name: google-cloud-contact_center_insights-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-contact_center_insights-v1/latest
 - name: Container Analysis
   packages:
     - name: google-cloud-container_analysis
@@ -14,6 +538,140 @@
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-container_analysis-v1/latest
     - name: grafeas-v1
       link: https://cloud.google.com/ruby/docs/reference/grafeas-v1/latest
+- name: Conversational Analytics API
+  packages:
+    - name: google-cloud-gemini_data_analytics
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gemini_data_analytics/latest
+    - name: google-cloud-gemini_data_analytics-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gemini_data_analytics-v1beta/latest
+- name: Data Catalog
+  packages:
+    - name: google-cloud-data_catalog
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_catalog/latest
+    - name: google-cloud-data_catalog-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_catalog-v1/latest
+    - name: google-cloud-data_catalog-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_catalog-v1beta1/latest
+- name: Data Lineage
+  packages:
+    - name: google-cloud-data_catalog-lineage
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_catalog-lineage/latest
+    - name: google-cloud-data_catalog-lineage-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_catalog-lineage-v1/latest
+- name: Dataflow
+  packages:
+    - name: google-cloud-dataflow
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataflow/latest
+    - name: google-cloud-dataflow-v1beta3
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataflow-v1beta3/latest
+- name: Dataform
+  packages:
+    - name: google-cloud-dataform
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataform/latest
+    - name: google-cloud-dataform-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataform-v1/latest
+    - name: google-cloud-dataform-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataform-v1beta1/latest
+- name: Dataplex
+  packages:
+    - name: google-cloud-dataplex
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest
+    - name: google-cloud-dataplex-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataplex-v1/latest
+- name: Dataproc
+  packages:
+    - name: google-cloud-dataproc
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataproc/latest
+    - name: google-cloud-dataproc-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataproc-v1/latest
+- name: Dataproc Metastore
+  packages:
+    - name: google-cloud-metastore
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-metastore/latest
+    - name: google-cloud-metastore-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-metastore-v1/latest
+    - name: google-cloud-metastore-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-metastore-v1beta/latest
+- name: Datastream
+  packages:
+    - name: google-cloud-datastream
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-datastream/latest
+    - name: google-cloud-datastream-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-datastream-v1/latest
+    - name: google-cloud-datastream-v1alpha1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-datastream-v1alpha1/latest
+- name: Developer Connect
+  packages:
+    - name: google-cloud-developer_connect
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-developer_connect/latest
+    - name: google-cloud-developer_connect-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-developer_connect-v1/latest
+- name: Dialogflow
+  packages:
+    - name: google-cloud-dialogflow
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dialogflow/latest
+    - name: google-cloud-dialogflow-cx
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dialogflow-cx/latest
+    - name: google-cloud-dialogflow-cx-v3
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dialogflow-cx-v3/latest
+    - name: google-cloud-dialogflow-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dialogflow-v2/latest
+- name: Discovery Engine API
+  packages:
+    - name: google-cloud-discovery_engine
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-discovery_engine/latest
+    - name: google-cloud-discovery_engine-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-discovery_engine-v1/latest
+    - name: google-cloud-discovery_engine-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-discovery_engine-v1beta/latest
+- name: Document AI
+  packages:
+    - name: google-cloud-document_ai
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-document_ai/latest
+    - name: google-cloud-document_ai-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-document_ai-v1/latest
+    - name: google-cloud-document_ai-v1beta3
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-document_ai-v1beta3/latest
+- name: Error Reporting
+  packages:
+    - name: google-cloud-error_reporting
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-error_reporting/latest
+    - name: google-cloud-error_reporting-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-error_reporting-v1beta1/latest
+- name: Essential Contacts API
+  packages:
+    - name: google-cloud-essential_contacts
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-essential_contacts/latest
+    - name: google-cloud-essential_contacts-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-essential_contacts-v1/latest
+- name: Eventarc
+  packages:
+    - name: google-cloud-eventarc
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-eventarc/latest
+    - name: google-cloud-eventarc-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-eventarc-v1/latest
+- name: Eventarc Publishing API
+  packages:
+    - name: google-cloud-eventarc-publishing
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-eventarc-publishing/latest
+    - name: google-cloud-eventarc-publishing-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-eventarc-publishing-v1/latest
+- name: Filestore
+  packages:
+    - name: google-cloud-filestore
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-filestore/latest
+    - name: google-cloud-filestore-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-filestore-v1/latest
+- name: Firestore
+  packages:
+    - name: google-cloud-firestore
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest
+    - name: google-cloud-firestore-admin
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-firestore-admin/latest
+    - name: google-cloud-firestore-admin-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-firestore-admin-v1/latest
+    - name: google-cloud-firestore-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-firestore-v1/latest
 - name: Firestore in Datastore mode
   packages:
     - name: google-cloud-datastore
@@ -24,108 +682,84 @@
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-datastore-admin-v1/latest
     - name: google-cloud-datastore-v1
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-datastore-v1/latest
-- name: IAM Service Account Credentials API
+- name: Fleet Engine API
   packages:
-    - name: google-iam-credentials
-      link: https://cloud.google.com/ruby/docs/reference/google-iam-credentials/latest
-    - name: google-iam-credentials-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-iam-credentials-v1/latest
-- name: Identity-Aware Proxy
+    - name: google-maps-fleet_engine
+      link: https://rubydoc.info/gems/google-maps-fleet_engine
+    - name: google-maps-fleet_engine-v1
+      link: https://rubydoc.info/gems/google-maps-fleet_engine-v1
+- name: GKE Hub API
   packages:
-    - name: google-cloud-iap
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-iap/latest
-    - name: google-cloud-iap-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-iap-v1/latest
-- name: Memorystore for Memcached
+    - name: google-cloud-gke_hub
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_hub/latest
+    - name: google-cloud-gke_hub-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_hub-v1/latest
+    - name: google-cloud-gke_hub-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_hub-v1beta1/latest
+- name: Google Ad Manager API
   packages:
-    - name: google-cloud-memcache
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-memcache/latest
-    - name: google-cloud-memcache-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-memcache-v1/latest
-    - name: google-cloud-memcache-v1beta2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-memcache-v1beta2/latest
-- name: Cloud Trace
+    - name: google-ads-ad_manager
+      link: https://rubydoc.info/gems/google-ads-ad_manager
+    - name: google-ads-ad_manager-v1
+      link: https://rubydoc.info/gems/google-ads-ad_manager-v1
+- name: Google Cloud Managed Service for Apache Kafka
   packages:
-    - name: google-cloud-trace
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-trace/latest
-    - name: google-cloud-trace-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-trace-v1/latest
-    - name: google-cloud-trace-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-trace-v2/latest
-- name: Dataproc Metastore
+    - name: google-cloud-managed_kafka
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_kafka/latest
+    - name: google-cloud-managed_kafka-schema_registry
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_kafka-schema_registry/latest
+    - name: google-cloud-managed_kafka-schema_registry-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_kafka-schema_registry-v1/latest
+    - name: google-cloud-managed_kafka-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_kafka-v1/latest
+- name: Google Cloud VMware Engine
   packages:
-    - name: google-cloud-metastore
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-metastore/latest
-    - name: google-cloud-metastore-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-metastore-v1/latest
-    - name: google-cloud-metastore-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-metastore-v1beta/latest
+    - name: google-cloud-vmware_engine
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vmware_engine/latest
+    - name: google-cloud-vmware_engine-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vmware_engine-v1/latest
+- name: Google Meet
+  packages:
+    - name: google-apps-meet
+      link: https://cloud.google.com/ruby/docs/reference/google-apps-meet/latest
+    - name: google-apps-meet-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-apps-meet-v2/latest
+    - name: google-apps-meet-v2beta
+      link: https://cloud.google.com/ruby/docs/reference/google-apps-meet-v2beta/latest
 - name: Google SecOps SIEM
   packages:
     - name: google-cloud-chronicle
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-chronicle/latest
     - name: google-cloud-chronicle-v1
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-chronicle-v1/latest
-- name: Web Risk
+- name: Google Workspace Events API
   packages:
-    - name: google-cloud-web_risk
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_risk/latest
-    - name: google-cloud-web_risk-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_risk-v1/latest
-    - name: google-cloud-web_risk-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_risk-v1beta1/latest
-- name: Channel Services
+    - name: google-apps-events-subscriptions
+      link: https://cloud.google.com/ruby/docs/reference/google-apps-events-subscriptions/latest
+    - name: google-apps-events-subscriptions-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-apps-events-subscriptions-v1/latest
+    - name: google-apps-events-subscriptions-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-apps-events-subscriptions-v1beta/latest
+- name: Google Workspace add-ons
   packages:
-    - name: google-cloud-channel
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-channel/latest
-    - name: google-cloud-channel-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-channel-v1/latest
-- name: Cloud DNS
+    - name: google-cloud-gsuite_add_ons
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gsuite_add_ons/latest
+    - name: google-cloud-gsuite_add_ons-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gsuite_add_ons-v1/latest
+- name: IAM Policy Troubleshooter API
   packages:
-    - name: google-cloud-dns
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dns/latest
-- name: Cloud Workstations
+    - name: google-cloud-policy_troubleshooter
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-policy_troubleshooter/latest
+    - name: google-cloud-policy_troubleshooter-iam-v3
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-policy_troubleshooter-iam-v3/latest
+    - name: google-cloud-policy_troubleshooter-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-policy_troubleshooter-v1/latest
+- name: IAM Service Account Credentials API
   packages:
-    - name: google-cloud-workstations
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-workstations/latest
-    - name: google-cloud-workstations-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-workstations-v1/latest
-    - name: google-cloud-workstations-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-workstations-v1beta/latest
-- name: Dataform
-  packages:
-    - name: google-cloud-dataform
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataform/latest
-    - name: google-cloud-dataform-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataform-v1/latest
-    - name: google-cloud-dataform-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataform-v1beta1/latest
-- name: Datastream
-  packages:
-    - name: google-cloud-datastream
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-datastream/latest
-    - name: google-cloud-datastream-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-datastream-v1/latest
-    - name: google-cloud-datastream-v1alpha1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-datastream-v1alpha1/latest
-- name: AI Platform
-  packages:
-    - name: google-cloud-ai_platform
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ai_platform/latest
-    - name: google-cloud-ai_platform-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ai_platform-v1/latest
-- name: API Gateway
-  packages:
-    - name: google-cloud-api_gateway
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_gateway/latest
-    - name: google-cloud-api_gateway-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_gateway-v1/latest
-- name: Backup for GKE
-  packages:
-    - name: google-cloud-gke_backup
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_backup/latest
-    - name: google-cloud-gke_backup-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_backup-v1/latest
+    - name: google-iam-credentials
+      link: https://cloud.google.com/ruby/docs/reference/google-iam-credentials/latest
+    - name: google-iam-credentials-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-iam-credentials-v1/latest
 - name: Identity and Access Management
   packages:
     - name: google-iam-client
@@ -140,6 +774,64 @@
       link: https://cloud.google.com/ruby/docs/reference/google-iam-v3/latest
     - name: google-iam-v3beta
       link: https://cloud.google.com/ruby/docs/reference/google-iam-v3beta/latest
+- name: Identity-Aware Proxy
+  packages:
+    - name: google-cloud-iap
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-iap/latest
+    - name: google-cloud-iap-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-iap-v1/latest
+- name: Integration Connectors
+  packages:
+    - name: google-cloud-connectors
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-connectors/latest
+    - name: google-cloud-connectors-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-connectors-v1/latest
+- name: Kubernetes Engine API
+  packages:
+    - name: google-cloud-container
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-container/latest
+    - name: google-cloud-container-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-container-v1/latest
+    - name: google-cloud-container-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-container-v1beta1/latest
+- name: Live Stream API
+  packages:
+    - name: google-cloud-video-live_stream
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-live_stream/latest
+    - name: google-cloud-video-live_stream-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-live_stream-v1/latest
+- name: Managed Lustre
+  packages:
+    - name: google-cloud-lustre
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-lustre/latest
+    - name: google-cloud-lustre-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-lustre-v1/latest
+- name: Managed Service for Microsoft Active Directory
+  packages:
+    - name: google-cloud-managed_identities
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_identities/latest
+    - name: google-cloud-managed_identities-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_identities-v1/latest
+- name: Media CDN
+  packages:
+    - name: google-cloud-network_services
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-network_services/latest
+    - name: google-cloud-network_services-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-network_services-v1/latest
+- name: Media Translation
+  packages:
+    - name: google-cloud-media_translation
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-media_translation/latest
+    - name: google-cloud-media_translation-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-media_translation-v1beta1/latest
+- name: Memorystore for Memcached
+  packages:
+    - name: google-cloud-memcache
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-memcache/latest
+    - name: google-cloud-memcache-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-memcache-v1/latest
+    - name: google-cloud-memcache-v1beta2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-memcache-v1beta2/latest
 - name: Memorystore for Redis
   packages:
     - name: google-cloud-memorystore
@@ -160,160 +852,6 @@
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-redis-v1/latest
     - name: google-cloud-redis-v1beta1
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-redis-v1beta1/latest
-- name: Analytics Data API
-  packages:
-    - name: google-analytics-data
-      link: https://rubydoc.info/gems/google-analytics-data
-    - name: google-analytics-data-v1beta
-      link: https://rubydoc.info/gems/google-analytics-data-v1beta
-- name: Backup and DR
-  packages:
-    - name: google-cloud-backupdr
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-backupdr/latest
-    - name: google-cloud-backupdr-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-backupdr-v1/latest
-- name: Chat API
-  packages:
-    - name: google-apps-chat
-      link: https://cloud.google.com/ruby/docs/reference/google-apps-chat/latest
-    - name: google-apps-chat-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-apps-chat-v1/latest
-- name: Google Cloud VMware Engine
-  packages:
-    - name: google-cloud-vmware_engine
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vmware_engine/latest
-    - name: google-cloud-vmware_engine-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vmware_engine-v1/latest
-- name: Access Approval
-  packages:
-    - name: google-cloud-access_approval
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-access_approval/latest
-    - name: google-cloud-access_approval-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-access_approval-v1/latest
-- name: Analytics Admin API
-  packages:
-    - name: google-analytics-admin
-      link: https://rubydoc.info/gems/google-analytics-admin
-    - name: google-analytics-admin-v1alpha
-      link: https://rubydoc.info/gems/google-analytics-admin-v1alpha
-- name: Apigee Connect API
-  packages:
-    - name: google-cloud-apigee_connect
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-apigee_connect/latest
-    - name: google-cloud-apigee_connect-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-apigee_connect-v1/latest
-- name: Cloud Shell
-  packages:
-    - name: google-cloud-shell
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-shell/latest
-    - name: google-cloud-shell-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-shell-v1/latest
-- name: Conversational Analytics API
-  packages:
-    - name: google-cloud-gemini_data_analytics
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gemini_data_analytics/latest
-    - name: google-cloud-gemini_data_analytics-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gemini_data_analytics-v1beta/latest
-- name: Bare Metal Solution
-  packages:
-    - name: google-cloud-bare_metal_solution
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bare_metal_solution/latest
-    - name: google-cloud-bare_metal_solution-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bare_metal_solution-v2/latest
-- name: Cloud Run
-  packages:
-    - name: google-cloud-run-client
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-run-client/latest
-    - name: google-cloud-run-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-run-v2/latest
-- name: Cloud Vision
-  packages:
-    - name: google-cloud-vision
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision/latest
-    - name: google-cloud-vision-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision-v1/latest
-    - name: google-cloud-vision-v1p3beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision-v1p3beta1/latest
-    - name: google-cloud-vision-v1p4beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision-v1p4beta1/latest
-- name: Secure Source Manager
-  packages:
-    - name: google-cloud-secure_source_manager
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secure_source_manager/latest
-    - name: google-cloud-secure_source_manager-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secure_source_manager-v1/latest
-- name: Sensitive Data Protection
-  packages:
-    - name: google-cloud-dlp
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dlp/latest
-    - name: google-cloud-dlp-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dlp-v2/latest
-- name: Storage Transfer Service
-  packages:
-    - name: google-cloud-storage_transfer
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage_transfer/latest
-    - name: google-cloud-storage_transfer-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage_transfer-v1/latest
-- name: Transcoder API
-  packages:
-    - name: google-cloud-video-transcoder
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-transcoder/latest
-    - name: google-cloud-video-transcoder-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-transcoder-v1/latest
-- name: BigQuery Connection API
-  packages:
-    - name: google-cloud-bigquery-connection
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-connection/latest
-    - name: google-cloud-bigquery-connection-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-connection-v1/latest
-- name: BigQuery Reservation API
-  packages:
-    - name: google-cloud-bigquery-reservation
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-reservation/latest
-    - name: google-cloud-bigquery-reservation-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-reservation-v1/latest
-- name: Cloud Tasks
-  packages:
-    - name: google-cloud-tasks
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tasks/latest
-    - name: google-cloud-tasks-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tasks-v2/latest
-    - name: google-cloud-tasks-v2beta2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tasks-v2beta2/latest
-    - name: google-cloud-tasks-v2beta3
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tasks-v2beta3/latest
-- name: Data Catalog
-  packages:
-    - name: google-cloud-data_catalog
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_catalog/latest
-    - name: google-cloud-data_catalog-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_catalog-v1/latest
-    - name: google-cloud-data_catalog-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_catalog-v1beta1/latest
-- name: Dataflow
-  packages:
-    - name: google-cloud-dataflow
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataflow/latest
-    - name: google-cloud-dataflow-v1beta3
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataflow-v1beta3/latest
-- name: Organization Policy Service
-  packages:
-    - name: google-cloud-org_policy
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-org_policy/latest
-    - name: google-cloud-org_policy-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-org_policy-v2/latest
-- name: Cloud Optimization AI
-  packages:
-    - name: google-cloud-optimization
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-optimization/latest
-    - name: google-cloud-optimization-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-optimization-v1/latest
-- name: Filestore
-  packages:
-    - name: google-cloud-filestore
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-filestore/latest
-    - name: google-cloud-filestore-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-filestore-v1/latest
 - name: Merchant API for Shopping
   packages:
     - name: google-shopping-merchant-accounts
@@ -392,398 +930,24 @@
       link: https://rubydoc.info/gems/google-shopping-merchant-reviews
     - name: google-shopping-merchant-reviews-v1beta
       link: https://rubydoc.info/gems/google-shopping-merchant-reviews-v1beta
+- name: Migrate to Virtual Machines
+  packages:
+    - name: google-cloud-vm_migration
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vm_migration/latest
+    - name: google-cloud-vm_migration-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vm_migration-v1/latest
 - name: Migration Center
   packages:
     - name: google-cloud-migration_center
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-migration_center/latest
     - name: google-cloud-migration_center-v1
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-migration_center-v1/latest
-- name: BigQuery DataPolicy API
-  packages:
-    - name: google-cloud-bigquery-data_policies
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_policies/latest
-    - name: google-cloud-bigquery-data_policies-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_policies-v1/latest
-    - name: google-cloud-bigquery-data_policies-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_policies-v1beta1/latest
-- name: Live Stream API
-  packages:
-    - name: google-cloud-video-live_stream
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-live_stream/latest
-    - name: google-cloud-video-live_stream-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-live_stream-v1/latest
 - name: NetApp Volumes
   packages:
     - name: google-cloud-netapp
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-netapp/latest
     - name: google-cloud-netapp-v1
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-netapp-v1/latest
-- name: Service Control API
-  packages:
-    - name: google-cloud-service_control
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_control/latest
-    - name: google-cloud-service_control-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_control-v1/latest
-- name: Storage Insights
-  packages:
-    - name: google-cloud-storage_insights
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage_insights/latest
-    - name: google-cloud-storage_insights-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage_insights-v1/latest
-- name: Certificate Authority Service
-  packages:
-    - name: google-cloud-security-private_ca
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-private_ca/latest
-    - name: google-cloud-security-private_ca-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-private_ca-v1/latest
-    - name: google-cloud-security-private_ca-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-private_ca-v1beta1/latest
-- name: Cloud Scheduler
-  packages:
-    - name: google-cloud-scheduler
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-scheduler/latest
-    - name: google-cloud-scheduler-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-scheduler-v1/latest
-    - name: google-cloud-scheduler-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-scheduler-v1beta1/latest
-- name: Compute Engine
-  packages:
-    - name: google-cloud-compute
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-compute/latest
-    - name: google-cloud-compute-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-compute-v1/latest
-- name: Connect Gateway API
-  packages:
-    - name: google-cloud-gke_connect-gateway
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_connect-gateway/latest
-    - name: google-cloud-gke_connect-gateway-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_connect-gateway-v1/latest
-    - name: google-cloud-gke_connect-gateway-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_connect-gateway-v1beta1/latest
-- name: Firestore
-  packages:
-    - name: google-cloud-firestore
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest
-    - name: google-cloud-firestore-admin
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-firestore-admin/latest
-    - name: google-cloud-firestore-admin-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-firestore-admin-v1/latest
-    - name: google-cloud-firestore-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-firestore-v1/latest
-- name: Network Security API
-  packages:
-    - name: google-cloud-network_security
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-network_security/latest
-    - name: google-cloud-network_security-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-network_security-v1beta1/latest
-- name: AutoML
-  packages:
-    - name: google-cloud-automl
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-automl/latest
-    - name: google-cloud-automl-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-automl-v1/latest
-    - name: google-cloud-automl-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-automl-v1beta1/latest
-- name: Cloud Quotas
-  packages:
-    - name: google-cloud-cloud_quotas
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-cloud_quotas/latest
-    - name: google-cloud-cloud_quotas-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-cloud_quotas-v1/latest
-    - name: google-cloud-cloud_quotas-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-cloud_quotas-v1beta/latest
-- name: IAM Policy Troubleshooter API
-  packages:
-    - name: google-cloud-policy_troubleshooter
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-policy_troubleshooter/latest
-    - name: google-cloud-policy_troubleshooter-iam-v3
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-policy_troubleshooter-iam-v3/latest
-    - name: google-cloud-policy_troubleshooter-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-policy_troubleshooter-v1/latest
-- name: Kubernetes Engine API
-  packages:
-    - name: google-cloud-container
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-container/latest
-    - name: google-cloud-container-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-container-v1/latest
-    - name: google-cloud-container-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-container-v1beta1/latest
-- name: Security Command Center
-  packages:
-    - name: google-cloud-security_center
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security_center/latest
-    - name: google-cloud-security_center-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security_center-v1/latest
-    - name: google-cloud-security_center-v1p1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security_center-v1p1beta1/latest
-    - name: google-cloud-security_center-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security_center-v2/latest
-- name: Speech-to-Text
-  packages:
-    - name: google-cloud-speech
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-speech/latest
-    - name: google-cloud-speech-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-speech-v1/latest
-    - name: google-cloud-speech-v1p1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-speech-v1p1beta1/latest
-    - name: google-cloud-speech-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-speech-v2/latest
-- name: Vertex AI Vision
-  packages:
-    - name: google-cloud-vision_ai
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision_ai/latest
-    - name: google-cloud-vision_ai-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision_ai-v1/latest
-- name: AI Platform Data Labeling Service
-  packages:
-    - name: google-cloud-data_labeling
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_labeling/latest
-    - name: google-cloud-data_labeling-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_labeling-v1beta1/latest
-- name: Apigee API hub
-  packages:
-    - name: google-cloud-api_hub
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_hub/latest
-    - name: google-cloud-api_hub-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_hub-v1/latest
-- name: Assured Workloads
-  packages:
-    - name: google-cloud-assured_workloads
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-assured_workloads/latest
-    - name: google-cloud-assured_workloads-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-assured_workloads-v1/latest
-    - name: google-cloud-assured_workloads-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-assured_workloads-v1beta1/latest
-- name: Cloud Profiler
-  packages:
-    - name: google-cloud-profiler
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-profiler/latest
-    - name: google-cloud-profiler-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-profiler-v2/latest
-- name: Developer Connect
-  packages:
-    - name: google-cloud-developer_connect
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-developer_connect/latest
-    - name: google-cloud-developer_connect-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-developer_connect-v1/latest
-- name: Retail API
-  packages:
-    - name: google-cloud-retail
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-retail/latest
-    - name: google-cloud-retail-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-retail-v2/latest
-- name: Text-to-Speech
-  packages:
-    - name: google-cloud-text_to_speech
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-text_to_speech/latest
-    - name: google-cloud-text_to_speech-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-text_to_speech-v1/latest
-    - name: google-cloud-text_to_speech-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-text_to_speech-v1beta1/latest
-- name: Capacity Planner
-  packages:
-    - name: google-cloud-capacity_planner
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-capacity_planner/latest
-    - name: google-cloud-capacity_planner-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-capacity_planner-v1beta/latest
-- name: Cloud Asset Inventory
-  packages:
-    - name: google-cloud-asset
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-asset/latest
-    - name: google-cloud-asset-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest
-- name: Google Meet
-  packages:
-    - name: google-apps-meet
-      link: https://cloud.google.com/ruby/docs/reference/google-apps-meet/latest
-    - name: google-apps-meet-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-apps-meet-v2/latest
-    - name: google-apps-meet-v2beta
-      link: https://cloud.google.com/ruby/docs/reference/google-apps-meet-v2beta/latest
-- name: Certificate Manager
-  packages:
-    - name: google-cloud-certificate_manager
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-certificate_manager/latest
-    - name: google-cloud-certificate_manager-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-certificate_manager-v1/latest
-- name: Cloud Composer
-  packages:
-    - name: google-cloud-orchestration-airflow-service
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-orchestration-airflow-service/latest
-    - name: google-cloud-orchestration-airflow-service-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-orchestration-airflow-service-v1/latest
-- name: Oracle Database@Google Cloud
-  packages:
-    - name: google-cloud-oracle_database
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-oracle_database/latest
-    - name: google-cloud-oracle_database-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-oracle_database-v1/latest
-- name: Cloud Key Management Service
-  packages:
-    - name: google-cloud-kms
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-kms/latest
-    - name: google-cloud-kms-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest
-- name: Essential Contacts API
-  packages:
-    - name: google-cloud-essential_contacts
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-essential_contacts/latest
-    - name: google-cloud-essential_contacts-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-essential_contacts-v1/latest
-- name: Google Ad Manager API
-  packages:
-    - name: google-ads-ad_manager
-      link: https://rubydoc.info/gems/google-ads-ad_manager
-    - name: google-ads-ad_manager-v1
-      link: https://rubydoc.info/gems/google-ads-ad_manager-v1
-- name: Google Cloud Managed Service for Apache Kafka
-  packages:
-    - name: google-cloud-managed_kafka
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_kafka/latest
-    - name: google-cloud-managed_kafka-schema_registry
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_kafka-schema_registry/latest
-    - name: google-cloud-managed_kafka-schema_registry-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_kafka-schema_registry-v1/latest
-    - name: google-cloud-managed_kafka-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_kafka-v1/latest
-- name: Media CDN
-  packages:
-    - name: google-cloud-network_services
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-network_services/latest
-    - name: google-cloud-network_services-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-network_services-v1/latest
-- name: Resource Manager
-  packages:
-    - name: google-cloud-resource_manager
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-resource_manager/latest
-    - name: google-cloud-resource_manager-v3
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-resource_manager-v3/latest
-- name: Video Stitcher API
-  packages:
-    - name: google-cloud-video-stitcher
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-stitcher/latest
-    - name: google-cloud-video-stitcher-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-stitcher-v1/latest
-- name: Access Context Manager
-  packages:
-    - name: google-identity-access_context_manager
-      link: https://cloud.google.com/ruby/docs/reference/google-identity-access_context_manager/latest
-    - name: google-identity-access_context_manager-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-identity-access_context_manager-v1/latest
-- name: Apigee Registry
-  packages:
-    - name: google-cloud-apigee_registry
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-apigee_registry/latest
-    - name: google-cloud-apigee_registry-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-apigee_registry-v1/latest
-- name: Cloud Bigtable Admin API
-  packages:
-    - name: google-cloud-bigtable-admin-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigtable-admin-v2/latest
-- name: Cloud Deploy
-  packages:
-    - name: google-cloud-deploy
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-deploy/latest
-    - name: google-cloud-deploy-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-deploy-v1/latest
-- name: Cloud OS Config
-  packages:
-    - name: google-cloud-os_config
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_config/latest
-    - name: google-cloud-os_config-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_config-v1/latest
-    - name: google-cloud-os_config-v1alpha
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_config-v1alpha/latest
-- name: GKE Hub API
-  packages:
-    - name: google-cloud-gke_hub
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_hub/latest
-    - name: google-cloud-gke_hub-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_hub-v1/latest
-    - name: google-cloud-gke_hub-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gke_hub-v1beta1/latest
-- name: Recommender
-  packages:
-    - name: google-cloud-recommender
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-recommender/latest
-    - name: google-cloud-recommender-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-recommender-v1/latest
-- name: Vertex AI
-  packages:
-    - name: google-cloud-ai_platform
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ai_platform/latest
-    - name: google-cloud-ai_platform-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ai_platform-v1/latest
-- name: Batch
-  packages:
-    - name: google-cloud-batch
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-batch/latest
-    - name: google-cloud-batch-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-batch-v1/latest
-- name: Dataplex
-  packages:
-    - name: google-cloud-dataplex
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataplex/latest
-    - name: google-cloud-dataplex-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataplex-v1/latest
-- name: SaaS Runtime
-  packages:
-    - name: google-cloud-saas_platform-saas_service_mgmt
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-saas_platform-saas_service_mgmt/latest
-    - name: google-cloud-saas_platform-saas_service_mgmt-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-saas_platform-saas_service_mgmt-v1beta1/latest
-- name: API Keys API
-  packages:
-    - name: google-cloud-api_keys
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_keys/latest
-    - name: google-cloud-api_keys-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-api_keys-v2/latest
-- name: Cloud Billing
-  packages:
-    - name: google-cloud-billing
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-billing/latest
-    - name: google-cloud-billing-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-billing-v1/latest
-- name: Cloud Billing Budget API
-  packages:
-    - name: google-cloud-billing-budgets
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-billing-budgets/latest
-    - name: google-cloud-billing-budgets-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-billing-budgets-v1/latest
-    - name: google-cloud-billing-budgets-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-billing-budgets-v1beta1/latest
-- name: Cloud Run functions
-  packages:
-    - name: google-cloud-functions
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-functions/latest
-    - name: google-cloud-functions-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-functions-v1/latest
-    - name: google-cloud-functions-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-functions-v2/latest
-- name: App Hub
-  packages:
-    - name: google-cloud-app_hub
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-app_hub/latest
-    - name: google-cloud-app_hub-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-app_hub-v1/latest
-- name: Cloud Monitoring
-  packages:
-    - name: google-cloud-monitoring
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-monitoring/latest
-    - name: google-cloud-monitoring-dashboard-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-monitoring-dashboard-v1/latest
-    - name: google-cloud-monitoring-metrics_scope-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-monitoring-metrics_scope-v1/latest
-    - name: google-cloud-monitoring-v3
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-monitoring-v3/latest
-- name: Document AI
-  packages:
-    - name: google-cloud-document_ai
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-document_ai/latest
-    - name: google-cloud-document_ai-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-document_ai-v1/latest
-    - name: google-cloud-document_ai-v1beta3
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-document_ai-v1beta3/latest
 - name: Network Connectivity Center
   packages:
     - name: google-cloud-network_connectivity
@@ -798,12 +962,222 @@
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-network_management/latest
     - name: google-cloud-network_management-v1
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-network_management-v1/latest
+- name: Network Security API
+  packages:
+    - name: google-cloud-network_security
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-network_security/latest
+    - name: google-cloud-network_security-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-network_security-v1beta1/latest
+- name: Oracle Database@Google Cloud
+  packages:
+    - name: google-cloud-oracle_database
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-oracle_database/latest
+    - name: google-cloud-oracle_database-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-oracle_database-v1/latest
+- name: Organization Policy Service
+  packages:
+    - name: google-cloud-org_policy
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-org_policy/latest
+    - name: google-cloud-org_policy-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-org_policy-v2/latest
+- name: Parallelstore
+  packages:
+    - name: google-cloud-parallelstore
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-parallelstore/latest
+    - name: google-cloud-parallelstore-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-parallelstore-v1/latest
+    - name: google-cloud-parallelstore-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-parallelstore-v1beta/latest
+- name: Parameter Manager
+  packages:
+    - name: google-cloud-parameter_manager
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest
+    - name: google-cloud-parameter_manager-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest
+- name: Phishing Protection
+  packages:
+    - name: google-cloud-phishing_protection
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-phishing_protection/latest
+    - name: google-cloud-phishing_protection-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-phishing_protection-v1beta1/latest
+- name: Pub/Sub
+  packages:
+    - name: google-cloud-pubsub
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest
+    - name: google-cloud-pubsub-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest
+- name: Public Certificate Authority
+  packages:
+    - name: google-cloud-security-public_ca
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-public_ca/latest
+    - name: google-cloud-security-public_ca-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-public_ca-v1/latest
+    - name: google-cloud-security-public_ca-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-public_ca-v1beta1/latest
+- name: Recommendations
+  packages:
+    - name: google-cloud-recommendation_engine
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-recommendation_engine/latest
+    - name: google-cloud-recommendation_engine-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-recommendation_engine-v1beta1/latest
+- name: Recommender
+  packages:
+    - name: google-cloud-recommender
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-recommender/latest
+    - name: google-cloud-recommender-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-recommender-v1/latest
+- name: Resource Manager
+  packages:
+    - name: google-cloud-resource_manager
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-resource_manager/latest
+    - name: google-cloud-resource_manager-v3
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-resource_manager-v3/latest
+- name: Retail API
+  packages:
+    - name: google-cloud-retail
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-retail/latest
+    - name: google-cloud-retail-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-retail-v2/latest
+- name: SaaS Runtime
+  packages:
+    - name: google-cloud-saas_platform-saas_service_mgmt
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-saas_platform-saas_service_mgmt/latest
+    - name: google-cloud-saas_platform-saas_service_mgmt-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-saas_platform-saas_service_mgmt-v1beta1/latest
+- name: Secret Manager
+  packages:
+    - name: google-cloud-secret_manager
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest
+    - name: google-cloud-secret_manager-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1/latest
+    - name: google-cloud-secret_manager-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest
+    - name: google-cloud-secret_manager-v1beta2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta2/latest
+- name: Secure Source Manager
+  packages:
+    - name: google-cloud-secure_source_manager
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secure_source_manager/latest
+    - name: google-cloud-secure_source_manager-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secure_source_manager-v1/latest
+- name: Security Command Center
+  packages:
+    - name: google-cloud-security_center
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security_center/latest
+    - name: google-cloud-security_center-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security_center-v1/latest
+    - name: google-cloud-security_center-v1p1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security_center-v1p1beta1/latest
+    - name: google-cloud-security_center-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security_center-v2/latest
+- name: Sensitive Data Protection
+  packages:
+    - name: google-cloud-dlp
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dlp/latest
+    - name: google-cloud-dlp-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dlp-v2/latest
+- name: Service Control API
+  packages:
+    - name: google-cloud-service_control
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_control/latest
+    - name: google-cloud-service_control-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_control-v1/latest
+- name: Service Directory
+  packages:
+    - name: google-cloud-service_directory
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest
+    - name: google-cloud-service_directory-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest
+    - name: google-cloud-service_directory-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest
 - name: Service Health
   packages:
     - name: google-cloud-service_health
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_health/latest
     - name: google-cloud-service_health-v1
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_health-v1/latest
+- name: Service Management API
+  packages:
+    - name: google-cloud-service_management
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_management/latest
+    - name: google-cloud-service_management-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_management-v1/latest
+- name: Service Usage
+  packages:
+    - name: google-cloud-service_usage
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_usage/latest
+    - name: google-cloud-service_usage-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_usage-v1/latest
+- name: Spanner
+  packages:
+    - name: google-cloud-spanner
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest
+    - name: google-cloud-spanner-admin-database-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-database-v1/latest
+    - name: google-cloud-spanner-admin-instance-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest
+    - name: google-cloud-spanner-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-spanner-v1/latest
+- name: Speech-to-Text
+  packages:
+    - name: google-cloud-speech
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-speech/latest
+    - name: google-cloud-speech-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-speech-v1/latest
+    - name: google-cloud-speech-v1p1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-speech-v1p1beta1/latest
+    - name: google-cloud-speech-v2
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-speech-v2/latest
+- name: Storage Insights
+  packages:
+    - name: google-cloud-storage_insights
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage_insights/latest
+    - name: google-cloud-storage_insights-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage_insights-v1/latest
+- name: Storage Transfer Service
+  packages:
+    - name: google-cloud-storage_transfer
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage_transfer/latest
+    - name: google-cloud-storage_transfer-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage_transfer-v1/latest
+- name: Tables by Area 120
+  packages:
+    - name: google-area120-tables
+      link: https://rubydoc.info/gems/google-area120-tables
+    - name: google-area120-tables-v1alpha1
+      link: https://rubydoc.info/gems/google-area120-tables-v1alpha1
+- name: Text-to-Speech
+  packages:
+    - name: google-cloud-text_to_speech
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-text_to_speech/latest
+    - name: google-cloud-text_to_speech-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-text_to_speech-v1/latest
+    - name: google-cloud-text_to_speech-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-text_to_speech-v1beta1/latest
+- name: Transcoder API
+  packages:
+    - name: google-cloud-video-transcoder
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-transcoder/latest
+    - name: google-cloud-video-transcoder-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-transcoder-v1/latest
+- name: Unified Maintenance
+  packages:
+    - name: google-cloud-maintenance-api
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-maintenance-api/latest
+    - name: google-cloud-maintenance-api-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-maintenance-api-v1beta/latest
+- name: Vertex AI
+  packages:
+    - name: google-cloud-ai_platform
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ai_platform/latest
+    - name: google-cloud-ai_platform-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ai_platform-v1/latest
+- name: Vertex AI Vision
+  packages:
+    - name: google-cloud-vision_ai
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision_ai/latest
+    - name: google-cloud-vision_ai-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vision_ai-v1/latest
 - name: Vertex AI Workbench
   packages:
     - name: google-cloud-notebooks
@@ -828,48 +1202,34 @@
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-video_intelligence-v1p2beta1/latest
     - name: google-cloud-video_intelligence-v1p3beta1
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-video_intelligence-v1p3beta1/latest
-- name: BigQuery
+- name: Video Stitcher API
   packages:
-    - name: google-cloud-bigquery
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest
-- name: Chrome Enterprise Premium
+    - name: google-cloud-video-stitcher
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-stitcher/latest
+    - name: google-cloud-video-stitcher-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-video-stitcher-v1/latest
+- name: Virtual Private Cloud
   packages:
-    - name: google-cloud-beyond_corp
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-beyond_corp/latest
-    - name: google-cloud-beyond_corp-app_connections-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-beyond_corp-app_connections-v1/latest
-    - name: google-cloud-beyond_corp-app_connectors-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-beyond_corp-app_connectors-v1/latest
-    - name: google-cloud-beyond_corp-app_gateways-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-beyond_corp-app_gateways-v1/latest
-    - name: google-cloud-beyond_corp-client_gateways-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-beyond_corp-client_gateways-v1/latest
-- name: Cloud IDS
+    - name: google-cloud-vpc_access
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vpc_access/latest
+    - name: google-cloud-vpc_access-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vpc_access-v1/latest
+- name: Web Risk
   packages:
-    - name: google-cloud-ids
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ids/latest
-    - name: google-cloud-ids-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-ids-v1/latest
-- name: Cloud Logging
+    - name: google-cloud-web_risk
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_risk/latest
+    - name: google-cloud-web_risk-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_risk-v1/latest
+    - name: google-cloud-web_risk-v1beta1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_risk-v1beta1/latest
+- name: Web Security Scanner
   packages:
-    - name: google-cloud-logging
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-logging/latest
-    - name: google-cloud-logging-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-logging-v2/latest
-- name: Cloud Translation
-  packages:
-    - name: google-cloud-translate
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-translate/latest
-    - name: google-cloud-translate-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-translate-v2/latest
-    - name: google-cloud-translate-v3
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-translate-v3/latest
-- name: Error Reporting
-  packages:
-    - name: google-cloud-error_reporting
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-error_reporting/latest
-    - name: google-cloud-error_reporting-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-error_reporting-v1beta1/latest
+    - name: google-cloud-web_security_scanner
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_security_scanner/latest
+    - name: google-cloud-web_security_scanner-v1
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_security_scanner-v1/latest
+    - name: google-cloud-web_security_scanner-v1beta
+      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_security_scanner-v1beta/latest
 - name: Workflow Executions API
   packages:
     - name: google-cloud-workflows-executions-v1
@@ -884,288 +1244,6 @@
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-workflows-v1/latest
     - name: google-cloud-workflows-v1beta
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-workflows-v1beta/latest
-- name: BigQuery Storage
-  packages:
-    - name: google-cloud-bigquery-storage
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-storage/latest
-    - name: google-cloud-bigquery-storage-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-storage-v1/latest
-- name: Cloud Data Fusion
-  packages:
-    - name: google-cloud-data_fusion
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_fusion/latest
-    - name: google-cloud-data_fusion-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_fusion-v1/latest
-- name: Cloud TPU
-  packages:
-    - name: google-cloud-tpu
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tpu/latest
-    - name: google-cloud-tpu-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-tpu-v1/latest
-- name: Contact Center AI Insights
-  packages:
-    - name: google-cloud-contact_center_insights
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-contact_center_insights/latest
-    - name: google-cloud-contact_center_insights-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-contact_center_insights-v1/latest
-- name: Advisory Notifications
-  packages:
-    - name: google-cloud-advisory_notifications
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-advisory_notifications/latest
-    - name: google-cloud-advisory_notifications-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-advisory_notifications-v1/latest
-- name: Confidential VM
-  packages:
-    - name: google-cloud-confidential_computing
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-confidential_computing/latest
-    - name: google-cloud-confidential_computing-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-confidential_computing-v1/latest
-- name: Discovery Engine API
-  packages:
-    - name: google-cloud-discovery_engine
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-discovery_engine/latest
-    - name: google-cloud-discovery_engine-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-discovery_engine-v1/latest
-    - name: google-cloud-discovery_engine-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-discovery_engine-v1beta/latest
-- name: Media Translation
-  packages:
-    - name: google-cloud-media_translation
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-media_translation/latest
-    - name: google-cloud-media_translation-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-media_translation-v1beta1/latest
-- name: Secret Manager
-  packages:
-    - name: google-cloud-secret_manager
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest
-    - name: google-cloud-secret_manager-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1/latest
-    - name: google-cloud-secret_manager-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest
-    - name: google-cloud-secret_manager-v1beta2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta2/latest
-- name: Artifact Registry
-  packages:
-    - name: google-cloud-artifact_registry
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-artifact_registry/latest
-    - name: google-cloud-artifact_registry-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-artifact_registry-v1/latest
-    - name: google-cloud-artifact_registry-v1beta2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-artifact_registry-v1beta2/latest
-- name: Cloud Build
-  packages:
-    - name: google-cloud-build
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-build/latest
-    - name: google-cloud-build-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-build-v1/latest
-    - name: google-cloud-build-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-build-v2/latest
-- name: Data Lineage
-  packages:
-    - name: google-cloud-data_catalog-lineage
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_catalog-lineage/latest
-    - name: google-cloud-data_catalog-lineage-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-data_catalog-lineage-v1/latest
-- name: Eventarc
-  packages:
-    - name: google-cloud-eventarc
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-eventarc/latest
-    - name: google-cloud-eventarc-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-eventarc-v1/latest
-- name: Parameter Manager
-  packages:
-    - name: google-cloud-parameter_manager
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager/latest
-    - name: google-cloud-parameter_manager-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-parameter_manager-v1/latest
-- name: App Engine Admin API
-  packages:
-    - name: google-cloud-app_engine
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-app_engine/latest
-    - name: google-cloud-app_engine-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-app_engine-v1/latest
-- name: Cloud Database Migration Service
-  packages:
-    - name: google-cloud-cloud_dms
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-cloud_dms/latest
-    - name: google-cloud-cloud_dms-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-cloud_dms-v1/latest
-- name: Phishing Protection
-  packages:
-    - name: google-cloud-phishing_protection
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-phishing_protection/latest
-    - name: google-cloud-phishing_protection-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-phishing_protection-v1beta1/latest
-- name: Pub/Sub
-  packages:
-    - name: google-cloud-pubsub
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest
-    - name: google-cloud-pubsub-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest
-- name: Service Usage
-  packages:
-    - name: google-cloud-service_usage
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_usage/latest
-    - name: google-cloud-service_usage-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_usage-v1/latest
-- name: Spanner
-  packages:
-    - name: google-cloud-spanner
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest
-    - name: google-cloud-spanner-admin-database-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-database-v1/latest
-    - name: google-cloud-spanner-admin-instance-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest
-    - name: google-cloud-spanner-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-spanner-v1/latest
-- name: Tables by Area 120
-  packages:
-    - name: google-area120-tables
-      link: https://rubydoc.info/gems/google-area120-tables
-    - name: google-area120-tables-v1alpha1
-      link: https://rubydoc.info/gems/google-area120-tables-v1alpha1
-- name: Unified Maintenance
-  packages:
-    - name: google-cloud-maintenance-api
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-maintenance-api/latest
-    - name: google-cloud-maintenance-api-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-maintenance-api-v1beta/latest
-- name: Migrate to Virtual Machines
-  packages:
-    - name: google-cloud-vm_migration
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vm_migration/latest
-    - name: google-cloud-vm_migration-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vm_migration-v1/latest
-- name: Public Certificate Authority
-  packages:
-    - name: google-cloud-security-public_ca
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-public_ca/latest
-    - name: google-cloud-security-public_ca-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-public_ca-v1/latest
-    - name: google-cloud-security-public_ca-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-security-public_ca-v1beta1/latest
-- name: Web Security Scanner
-  packages:
-    - name: google-cloud-web_security_scanner
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_security_scanner/latest
-    - name: google-cloud-web_security_scanner-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_security_scanner-v1/latest
-    - name: google-cloud-web_security_scanner-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-web_security_scanner-v1beta/latest
-- name: Cloud Natural Language API
-  packages:
-    - name: google-cloud-language
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-language/latest
-    - name: google-cloud-language-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-language-v1/latest
-    - name: google-cloud-language-v1beta2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-language-v1beta2/latest
-    - name: google-cloud-language-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-language-v2/latest
-- name: Bigtable
-  packages:
-    - name: google-cloud-bigtable
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest
-    - name: google-cloud-bigtable-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigtable-v2/latest
-- name: Dataproc
-  packages:
-    - name: google-cloud-dataproc
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataproc/latest
-    - name: google-cloud-dataproc-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataproc-v1/latest
-- name: Eventarc Publishing API
-  packages:
-    - name: google-cloud-eventarc-publishing
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-eventarc-publishing/latest
-    - name: google-cloud-eventarc-publishing-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-eventarc-publishing-v1/latest
-- name: Managed Lustre
-  packages:
-    - name: google-cloud-lustre
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-lustre/latest
-    - name: google-cloud-lustre-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-lustre-v1/latest
-- name: Service Directory
-  packages:
-    - name: google-cloud-service_directory
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest
-    - name: google-cloud-service_directory-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest
-    - name: google-cloud-service_directory-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest
-- name: Dialogflow
-  packages:
-    - name: google-cloud-dialogflow
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dialogflow/latest
-    - name: google-cloud-dialogflow-cx
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dialogflow-cx/latest
-    - name: google-cloud-dialogflow-cx-v3
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dialogflow-cx-v3/latest
-    - name: google-cloud-dialogflow-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dialogflow-v2/latest
-- name: Integration Connectors
-  packages:
-    - name: google-cloud-connectors
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-connectors/latest
-    - name: google-cloud-connectors-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-connectors-v1/latest
-- name: Managed Service for Microsoft Active Directory
-  packages:
-    - name: google-cloud-managed_identities
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_identities/latest
-    - name: google-cloud-managed_identities-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-managed_identities-v1/latest
-- name: Analytics Hub API
-  packages:
-    - name: google-cloud-bigquery-analytics_hub
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-analytics_hub/latest
-    - name: google-cloud-bigquery-analytics_hub-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-analytics_hub-v1/latest
-    - name: google-cloud-bigquery-data_exchange
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange/latest
-    - name: google-cloud-bigquery-data_exchange-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange-v1beta1/latest
-- name: BigQuery Data QnA
-  packages:
-    - name: google-cloud-dataqna
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataqna/latest
-    - name: google-cloud-dataqna-v1alpha
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-dataqna-v1alpha/latest
-- name: Cloud Life Sciences
-  packages:
-    - name: google-cloud-life_sciences
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-life_sciences/latest
-    - name: google-cloud-life_sciences-v2beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-life_sciences-v2beta/latest
-- name: Cloud Storage
-  packages:
-    - name: google-cloud-storage
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage/latest
-    - name: google-cloud-storage-control
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest
-    - name: google-cloud-storage-control-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest
-- name: Confidential Space
-  packages:
-    - name: google-cloud-confidential_computing
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-confidential_computing/latest
-    - name: google-cloud-confidential_computing-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-confidential_computing-v1/latest
-- name: Parallelstore
-  packages:
-    - name: google-cloud-parallelstore
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-parallelstore/latest
-    - name: google-cloud-parallelstore-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-parallelstore-v1/latest
-    - name: google-cloud-parallelstore-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-parallelstore-v1beta/latest
-- name: Service Management API
-  packages:
-    - name: google-cloud-service_management
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_management/latest
-    - name: google-cloud-service_management-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-service_management-v1/latest
 - name: reCAPTCHA
   packages:
     - name: google-cloud-recaptcha_enterprise
@@ -1174,81 +1252,3 @@
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-recaptcha_enterprise-v1/latest
     - name: google-cloud-recaptcha_enterprise-v1beta1
       link: https://cloud.google.com/ruby/docs/reference/google-cloud-recaptcha_enterprise-v1beta1/latest
-- name: BigQuery Data Transfer Service
-  packages:
-    - name: google-cloud-bigquery-data_transfer
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_transfer/latest
-    - name: google-cloud-bigquery-data_transfer-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_transfer-v1/latest
-- name: BigQuery Migration
-  packages:
-    - name: google-cloud-bigquery-migration
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest
-    - name: google-cloud-bigquery-migration-v2
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest
-- name: Binary Authorization
-  packages:
-    - name: google-cloud-binary_authorization
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-binary_authorization/latest
-    - name: google-cloud-binary_authorization-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-binary_authorization-v1/latest
-    - name: google-cloud-binary_authorization-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-binary_authorization-v1beta1/latest
-- name: Cloud Domains
-  packages:
-    - name: google-cloud-domains
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-domains/latest
-    - name: google-cloud-domains-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-domains-v1/latest
-    - name: google-cloud-domains-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-domains-v1beta1/latest
-- name: Cloud Talent Solution Job Search
-  packages:
-    - name: google-cloud-talent
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-talent/latest
-    - name: google-cloud-talent-v4
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-talent-v4/latest
-    - name: google-cloud-talent-v4beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-talent-v4beta1/latest
-- name: Google Workspace add-ons
-  packages:
-    - name: google-cloud-gsuite_add_ons
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gsuite_add_ons/latest
-    - name: google-cloud-gsuite_add_ons-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-gsuite_add_ons-v1/latest
-- name: Recommendations
-  packages:
-    - name: google-cloud-recommendation_engine
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-recommendation_engine/latest
-    - name: google-cloud-recommendation_engine-v1beta1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-recommendation_engine-v1beta1/latest
-- name: Virtual Private Cloud
-  packages:
-    - name: google-cloud-vpc_access
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vpc_access/latest
-    - name: google-cloud-vpc_access-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-vpc_access-v1/latest
-- name: AlloyDB for PostgreSQL
-  packages:
-    - name: google-cloud-alloy_db
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-alloy_db/latest
-    - name: google-cloud-alloy_db-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-alloy_db-v1/latest
-    - name: google-cloud-alloy_db-v1alpha
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-alloy_db-v1alpha/latest
-    - name: google-cloud-alloy_db-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-alloy_db-v1beta/latest
-- name: Cloud OS Login API
-  packages:
-    - name: google-cloud-os_login
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_login/latest
-    - name: google-cloud-os_login-v1
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_login-v1/latest
-    - name: google-cloud-os_login-v1beta
-      link: https://cloud.google.com/ruby/docs/reference/google-cloud-os_login-v1beta/latest
-- name: Fleet Engine API
-  packages:
-    - name: google-maps-fleet_engine
-      link: https://rubydoc.info/gems/google-maps-fleet_engine
-    - name: google-maps-fleet_engine-v1
-      link: https://rubydoc.info/gems/google-maps-fleet_engine-v1

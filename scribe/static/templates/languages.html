@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Cloud Client Libraries</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap">
+</head>
+<body>
+    <div class="container">
+        <h1>Google Cloud Client Libraries</h1>
+        <p>Select a language to view available libraries:</p>
+        <ul>
+        {{range .}}
+            <li><a href="/{{.}}">{{.}}</a></li>
+        {{end}}
+        </ul>
+    </div>
+</body>
+</html>

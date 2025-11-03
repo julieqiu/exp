@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{.LanguageTitle}} Cloud Client Libraries &nbsp;|&nbsp; Google Cloud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="home-link">← Home</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Home</a> › {{.LanguageTitle}}
+            <a href="{{.OriginalDocsURL}}" class="original-link" target="_blank">{{.OriginalDocsURL}}</a>
+        </div>
+
+        <h1>{{.LanguageTitle}} Cloud Client Libraries</h1>
+
+        <div class="intro-text">
+            <p>The Cloud Client Libraries are the recommended way to access Google Cloud APIs programmatically. The Cloud Client Libraries support accessing Google Cloud services in a way that significantly reduces the boilerplate code you have to write. The libraries provide high-level API abstractions so they're easier to understand. They embrace idioms of the language, work well with the standard library, and integrate better with your codebase.</p>
+
+            <p>For more information about client libraries for Cloud APIs, see <a href="https://cloud.google.com/apis/docs/cloud-client-libraries">Cloud Client Libraries explained</a>.</p>
+
+            <p class="table-intro">Click an API to find out how to use it:</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">Libraries</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{range .Libraries}}
+                <tr>
+                    <td>{{.Name}}</td>
+                    <td>
+                    {{range .Packages}}
+                        <a href="/{{$.Language}}/{{.Name}}">{{.Name}}</a><br/>
+                    {{end}}
+                    </td>
+                </tr>
+            {{end}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
