@@ -1,0 +1,16 @@
+{
+  "libraries": [
+    {
+      "apis": [
+        {
+          "path": "google/cloud/accessapproval/v1",
+          "service_config": "accessapproval_v1.yaml",
+          "status": "existing"
+        }
+      ],
+      "library_id": "accessapproval",
+      "status": "ready",
+      "validated": true
+    }
+  ]
+}

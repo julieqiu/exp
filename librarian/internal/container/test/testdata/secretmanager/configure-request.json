@@ -1,0 +1,22 @@
+{
+  "libraries": [
+    {
+      "id": "secretmanager",
+      "apis": [
+        {
+          "path": "google/cloud/secretmanager/v1",
+          "service_config": "secretmanager_v1.yaml",
+          "status": "existing"
+        },
+        {
+          "path": "google/cloud/secretmanager/v1beta2",
+          "service_config": "secretmanager_v1beta2.yaml",
+          "status": "new"
+        }
+      ],
+      "source_roots": [
+        "secretmanager"
+      ]
+    }
+  ]
+}

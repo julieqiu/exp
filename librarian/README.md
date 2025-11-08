@@ -372,12 +372,26 @@ Supported keys:
 - `generator.googleapis`
 - `generator.discovery`
 - `generate.dir` - Default generation directory (default: \"generated\")
+- `generate.container.image` - Container image name
+- `generate.container.tag` - Container image tag
+- `generate.container` - Container image and tag (syntactic sugar)
 - `release.tag_format`
 
 **Example: Set global generation directory**
 
 ```bash
 librarian config set generate.dir generated
+```
+
+**Example: Update container image and tag**
+
+```bash
+# Set both image and tag at once (syntactic sugar)
+librarian config set generate.container librarian-test:v0.2.0
+
+# Or set them independently
+librarian config set generate.container.image librarian-test
+librarian config set generate.container.tag v0.2.0
 ```
 
 ## Inspection

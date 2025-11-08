@@ -1,0 +1,27 @@
+{
+  "libraries": [
+    {
+      "id": "accessapproval",
+      "version": "1.5.0",
+      "changes": [
+        {
+          "type": "feat",
+          "subject": "add support for bulk approval requests",
+          "body": "This adds the ability to approve multiple access requests at once.",
+          "piper_cl_number": "555666777",
+          "commit_hash": "b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1"
+        }
+      ],
+      "apis": [
+        {
+          "path": "google/cloud/accessapproval/v1"
+        }
+      ],
+      "source_roots": [
+        "accessapproval",
+        "internal/generated/snippets/accessapproval"
+      ],
+      "release_triggered": true
+    }
+  ]
+}

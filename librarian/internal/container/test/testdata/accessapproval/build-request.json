@@ -1,0 +1,11 @@
+{
+  "libraries": [
+    {
+      "id": "accessapproval",
+      "source_roots": [
+        "accessapproval",
+        "internal/generated/snippets/accessapproval"
+      ]
+    }
+  ]
+}

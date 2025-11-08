@@ -1,0 +1,25 @@
+{
+  "id": "secretmanager",
+  "version": "0.1.0",
+  "apis": [
+    {
+      "path": "google/cloud/secretmanager/v1",
+      "service_config": "secretmanager_v1.yaml"
+    },
+    {
+      "path": "google/cloud/secretmanager/v1beta2",
+      "service_config": "secretmanager_v1beta2.yaml"
+    }
+  ],
+  "source_roots": [
+    "secretmanager",
+    "internal/generated/snippets/secretmanager"
+  ],
+  "preserve_regex": [
+    "secretmanager/CHANGES.md",
+    "secretmanager/README.custom.md"
+  ],
+  "remove_regex": [
+    "secretmanager/temp"
+  ]
+}

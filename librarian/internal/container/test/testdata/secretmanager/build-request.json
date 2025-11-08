@@ -1,0 +1,11 @@
+{
+  "libraries": [
+    {
+      "id": "secretmanager",
+      "source_roots": [
+        "secretmanager",
+        "internal/generated/snippets/secretmanager"
+      ]
+    }
+  ]
+}
