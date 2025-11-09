@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/julieqiu/exp/librarian/internal/bazel"
 	"github.com/julieqiu/exp/librarian/internal/config"
 	"github.com/julieqiu/exp/librarian/internal/state"
 	"github.com/urfave/cli/v3"
@@ -62,7 +63,7 @@ func NewApp() *cli.Command {
 			{
 				Name:      "add",
 				Usage:     "Track a directory for management",
-				Arguments: []cli.Argument{&cli.StringArg{Name: "path"}, &cli.StringArg{Name: "api"}},
+				Arguments: []cli.Argument{&cli.StringArg{Name: "path"}},
 				Action:    addCommand,
 				Category:  "MANAGE",
 			},
@@ -188,22 +189,26 @@ librarianVersion, err := getLibrarianVersion()
 		Librarian: config.LibrarianConfig{
 			Version: librarianVersion,
 		},
-		Release: config.ReleaseConfig{
+		Release: &config.ReleaseConfig{
 			TagFormat: "{name}-v{version}",
 		},
 	}
 	if language != "" {
 		cfg.Librarian.Language = language
-		cfg.Generate = config.GenerateConfig{
-			Container: config.ContainerConfig{
+		cfg.Generate = &config.GenerateConfig{
+			Container: &config.ContainerConfig{
 				Image: fmt.Sprintf("us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/%s-librarian-generator", language),
 				Tag:   "latest",
 			},
-			GoogleapisRepo: "github.com/googleapis/googleapis",
-			GoogleapisRef:  "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0",
-			DiscoveryRepo:  "github.com/googleapis/discovery-artifact-manager",
-			DiscoveryRef:   "f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0",
-			Dir:            "generated/",
+			Googleapis: &config.RepoConfig{
+				Repo: "github.com/googleapis/googleapis",
+				Ref:  "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0",
+			},
+			Discovery: &config.RepoConfig{
+				Repo: "github.com/googleapis/discovery-artifact-manager",
+				Ref:  "f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0",
+			},
+			Dir: "packages/",
 		}
 	}
 
@@ -223,46 +228,81 @@ librarianVersion, err := getLibrarianVersion()
 
 func addCommand(ctx context.Context, cmd *cli.Command) error {
 	path := cmd.StringArg("path")
-	api := cmd.StringArg("api")
 	if path == "" {
 		return fmt.Errorf("path is required")
 	}
+
+	// Get all API paths (everything after the first argument)
+	apis := cmd.Args().Slice()[1:]
+
 	fmt.Printf("Adding %s to librarian.\n", path)
-	if api != "" {
-		fmt.Printf("With API: %s\n", api)
+	if len(apis) > 0 {
+		fmt.Printf("With APIs: %v\n", apis)
 	}
+
 	artifact := &state.Artifact{}
 	cfg, err := config.Load()
 	if err != nil {
 		return err
 	}
-	if cfg.Release.TagFormat != "" {
+
+	// Add release section if config has release enabled
+	if cfg.Release != nil && cfg.Release.TagFormat != "" {
 		artifact.Release = &state.ReleaseState{
 			Version: "null",
 		}
 	}
-	if api != "" && cfg.Librarian.Language != "" {
+
+	// Add generate section if APIs are provided and config has generation enabled
+	if len(apis) > 0 && cfg.Librarian.Language != "" {
 		if err := ensureGenerationConfig(cfg); err != nil {
 			return err
 		}
+
+		// Clone googleapis if needed
+		googleapisPath, err := cloneGoogleapis(cfg)
+		if err != nil {
+			return fmt.Errorf("failed to clone googleapis: %w", err)
+		}
+
+		// Parse BUILD.bazel for each API
+		var apiConfigs []state.API
+		for _, apiPath := range apis {
+			buildPath := filepath.Join(googleapisPath, apiPath, "BUILD.bazel")
+
+			apiConfig, err := parseAPIConfig(buildPath, apiPath, cfg.Librarian.Language)
+			if err != nil {
+				return fmt.Errorf("failed to parse BUILD.bazel for %s: %w", apiPath, err)
+			}
+
+			apiConfigs = append(apiConfigs, *apiConfig)
+			fmt.Printf("  Parsed %s: transport=%s, grpc_service_config=%s\n",
+				apiPath, apiConfig.Transport, apiConfig.GrpcServiceConfig)
+		}
+
 		artifact.Generate = &state.GenerateState{
-			APIs:      []state.API{{Path: api}},
-			Commit:    "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0", // Dummy value
+			APIs:      apiConfigs,
+			Commit:    cfg.Generate.Googleapis.Ref,
 			Librarian: cfg.Librarian.Version,
 			Container: state.ContainerState{
 				Image: cfg.Generate.Container.Image,
 				Tag:   cfg.Generate.Container.Tag,
 			},
 			Googleapis: state.GoogleapisState{
-				Repo: cfg.Generate.GoogleapisRepo,
-				Ref:  cfg.Generate.GoogleapisRef,
-			},
-			Discovery: state.DiscoveryState{
-				Repo: cfg.Generate.DiscoveryRepo,
-				Ref:  cfg.Generate.DiscoveryRef,
+				Repo: cfg.Generate.Googleapis.Repo,
+				Ref:  cfg.Generate.Googleapis.Ref,
 			},
 		}
+
+		// Add discovery if configured
+		if cfg.Generate.Discovery != nil {
+			artifact.Generate.Discovery = state.DiscoveryState{
+				Repo: cfg.Generate.Discovery.Repo,
+				Ref:  cfg.Generate.Discovery.Ref,
+			}
+		}
 	}
+
 	if err := artifact.Save(path); err != nil {
 		return err
 	}
@@ -271,12 +311,90 @@ func addCommand(ctx context.Context, cmd *cli.Command) error {
 	return nil
 }
 
+// cloneGoogleapis clones the googleapis repository at the configured SHA.
+// Returns the path to the cloned repository.
+func cloneGoogleapis(cfg *config.Config) (string, error) {
+	if cfg.Generate == nil || cfg.Generate.Googleapis == nil {
+		return "", fmt.Errorf("googleapis not configured")
+	}
+
+	// Create a temp directory for googleapis
+	tmpDir := filepath.Join(os.TempDir(), "librarian-googleapis")
+	googleapisPath := filepath.Join(tmpDir, "googleapis")
+
+	// Check if already cloned at the right ref
+	if _, err := os.Stat(googleapisPath); err == nil {
+		// Already exists, check if it's at the right ref
+		cmd := exec.Command("git", "rev-parse", "HEAD")
+		cmd.Dir = googleapisPath
+		output, err := cmd.Output()
+		if err == nil && strings.TrimSpace(string(output)) == cfg.Generate.Googleapis.Ref {
+			fmt.Printf("Using cached googleapis at %s\n", cfg.Generate.Googleapis.Ref)
+			return googleapisPath, nil
+		}
+		// Wrong ref, remove and re-clone
+		os.RemoveAll(googleapisPath)
+	}
+
+	// Clone googleapis
+	os.MkdirAll(tmpDir, 0755)
+	fmt.Printf("Cloning googleapis at %s...\n", cfg.Generate.Googleapis.Ref)
+
+	// Clone with depth 1 for speed
+	repoURL := fmt.Sprintf("https://%s.git", cfg.Generate.Googleapis.Repo)
+	cmd := exec.Command("git", "clone", "--depth=1", "--branch", cfg.Generate.Googleapis.Ref, repoURL, googleapisPath)
+	if output, err := cmd.CombinedOutput(); err != nil {
+		// Try without --branch if it's a SHA
+		cmd = exec.Command("git", "clone", repoURL, googleapisPath)
+		if output, err = cmd.CombinedOutput(); err != nil {
+			return "", fmt.Errorf("failed to clone googleapis: %w\n%s", err, output)
+		}
+		// Checkout the specific ref
+		cmd = exec.Command("git", "checkout", cfg.Generate.Googleapis.Ref)
+		cmd.Dir = googleapisPath
+		if output, err = cmd.CombinedOutput(); err != nil {
+			return "", fmt.Errorf("failed to checkout %s: %w\n%s", cfg.Generate.Googleapis.Ref, err, output)
+		}
+	}
+
+	fmt.Printf("Cloned googleapis to %s\n", googleapisPath)
+	return googleapisPath, nil
+}
+
+// parseAPIConfig parses a BUILD.bazel file and returns the API configuration.
+func parseAPIConfig(buildPath, apiPath, language string) (*state.API, error) {
+	// Use the bazel parser
+	apiConfig, err := bazel.ParseBuildFile(buildPath, language)
+	if err != nil {
+		return nil, err
+	}
+
+	// If no GAPIC config found (proto-only library), create a minimal config
+	if apiConfig == nil {
+		return &state.API{Path: apiPath}, nil
+	}
+
+	// Set the path
+	apiConfig.Path = apiPath
+	return apiConfig, nil
+}
+
 // ensureGenerationConfig initializes generation-related config fields if they're not set.
 func ensureGenerationConfig(cfg *config.Config) error {
 	var updated bool
 
+	// Initialize generate config if not present
+	if cfg.Generate == nil {
+		cfg.Generate = &config.GenerateConfig{}
+	}
+
+	// Initialize container config if not present
+	if cfg.Generate.Container == nil {
+		cfg.Generate.Container = &config.ContainerConfig{}
+	}
+
 	// Initialize generator image if not set
-	if cfg.Generate.Container.Image == "" {
+	if cfg.Generate.Container.Image == ""  {
 		if cfg.Librarian.Language == "python" {
 			cfg.Generate.Container.Image = "us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator"
 			cfg.Generate.Container.Tag = "latest"
@@ -287,23 +405,33 @@ func ensureGenerationConfig(cfg *config.Config) error {
 		updated = true
 	}
 
-	// Initialize googleapis SHA if not set
-	if cfg.Generate.GoogleapisRef == "" {
+	// Initialize googleapis config if not set
+	if cfg.Generate.Googleapis == nil {
+		cfg.Generate.Googleapis = &config.RepoConfig{
+			Repo: "github.com/googleapis/googleapis",
+		}
+	}
+	if cfg.Generate.Googleapis.Ref == "" {
 		googleapisSHA, err := getLatestSHA("googleapis", "googleapis")
 		if err != nil {
 			return fmt.Errorf("failed to get latest googleapis SHA: %w", err)
 		}
-		cfg.Generate.GoogleapisRef = googleapisSHA
+		cfg.Generate.Googleapis.Ref = googleapisSHA
 		updated = true
 	}
 
-	// Initialize discovery SHA if not set
-	if cfg.Generate.DiscoveryRef == "" {
+	// Initialize discovery config if not set
+	if cfg.Generate.Discovery == nil {
+		cfg.Generate.Discovery = &config.RepoConfig{
+			Repo: "github.com/googleapis/discovery-artifact-manager",
+		}
+	}
+	if cfg.Generate.Discovery.Ref == "" {
 		discoverySHA, err := getLatestSHA("googleapis", "discovery-artifact-manager")
 		if err != nil {
 			return fmt.Errorf("failed to get latest discovery SHA: %w", err)
 		}
-		cfg.Generate.DiscoveryRef = discoverySHA
+		cfg.Generate.Discovery.Ref = discoverySHA
 		updated = true
 	}
 
@@ -353,10 +481,10 @@ func generateCommand(ctx context.Context, cmd *cli.Command) error {
 			artifact.Generate.Librarian = cfg.Librarian.Version
 			artifact.Generate.Container.Image = cfg.Generate.Container.Image
 			artifact.Generate.Container.Tag = cfg.Generate.Container.Tag
-			artifact.Generate.Googleapis.Repo = cfg.Generate.GoogleapisRepo
-			artifact.Generate.Googleapis.Ref = cfg.Generate.GoogleapisRef
-			artifact.Generate.Discovery.Repo = cfg.Generate.DiscoveryRepo
-			artifact.Generate.Discovery.Ref = cfg.Generate.DiscoveryRef
+			artifact.Generate.Googleapis.Repo = cfg.Generate.Googleapis.Repo
+			artifact.Generate.Googleapis.Ref = cfg.Generate.Googleapis.Ref
+			artifact.Generate.Discovery.Repo = cfg.Generate.Discovery.Repo
+			artifact.Generate.Discovery.Ref = cfg.Generate.Discovery.Ref
 
 			if err := artifact.Save(path); err != nil {
 				return fmt.Errorf("failed to save artifact state: %w", err)
@@ -388,10 +516,10 @@ func generateCommand(ctx context.Context, cmd *cli.Command) error {
 	artifact.Generate.Librarian = cfg.Librarian.Version
 	artifact.Generate.Container.Image = cfg.Generate.Container.Image
 	artifact.Generate.Container.Tag = cfg.Generate.Container.Tag
-	artifact.Generate.Googleapis.Repo = cfg.Generate.GoogleapisRepo
-	artifact.Generate.Googleapis.Ref = cfg.Generate.GoogleapisRef
-	artifact.Generate.Discovery.Repo = cfg.Generate.DiscoveryRepo
-	artifact.Generate.Discovery.Ref = cfg.Generate.DiscoveryRef
+	artifact.Generate.Googleapis.Repo = cfg.Generate.Googleapis.Repo
+	artifact.Generate.Googleapis.Ref = cfg.Generate.Googleapis.Ref
+	artifact.Generate.Discovery.Repo = cfg.Generate.Discovery.Repo
+	artifact.Generate.Discovery.Ref = cfg.Generate.Discovery.Ref
 
 	// Save artifact state
 	if err := artifact.Save(path); err != nil {
@@ -485,14 +613,14 @@ librarianVersion, err := getLibrarianVersion()
 	}
 
 	// Update googleapis SHA if generate config exists
-	if cfg.Librarian.Language != "" && cfg.Generate.GoogleapisRef != "" && updateGoogleapis {
+	if cfg.Librarian.Language != "" && cfg.Generate.Googleapis.Ref != "" && updateGoogleapis {
 		googleapisSHA, err := getLatestSHA("googleapis", "googleapis")
 		if err != nil {
 			return fmt.Errorf("failed to get latest googleapis SHA: %w", err)
 		}
-		if googleapisSHA != cfg.Generate.GoogleapisRef {
+		if googleapisSHA != cfg.Generate.Googleapis.Ref {
 			fmt.Printf("Updating googleapis to %s\n", googleapisSHA[:7])
-			cfg.Generate.GoogleapisRef = googleapisSHA
+			cfg.Generate.Googleapis.Ref = googleapisSHA
 			updated = true
 		} else {
 			fmt.Println("Googleapis is up to date")
@@ -500,14 +628,14 @@ librarianVersion, err := getLibrarianVersion()
 	}
 
 	// Update discovery SHA if generate config exists
-	if cfg.Librarian.Language != "" && cfg.Generate.DiscoveryRef != "" && updateDiscovery {
+	if cfg.Librarian.Language != "" && cfg.Generate.Discovery.Ref != "" && updateDiscovery {
 		discoverySHA, err := getLatestSHA("googleapis", "discovery-artifact-manager")
 		if err != nil {
 			return fmt.Errorf("failed to get latest discovery SHA: %w", err)
 		}
-		if discoverySHA != cfg.Generate.DiscoveryRef {
+		if discoverySHA != cfg.Generate.Discovery.Ref {
 			fmt.Printf("Updating discovery to %s\n", discoverySHA[:7])
-			cfg.Generate.DiscoveryRef = discoverySHA
+			cfg.Generate.Discovery.Ref = discoverySHA
 			updated = true
 		} else {
 			fmt.Println("Discovery is up to date")

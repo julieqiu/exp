@@ -25,7 +25,22 @@ type GenerateState struct {
 	Librarian  string           `yaml:"librarian"`
 	Container  ContainerState   `yaml:"container"`
 	Googleapis GoogleapisState  `yaml:"googleapis"`
-	Discovery  DiscoveryState   `yaml:"discovery"`
+	Discovery  DiscoveryState   `yaml:"discovery,omitempty"`
+	Metadata   *Metadata        `yaml:"metadata,omitempty"`
+}
+
+// Metadata holds library-specific metadata.
+type Metadata struct {
+	NamePretty            string `yaml:"name_pretty,omitempty"`
+	ProductDocumentation  string `yaml:"product_documentation,omitempty"`
+	ClientDocumentation   string `yaml:"client_documentation,omitempty"`
+	IssueTracker          string `yaml:"issue_tracker,omitempty"`
+	ReleaseLevel          string `yaml:"release_level,omitempty"` // "stable" or "preview"
+	LibraryType           string `yaml:"library_type,omitempty"`  // "GAPIC_AUTO" or "GAPIC_COMBO"
+	APIID                 string `yaml:"api_id,omitempty"`
+	APIShortname          string `yaml:"api_shortname,omitempty"`
+	APIDescription        string `yaml:"api_description,omitempty"`
+	DefaultVersion        string `yaml:"default_version,omitempty"`
 }
 
 // ContainerState tracks container metadata.
@@ -58,10 +73,15 @@ type ReleaseInfo struct {
 	Commit string `yaml:"commit,omitempty"`
 }
 
-// API represents an API path.
+// API represents an API path with its generation configuration.
+// These fields are extracted from BUILD.bazel during `librarian add`.
 type API struct {
-	Path          string `yaml:"path"`
-	ServiceConfig string `yaml:"service_config,omitempty"`
+	Path              string   `yaml:"path"`
+	GrpcServiceConfig string   `yaml:"grpc_service_config,omitempty"` // Retry configuration file
+	ServiceYaml       string   `yaml:"service_yaml,omitempty"`        // Service configuration file
+	Transport         string   `yaml:"transport,omitempty"`           // Transport protocol (e.g., "grpc+rest")
+	RestNumericEnums  bool     `yaml:"rest_numeric_enums,omitempty"`  // Whether to use numeric enums in REST
+	OptArgs           []string `yaml:"opt_args,omitempty"`            // Additional generator options
 }
 
 // ConfigState holds artifact-specific configuration.
