@@ -138,26 +138,6 @@ func NewApp() *cli.Command {
 				Action:    releaseCommand,
 				Category:  "MANAGE",
 			},
-			{
-				Name:     "list",
-				Usage:    "List all tracked directories",
-				Action:   listCommand,
-				Category: "SHOW",
-			},
-			{
-				Name:      "status",
-				Usage:     "Show generation and release status",
-				Arguments: []cli.Argument{&cli.StringArg{Name: "path"}},
-				Action:    statusCommand,
-				Category:  "SHOW",
-			},
-			{
-				Name:      "history",
-				Usage:     "View release history",
-				Arguments: []cli.Argument{&cli.StringArg{Name: "path"}},
-				Action:    historyCommand,
-				Category:  "SHOW",
-			},
 		},
 	}
 }
@@ -1013,59 +993,6 @@ func releaseCommand(ctx context.Context, cmd *cli.Command) error {
 func createGitTag(tag, commit string) error {
 	cmd := exec.Command("git", "tag", tag, commit)
 	return cmd.Run()
-}
-
-func listCommand(ctx context.Context, cmd *cli.Command) error {
-	fmt.Println("Listing all tracked directories:")
-	artifacts, err := state.LoadAll()
-	if err != nil {
-		return err
-	}
-	for path := range artifacts {
-		fmt.Printf("- %s\n", path)
-	}
-	return nil
-}
-
-func statusCommand(ctx context.Context, cmd *cli.Command) error {
-	path := cmd.StringArg("path")
-	if path == "" {
-		return fmt.Errorf("path is required")
-	}
-	artifact, err := state.Load(path)
-	if err != nil {
-		return fmt.Errorf("failed to load artifact at %s: %w", path, err)
-	}
-
-	fmt.Printf("Status for %s:\n", path)
-	if artifact.Generate != nil {
-		fmt.Println("  Generation:")
-		fmt.Printf("    Commit: %s\n", artifact.Generate.Commit)
-		fmt.Printf("    Librarian version: %s\n", artifact.Generate.Librarian)
-	}
-	if artifact.Release != nil {
-		fmt.Println("  Release:")
-		fmt.Printf("    Version: %s\n", artifact.Release.Version)
-		if artifact.Release.Prepared != nil {
-			fmt.Printf("    Prepared: %s\n", artifact.Release.Prepared.Tag)
-		}
-	}
-	return nil
-}
-
-func historyCommand(ctx context.Context, cmd *cli.Command) error {
-	path := cmd.StringArg("path")
-	if path == "" {
-		return fmt.Errorf("path is required")
-	}
-	fmt.Printf("Showing release history for %s:\n", path)
-
-
-librarianFile := filepath.Join(path, ".librarian.yaml")
-	c := exec.Command("git", "log", "--pretty=format:%h %ad | %s", "--date=short", "--", librarianFile)
-	c.Stdout = os.Stdout
-	c.Stderr = os.Stderr
-	return c.Run()
 }
 
 // parseLanguageFlag parses a string in the format "LANG:KEY=VALUE" and returns the language, key, and value.

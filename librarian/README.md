@@ -38,12 +38,6 @@ provides commands to regenerate and release the code in a repeatable way.
 - [librarian config set](#configuration): Set a configuration value
 - [librarian config update](#configuration): Update toolchain versions to latest
 
-**Inspection commands**
-
-- [librarian list](#inspection): List all tracked directories
-- [librarian status](#inspection): Show generation and release status
-- [librarian history](#inspection): View release history
-
 ### Librarianops
 
 **Automation commands**
@@ -497,28 +491,6 @@ librarian config set generate.container python-gen:v1.2.0
 # Or set them independently
 librarian config set generate.container.image python-gen
 librarian config set generate.container.tag v1.2.0
-```
-
-## Inspection
-
-View information about tracked directories and their release history.
-
-List all tracked directories:
-
-```bash
-librarian list
-```
-
-Show the current generation and release status for a directory:
-
-```bash
-librarian status <path>
-```
-
-View the release history for a directory:
-
-```bash
-librarian history <path>
 ```
 
 ## Automation with librarianops
