@@ -4,13 +4,16 @@ Librarian automates the maintenance and release of versioned directories in a
 repository. A directory managed by Librarian may contain either generated code
 (for a client library) or handwritten code (for a tool or service).
 
-**Repository model**: Each repository supports a single language (Go, Python, Rust, or Dart) and can contain multiple artifacts for that language. Repository capabilities are determined by which sections exist in `.librarian/config.yaml`:
+**Repository model**: Each repository supports a single language (Go,
+Python, Rust, or Dart) and can contain multiple artifacts for that language.
+Repository capabilities are determined by which sections exist in `.librarian/config.yaml`:
 
 - `generate` section present → repository supports code generation
 - `release` section present → repository supports release management
 - Both sections present → repository supports both
 
-Each artifact can independently have generation and/or release enabled based on which sections are present in its `.librarian.yaml` file.
+Each artifact can independently have generation and/or release enabled based
+on which sections are present in its `.librarian.yaml` file.
 
 Librarian records generation input, release state, and version history, and
 provides commands to regenerate and release the code in a repeatable way.
@@ -129,7 +132,8 @@ release:
 - `discovery.ref` - Git reference. Optional; if omitted, uses HEAD of default branch
 - `dir` - Directory where generated code is written (relative to repository root, with trailing `/`)
 
-**Note**: The presence of the `generate` section enables generation commands. The presence of the `release` section enables release commands.
+**Note**: The presence of the `generate` section enables generation commands.
+The presence of the `release` section enables release commands.
 
 ## Managing Directories
 
@@ -192,7 +196,9 @@ release:
   version: null
 ```
 
-**Note**: The `generate` section is only created when an API is provided AND the repository has a `generate` section in its config. The `release` section is created if the repository has a `release` section in its config.
+**Note**: The `generate` section is only created when an API is provided
+AND the repository has a `generate` section in its config.
+The `release` section is created if the repository has a `release` section in its config.
 
 `--commit` writes a standard commit message for the change.
 
@@ -230,7 +236,10 @@ librarian edit <path> --language rust:crate=my_crate
 librarian edit <path> --language dart:package=my_package
 ```
 
-Language-specific metadata is used by generators and tooling for proper package/module configuration. The format is `--language LANG:KEY=VALUE` where LANG matches your repository's language and KEY is the property name (module, package, or crate).
+Language-specific metadata is used by generators and tooling for proper
+package/module configuration.
+The format is `--language LANG:KEY=VALUE` where LANG matches your repository's
+language and KEY is the property name (module, package, or crate).
 
 **Keep files during generation:**
 
@@ -283,7 +292,9 @@ Regenerate all artifacts that have a `generate` section:
 librarian generate --all
 ```
 
-**Note**: This command only works in repositories that have a `generate` section in `.librarian/config.yaml`, and only affects artifacts that have a `generate` section in their `.librarian.yaml`.
+**Note**: This command only works in repositories that have a `generate`
+section in `.librarian/config.yaml`,
+and only affects artifacts that have a `generate` section in their `.librarian.yaml`.
 
 ## Releasing
 
@@ -316,7 +327,9 @@ librarian prepare --all
 
 `--commit` writes a standard commit message for the change.
 
-**Note**: This command only works in repositories that have a `release` section in `.librarian/config.yaml`, and only affects artifacts that have a `release` section in their `.librarian.yaml`.
+**Note**: This command only works in repositories that have a `release`
+section in `.librarian/config.yaml`,
+and only affects artifacts that have a `release` section in their `.librarian.yaml`.
 
 ### Publishing a Release
 

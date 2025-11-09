@@ -1,6 +1,10 @@
 # Test Container
 
-This directory contains the source code for the test container, a lightweight mock implementation that simulates a language-specific code generator for testing the Librarian pipeline. It follows the same container contract as real generators (like `librariangen`) but produces simple placeholder output instead of actually generating code.
+This directory contains the source code for the test container,
+a lightweight mock implementation that simulates a language-specific code
+generator for testing the Librarian pipeline.
+It follows the same container contract as real generators (like `librariangen`)
+but produces simple placeholder output instead of actually generating code.
 
 ## Purpose
 
@@ -13,7 +17,10 @@ The test container allows you to:
 
 ## How it Works (The Container Contract)
 
-The test container binary is designed to be run inside a Docker container orchestrated by the Librarian tool. It adheres to the same "container contract" as real generators by accepting commands and expecting a set of mounted directories for its inputs and outputs.
+The test container binary is designed to be run inside a Docker container
+orchestrated by the Librarian tool.
+It adheres to the same "container contract" as real generators by accepting
+commands and expecting a set of mounted directories for its inputs and outputs.
 
 The primary commands are `generate`, `release-stage`, `configure`, and `build`.
 
