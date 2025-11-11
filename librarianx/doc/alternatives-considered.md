@@ -11,6 +11,8 @@ This document describes alternative designs that were considered for the Librari
 5. [Renaming generate to infrastructure](#renaming-generate-to-infrastructure)
 6. [Flat Release Commands (prepare/tag/publish)](#flat-release-commands-preparetagpublish)
 7. [Three-Phase Release Process (release prepare/release tag/release publish)](#three-phase-release-process-release-preparerelease-tagrelease-publish)
+8. [Multiple Configuration Files (Per-Edition Config Files)](#multiple-configuration-files-per-edition-config-files)
+9. [Naming: Libraries vs Modules vs Packages vs Editions](#naming-libraries-vs-modules-vs-packages-vs-editions)
 
 ## Single Container Invocation with Configuration-Based Interface
 
@@ -125,3 +127,78 @@ However, this approach had these costs:
 4. **Harder rollback** - Can't tag first, verify, then decide whether to publish
 
 We ultimately went with three separate phases (`release prepare`, `release tag`, `release publish`) because of flexibility and clear separation of concerns. Each phase maps to a distinct operation (commit, git tag, registry push), users can prepare locally and review before tagging, and each phase can run in different CI/CD jobs for better control.
+
+## Multiple Configuration Files (Per-Edition Config Files)
+
+We considered using multiple configuration files where each edition has its own configuration file (e.g., `.librarian/config.yaml` for repository settings and `<edition>/.librarian.yaml` for edition-specific settings) because of separation of concerns and reduced merge conflicts.
+
+**How it would work:**
+
+Repository-level config at `.librarian/config.yaml`:
+```yaml
+librarian:
+  version: v0.5.0
+  language: go
+
+sources:
+  googleapis:
+    url: https://...
+    sha256: ...
+
+generate:
+  container:
+    image: ...
+    tag: latest
+  output_dir: ./
+```
+
+Edition-level config at `secretmanager/.librarian.yaml`:
+```yaml
+name: secretmanager
+version: 0.1.0
+
+generate:
+  apis:
+    - path: google/cloud/secretmanager/v1
+      grpc_service_config: secretmanager_grpc_service_config.json
+      service_yaml: secretmanager_v1.yaml
+      transport: grpc+rest
+```
+
+However, this approach had these costs:
+
+1. **Hard to discover information** - Need to search multiple files to understand repository configuration
+2. **Scattered state** - Edition list is implicit (discovered by finding `.librarian.yaml` files)
+3. **Harder to audit** - Can't see all editions and their versions in one place
+4. **More file operations** - CLI needs to read N+1 files for N editions
+5. **Git history fragmentation** - Changes to edition configs spread across many files
+
+We ultimately went with a single `librarian.yaml` file containing all repository and edition configuration because of ease of discovery and auditing. All configuration is in one place, making it easy to understand the entire repository state at a glance. The single file serves as a litmus test for complexity: if `librarian.yaml` becomes very long (e.g., thousands of lines), this is a sign that the configuration language may be too verbose and needs to be redesigned with better defaults, conventions, or abstractions. A well-designed configuration language should support 50-100+ editions in a readable single file.
+
+## Naming: Libraries vs Modules vs Packages vs Editions
+
+We considered several names for the releasable units that librarian generates and manages.
+
+**Libraries**: We considered using "libraries" because it's the common term for client libraries (e.g., "google-cloud-secretmanager library").
+
+However, this approach had these costs:
+
+1. **Not generic enough** - Librarian can release things beyond client libraries, such as the librarian CLI tool itself
+2. **Language-specific connotation** - "Library" implies a language-specific artifact
+
+**Modules**: We considered using "modules" because it's a common term in software development.
+
+However, this approach had these costs:
+
+1. **Overloaded in Go** - In Go, "module" has a specific meaning (go.mod defines a module)
+2. **Inconsistent across languages** - Go uses "module" for what Python calls a "package"
+
+**Packages**: We considered using "packages" because it's a common term in package managers.
+
+However, this approach had these costs:
+
+1. **Overloaded in Rust** - In Rust, "package" has a specific meaning (Cargo.toml defines a package)
+2. **Inconsistent across languages** - Rust uses "package" for what Go calls a "module"
+3. **Swapped terminology** - Go and Rust use "module" and "package" to mean opposite things
+
+We ultimately went with "editions" because of neutrality and semantic accuracy. "Editions" is language-neutral and has no overloaded meaning in programming languages. The term comes from publishing, where an edition means "a specific version of a publication with changes to the content, format, or other features" - which accurately captures what librarian manages. Like a book publisher releases different editions of a book, librarian generates and releases different editions of client libraries, tools, and other software artifacts.
