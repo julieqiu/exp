@@ -6,9 +6,11 @@ Define a consistent CLI interface for managing librarian.yaml configuration usin
 
 ## Background
 
-Currently, users must manually edit librarian.yaml to update configuration. This requires understanding YAML syntax, the config schema, and proper nesting. Common operations like adding an API to an edition or updating metadata are error-prone and time-consuming.
+Currently, users must manually edit librarian.yaml to update configuration. This requires understanding YAML syntax, the config schema, and proper nesting. Common operations like updating metadata or managing file patterns are error-prone and time-consuming.
 
-This document proposes a `librarian config` command with subcommands to manage configuration programmatically, inspired by successful patterns from go, npm, git, and kubectl.
+This document proposes a `librarian config` command with subcommands to manage configuration programmatically, inspired by successful patterns from npm, git, and gcloud.
+
+**Note:** APIs are managed through `librarian new` and `librarian remove` commands, not through `librarian config`. The config command focuses on scalar values and file pattern arrays (keep/remove).
 
 ## Research: Config Command Patterns
 
@@ -84,208 +86,95 @@ This document proposes a `librarian config` command with subcommands to manage c
 - Comment-preserving TOML editor needed
 - Still in development
 
-## Design Decision: go mod edit Style
+## Design Decision: npm-style Subcommands with Array Support
 
-**Recommended approach:** Single command with editing flags (like `go mod edit`)
+**Recommended approach:** Explicit subcommands (like npm, gcloud, gh) with special handling for arrays
 
 **Rationale:**
-1. **Composable** - Multiple edits in single invocation
-2. **Scriptable** - Perfect for tools and automation
-3. **Familiar to Go developers** - Matches `go mod edit` pattern
-4. **Atomic operations** - All changes applied together or not at all
-5. **Clean interface** - No opening editors, pure command-line editing
-6. **Order-preserving** - Flags processed in order, enabling complex transformations
+1. **Industry standard** - Used by npm, gcloud, gh, pnpm, poetry, aws cli
+2. **Discoverable** - Each operation has clear verb
+3. **Familiar** - Developers already know this pattern
+4. **Clear intent** - `set`, `add`, `remove`, `delete` have obvious meanings
+5. **Array support** - `add`/`remove` for arrays, `set`/`delete` for scalars
+6. **Git-inspired arrays** - Follows git's `--add` pattern for multi-valued config
 
 ## Proposed Command Structure
 
-### Primary Command: `librarian config`
+### Core Subcommands
 
-Following the `go mod edit` pattern, `librarian config` provides a command-line interface for editing `librarian.yaml`, primarily for use by tools or scripts.
+#### `librarian config set <key> <value>`
 
-```bash
-# Usage
-librarian config [editing flags] [-fmt|-print|-json] [librarian.yaml]
-```
-
-**By default:**
-- Reads and writes `librarian.yaml` in the current directory
-- Can specify a different target file after editing flags
-
-### Output Flags
-
-#### `-print`
-Print the final config in YAML format instead of writing back to file.
+Set a scalar configuration value. Replaces existing value.
 
 ```bash
-librarian config -set language=python -print
+# Repository-level config
+librarian config set language python
+librarian config set generate.container.tag v1.0.0
+librarian config set sources.googleapis.url https://github.com/googleapis/googleapis/archive/xyz789.tar.gz
+
+# Edition-level config (requires --edition flag)
+librarian config set --edition secretmanager version 0.2.0
+librarian config set --edition secretmanager generate.metadata.release_level stable
+librarian config set --edition secretmanager generate.metadata.name_pretty "Secret Manager"
 ```
 
-#### `-json`
-Print the final config in JSON format instead of writing back to file.
+**Use for:** Scalar values (strings, numbers, booleans)
+**Not for:** Arrays (use `add`/`remove` instead)
+
+#### `librarian config add <key> <value>`
+
+Add a value to an array. Appends to existing array.
 
 ```bash
-librarian config -set language=python -json
+# Add to keep patterns array
+librarian config add --edition secretmanager keep README.md
+librarian config add --edition secretmanager keep docs/
+librarian config add --edition secretmanager keep "*.md"
+
+# Add to remove patterns array
+librarian config add --edition secretmanager remove temp.txt
+librarian config add --edition secretmanager remove "**/__pycache__"
 ```
 
-#### `-fmt`
-Reformat the config file without making other changes. Implied by any other modifications.
+**Use for:** Appending to arrays (keep, remove patterns)
+**Behavior:** Creates array if it doesn't exist, appends if it does
+
+#### `librarian config remove <key> <value>`
+
+Remove a value from an array. Removes first matching value.
 
 ```bash
-# Only needed when no other flags specified
-librarian config -fmt
+# Remove from keep patterns array
+librarian config remove --edition secretmanager keep docs/
+
+# Remove from remove patterns array
+librarian config remove --edition secretmanager remove temp.txt
 ```
 
-### Repository-Level Editing Flags
+**Use for:** Removing specific items from arrays
+**Behavior:** Removes the matching value, leaves array intact (even if empty)
 
-#### `-set <key>=<value>`
-Set a configuration value. Can be repeated for multiple changes.
+#### `librarian config delete <key>`
+
+Delete a configuration key entirely. Removes the key and all its values.
 
 ```bash
-# Set single value
-librarian config -set language=python
+# Delete repository-level key
+librarian config delete sources.discovery
 
-# Set multiple values (processed in order)
-librarian config -set language=go -set generate.container.tag=v1.0.0
+# Delete edition-level key
+librarian config delete --edition secretmanager generate.metadata.api_description
 
-# Set nested values using dot notation
-librarian config -set sources.googleapis.url=https://github.com/googleapis/googleapis/archive/xyz789.tar.gz
+# Delete entire array
+librarian config delete --edition secretmanager keep
 ```
 
-#### `-unset <key>`
-Remove a configuration key. Can be repeated.
-
-```bash
-# Remove single key
-librarian config -unset sources.discovery
-
-# Remove multiple keys
-librarian config -unset sources.discovery -unset generate.defaults.rest_numeric_enums
-```
-
-### Edition Editing Flags
-
-All edition flags require `-edition <name>` to specify which edition to modify.
-
-#### `-edition <name>`
-Specifies which edition to operate on. Must come before edition-specific flags.
-
-```bash
-librarian config -edition secretmanager -set-version 0.2.0
-```
-
-#### `-add-edition <name>`
-Add a new edition to the config.
-
-```bash
-# Add minimal edition
-librarian config -add-edition secretmanager
-
-# Add edition and set initial values
-librarian config -add-edition secretmanager -edition secretmanager -add-api google/cloud/secretmanager/v1
-```
-
-#### `-drop-edition <name>`
-Remove an edition from config.
-
-```bash
-librarian config -drop-edition secretmanager
-```
-
-#### `-set-version <version>`
-Set edition version (requires `-edition`).
-
-```bash
-librarian config -edition secretmanager -set-version 1.0.0
-```
-
-#### `-add-api <path>`
-Add an API path to edition's apis array (requires `-edition`). Can be repeated.
-
-```bash
-# Add single API
-librarian config -edition secretmanager -add-api google/cloud/secretmanager/v1
-
-# Add multiple APIs
-librarian config -edition secretmanager \
-  -add-api google/cloud/secretmanager/v1 \
-  -add-api google/cloud/secretmanager/v1beta2
-```
-
-#### `-drop-api <path>`
-Remove an API path from edition's apis array (requires `-edition`).
-
-```bash
-librarian config -edition secretmanager -drop-api google/cloud/secretmanager/v1beta2
-```
-
-#### `-set-metadata <key>=<value>`
-Set edition metadata field (requires `-edition`).
-
-```bash
-# Set single metadata field
-librarian config -edition secretmanager -set-metadata name_pretty="Secret Manager"
-
-# Set multiple fields
-librarian config -edition secretmanager \
-  -set-metadata name_pretty="Secret Manager" \
-  -set-metadata release_level=stable \
-  -set-metadata product_documentation=https://cloud.google.com/secret-manager/docs
-```
-
-#### `-unset-metadata <key>`
-Remove edition metadata field (requires `-edition`).
-
-```bash
-librarian config -edition secretmanager -unset-metadata api_description
-```
-
-#### `-add-keep <pattern>`
-Add pattern to edition's keep array (requires `-edition`).
-
-```bash
-librarian config -edition secretmanager -add-keep README.md -add-keep docs/
-```
-
-#### `-drop-keep <pattern>`
-Remove pattern from edition's keep array (requires `-edition`).
-
-```bash
-librarian config -edition secretmanager -drop-keep docs/
-```
-
-#### `-add-remove <pattern>`
-Add pattern to edition's remove array (requires `-edition`).
-
-```bash
-librarian config -edition secretmanager -add-remove temp.txt
-```
-
-#### `-drop-remove <pattern>`
-Remove pattern from edition's remove array (requires `-edition`).
-
-```bash
-librarian config -edition secretmanager -drop-remove temp.txt
-```
-
-### Query Commands (No Editing)
-
-These are separate subcommands for querying config, not editing flags.
-
-#### `librarian config list`
-
-Display all configuration settings.
-
-```bash
-# List entire config
-librarian config list
-
-# List in JSON format
-librarian config list -json
-```
+**Use for:** Removing keys completely
+**Behavior:** Key no longer exists in config
 
 #### `librarian config get <key>`
 
-Get value for a configuration key.
+Get value for a configuration key. Outputs to stdout.
 
 ```bash
 # Get repository-level value
@@ -294,17 +183,67 @@ librarian config get language
 
 # Get nested value
 librarian config get sources.googleapis.url
+# Output: https://github.com/googleapis/googleapis/archive/abc123.tar.gz
 
 # Get edition-level value
-librarian config get -edition secretmanager version
+librarian config get --edition secretmanager version
+# Output: 0.2.0
 
-# Output as JSON
-librarian config get -json sources.googleapis
+# Get array values (one per line)
+librarian config get --edition secretmanager keep
+# Output:
+# README.md
+# docs/
+# *.md
+```
+
+**Flags:**
+- `--json` - Output as JSON
+
+```bash
+# Get as JSON
+librarian config get --json sources.googleapis
+# Output: {"url":"https://...","sha256":"81e6057..."}
+
+# Get array as JSON
+librarian config get --json --edition secretmanager keep
+# Output: ["README.md", "docs/", "*.md"]
+```
+
+#### `librarian config list`
+
+Display all configuration settings.
+
+```bash
+# List entire config (human-readable)
+librarian config list
+
+# List in JSON format
+librarian config list --json
+
+# List specific edition
+librarian config list --edition secretmanager
+```
+
+**Output format (default):**
+```
+version: v0.5.0
+language: go
+sources.googleapis.url: https://github.com/googleapis/googleapis/archive/abc123.tar.gz
+sources.googleapis.sha256: 81e6057ffd85154af5268c2c3c8f2408745ca0f7fa03d43c68f4847f31eb5f98
+generate.container.image: us-central1-docker.pkg.dev/.../go-librarian-generator
+generate.container.tag: latest
+
+editions[0].name: secretmanager
+editions[0].version: 0.2.0
+editions[0].keep[0]: README.md
+editions[0].keep[1]: docs/
+...
 ```
 
 #### `librarian config editions`
 
-List all editions.
+List all editions (convenience command).
 
 ```bash
 # List edition names
@@ -313,48 +252,77 @@ librarian config editions
 # Output:
 # secretmanager
 # pubsub
+# storage
 ```
 
-## Key Notation
+## Key Notation and Scoping
 
-Use **dot notation** for nested keys:
+### Dot Notation for Nested Keys
+
+Use **dot notation** to access nested configuration values:
 
 ```bash
-# Repository level
+# Top-level keys
+language
+version
+
+# Nested keys
 sources.googleapis.url
+sources.googleapis.sha256
 generate.container.image
 generate.container.tag
+generate.output_dir
 
-# Edition level (requires --edition flag)
---edition secretmanager generate.metadata.name_pretty
---edition secretmanager generate.apis[0].path
+# Edition-level nested keys (with --edition flag)
+version
+generate.metadata.name_pretty
+generate.metadata.release_level
+generate.metadata.product_documentation
 ```
 
-**Array access:**
-- Use `--add` flag to append to arrays
-- Use `--from-array` with `delete` to remove from arrays
-- Use `[index]` notation for direct access (advanced)
-
-## Scoping
+### Configuration Scopes
 
 Configuration has two scopes:
 
-1. **Repository-level** (default)
-   - `version`, `language`, `sources`, `generate`, `release`
+**1. Repository-level** (default, no flag needed)
+- Top-level settings that apply to entire repository
+- Examples: `version`, `language`, `sources`, `generate`, `release`
 
-2. **Edition-level** (requires `--edition <name>`)
-   - Anything under `editions[].`
-   - Examples: `version`, `apis`, `generate.metadata`, etc.
-
-**Examples:**
 ```bash
-# Repository-level: no flag needed
 librarian config get language
 librarian config set generate.container.tag latest
+librarian config set sources.googleapis.url https://...
+```
 
-# Edition-level: requires --edition flag
+**2. Edition-level** (requires `--edition <name>` flag)
+- Settings specific to a library/package
+- Examples: `version`, `generate.metadata`, `keep`, `remove`
+
+```bash
 librarian config get --edition secretmanager version
 librarian config set --edition secretmanager generate.metadata.release_level stable
+librarian config add --edition secretmanager keep README.md
+```
+
+### Array vs Scalar Keys
+
+Some keys hold **scalar values** (use `set`/`delete`):
+- `language`
+- `version`
+- `generate.container.tag`
+- `generate.metadata.release_level`
+
+Some keys hold **arrays** (use `add`/`remove`/`delete`):
+- `keep` - File patterns to preserve during generation
+- `remove` - File patterns to delete after generation
+
+**The command validates key types:**
+```bash
+# Error: keep is an array, use 'add' not 'set'
+librarian config set --edition secretmanager keep README.md
+
+# Correct:
+librarian config add --edition secretmanager keep README.md
 ```
 
 ## Output Formats
@@ -394,7 +362,7 @@ To list all keys: librarian config list
 $ librarian config set language rust
 Error: Unsupported language 'rust'
 
-Supported languages: go, python, dart
+Supported languages: go, python, rust
 ```
 
 ```bash
@@ -485,23 +453,45 @@ type FieldSpec struct {
 func (s *Schema) Validate(config *Config) []error
 ```
 
-## Alternatives Considered
+## API Management: Why Not in Config?
 
-### Alternative 1: npm-style Subcommands
+APIs are intentionally **NOT** managed through `librarian config` commands. Instead:
 
 ```bash
-librarian config set language go
-librarian config get language
-librarian config delete language
+# Add APIs (uses librarian new)
+librarian new secretmanager google/cloud/secretmanager/v1
+librarian new secretmanager google/cloud/secretmanager/v1beta2  # Add to existing
+
+# Remove APIs (uses librarian remove)
+librarian remove secretmanager google/cloud/secretmanager/v1beta2
+```
+
+**Rationale:**
+1. **Complex operation** - Adding an API requires parsing BUILD.bazel, extracting metadata, validation
+2. **Code generation** - `new` generates code immediately, not just config
+3. **Domain-specific** - APIs are the primary entity, deserve dedicated commands
+4. **Clear semantics** - `new`/`remove` vs `add`/`remove` (which could be confused with array operations)
+
+**Config focuses on:**
+- Scalar values (metadata, versions, settings)
+- File patterns (keep/remove arrays)
+- Repository settings (sources, container images)
+
+## Alternatives Considered
+
+### Alternative 1: go mod edit Style (Rejected)
+
+```bash
+librarian config -set language=go -edition secretmanager -add-keep README.md
 ```
 
 **Rejected because:**
-- Verbose for scripting (need to type `set` for every change)
-- Cannot compose multiple edits atomically
-- Less efficient for tools/automation
-- Separate commands mean separate file writes
+- Confusing flag ordering and context switching
+- Not the industry standard (only go mod edit uses this)
+- Designed for tools, not humans
+- Less discoverable than explicit subcommands
 
-### Alternative 2: Git-style Hybrid
+### Alternative 2: Git-style Hybrid (Rejected)
 
 ```bash
 librarian config language        # Get
@@ -514,7 +504,31 @@ librarian config --unset language # Delete
 - Harder to parse and validate
 - Less clear intent
 
-### Alternative 3: Opening Editor
+### Alternative 3: Using `set` for Arrays (Rejected)
+
+```bash
+librarian config set --add --edition secretmanager keep README.md
+librarian config set --remove --edition secretmanager keep docs/
+```
+
+**Rejected because:**
+- `set --add` is verbose and confusing
+- Flags modifying subcommand behavior is unclear
+- Less intuitive than dedicated `add`/`remove` subcommands
+
+### Alternative 4: Array Notation in Keys (Rejected)
+
+```bash
+librarian config set --edition secretmanager 'keep[]' README.md
+librarian config delete --edition secretmanager 'keep[README.md]'
+```
+
+**Rejected because:**
+- Weird syntax requiring quotes
+- Not used by other tools
+- Less clear than `add`/`remove` verbs
+
+### Alternative 5: Opening Editor (Rejected)
 
 ```bash
 librarian config edit  # Opens $EDITOR
@@ -525,9 +539,9 @@ librarian config edit  # Opens $EDITOR
 - Requires interactive session
 - Hard to automate
 - Manual YAML editing error-prone
-- (But could be added as convenience command later)
+- Counter to goal of command-line editing
 
-### Alternative 4: Environment Variables
+### Alternative 6: Environment Variables (Rejected)
 
 ```bash
 LIBRARIAN_LANGUAGE=go librarian generate
@@ -541,117 +555,160 @@ LIBRARIAN_LANGUAGE=go librarian generate
 
 ## Examples
 
-### Complete Workflow: Adding New API Version
+### Complete Workflow: Managing File Patterns
 
 ```bash
-# 1. Check current APIs
-librarian config get -edition secretmanager apis
-# google/cloud/secretmanager/v1
+# 1. View current keep patterns
+librarian config get --edition secretmanager keep
+# (empty or shows existing patterns)
 
-# 2. Add new API version
-librarian config -edition secretmanager -add-api google/cloud/secretmanager/v1beta2
+# 2. Add patterns to preserve during regeneration
+librarian config add --edition secretmanager keep README.md
+librarian config add --edition secretmanager keep docs/
+librarian config add --edition secretmanager keep "custom_*.go"
 
 # 3. Verify
-librarian config get -edition secretmanager apis
-# google/cloud/secretmanager/v1
-# google/cloud/secretmanager/v1beta2
+librarian config get --edition secretmanager keep
+# README.md
+# docs/
+# custom_*.go
 
-# 4. Regenerate code
+# 4. Remove a pattern
+librarian config remove --edition secretmanager keep docs/
+
+# 5. Regenerate code (patterns are applied)
 librarian generate secretmanager
 ```
 
-### Complete Workflow: Updating googleapis
+### Complete Workflow: Updating Repository Config
 
 ```bash
-# 1. Check current version
-librarian config get sources.googleapis.url
-# https://github.com/googleapis/googleapis/archive/abc123.tar.gz
+# 1. Check current settings
+librarian config get language
+librarian config get generate.container.tag
 
-# 2. Update using dedicated command (preferred)
-librarian update --googleapis
+# 2. Update settings
+librarian config set language python
+librarian config set generate.container.tag v2.0.0
 
-# OR update manually via config command
-librarian config \
-  -set sources.googleapis.url=https://github.com/googleapis/googleapis/archive/xyz789.tar.gz \
-  -set sources.googleapis.sha256=867048ec8f0850a4d77ad836319e4c0a0c624928611af8a900cd77e676164e8e
+# 3. Update googleapis source
+librarian config set sources.googleapis.url https://github.com/googleapis/googleapis/archive/xyz789.tar.gz
+librarian config set sources.googleapis.sha256 867048ec8f0850a4d77ad836319e4c0a0c624928611af8a900cd77e676164e8e
 
-# 3. Regenerate all libraries
-librarian generate --all
+# 4. Verify changes
+librarian config list
 ```
 
-### Complete Workflow: Changing Metadata
+### Complete Workflow: Updating Edition Metadata
 
 ```bash
-# Update multiple metadata fields at once
-librarian config -edition secretmanager \
-  -set-metadata release_level=stable \
-  -set-metadata product_documentation=https://cloud.google.com/secret-manager/docs \
-  -set-metadata name_pretty="Secret Manager"
+# 1. Check current metadata
+librarian config get --edition secretmanager generate.metadata.release_level
 
-# View all metadata
-librarian config get -edition secretmanager generate.metadata -json
+# 2. Update metadata fields
+librarian config set --edition secretmanager generate.metadata.release_level stable
+librarian config set --edition secretmanager generate.metadata.name_pretty "Secret Manager"
+librarian config set --edition secretmanager generate.metadata.product_documentation https://cloud.google.com/secret-manager/docs
+
+# 3. View all metadata as JSON
+librarian config get --json --edition secretmanager generate.metadata
 ```
 
-### Complete Workflow: Setting Up New Edition
+### Complete Workflow: Adding New Library with Config
 
 ```bash
-# Create edition and configure it in one command
-librarian config \
-  -add-edition secretmanager \
-  -edition secretmanager \
-  -add-api google/cloud/secretmanager/v1 \
-  -add-api google/cloud/secretmanager/v1beta2 \
-  -set-version 0.1.0 \
-  -set-metadata name_pretty="Secret Manager" \
-  -set-metadata release_level=stable
+# 1. Use 'librarian new' to add library and APIs
+librarian new secretmanager google/cloud/secretmanager/v1
 
-# Verify with print flag (doesn't write to file)
-librarian config -edition secretmanager -print
+# 2. Configure file patterns
+librarian config add --edition secretmanager keep README.md
+librarian config add --edition secretmanager keep docs/
 
-# Now generate code
+# 3. Update metadata
+librarian config set --edition secretmanager generate.metadata.release_level stable
+
+# 4. Generate code
 librarian generate secretmanager
 ```
 
 ### Scripting Example: Batch Updates
 
 ```bash
-# Update multiple editions in a script
+# Update release level for multiple editions
 for edition in secretmanager pubsub storage; do
-  librarian config -edition $edition -set-metadata release_level=stable
+  librarian config set --edition $edition generate.metadata.release_level stable
 done
 
-# Conditional updates based on edition state
-if librarian config get -edition secretmanager version | grep -q "null"; then
-  librarian config -edition secretmanager -set-version 0.1.0
+# Add standard keep patterns to all editions
+for edition in $(librarian config editions); do
+  librarian config add --edition $edition keep README.md
+  librarian config add --edition $edition keep CHANGES.md
+done
+
+# Conditional updates
+if librarian config get --edition secretmanager version | grep -q "null"; then
+  librarian config set --edition secretmanager version 0.1.0
 fi
 ```
 
 ## Summary
 
-The `librarian config` command provides a scriptable, composable interface for managing configuration, following the `go mod edit` pattern:
+The `librarian config` command provides a clear, scriptable interface for managing configuration, following industry-standard patterns from npm, gcloud, and git:
 
-**Editing flags (modify config):**
-- `-set <key>=<value>` / `-unset <key>` - Repository-level config
-- `-add-edition <name>` / `-drop-edition <name>` - Edition management
-- `-edition <name>` - Scope for edition-specific operations
-- `-add-api <path>` / `-drop-api <path>` - API management
-- `-set-metadata <key>=<value>` / `-unset-metadata <key>` - Metadata
-- `-add-keep/-drop-keep`, `-add-remove/-drop-remove` - File patterns
-- `-set-version <version>` - Edition version
+**Subcommands:**
 
-**Output flags:**
-- `-print` - Output YAML to stdout instead of writing
-- `-json` - Output JSON to stdout instead of writing
-- `-fmt` - Reformat without other changes
+**Scalar operations:**
+- `set <key> <value>` - Set/update scalar value
+- `get <key>` - Retrieve value
+- `delete <key>` - Remove key entirely
+- `list` - Show all configuration
 
-**Query subcommands:**
-- `librarian config list` - View all config
-- `librarian config get <key>` - Retrieve specific values
-- `librarian config editions` - List all editions
+**Array operations:**
+- `add <key> <value>` - Append to array
+- `remove <key> <value>` - Remove from array
 
-**Key benefits:**
-1. **Composable** - Multiple edits in one atomic operation
-2. **Scriptable** - Perfect for automation and tools
-3. **Familiar** - Matches `go mod edit` pattern Go developers know
-4. **Safe** - All changes applied together or not at all
-5. **Inspectable** - `-print` and `-json` for testing before applying
+**Query operations:**
+- `editions` - List all editions (convenience)
+
+**Flags:**
+- `--edition <name>` - Scope operations to specific edition
+- `--json` - Output as JSON (for `get`/`list`)
+
+**Key Design Principles:**
+
+1. **Clear verbs** - Each subcommand has obvious meaning
+   - `set` = replace scalar
+   - `add` = append to array
+   - `remove` = remove from array
+   - `delete` = delete key
+
+2. **Industry standard** - Follows patterns from npm, gcloud, gh, git
+   - Familiar to developers
+   - Discoverable through `--help`
+   - Matches existing mental models
+
+3. **Type-aware** - Commands validate key types
+   - Can't `set` an array (use `add`)
+   - Can't `add` to scalar (use `set`)
+   - Clear error messages
+
+4. **Separation of concerns** - Config handles settings, not APIs
+   - `librarian new` - Add libraries and APIs
+   - `librarian remove` - Remove libraries and APIs
+   - `librarian config` - Manage settings and file patterns
+
+5. **Scriptable** - Perfect for automation
+   - Consistent exit codes
+   - Machine-readable JSON output
+   - Composable in shell scripts
+
+**What this handles:**
+- ✅ Repository settings (language, sources, container images)
+- ✅ Edition metadata (release_level, documentation URLs)
+- ✅ Version management
+- ✅ File patterns (keep/remove arrays)
+
+**What this does NOT handle:**
+- ❌ API management (use `librarian new`/`librarian remove`)
+- ❌ Code generation (use `librarian generate`)
+- ❌ Releases (use `librarian release`)
