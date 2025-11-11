@@ -1,6 +1,6 @@
-# A Tour of librarianx
+# A Tour of librarian
 
-Librarianx is a tool for managing Google Cloud client libraries across multiple
+Librarian is a tool for managing Google Cloud client libraries across multiple
 languages. It handles code generation from API definitions, version management,
 and publishing to package registries.
 
@@ -10,10 +10,10 @@ updates, and publish releases.
 
 ## Installation
 
-Start by installing librarianx:
+Start by installing librarian:
 
 ```
-$ go install github.com/julieqiu/librarianx@latest
+$ go install github.com/julieqiu/librarian@latest
 ```
 
 ## Your First Library: Go Secret Manager
@@ -30,10 +30,10 @@ $ cd google-cloud-go
 
 ### Initialize the Repository
 
-Initialize a Go repository with `librarianx init`:
+Initialize a Go repository with `librarian init`:
 
 ```
-$ librarianx init go
+$ librarian init go
 Created librarian.yaml
 ```
 
@@ -72,7 +72,7 @@ Before generating code, install the Go generator dependencies. You can either
 install them locally or use a Docker container:
 
 ```
-$ librarianx install go --use-container
+$ librarian install go --use-container
 Using Docker container for code generation
 Container image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/go-librarian-generator:latest
 ```
@@ -85,7 +85,7 @@ environments. You can omit it to install dependencies locally instead.
 Create the Secret Manager library. When you know all APIs upfront, use `create`:
 
 ```
-$ librarianx create secretmanager google/cloud/secretmanager/v1
+$ librarian create secretmanager google/cloud/secretmanager/v1
 Parsing googleapis BUILD.bazel files...
 Created edition entry in librarian.yaml
 Downloading googleapis...
@@ -144,11 +144,11 @@ Your first client library is ready!
 Secret Manager has a beta API. Add it with `librarian add`, then regenerate:
 
 ```
-$ librarianx add secretmanager google/cloud/secretmanager/v1beta2
+$ librarian add secretmanager google/cloud/secretmanager/v1beta2
 Parsing googleapis BUILD.bazel files...
 Updated edition entry in librarian.yaml
 
-$ librarianx generate secretmanager
+$ librarian generate secretmanager
 Running generator container...
 Generated secretmanager/
 ```
@@ -178,7 +178,7 @@ $ git commit -m "feat(secretmanager): add Secret Manager client library"
 See what would be released (dry-run mode):
 
 ```
-$ librarianx release secretmanager
+$ librarian release secretmanager
 Analyzing secretmanager for release...
 
 Pending changes since last release:
@@ -195,13 +195,13 @@ Would perform:
   ✓ Publish to pkg.go.dev (auto-indexed from tag)
 
 To proceed, run:
-  librarianx release secretmanager --execute
+  librarian release secretmanager --execute
 ```
 
 Actually perform the release:
 
 ```
-$ librarianx release secretmanager --execute
+$ librarian release secretmanager --execute
 Releasing secretmanager...
 
 ✓ Updated secretmanager/internal/version.go: 0.1.0
@@ -223,7 +223,7 @@ indexes the module automatically.
 Let's add Access Approval to our Go repository:
 
 ```
-$ librarianx create accessapproval google/cloud/accessapproval/v1
+$ librarian create accessapproval google/cloud/accessapproval/v1
 Created edition entry in librarian.yaml
 Generated accessapproval/
 ```
@@ -236,7 +236,7 @@ editions. This is common when googleapis adds new methods or fixes bugs.
 Update the googleapis source:
 
 ```
-$ librarianx update --googleapis
+$ librarian update --googleapis
 Fetching latest googleapis commit...
 Updated librarian.yaml:
   sources.googleapis.url: https://github.com/googleapis/googleapis/archive/a1b2c3d4...tar.gz
@@ -246,7 +246,7 @@ Updated librarian.yaml:
 Regenerate all editions:
 
 ```
-$ librarianx generate --all
+$ librarian generate --all
 Generated secretmanager/
 Generated accessapproval/
 ```
@@ -261,7 +261,7 @@ $ git commit -m "feat: update to googleapis a1b2c3d4"
 Release everything that changed:
 
 ```
-$ librarianx release --all
+$ librarian release --all
 Analyzing all editions for release...
 
 Found 2 editions with pending releases:
@@ -270,13 +270,13 @@ Found 2 editions with pending releases:
 
 Would perform releases for both editions.
 To proceed, run:
-  librarianx release --all --execute
+  librarian release --all --execute
 ```
 
 Execute the release:
 
 ```
-$ librarianx release --all --execute
+$ librarian release --all --execute
 Releasing 2 editions...
 
 ✓ Released secretmanager v0.2.0
@@ -298,7 +298,7 @@ $ cd google-cloud-python
 Initialize a Python repository:
 
 ```
-$ librarianx init python
+$ librarian init python
 Created librarian.yaml
 ```
 
@@ -313,7 +313,7 @@ $ nano librarian.yaml
 Install Python generator dependencies:
 
 ```
-$ librarianx install python --use-container
+$ librarian install python --use-container
 Using Docker container for code generation
 Container image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator:latest
 ```
@@ -321,7 +321,7 @@ Container image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod
 Create Secret Manager edition:
 
 ```
-$ librarianx create google-cloud-secret-manager google/cloud/secretmanager/v1 google/cloud/secretmanager/v1beta2
+$ librarian create google-cloud-secret-manager google/cloud/secretmanager/v1 google/cloud/secretmanager/v1beta2
 Created edition entry in librarian.yaml
 Generated packages/google-cloud-secret-manager/
 ```
@@ -350,7 +350,7 @@ Release workflow is similar to Go, but publishes to PyPI:
 ```
 $ git add .
 $ git commit -m "feat(secretmanager): add Secret Manager Python client"
-$ librarianx release google-cloud-secret-manager --execute
+$ librarian release google-cloud-secret-manager --execute
 Releasing google-cloud-secret-manager...
 
 ✓ Updated version to 0.1.0
@@ -378,7 +378,7 @@ $ cd google-cloud-rust
 Initialize a Rust repository:
 
 ```
-$ librarianx init rust
+$ librarian init rust
 Created librarian.yaml
 ```
 
@@ -392,7 +392,7 @@ $ nano librarian.yaml
 Install Rust generator dependencies:
 
 ```
-$ librarianx install rust --use-container
+$ librarian install rust --use-container
 Using Docker container for code generation
 Container image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/rust-librarian-generator:latest
 ```
@@ -400,11 +400,11 @@ Container image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod
 Create editions:
 
 ```
-$ librarianx create secretmanager google/cloud/secretmanager/v1
+$ librarian create secretmanager google/cloud/secretmanager/v1
 Created edition entry in librarian.yaml
 Generated generated/google-cloud-secretmanager-v1/
 
-$ librarianx create accessapproval google/cloud/accessapproval/v1
+$ librarian create accessapproval google/cloud/accessapproval/v1
 Created edition entry in librarian.yaml
 Generated generated/google-cloud-accessapproval-v1/
 ```
@@ -426,7 +426,7 @@ Release workflow is similar, but publishes to crates.io:
 ```
 $ git add .
 $ git commit -m "feat: add Rust client editions"
-$ librarianx release --all --execute
+$ librarian release --all --execute
 Releasing 2 editions...
 
 ✓ Released google-cloud-secretmanager-v1 v0.1.0
@@ -444,7 +444,7 @@ Done!
 
 ## Working with Handwritten Code
 
-Not all code needs to be generated. You can use librarianx just for release
+Not all code needs to be generated. You can use librarian just for release
 management.
 
 Go back to the Go repository and create a handwritten edition:
@@ -458,7 +458,7 @@ $ echo "package customtool\n\nfunc Hello() { println(\"hello\") }" > custom-tool
 Add it to librarian (release-only, no APIs):
 
 ```
-$ librarianx add custom-tool
+$ librarian add custom-tool
 Created edition entry in librarian.yaml
 ```
 
@@ -475,7 +475,7 @@ Now you can release it like any other edition:
 ```
 $ git add .
 $ git commit -m "feat(custom-tool): add custom tool"
-$ librarianx release custom-tool --execute
+$ librarian release custom-tool --execute
 Releasing custom-tool...
 
 ✓ Updated version to 0.1.0
@@ -489,16 +489,16 @@ Release complete!
 
 ## Summary
 
-Librarianx provides a consistent workflow across languages:
+Librarian provides a consistent workflow across languages:
 
-1. **Initialize** - `librarianx init <language>`
-2. **Install** - `librarianx install <language> --use-container`
-3. **Add APIs** - `librarianx add <name> <api-paths>` (adds APIs to existing edition)
-4. **Create Edition** - `librarianx create <name> <api-paths>` (creates new edition when all APIs known upfront)
-5. **Regenerate** - `librarianx generate <name>` or `librarianx generate --all`
-6. **Test** - `librarianx test <name>` or `librarianx test --all`
-7. **Update Sources** - `librarianx update --googleapis` or `librarianx update --all`
-8. **Release** - `librarianx release <name>` (dry-run) or `librarianx release <name> --execute`
+1. **Initialize** - `librarian init <language>`
+2. **Install** - `librarian install <language> --use-container`
+3. **Add APIs** - `librarian add <name> <api-paths>` (adds APIs to existing edition)
+4. **Create Edition** - `librarian create <name> <api-paths>` (creates new edition when all APIs known upfront)
+5. **Regenerate** - `librarian generate <name>` or `librarian generate --all`
+6. **Test** - `librarian test <name>` or `librarian test --all`
+7. **Update Sources** - `librarian update --googleapis` or `librarian update --all`
+8. **Release** - `librarian release <name>` (dry-run) or `librarian release <name> --execute`
 
 Key differences:
 - **`create`**: Creates a new edition with initial APIs (syntactic sugar for `add` + `generate`); fails if directory exists
@@ -507,11 +507,11 @@ Key differences:
 Typical workflow:
 ```bash
 # Create new edition with initial API
-librarianx create secretmanager google/cloud/secretmanager/v1
+librarian create secretmanager google/cloud/secretmanager/v1
 
 # Later, add another API version
-librarianx add secretmanager google/cloud/secretmanager/v1beta2
-librarianx generate secretmanager
+librarian add secretmanager google/cloud/secretmanager/v1beta2
+librarian generate secretmanager
 ```
 
 The same commands work for Go, Python, and Rust. Configuration lives in the
@@ -523,4 +523,4 @@ Key differences by language:
 - **Rust**: Uses `generated/` directory, publishes to crates.io with semver checks
 
 Try it out! Feedback and bug reports are welcome at
-https://github.com/julieqiu/librarianx/issues.
+https://github.com/julieqiu/librarian/issues.
