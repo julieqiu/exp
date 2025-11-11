@@ -3,10 +3,11 @@ package librarian
 import (
 	"context"
 	"errors"
+	"os"
 	"strings"
 	"testing"
 
-	"github.com/google/go-cmp/cmp"
+	"github.com/julieqiu/xlibrarian/internal/config"
 )
 
 func TestRun_Version(t *testing.T) {
@@ -220,15 +221,86 @@ func TestReleaseCommand_AllFlag(t *testing.T) {
 	}
 }
 
-func TestRunInit_NotImplemented(t *testing.T) {
+func TestRunInit_CreatesConfig(t *testing.T) {
+	for _, test := range []struct {
+		name     string
+		language string
+		wantErr  bool
+	}{
+		{
+			name:     "go",
+			language: "go",
+			wantErr:  false,
+		},
+		{
+			name:     "python",
+			language: "python",
+			wantErr:  false,
+		},
+		{
+			name:     "rust",
+			language: "rust",
+			wantErr:  false,
+		},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			// Create temp directory
+			tmpDir := t.TempDir()
+			oldDir, _ := os.Getwd()
+			defer os.Chdir(oldDir)
+			os.Chdir(tmpDir)
+
+			ctx := context.Background()
+			err := runInit(ctx, test.language)
+			if (err != nil) != test.wantErr {
+				t.Errorf("runInit() error = %v, wantErr %v", err, test.wantErr)
+				return
+			}
+
+			if test.wantErr {
+				return
+			}
+
+			// Verify librarian.yaml was created
+			cfg, err := config.Read("librarian.yaml")
+			if err != nil {
+				t.Fatalf("failed to read created config: %v", err)
+			}
+
+			// Verify language matches
+			if cfg.Language != test.language {
+				t.Errorf("language = %q, want %q", cfg.Language, test.language)
+			}
+
+			// Verify config is valid
+			if err := cfg.Validate(); err != nil {
+				t.Errorf("created config is invalid: %v", err)
+			}
+		})
+	}
+}
+
+func TestRunInit_PreventsOverwrite(t *testing.T) {
+	// Create temp directory
+	tmpDir := t.TempDir()
+	oldDir, _ := os.Getwd()
+	defer os.Chdir(oldDir)
+	os.Chdir(tmpDir)
+
 	ctx := context.Background()
+
+	// First init should succeed
+	if err := runInit(ctx, "go"); err != nil {
+		t.Fatalf("first runInit() failed: %v", err)
+	}
+
+	// Second init should fail
 	err := runInit(ctx, "go")
 	if err == nil {
-		t.Error("runInit should return not implemented error")
+		t.Error("runInit() should fail when librarian.yaml exists")
 	}
-	want := "init command not yet implemented for language: go"
-	if diff := cmp.Diff(want, err.Error()); diff != "" {
-		t.Errorf("mismatch (-want +got):\n%s", diff)
+	if !strings.Contains(err.Error(), "already exists") {
+		t.Errorf("expected 'already exists' error, got: %v", err)
 	}
 }
 

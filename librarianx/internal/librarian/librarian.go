@@ -4,13 +4,15 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"os"
 
+	"github.com/julieqiu/xlibrarian/internal/config"
 	"github.com/urfave/cli/v3"
 )
 
 // Sentinel errors for validation.
 var (
-	errLanguageRequired      = errors.New("language argument required (go, python, rust, dart)")
+	errLanguageRequired      = errors.New("language argument required (go, python, rust)")
 	errArtifactPathRequired  = errors.New("artifact path required")
 	errArtifactOrAllRequired = errors.New("artifact path required (or use --all)")
 	errUpdateFlagRequired    = errors.New("one of --all, --googleapis, or --discovery required")
@@ -47,7 +49,7 @@ func initCommand() *cli.Command {
 
    Creates .librarian/config.yaml with default settings for the language.
 
-   Supported languages: go, python, rust, dart
+   Supported languages: go, python, rust
 
    Example:
      librarianx init go
@@ -338,7 +340,102 @@ func releaseCommand() *cli.Command {
 // These will be implemented in separate files.
 
 func runInit(ctx context.Context, language string) error {
-	return fmt.Errorf("init command not yet implemented for language: %s", language)
+	// Check if librarian.yaml already exists
+	const configPath = "librarian.yaml"
+	if _, err := os.Stat(configPath); err == nil {
+		return fmt.Errorf("librarian.yaml already exists in current directory")
+	}
+
+	// Create default config based on language
+	cfg := createDefaultConfig(language)
+
+	// Write config to librarian.yaml
+	if err := cfg.Write(configPath); err != nil {
+		return fmt.Errorf("failed to write config: %w", err)
+	}
+
+	fmt.Printf("Created librarian.yaml\n")
+	return nil
+}
+
+func createDefaultConfig(language string) *config.Config {
+	cfg := &config.Config{
+		Version:  "v0.1.0",
+		Language: language,
+		Release: &config.Release{
+			TagFormat: "{id}/v{version}",
+		},
+	}
+
+	// Add language-specific defaults
+	switch language {
+	case "go":
+		cfg.Container = &config.Container{
+			Image: "us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/go-librarian-generator",
+			Tag:   "latest",
+		}
+		cfg.Sources = config.Sources{
+			Googleapis: &config.Source{
+				URL:    "https://github.com/googleapis/googleapis/archive/9fcfbea0aa5b50fa22e190faceb073d74504172b.tar.gz",
+				SHA256: "81e6057ffd85154af5268c2c3c8f2408745ca0f7fa03d43c68f4847f31eb5f98",
+			},
+		}
+		cfg.Generate = &config.Generate{
+			OutputDir: "./",
+			Defaults: &config.GenerateDefaults{
+				Transport:        "grpc+rest",
+				RestNumericEnums: boolPtr(true),
+				ReleaseLevel:     "stable",
+			},
+		}
+
+	case "python":
+		cfg.Container = &config.Container{
+			Image: "us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator",
+			Tag:   "latest",
+		}
+		cfg.Sources = config.Sources{
+			Googleapis: &config.Source{
+				URL:    "https://github.com/googleapis/googleapis/archive/9fcfbea0aa5b50fa22e190faceb073d74504172b.tar.gz",
+				SHA256: "81e6057ffd85154af5268c2c3c8f2408745ca0f7fa03d43c68f4847f31eb5f98",
+			},
+		}
+		cfg.Generate = &config.Generate{
+			OutputDir: "packages/",
+			Defaults: &config.GenerateDefaults{
+				Transport:        "grpc+rest",
+				RestNumericEnums: boolPtr(true),
+				ReleaseLevel:     "stable",
+			},
+		}
+		cfg.Release.TagFormat = "{name}/v{version}"
+
+	case "rust":
+		cfg.Container = &config.Container{
+			Image: "us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/rust-librarian-generator",
+			Tag:   "latest",
+		}
+		cfg.Sources = config.Sources{
+			Googleapis: &config.Source{
+				URL:    "https://github.com/googleapis/googleapis/archive/9fcfbea0aa5b50fa22e190faceb073d74504172b.tar.gz",
+				SHA256: "81e6057ffd85154af5268c2c3c8f2408745ca0f7fa03d43c68f4847f31eb5f98",
+			},
+		}
+		cfg.Generate = &config.Generate{
+			OutputDir: "generated/",
+			Defaults: &config.GenerateDefaults{
+				Transport:    "grpc+rest",
+				ReleaseLevel: "preview",
+			},
+		}
+		cfg.Release.TagFormat = "{name}/v{version}"
+	}
+
+	return cfg
+}
+
+func boolPtr(b bool) *bool {
+	return &b
 }
 
 func runInstall(ctx context.Context, language string, useContainer bool) error {
