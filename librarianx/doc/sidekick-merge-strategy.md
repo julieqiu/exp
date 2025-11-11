@@ -68,7 +68,6 @@ The only difference is language-specific implementation:
 - **Rust**: Uses `Cargo.toml`, runs `cargo semver-checks`
 - **Python**: Uses `pyproject.toml` / `setup.py`, runs Python validators
 - **Go**: Uses `go.mod`, runs Go validators
-- **Dart**: Uses `pubspec.yaml`, runs Dart validators
 
 **Implementation**: `librarian prepare` dispatches to language-specific prepare logic from `internal/sidekick/rust_release/`.
 
