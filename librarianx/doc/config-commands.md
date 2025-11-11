@@ -10,7 +10,7 @@ Currently, users must manually edit librarian.yaml to update configuration. This
 
 This document proposes a `librarian config` command with subcommands to manage configuration programmatically, inspired by successful patterns from npm, git, and gcloud.
 
-**Note:** APIs are managed through `librarian new` and `librarian remove` commands, not through `librarian config`. The config command focuses on scalar values and file pattern arrays (keep/remove).
+**Note:** APIs are managed through `librarian add`, `librarian create`, and `librarian remove` commands, not through `librarian config`. The config command focuses on scalar values and file pattern arrays (keep/remove).
 
 ## Research: Config Command Patterns
 
@@ -458,19 +458,25 @@ func (s *Schema) Validate(config *Config) []error
 APIs are intentionally **NOT** managed through `librarian config` commands. Instead:
 
 ```bash
-# Add APIs (uses librarian new)
-librarian new secretmanager google/cloud/secretmanager/v1
-librarian new secretmanager google/cloud/secretmanager/v1beta2  # Add to existing
+# Create new edition with initial API(s) (syntactic sugar for add + generate)
+librarian create secretmanager google/cloud/secretmanager/v1
 
-# Remove APIs (uses librarian remove)
+# Later, add more APIs to existing edition (incremental)
+librarian add secretmanager google/cloud/secretmanager/v1beta2
+librarian generate secretmanager
+
+# Add edition without APIs (release-only)
+librarian add custom-tool
+
+# Remove APIs
 librarian remove secretmanager google/cloud/secretmanager/v1beta2
 ```
 
 **Rationale:**
 1. **Complex operation** - Adding an API requires parsing BUILD.bazel, extracting metadata, validation
-2. **Code generation** - `new` generates code immediately, not just config
+2. **Code generation** - `create` generates code immediately; `add` updates config for later generation
 3. **Domain-specific** - APIs are the primary entity, deserve dedicated commands
-4. **Clear semantics** - `new`/`remove` vs `add`/`remove` (which could be confused with array operations)
+4. **Clear semantics** - `create` (initial edition creation) vs `add` (incremental additions) vs config `add` (array operations)
 
 **Config focuses on:**
 - Scalar values (metadata, versions, settings)
@@ -614,11 +620,11 @@ librarian config set --edition secretmanager generate.metadata.product_documenta
 librarian config get --json --edition secretmanager generate.metadata
 ```
 
-### Complete Workflow: Adding New Library with Config
+### Complete Workflow: Creating New Edition with Config
 
 ```bash
-# 1. Use 'librarian new' to add library and APIs
-librarian new secretmanager google/cloud/secretmanager/v1
+# 1. Use 'librarian create' to create edition with initial APIs
+librarian create secretmanager google/cloud/secretmanager/v1
 
 # 2. Configure file patterns
 librarian config add --edition secretmanager keep README.md
@@ -627,7 +633,8 @@ librarian config add --edition secretmanager keep docs/
 # 3. Update metadata
 librarian config set --edition secretmanager generate.metadata.release_level stable
 
-# 4. Generate code
+# 4. Later, add more APIs
+librarian add secretmanager google/cloud/secretmanager/v1beta2
 librarian generate secretmanager
 ```
 
@@ -693,8 +700,9 @@ The `librarian config` command provides a clear, scriptable interface for managi
    - Clear error messages
 
 4. **Separation of concerns** - Config handles settings, not APIs
-   - `librarian new` - Add libraries and APIs
-   - `librarian remove` - Remove libraries and APIs
+   - `librarian create` - Create new editions with initial APIs
+   - `librarian add` - Add more APIs to existing editions (incremental)
+   - `librarian remove` - Remove editions and APIs
    - `librarian config` - Manage settings and file patterns
 
 5. **Scriptable** - Perfect for automation
@@ -709,6 +717,6 @@ The `librarian config` command provides a clear, scriptable interface for managi
 - ✅ File patterns (keep/remove arrays)
 
 **What this does NOT handle:**
-- ❌ API management (use `librarian new`/`librarian remove`)
+- ❌ API management (use `librarian add`/`librarian create`/`librarian remove`)
 - ❌ Code generation (use `librarian generate`)
 - ❌ Releases (use `librarian release`)

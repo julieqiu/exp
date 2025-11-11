@@ -369,10 +369,10 @@ release:
 
 ## Initial Release
 
-For libraries that have never been released (version: null):
+For editions that have never been released (version: null):
 
 ```bash
-# After creating a library with 'librarian new'
+# After creating an edition with 'librarian add' or 'librarian create'
 cat secretmanager/.librarian.yaml
 # release:
 #   version: null

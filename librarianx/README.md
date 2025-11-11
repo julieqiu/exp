@@ -82,10 +82,10 @@ environments. You can omit it to install dependencies locally instead.
 
 ### Create Your First Library
 
-Create the Secret Manager library:
+Create the Secret Manager library. When you know all APIs upfront, use `create`:
 
 ```
-$ librarianx new secretmanager google/cloud/secretmanager/v1
+$ librarianx create secretmanager google/cloud/secretmanager/v1
 Parsing googleapis BUILD.bazel files...
 Created edition entry in librarian.yaml
 Downloading googleapis...
@@ -98,6 +98,8 @@ This command:
 2. Reads `google/cloud/secretmanager/v1/BUILD.bazel` to extract configuration
 3. Creates an edition entry in `librarian.yaml`
 4. Generates the code immediately
+
+Note: `create` will fail if the edition directory already exists. For adding APIs to an existing edition, use `add` instead.
 
 Notice that Go uses directory names without prefixes (secretmanager, not
 google-cloud-secretmanager). This matches Go module conventions.
@@ -139,24 +141,13 @@ Your first client library is ready!
 
 ### Add Another API Version
 
-Secret Manager has a beta API. You can add it by manually editing the config or recreating:
+Secret Manager has a beta API. Add it with `librarian add`, then regenerate:
 
 ```
-$ nano librarian.yaml
-# Find the secretmanager edition and add google/cloud/secretmanager/v1beta2 to the apis list
-```
+$ librarianx add secretmanager google/cloud/secretmanager/v1beta2
+Parsing googleapis BUILD.bazel files...
+Updated edition entry in librarian.yaml
 
-The edition now has two APIs:
-
-```
-$ grep "path:" librarian.yaml | grep secretmanager
-    - path: google/cloud/secretmanager/v1
-    - path: google/cloud/secretmanager/v1beta2
-```
-
-Regenerate to include the beta API:
-
-```
 $ librarianx generate secretmanager
 Running generator container...
 Generated secretmanager/
@@ -232,7 +223,7 @@ indexes the module automatically.
 Let's add Access Approval to our Go repository:
 
 ```
-$ librarianx new accessapproval google/cloud/accessapproval/v1
+$ librarianx create accessapproval google/cloud/accessapproval/v1
 Created edition entry in librarian.yaml
 Generated accessapproval/
 ```
@@ -330,7 +321,7 @@ Container image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod
 Create Secret Manager edition:
 
 ```
-$ librarianx new google-cloud-secret-manager google/cloud/secretmanager/v1 google/cloud/secretmanager/v1beta2
+$ librarianx create google-cloud-secret-manager google/cloud/secretmanager/v1 google/cloud/secretmanager/v1beta2
 Created edition entry in librarian.yaml
 Generated packages/google-cloud-secret-manager/
 ```
@@ -409,11 +400,11 @@ Container image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod
 Create editions:
 
 ```
-$ librarianx new secretmanager google/cloud/secretmanager/v1
+$ librarianx create secretmanager google/cloud/secretmanager/v1
 Created edition entry in librarian.yaml
 Generated generated/google-cloud-secretmanager-v1/
 
-$ librarianx new accessapproval google/cloud/accessapproval/v1
+$ librarianx create accessapproval google/cloud/accessapproval/v1
 Created edition entry in librarian.yaml
 Generated generated/google-cloud-accessapproval-v1/
 ```
@@ -464,10 +455,10 @@ $ mkdir custom-tool
 $ echo "package customtool\n\nfunc Hello() { println(\"hello\") }" > custom-tool/tool.go
 ```
 
-Add it to librarian:
+Add it to librarian (release-only, no APIs):
 
 ```
-$ librarianx new custom-tool
+$ librarianx add custom-tool
 Created edition entry in librarian.yaml
 ```
 
@@ -502,11 +493,26 @@ Librarianx provides a consistent workflow across languages:
 
 1. **Initialize** - `librarianx init <language>`
 2. **Install** - `librarianx install <language> --use-container`
-3. **Create** - `librarianx new <name> <api-paths>` (creates and generates)
-4. **Regenerate** - `librarianx generate <name>` or `librarianx generate --all`
-5. **Test** - `librarianx test <name>` or `librarianx test --all`
-6. **Update Sources** - `librarianx update --googleapis` or `librarianx update --all`
-7. **Release** - `librarianx release <name>` (dry-run) or `librarianx release <name> --execute`
+3. **Add APIs** - `librarianx add <name> <api-paths>` (adds APIs to existing edition)
+4. **Create Edition** - `librarianx create <name> <api-paths>` (creates new edition when all APIs known upfront)
+5. **Regenerate** - `librarianx generate <name>` or `librarianx generate --all`
+6. **Test** - `librarianx test <name>` or `librarianx test --all`
+7. **Update Sources** - `librarianx update --googleapis` or `librarianx update --all`
+8. **Release** - `librarianx release <name>` (dry-run) or `librarianx release <name> --execute`
+
+Key differences:
+- **`create`**: Creates a new edition with initial APIs (syntactic sugar for `add` + `generate`); fails if directory exists
+- **`add`**: Adds more APIs to an existing edition (incremental); updates config only, then run `generate`
+
+Typical workflow:
+```bash
+# Create new edition with initial API
+librarianx create secretmanager google/cloud/secretmanager/v1
+
+# Later, add another API version
+librarianx add secretmanager google/cloud/secretmanager/v1beta2
+librarianx generate secretmanager
+```
 
 The same commands work for Go, Python, and Rust. Configuration lives in the
 `librarian.yaml` file, making everything transparent and version-controlled.

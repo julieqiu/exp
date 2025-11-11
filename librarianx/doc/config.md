@@ -32,7 +32,7 @@ editions:
 ```
 
 **What this enables:**
-- `librarian new <name>` - Track handwritten code for release
+- `librarian add <name>` - Track handwritten code for release
 - `librarian release <name>` - Release editions (dry-run by default)
 - `librarian release <name> --execute` - Actually perform the release
 
@@ -76,7 +76,8 @@ editions:
 ```
 
 **What this enables:**
-- `librarian new <name> <api>` - Create edition and generate code
+- `librarian add <name> <api>` - Add APIs to edition
+- `librarian create <name> <api>` - Create edition and generate code
 - `librarian generate <name>` - Regenerate existing code
 - `librarian test <name>` - Run tests for an edition
 - `librarian update --googleapis` - Update source references
@@ -194,7 +195,7 @@ When present, this edition can be regenerated with `librarian generate`.
 
 **API Configuration** (`apis` array):
 
-Each API entry contains configuration extracted from BUILD.bazel during `librarian new`:
+Each API entry contains configuration extracted from BUILD.bazel during `librarian add` or `librarian create`:
 
 - `path` - API path relative to googleapis root (e.g., `google/cloud/secretmanager/v1`)
 - `grpc_service_config` - Retry configuration file path (relative to API directory)
@@ -234,7 +235,7 @@ Library metadata used to generate documentation and configure the package:
 ### Creating an edition without APIs (release-only)
 
 ```bash
-librarian new my-tool
+librarian add my-tool
 ```
 
 This adds an edition entry to `librarian.yaml`:
@@ -249,21 +250,34 @@ The edition can be released but not regenerated.
 
 ### Creating an edition with APIs (generated code)
 
+Use `create` for initial edition creation:
+
 ```bash
-librarian new google-cloud-secret-manager google/cloud/secretmanager/v1 google/cloud/secretmanager/v1beta2
+librarian create google-cloud-secret-manager google/cloud/secretmanager/v1
 ```
 
-This:
+Later, add more APIs incrementally:
 
-1. Reads `librarian.yaml` to get googleapis location from `sources` section
-2. Downloads googleapis tarball if needed (cached by SHA256)
-3. For each API path (`google/cloud/secretmanager/v1`, `google/cloud/secretmanager/v1beta2`):
-   - Reads `BUILD.bazel` file in that directory
-   - Extracts configuration from language-specific gapic rule (e.g., `py_gapic_library`)
-   - Adds API configuration to edition entry
-4. Adds edition entry to `librarian.yaml` with all extracted config
+```bash
+librarian add google-cloud-secret-manager google/cloud/secretmanager/v1beta2
+librarian generate google-cloud-secret-manager
+```
 
-**Key insight**: BUILD.bazel parsing happens only once during `librarian new`. The
+Both commands:
+
+1. Read `librarian.yaml` to get googleapis location from `sources` section
+2. Download googleapis tarball if needed (cached by SHA256)
+3. For each API path:
+   - Read `BUILD.bazel` file in that directory
+   - Extract configuration from language-specific gapic rule (e.g., `py_gapic_library`)
+   - Add API configuration to edition entry
+4. Add/update edition entry to `librarian.yaml` with all extracted config
+
+The difference:
+- `create` creates a new edition and generates code immediately (syntactic sugar for `add` + `generate`); fails if directory exists
+- `add` only updates the config for existing editions; run `librarian generate` afterward to generate code
+
+**Key insight**: BUILD.bazel parsing happens only once during `librarian add` or `librarian create`. The
 extracted configuration is saved to `librarian.yaml` and reused for all subsequent
 `librarian generate` commands. This makes generation faster and ensures reproducibility
 even if BUILD.bazel files change upstream.
@@ -402,8 +416,8 @@ See [doc/generate.md](generate.md) for detailed generation flows for Python, Go,
 
 ### Why parse BUILD.bazel in the CLI?
 
-- Parsing happens once during `librarian new`, not on every generation
-- Configuration is saved in `.librarian.yaml` for transparency and reproducibility
+- Parsing happens once during `librarian add` or `librarian create`, not on every generation
+- Configuration is saved in `librarian.yaml` for transparency and reproducibility
 - Users can manually edit configuration if BUILD.bazel is incorrect
 - Container remains simple - just executes protoc with provided options
 - Go has excellent Bazel parsing libraries (`github.com/bazelbuild/buildtools/build`)
@@ -468,7 +482,7 @@ librarian generate google-cloud-secret-manager
 
 1. Run `librarian init <language>` to create `librarian.yaml`
 2. For each existing library:
-   - Run `librarian new <name> <apis>` to add edition entry
+   - Run `librarian add <name> <apis>` to add edition entry
    - Verify configuration matches old `.repo-metadata.json`
 3. Delete old `.repo-metadata.json` files
 4. Update CI/CD pipelines to use new commands without flags
