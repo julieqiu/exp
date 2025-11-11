@@ -1,24 +1,21 @@
-# New Configuration System
+# Configuration System
 
-This document describes the new configuration system for Librarian, which uses
-`.librarian.yaml` files instead of flags for all configuration.
+This document describes the configuration system for Librarian, which uses a
+single `librarian.yaml` file instead of flags for all configuration.
 
 ## Overview
 
-The new configuration system has two levels:
+The configuration system uses a single file at the repository root:
 
-1. **Repository configuration** (`.librarian/config.yaml`) - Defines repository-wide
-   settings like language, container images, and googleapis references
-2. **Artifact configuration** (`<artifact>/.librarian.yaml`) - Defines artifact-specific
-   settings like APIs to generate, metadata, and file filtering rules
+- **`librarian.yaml`** - Defines repository-wide settings (language, container images,
+  googleapis references) and all edition configurations
 
 This design eliminates the need for command-line flags and makes all configuration
 transparent and version-controlled.
 
-## Repository Configuration
+## Configuration Structure
 
-The repository configuration file lives at `librarian.yaml` and defines
-repository-wide settings.
+The configuration file lives at `librarian.yaml` at the repository root.
 
 ### Example: Release-only repository
 
@@ -27,13 +24,17 @@ version: v0.5.0
 language: go
 
 release:
-  tag_format: '{name}-v{version}'
+  tag_format: '{name}/v{version}'
+
+editions:
+  - name: custom-tool
+    version: null
 ```
 
 **What this enables:**
-- `librarian new <path>` - Track handwritten code for release
-- `librarian release <path>` - Release editions (dry-run by default)
-- `librarian release <path> --execute` - Actually perform the release
+- `librarian new <name>` - Track handwritten code for release
+- `librarian release <name>` - Release editions (dry-run by default)
+- `librarian release <name> --execute` - Actually perform the release
 
 ### Example: Repository with code generation
 
@@ -49,30 +50,46 @@ sources:
     url: https://github.com/googleapis/discovery-artifact-manager/archive/f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0.tar.gz
     sha256: 867048ec8f0850a4d77ad836319e4c0a0c624928611af8a900cd77e676164e8e
 
+container:
+  image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator
+  tag: latest
+
 generate:
-  container:
-    image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator
-    tag: latest
   output_dir: packages/
+  defaults:
+    transport: grpc+rest
+    rest_numeric_enums: true
+    release_level: stable
 
 release:
-  tag_format: '{name}-v{version}'
+  tag_format: '{name}/v{version}'
+
+editions:
+  - name: google-cloud-secret-manager
+    version: 2.20.0
+    generate:
+      apis:
+        - path: google/cloud/secretmanager/v1
+          name_pretty: "Secret Manager"
+          product_documentation: "https://cloud.google.com/secret-manager/docs"
+          release_level: stable
 ```
 
 **What this enables:**
-- `librarian new <path> <api>` - Create edition and generate code
-- `librarian generate <path>` - Regenerate existing code
-- `librarian test <path>` - Run tests for an edition
+- `librarian new <name> <api>` - Create edition and generate code
+- `librarian generate <name>` - Regenerate existing code
+- `librarian test <name>` - Run tests for an edition
 - `librarian update --googleapis` - Update source references
-- `librarian release <path>` - Release editions (dry-run by default)
-- `librarian release <path> --execute` - Actually perform the release
+- `librarian release <name>` - Release editions (dry-run by default)
+- `librarian release <name> --execute` - Actually perform the release
 
 ### Configuration Fields
 
 #### Top-level fields
 
 - `version` - Version of librarian that created this config
-- `language` - Repository language (`go`, `python`, `rust`, `dart`)
+- `language` - Repository language (`go`, `python`, `rust`)
+- `editions` - Array of edition configurations (see Edition Configuration below)
 
 #### `sources` section (optional)
 
@@ -87,17 +104,22 @@ When present, defines external source repositories used for code generation. Thi
 - **Immutable references** - URLs with commit SHAs ensure reproducible builds
 - **Caching** - Downloads are cached by SHA256 in `~/Library/Caches/librarian/downloads/` to avoid repeated downloads
 - **No race conditions** - Multiple concurrent generations verify the same immutable tarball
-- **Single source of truth** - All artifacts use the same googleapis/discovery versions from the repository config
+- **Single source of truth** - All editions use the same googleapis/discovery versions from the repository config
 - **Separate concerns** - Source versions are separate from generation infrastructure
+
+#### `container` section (optional)
+
+When present, defines the container image used for code generation.
+
+- `image` - Container registry path (without tag)
+- `tag` - Container image tag (e.g., `latest`, `v1.0.0`)
 
 #### `generate` section (optional)
 
-When present, enables code generation commands. This section defines the generation infrastructure (container images, output directory, etc.).
+When present, enables code generation commands. This section defines generation settings.
 
-- `container.image` - Container registry path (without tag)
-- `container.tag` - Container image tag (e.g., `latest`, `v1.0.0`)
-- `dir` - Directory where generated code is written (relative to repository root,
-  with trailing `/`)
+- `output_dir` - Directory where generated code is written (relative to repository root)
+- `defaults` - Default values applied to all editions (see GenerateDefaults below)
 
 #### `release` section (optional)
 
@@ -111,76 +133,77 @@ When present, enables release commands.
     - `pubsub/v2` uses `pubsub/v{version}` (instead of `pubsub/v2/v{version}`)
     - `root-module` uses `v{version}` (no id prefix)
 
-## Artifact Configuration
+## Edition Configuration
 
-Each artifact has its own `.librarian.yaml` file that defines artifact-specific settings.
+Each edition is defined in the `editions` array in `librarian.yaml`.
 
 ### Example: Handwritten code (release-only)
 
 ```yaml
-release:
-  version: null
+editions:
+  - name: custom-tool
+    version: null
 ```
 
-This artifact only has a `release` section, so it can be released but not regenerated.
+This edition only has a `version` field, so it can be released but not regenerated.
 
 ### Example: Generated code
 
 ```yaml
-generate:
-  apis:
-    - path: secretmanager/v1
-      grpc_service_config: secretmanager_grpc_service_config.json
-      service_yaml: secretmanager_v1.yaml
-      transport: grpc+rest
-      rest_numeric_enums: true
-      opt_args:
-        - warehouse-package-name=google-cloud-secret-manager
-    - path: secretmanager/v1beta2
-      grpc_service_config: secretmanager_grpc_service_config.json
-      service_yaml: secretmanager_v1beta2.yaml
-      transport: grpc+rest
-      rest_numeric_enums: true
-      opt_args:
-        - warehouse-package-name=google-cloud-secret-manager
-  metadata:
-    name_pretty: "Secret Manager"
-    product_documentation: "https://cloud.google.com/secret-manager/docs"
-    release_level: "stable"
-    api_description: "Store and manage secrets"
-  language:
-    python:
-      package: google-cloud-secret-manager
-  keep:
-    - README.md
-    - docs/
-  remove:
-    - temp.txt
-  exclude:
-    - tests/
-
-release:
-  version: null
+editions:
+  - name: google-cloud-secret-manager
+    version: 2.20.0
+    generate:
+      apis:
+        - path: google/cloud/secretmanager/v1
+          grpc_service_config: secretmanager_grpc_service_config.json
+          service_yaml: secretmanager_v1.yaml
+          transport: grpc+rest
+          rest_numeric_enums: true
+          name_pretty: "Secret Manager"
+          product_documentation: "https://cloud.google.com/secret-manager/docs"
+          release_level: stable
+          opt_args:
+            - warehouse-package-name=google-cloud-secret-manager
+        - path: google/cloud/secretmanager/v1beta2
+          grpc_service_config: secretmanager_grpc_service_config.json
+          service_yaml: secretmanager_v1beta2.yaml
+          transport: grpc+rest
+          rest_numeric_enums: true
+          release_level: preview
+          opt_args:
+            - warehouse-package-name=google-cloud-secret-manager
+      keep:
+        - README.md
+        - docs/
+      remove:
+        - temp.txt
 ```
 
-### Artifact Configuration Fields
+### Edition Configuration Fields
+
+#### Edition fields
+
+- `name` - Name of the edition
+- `path` - Directory path relative to repository root (optional, derived from name and generate.output_dir if empty)
+- `version` - Current released version (pointer, null if never released)
 
 #### `generate` section (optional)
 
-When present, this artifact can be regenerated with `librarian generate`.
+When present, this edition can be regenerated with `librarian generate`.
 
 **API Configuration** (`apis` array):
 
-Each API entry contains configuration extracted from BUILD.bazel during `librarian add`:
+Each API entry contains configuration extracted from BUILD.bazel during `librarian new`:
 
-- `path` - API path relative to googleapis root (e.g., `secretmanager/v1`)
+- `path` - API path relative to googleapis root (e.g., `google/cloud/secretmanager/v1`)
 - `grpc_service_config` - Retry configuration file path (relative to API directory)
 - `service_yaml` - Service configuration file path
 - `transport` - Transport protocol (e.g., `grpc+rest`, `grpc`)
 - `rest_numeric_enums` - Whether to use numeric enums in REST
 - `opt_args` - Additional generator options (array of strings)
 
-**Metadata** (`metadata` object):
+**Metadata fields on each API**:
 
 Library metadata used to generate documentation and configure the package:
 
@@ -195,110 +218,76 @@ Library metadata used to generate documentation and configure the package:
 - `api_description` - Description of the API
 - `default_version` - Default API version (e.g., `v1`)
 
-**Language-specific metadata** (`language` object):
-
-Language-specific configuration that matches the repository's language:
-
-```yaml
-# For Go repositories
-language:
-  go:
-    module: github.com/user/repo
-
-# For Python repositories
-language:
-  python:
-    package: my-package
-
-# For Rust repositories
-language:
-  rust:
-    crate: my_crate
-
-# For Dart repositories
-language:
-  dart:
-    package: my_package
-```
-
 **File filtering**:
 
-- `keep` - Files/directories not overwritten during generation (array of regex patterns)
-- `remove` - Files/directories deleted after generation (array of regex patterns)
-- `exclude` - Files/directories not included in releases (array of regex patterns)
+- `keep` - Files/directories not overwritten during generation (array of patterns)
+- `remove` - Files/directories deleted after generation (array of patterns)
 
-**Note**: The artifact's `.librarian.yaml` does NOT store googleapis/discovery URLs or SHA256 hashes. These are stored only in the repository-level `.librarian/config.yaml` under the `sources` section to ensure all artifacts use the same source versions. This design:
-- Prevents duplication across hundreds of artifact configs
-- Ensures consistency - all artifacts generated from the same source versions
-- Prevents race conditions - no per-artifact source state to get out of sync
-- Simplifies updates - change source versions in one place (via `librarian update`), regenerate all artifacts
-
-#### `release` section (optional)
-
-When present, this artifact can be released with `librarian release <path>` (dry-run) and `librarian release <path> --execute`.
-
-- `version` - Current released version (null if never released)
-- `prepared.version` - Next version being prepared (present only when a release is prepared)
-- `prepared.commit` - Commit SHA at which the release was prepared
+**Note**: Edition configuration does NOT store googleapis/discovery URLs or SHA256 hashes. These are stored in the top-level `sources` section to ensure all editions use the same source versions. This design:
+- Prevents duplication across all edition configs
+- Ensures consistency - all editions generated from the same source versions
+- Prevents race conditions - no per-edition source state to get out of sync
+- Simplifies updates - change source versions in one place (via `librarian update`), regenerate all editions
 
 ## How Configuration Works
 
-### Creating an artifact without APIs (release-only)
+### Creating an edition without APIs (release-only)
 
 ```bash
-librarian new packages/my-tool
+librarian new my-tool
 ```
 
-This creates `packages/my-tool/.librarian.yaml`:
+This adds an edition entry to `librarian.yaml`:
 
 ```yaml
-release:
-  version: null
+editions:
+  - name: my-tool
+    version: null
 ```
 
-The artifact can be released but not regenerated.
+The edition can be released but not regenerated.
 
-### Creating an artifact with APIs (generated code)
+### Creating an edition with APIs (generated code)
 
 ```bash
-librarian new packages/google-cloud-secret-manager secretmanager/v1 secretmanager/v1beta2
+librarian new google-cloud-secret-manager google/cloud/secretmanager/v1 google/cloud/secretmanager/v1beta2
 ```
 
 This:
 
-1. Reads `.librarian/config.yaml` to get googleapis location from `sources` section
+1. Reads `librarian.yaml` to get googleapis location from `sources` section
 2. Downloads googleapis tarball if needed (cached by SHA256)
-3. For each API path (`secretmanager/v1`, `secretmanager/v1beta2`):
+3. For each API path (`google/cloud/secretmanager/v1`, `google/cloud/secretmanager/v1beta2`):
    - Reads `BUILD.bazel` file in that directory
    - Extracts configuration from language-specific gapic rule (e.g., `py_gapic_library`)
-   - Saves configuration to `.librarian.yaml`
-4. Creates `packages/google-cloud-secret-manager/.librarian.yaml` with all extracted config
+   - Adds API configuration to edition entry
+4. Adds edition entry to `librarian.yaml` with all extracted config
 
 **Key insight**: BUILD.bazel parsing happens only once during `librarian new`. The
-extracted configuration is saved to `.librarian.yaml` and reused for all subsequent
+extracted configuration is saved to `librarian.yaml` and reused for all subsequent
 `librarian generate` commands. This makes generation faster and ensures reproducibility
 even if BUILD.bazel files change upstream.
 
 ### Generating code
 
 ```bash
-librarian generate packages/google-cloud-secret-manager
+librarian generate google-cloud-secret-manager
 ```
 
 This:
 
-1. Reads `.librarian/config.yaml` (repository config with `sources` and `generate` sections)
-2. Reads `packages/google-cloud-secret-manager/.librarian.yaml` (artifact config with `generate` section)
+1. Reads `librarian.yaml` (repository config with `sources`, `container`, and `generate` sections, plus edition config)
+2. Finds the edition entry for `google-cloud-secret-manager`
 3. Ensures sources are available:
    - Downloads googleapis tarball from `sources.googleapis.url`
    - Verifies SHA256 matches `sources.googleapis.sha256`
    - Caches by SHA256 in `~/Library/Caches/librarian/downloads/`
-4. Builds `generate.json` from API configurations in `.librarian.yaml`
+4. Builds `generate.json` from API configurations in edition's `generate` section
 5. Runs generator container **once** with `generate.json`
-6. Applies keep/remove/exclude rules after container exits
-7. Copies final output to artifact directory
+6. Applies keep/remove rules after container exits
+7. Copies final output to edition directory
 
-**No generation state** is written to the artifact's `.librarian.yaml`. The repository config's `sources` section serves as the single source of truth for what was used.
+**No generation state** is written to the edition entry. The repository config's `sources` section serves as the single source of truth for what was used.
 
 ## Container Interface
 
@@ -455,7 +444,7 @@ The command-based architecture provides:
 ## Migration from Old System
 
 The old system used flags and `.repo-metadata.json` files. The new system uses
-`.librarian.yaml` files for all configuration.
+a single `librarian.yaml` file for all configuration.
 
 **Old system:**
 
@@ -471,15 +460,15 @@ librarian generate \
 **New system:**
 
 ```bash
-# All configuration in .librarian.yaml files
-librarian generate packages/google-cloud-secret-manager
+# All configuration in librarian.yaml
+librarian generate google-cloud-secret-manager
 ```
 
 **Migration steps:**
 
-1. Run `librarian init <language>` to create `.librarian/config.yaml`
+1. Run `librarian init <language>` to create `librarian.yaml`
 2. For each existing library:
-   - Run `librarian add <path> <apis>` to create `.librarian.yaml`
+   - Run `librarian new <name> <apis>` to add edition entry
    - Verify configuration matches old `.repo-metadata.json`
 3. Delete old `.repo-metadata.json` files
 4. Update CI/CD pipelines to use new commands without flags
@@ -501,24 +490,33 @@ The container interface uses a command-based architecture:
 - **Ownership**: Librarian team owns container, language teams own generators
 - **Flexibility**: Easy to add/remove/reorder commands without changing container
 
-### ✅ Consistent configuration naming
+### ✅ Single configuration file
 
-Both repository-level and artifact-level configuration use `generate`:
+All configuration lives in one `librarian.yaml` file at the repository root:
 
-**Repository config** (`.librarian/config.yaml`):
 ```yaml
-generate:  # How to generate (container, googleapis)
-  container:
-    image: python-generator
+version: v0.5.0
+language: go
+
+container:
+  image: go-generator
+  tag: latest
+
+generate:
+  output_dir: ./
+  defaults:
+    transport: grpc+rest
+
+sources:
   googleapis:
-    path: https://...
+    url: https://...
+    sha256: ...
+
+editions:
+  - name: secretmanager
+    generate:
+      apis:
+        - path: google/cloud/secretmanager/v1
 ```
 
-**Artifact config** (`<path>/.librarian.yaml`):
-```yaml
-generate:  # What to generate (APIs, metadata)
-  apis:
-    - path: secretmanager/v1
-```
-
-**Benefit**: Consistent naming throughout the configuration hierarchy.
+**Benefit**: Single source of truth, easier discovery, litmus test for configuration complexity.

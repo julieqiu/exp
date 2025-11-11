@@ -7,7 +7,7 @@ This document describes alternative designs that were considered for the Librari
 1. [Single Container Invocation with Configuration-Based Interface](#single-container-invocation-with-configuration-based-interface)
 2. [Multiple Container Images per Language](#multiple-container-images-per-language)
 3. [Request-Based Interface](#request-based-interface)
-4. [Removing Version from .librarian.yaml](#removing-version-from-librarianyaml)
+4. [Removing Version from librarian.yaml](#removing-version-from-librarianyaml)
 5. [Renaming generate to infrastructure](#renaming-generate-to-infrastructure)
 6. [Flat Release Commands (prepare/tag/publish)](#flat-release-commands-preparetagpublish)
 7. [Three-Phase Release Process (release prepare/release tag/release publish)](#three-phase-release-process-release-preparerelease-tagrelease-publish)
@@ -76,9 +76,9 @@ However, this approach had these costs:
 
 We ultimately went with a command-based interface (`/commands/commands.json`) because of explicitness and debuggability. Commands show exactly what will run, making it easy to inspect commands.json to see the exact commands that executed.
 
-## Removing Version from .librarian.yaml
+## Removing Version from librarian.yaml
 
-We considered removing the `version` field from `.librarian.yaml` and using language-specific version files (version.go, pyproject.toml, Cargo.toml) as the single source of truth because of eliminating duplication.
+We considered removing the `version` field from edition configurations in `librarian.yaml` and using language-specific version files (version.go, pyproject.toml, Cargo.toml) as the single source of truth because of eliminating duplication.
 
 However, this approach had these costs:
 
@@ -86,21 +86,21 @@ However, this approach had these costs:
 2. **Slower reads** - Reading version requires parsing language-specific file formats
 3. **Added complexity** - Different parsing logic for each language
 
-We ultimately went with keeping `version` in `.librarian.yaml` as a cache for fast access because of simplicity and performance. The librarian tool manages version consistency between `.librarian.yaml` and language-specific files, providing fast YAML-based reads without language-specific knowledge.
+We ultimately went with keeping `version` in edition configurations in `librarian.yaml` as a cache for fast access because of simplicity and performance. The librarian tool manages version consistency between `librarian.yaml` and language-specific files, providing fast YAML-based reads without language-specific knowledge.
 
 ## Renaming `generate` to `infrastructure`
 
-We considered renaming the repository-level `generate` section to `infrastructure` because of distinguishing between "how to generate" (infrastructure: container, googleapis) and "what to generate" (APIs, metadata).
+We considered renaming the top-level `generate` section to `infrastructure` because of distinguishing between "how to generate" (infrastructure: container, googleapis) and "what to generate" (APIs, metadata in editions).
 
 However, this approach had these costs:
 
 1. **User expectation mismatch** - Users expect `generate` for generation-related configuration
-2. **Inconsistency** - Different names at repository and artifact levels is confusing
+2. **Inconsistency** - Different names at top level and edition level is confusing
 3. **No real benefit** - The distinction is clear from context without renaming
 
 User feedback: "I do not like the name infrastructure. The design is called generate."
 
-We ultimately went with using `generate` at both repository and artifact levels because of consistency and user expectations. The distinction is clear from context: repository level contains container/googleapis (how), artifact level contains APIs/metadata (what).
+We ultimately went with using `generate` at both top level and edition level because of consistency and user expectations. The distinction is clear from context: top level contains output directory and defaults (how), edition level contains APIs and metadata (what).
 
 ## Flat Release Commands (prepare/tag/publish)
 

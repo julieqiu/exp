@@ -49,10 +49,11 @@ sources:
     url: https://github.com/googleapis/googleapis/archive/9fcfbea0aa5b50fa22e190faceb073d74504172b.tar.gz
     sha256: 81e6057ffd85154af5268c2c3c8f2408745ca0f7fa03d43c68f4847f31eb5f98
 
+container:
+  image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/go-librarian-generator
+  tag: latest
+
 generate:
-  container:
-    image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/go-librarian-generator
-    tag: latest
   output_dir: ./
 
 release:
@@ -61,7 +62,8 @@ release:
 
 The config defines:
 - `sources` - External source repositories (googleapis)
-- `generate` - How to generate code (container image, output directory)
+- `container` - Container image for code generation
+- `generate` - Generation configuration (output directory, defaults)
 - `release` - How to format release tags
 
 ### Install Dependencies
@@ -104,7 +106,7 @@ Let's look at what was created in the configuration:
 
 ```
 $ cat librarian.yaml
-# ... (repository-level config)
+# ... (top-level config)
 
 editions:
   - name: secretmanager
@@ -114,15 +116,9 @@ editions:
           grpc_service_config: secretmanager_grpc_service_config.json
           service_yaml: secretmanager_v1.yaml
           transport: grpc+rest
-      metadata:
-        name_pretty: "Secret Manager"
-        product_documentation: "https://cloud.google.com/secret-manager/docs"
-        release_level: "stable"
-      language:
-        go:
-          module: cloud.google.com/go/secretmanager
-    release:
-      version: null
+          name_pretty: "Secret Manager"
+          product_documentation: "https://cloud.google.com/secret-manager/docs"
+          release_level: "stable"
 ```
 
 All the protoc configuration was extracted from BUILD.bazel and saved as an edition entry.
@@ -475,13 +471,12 @@ $ librarianx new custom-tool
 Created edition entry in librarian.yaml
 ```
 
-This created an edition entry with only a `release` section (no `generate` section):
+This created an edition entry without a `generate` section (handwritten edition):
 
 ```
 $ grep -A2 "name: custom-tool" librarian.yaml
   - name: custom-tool
-    release:
-      version: null
+    version: null
 ```
 
 Now you can release it like any other edition:
