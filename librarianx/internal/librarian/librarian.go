@@ -2,9 +2,19 @@ package librarian
 
 import (
 	"context"
+	"errors"
 	"fmt"
 
 	"github.com/urfave/cli/v3"
+)
+
+// Sentinel errors for validation.
+var (
+	errLanguageRequired      = errors.New("language argument required (go, python, rust, dart)")
+	errArtifactPathRequired  = errors.New("artifact path required")
+	errArtifactOrAllRequired = errors.New("artifact path required (or use --all)")
+	errUpdateFlagRequired    = errors.New("one of --all, --googleapis, or --discovery required")
+	errShaWithAll            = errors.New("--sha cannot be used with --all")
 )
 
 // Run executes the librarian command with the given arguments.
@@ -44,7 +54,7 @@ func initCommand() *cli.Command {
      librarianx init python`,
 		Action: func(ctx context.Context, cmd *cli.Command) error {
 			if cmd.NArg() < 1 {
-				return fmt.Errorf("language argument required (go, python, rust, dart)")
+				return errLanguageRequired
 			}
 			language := cmd.Args().Get(0)
 			return runInit(ctx, language)
@@ -73,7 +83,7 @@ func installCommand() *cli.Command {
 		},
 		Action: func(ctx context.Context, cmd *cli.Command) error {
 			if cmd.NArg() < 1 {
-				return fmt.Errorf("language argument required (go, python, rust, dart)")
+				return errLanguageRequired
 			}
 			language := cmd.Args().Get(0)
 			useContainer := cmd.Bool("use-container")
@@ -109,7 +119,7 @@ func newCommand() *cli.Command {
      librarianx new google-cloud-secret-manager google/cloud/secretmanager/v1`,
 		Action: func(ctx context.Context, cmd *cli.Command) error {
 			if cmd.NArg() < 1 {
-				return fmt.Errorf("artifact path required")
+				return errArtifactPathRequired
 			}
 			artifactPath := cmd.Args().Get(0)
 			apiPaths := cmd.Args().Slice()[1:]
@@ -147,7 +157,7 @@ func generateCommand() *cli.Command {
 				return runGenerateAll(ctx)
 			}
 			if cmd.NArg() < 1 {
-				return fmt.Errorf("artifact path required (or use --all)")
+				return errArtifactOrAllRequired
 			}
 			artifactPath := cmd.Args().Get(0)
 			return runGenerate(ctx, artifactPath)
@@ -184,7 +194,7 @@ func testCommand() *cli.Command {
 				return runTestAll(ctx)
 			}
 			if cmd.NArg() < 1 {
-				return fmt.Errorf("artifact path required (or use --all)")
+				return errArtifactOrAllRequired
 			}
 			artifactPath := cmd.Args().Get(0)
 			return runTest(ctx, artifactPath)
@@ -239,11 +249,11 @@ func updateCommand() *cli.Command {
 			sha := cmd.String("sha")
 
 			if !all && !googleapis && !discovery {
-				return fmt.Errorf("one of --all, --googleapis, or --discovery required")
+				return errUpdateFlagRequired
 			}
 
 			if sha != "" && all {
-				return fmt.Errorf("--sha cannot be used with --all")
+				return errShaWithAll
 			}
 
 			return runUpdate(ctx, all, googleapis, discovery, sha)
@@ -314,7 +324,7 @@ func releaseCommand() *cli.Command {
 			var artifactPath string
 			if !all {
 				if cmd.NArg() < 1 {
-					return fmt.Errorf("artifact path required (or use --all)")
+					return errArtifactOrAllRequired
 				}
 				artifactPath = cmd.Args().Get(0)
 			}
