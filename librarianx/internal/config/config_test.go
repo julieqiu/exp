@@ -22,7 +22,7 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func TestLoad(t *testing.T) {
+func TestRead(t *testing.T) {
 	for _, test := range []struct {
 		name    string
 		yaml    string
@@ -31,22 +31,22 @@ func TestLoad(t *testing.T) {
 	}{
 		{
 			name: "minimal config",
-			yaml: `librarian:
-  version: v0.5.0
-  language: go
+			yaml: `version: v0.5.0
+language: go
 `,
 			want: &Config{
-				Librarian: Librarian{
-					Version:  "v0.5.0",
-					Language: "go",
-				},
+				Version:  "v0.5.0",
+				Language: "go",
 			},
 		},
 		{
 			name: "full config with editions",
-			yaml: `librarian:
-  version: v0.5.0
-  language: go
+			yaml: `version: v0.5.0
+language: go
+
+container:
+  image: us-central1-docker.pkg.dev/project/go-generator
+  tag: latest
 
 sources:
   googleapis:
@@ -54,9 +54,6 @@ sources:
     sha256: abc123def456
 
 generate:
-  container:
-    image: us-central1-docker.pkg.dev/project/go-generator
-    tag: latest
   output_dir: ./
   defaults:
     transport: grpc+rest
@@ -69,16 +66,19 @@ release:
 editions:
   - name: secretmanager
     version: 0.1.0
-    apis:
-      - google/cloud/secretmanager/v1
-      - google/cloud/secretmanager/v1beta2
+    generate:
+      apis:
+        - path: google/cloud/secretmanager/v1
+        - path: google/cloud/secretmanager/v1beta2
   - name: custom-tool
     version: 1.0.0
 `,
 			want: &Config{
-				Librarian: Librarian{
-					Version:  "v0.5.0",
-					Language: "go",
+				Version:  "v0.5.0",
+				Language: "go",
+				Container: &Container{
+					Image: "us-central1-docker.pkg.dev/project/go-generator",
+					Tag:   "latest",
 				},
 				Sources: Sources{
 					Googleapis: &Source{
@@ -86,11 +86,7 @@ editions:
 						SHA256: "abc123def456",
 					},
 				},
-				Generate: Generate{
-					Container: &Container{
-						Image: "us-central1-docker.pkg.dev/project/go-generator",
-						Tag:   "latest",
-					},
+				Generate: &Generate{
 					OutputDir: "./",
 					Defaults: &GenerateDefaults{
 						Transport:        "grpc+rest",
@@ -98,16 +94,18 @@ editions:
 						ReleaseLevel:     "stable",
 					},
 				},
-				Release: Release{
+				Release: &Release{
 					TagFormat: "{id}/v{version}",
 				},
 				Editions: []Edition{
 					{
 						Name:    "secretmanager",
 						Version: stringPtr("0.1.0"),
-						APIs: []string{
-							"google/cloud/secretmanager/v1",
-							"google/cloud/secretmanager/v1beta2",
+						Generate: &EditionGenerate{
+							APIs: []API{
+								{Path: "google/cloud/secretmanager/v1"},
+								{Path: "google/cloud/secretmanager/v1beta2"},
+							},
 						},
 					},
 					{
@@ -119,9 +117,8 @@ editions:
 		},
 		{
 			name: "edition with detailed API config",
-			yaml: `librarian:
-  version: v0.5.0
-  language: python
+			yaml: `version: v0.5.0
+language: python
 
 editions:
   - name: google-cloud-secret-manager
@@ -133,15 +130,11 @@ editions:
           service_yaml: secretmanager_v1.yaml
           transport: grpc+rest
           rest_numeric_enums: true
+          name_pretty: "Secret Manager"
+          product_documentation: "https://cloud.google.com/secret-manager/docs"
+          release_level: stable
           opt_args:
             - warehouse-package-name=google-cloud-secret-manager
-      metadata:
-        name_pretty: "Secret Manager"
-        product_documentation: "https://cloud.google.com/secret-manager/docs"
-        release_level: "stable"
-      language:
-        python:
-          package: google-cloud-secret-manager
       keep:
         - README.md
         - docs/
@@ -149,10 +142,8 @@ editions:
         - temp.txt
 `,
 			want: &Config{
-				Librarian: Librarian{
-					Version:  "v0.5.0",
-					Language: "python",
-				},
+				Version:  "v0.5.0",
+				Language: "python",
 				Editions: []Edition{
 					{
 						Name:    "google-cloud-secret-manager",
@@ -160,24 +151,17 @@ editions:
 						Generate: &EditionGenerate{
 							APIs: []API{
 								{
-									Path:              "google/cloud/secretmanager/v1",
-									GRPCServiceConfig: "secretmanager_grpc_service_config.json",
-									ServiceYAML:       "secretmanager_v1.yaml",
-									Transport:         "grpc+rest",
-									RestNumericEnums:  boolPtr(true),
+									Path:                 "google/cloud/secretmanager/v1",
+									GRPCServiceConfig:    "secretmanager_grpc_service_config.json",
+									ServiceYAML:          "secretmanager_v1.yaml",
+									Transport:            "grpc+rest",
+									RestNumericEnums:     boolPtr(true),
+									NamePretty:           "Secret Manager",
+									ProductDocumentation: "https://cloud.google.com/secret-manager/docs",
+									ReleaseLevel:         "stable",
 									OptArgs: []string{
 										"warehouse-package-name=google-cloud-secret-manager",
 									},
-								},
-							},
-							Metadata: &Metadata{
-								NamePretty:           "Secret Manager",
-								ProductDocumentation: "https://cloud.google.com/secret-manager/docs",
-								ReleaseLevel:         "stable",
-							},
-							Language: &LanguageConfig{
-								Python: &PythonConfig{
-									Package: "google-cloud-secret-manager",
 								},
 							},
 							Keep:   []string{"README.md", "docs/"},
@@ -189,39 +173,30 @@ editions:
 		},
 		{
 			name: "missing version",
-			yaml: `librarian:
-  language: go
+			yaml: `language: go
 `,
 			want: &Config{
-				Librarian: Librarian{
-					Language: "go",
-				},
+				Language: "go",
 			},
 			wantErr: false,
 		},
 		{
 			name: "missing language",
-			yaml: `librarian:
-  version: v0.5.0
+			yaml: `version: v0.5.0
 `,
 			want: &Config{
-				Librarian: Librarian{
-					Version: "v0.5.0",
-				},
+				Version: "v0.5.0",
 			},
 			wantErr: false,
 		},
 		{
 			name: "invalid language",
-			yaml: `librarian:
-  version: v0.5.0
-  language: javascript
+			yaml: `version: v0.5.0
+language: javascript
 `,
 			want: &Config{
-				Librarian: Librarian{
-					Version:  "v0.5.0",
-					Language: "javascript",
-				},
+				Version:  "v0.5.0",
+				Language: "javascript",
 			},
 			wantErr: false,
 		},
@@ -234,10 +209,10 @@ editions:
 				t.Fatalf("failed to write test config: %v", err)
 			}
 
-			// Load config
-			got, err := Load(configPath)
+			// Read config
+			got, err := Read(configPath)
 			if (err != nil) != test.wantErr {
-				t.Fatalf("Load() error = %v, wantErr %v", err, test.wantErr)
+				t.Fatalf("Read() error = %v, wantErr %v", err, test.wantErr)
 			}
 
 			if test.wantErr {
@@ -285,17 +260,19 @@ func TestGetEdition(t *testing.T) {
 	}
 }
 
-func TestSave(t *testing.T) {
+func TestWrite(t *testing.T) {
 	config := &Config{
-		Librarian: Librarian{
-			Version:  "v0.5.0",
-			Language: "go",
-		},
+		Version:  "v0.5.0",
+		Language: "go",
 		Editions: []Edition{
 			{
 				Name:    "secretmanager",
 				Version: stringPtr("0.1.0"),
-				APIs:    []string{"google/cloud/secretmanager/v1"},
+				Generate: &EditionGenerate{
+					APIs: []API{
+						{Path: "google/cloud/secretmanager/v1"},
+					},
+				},
 			},
 		},
 	}
@@ -303,15 +280,15 @@ func TestSave(t *testing.T) {
 	tmpDir := t.TempDir()
 	configPath := filepath.Join(tmpDir, "librarian.yaml")
 
-	// Save config
-	if err := config.Save(configPath); err != nil {
-		t.Fatalf("Save() error = %v", err)
+	// Write config
+	if err := config.Write(configPath); err != nil {
+		t.Fatalf("Write() error = %v", err)
 	}
 
-	// Load config back
-	got, err := Load(configPath)
+	// Read config back
+	got, err := Read(configPath)
 	if err != nil {
-		t.Fatalf("Load() error = %v", err)
+		t.Fatalf("Read() error = %v", err)
 	}
 
 	// Compare
@@ -329,10 +306,8 @@ func TestValidate(t *testing.T) {
 		{
 			name: "valid config",
 			config: &Config{
-				Librarian: Librarian{
-					Version:  "v0.5.0",
-					Language: "go",
-				},
+				Version:  "v0.5.0",
+				Language: "go",
 				Editions: []Edition{
 					{Name: "secretmanager", Version: stringPtr("0.1.0")},
 				},
@@ -342,38 +317,30 @@ func TestValidate(t *testing.T) {
 		{
 			name: "missing version",
 			config: &Config{
-				Librarian: Librarian{
-					Language: "go",
-				},
+				Language: "go",
 			},
 			wantErr: true,
 		},
 		{
 			name: "missing language",
 			config: &Config{
-				Librarian: Librarian{
-					Version: "v0.5.0",
-				},
+				Version: "v0.5.0",
 			},
 			wantErr: true,
 		},
 		{
 			name: "invalid language",
 			config: &Config{
-				Librarian: Librarian{
-					Version:  "v0.5.0",
-					Language: "javascript",
-				},
+				Version:  "v0.5.0",
+				Language: "javascript",
 			},
 			wantErr: true,
 		},
 		{
 			name: "duplicate edition names",
 			config: &Config{
-				Librarian: Librarian{
-					Version:  "v0.5.0",
-					Language: "go",
-				},
+				Version:  "v0.5.0",
+				Language: "go",
 				Editions: []Edition{
 					{Name: "secretmanager", Version: stringPtr("0.1.0")},
 					{Name: "secretmanager", Version: stringPtr("0.2.0")},
@@ -384,10 +351,8 @@ func TestValidate(t *testing.T) {
 		{
 			name: "empty edition name",
 			config: &Config{
-				Librarian: Librarian{
-					Version:  "v0.5.0",
-					Language: "go",
-				},
+				Version:  "v0.5.0",
+				Language: "go",
 				Editions: []Edition{
 					{Name: "", Version: stringPtr("0.1.0")},
 				},
@@ -399,6 +364,71 @@ func TestValidate(t *testing.T) {
 			err := test.config.Validate()
 			if (err != nil) != test.wantErr {
 				t.Errorf("Validate() error = %v, wantErr %v", err, test.wantErr)
+			}
+		})
+	}
+}
+
+func TestReadTestdata(t *testing.T) {
+	for _, test := range []struct {
+		name         string
+		file         string
+		wantLanguage string
+		wantEditions int
+	}{
+		{
+			name:         "Go config",
+			file:         "testdata/go.yaml",
+			wantLanguage: "go",
+			wantEditions: 4, // secretmanager, pubsub, spanner, custom-tool
+		},
+		{
+			name:         "Python config",
+			file:         "testdata/python.yaml",
+			wantLanguage: "python",
+			wantEditions: 3, // google-cloud-secret-manager, google-cloud-pubsub, google-cloud-spanner
+		},
+		{
+			name:         "Rust config",
+			file:         "testdata/rust.yaml",
+			wantLanguage: "rust",
+			wantEditions: 3, // cloud-storage-v1, bigtable-admin-v2, secretmanager-v1
+		},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			// Read config
+			got, err := Read(test.file)
+			if err != nil {
+				t.Fatalf("Read() error = %v", err)
+			}
+
+			// Validate config
+			if err := got.Validate(); err != nil {
+				t.Fatalf("Validate() error = %v", err)
+			}
+
+			// Check language
+			if got.Language != test.wantLanguage {
+				t.Errorf("Language = %q, want %q", got.Language, test.wantLanguage)
+			}
+
+			// Check number of editions
+			if len(got.Editions) != test.wantEditions {
+				t.Errorf("len(Editions) = %d, want %d", len(got.Editions), test.wantEditions)
+			}
+
+			// Check that all editions have names
+			for i, edition := range got.Editions {
+				if edition.Name == "" {
+					t.Errorf("Edition[%d] has empty name", i)
+				}
+			}
+
+			// Check that sources are present for generated code
+			if len(got.Editions) > 0 && got.Editions[0].Generate != nil {
+				if got.Sources.Googleapis == nil {
+					t.Error("Sources.Googleapis is nil but editions have generate config")
+				}
 			}
 		})
 	}
