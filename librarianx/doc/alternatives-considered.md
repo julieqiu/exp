@@ -130,15 +130,14 @@ We ultimately went with three separate phases (`release prepare`, `release tag`,
 
 ## Multiple Configuration Files (Per-Edition Config Files)
 
-We considered using multiple configuration files where each edition has its own configuration file (e.g., `.librarian/config.yaml` for repository settings and `<edition>/.librarian.yaml` for edition-specific settings) because of separation of concerns and reduced merge conflicts.
+We considered using multiple configuration files where each edition has its own configuration file (e.g., `librarian.yaml` for repository settings and `<edition>/.librarian.yaml` for edition-specific settings) because of separation of concerns and reduced merge conflicts.
 
 **How it would work:**
 
-Repository-level config at `.librarian/config.yaml`:
+Repository-level config at `librarian.yaml`:
 ```yaml
-librarian:
-  version: v0.5.0
-  language: go
+version: v0.5.0
+language: go
 
 sources:
   googleapis:

@@ -17,14 +17,14 @@ transparent and version-controlled.
 
 ## Repository Configuration
 
-The repository configuration file lives at `.librarian/config.yaml` and defines
+The repository configuration file lives at `librarian.yaml` and defines
 repository-wide settings.
 
 ### Example: Release-only repository
 
 ```yaml
-librarian:
-  version: v0.5.0
+version: v0.5.0
+language: go
 
 release:
   tag_format: '{name}-v{version}'
@@ -32,15 +32,14 @@ release:
 
 **What this enables:**
 - `librarian new <path>` - Track handwritten code for release
-- `librarian release <path>` - Release libraries (dry-run by default)
+- `librarian release <path>` - Release editions (dry-run by default)
 - `librarian release <path> --execute` - Actually perform the release
 
 ### Example: Repository with code generation
 
 ```yaml
-librarian:
-  version: v0.5.0
-  language: python
+version: v0.5.0
+language: python
 
 sources:
   googleapis:
@@ -54,23 +53,23 @@ generate:
   container:
     image: us-central1-docker.pkg.dev/cloud-sdk-librarian-prod/images-prod/python-librarian-generator
     tag: latest
-  dir: packages/
+  output_dir: packages/
 
 release:
   tag_format: '{name}-v{version}'
 ```
 
 **What this enables:**
-- `librarian new <path> <api>` - Create library and generate code
+- `librarian new <path> <api>` - Create edition and generate code
 - `librarian generate <path>` - Regenerate existing code
-- `librarian test <path>` - Run tests for a library
+- `librarian test <path>` - Run tests for an edition
 - `librarian update --googleapis` - Update source references
-- `librarian release <path>` - Release libraries (dry-run by default)
+- `librarian release <path>` - Release editions (dry-run by default)
 - `librarian release <path> --execute` - Actually perform the release
 
 ### Configuration Fields
 
-#### `librarian` section
+#### Top-level fields
 
 - `version` - Version of librarian that created this config
 - `language` - Repository language (`go`, `python`, `rust`, `dart`)
