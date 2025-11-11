@@ -63,14 +63,17 @@ type DiscoveryState struct {
 
 // ReleaseState tracks release metadata.
 type ReleaseState struct {
-	Version      string       `yaml:"version"`
-	Prepared     *ReleaseInfo `yaml:"prepared,omitempty"`
+	Version  string        `yaml:"version"`
+	Prepared *ReleaseInfo  `yaml:"prepared,omitempty"`
+	History  []ReleaseInfo `yaml:"history,omitempty"`
 }
 
 // ReleaseInfo contains information about a specific release.
 type ReleaseInfo struct {
-	Tag    string `yaml:"tag,omitempty"`
-	Commit string `yaml:"commit,omitempty"`
+	Version string `yaml:"version,omitempty"`
+	Tag     string `yaml:"tag,omitempty"`
+	Commit  string `yaml:"commit,omitempty"`
+	Branch  string `yaml:"branch,omitempty"`
 }
 
 // API represents an API path with its generation configuration.

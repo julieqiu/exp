@@ -39,7 +39,13 @@ type RepoConfig struct {
 }
 
 type ReleaseConfig struct {
-	TagFormat string `yaml:"tag_format"`
+	TagFormat      string          `yaml:"tag_format"`
+	BranchPatterns []BranchPattern `yaml:"branch_patterns,omitempty"`
+}
+
+type BranchPattern struct {
+	Pattern    string `yaml:"pattern"`     // "main", "release/*", etc.
+	Prerelease string `yaml:"prerelease"`  // "", "rc", "alpha", etc.
 }
 
 const (

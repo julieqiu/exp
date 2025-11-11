@@ -401,7 +401,9 @@ release:
   version: v1.2.0
   prepared:
     version: v1.3.0
+    tag: v1.3.0
     commit: e4d5c6b7a8f9e0d1c2b3a4f5e6d7c8b9a0f1e2d3
+    branch: main
 ```
 
 Prepare all artifacts that have a `release` section:
@@ -415,6 +417,151 @@ librarian prepare --all
 **Note**: This command only works in repositories that have a `release`
 section in `.librarian/config.yaml`,
 and only affects artifacts that have a `release` section in their `.librarian.yaml`.
+
+### Branch-Based Releases
+
+Librarian supports branch-based release workflows with automatic prerelease detection and manual override options.
+
+#### Configuring Branch Patterns
+
+Define branch patterns in `.librarian/config.yaml` to automatically detect prerelease suffixes:
+
+```yaml
+release:
+  tag_format: '{name}-v{version}'
+  branch_patterns:
+    - pattern: main
+      prerelease: ""
+    - pattern: release/*
+      prerelease: rc
+    - pattern: hotfix/*
+      prerelease: rc
+```
+
+When you run `librarian prepare`, it automatically detects your current branch and applies the matching prerelease suffix.
+
+**Pattern matching:**
+- Exact match: `main` matches only "main"
+- Glob patterns: `release/*` matches "release/v1.0", "release/foo", etc.
+- First match wins: Patterns are evaluated in order
+
+#### Automatic Prerelease Detection
+
+On the `main` branch:
+```bash
+librarian prepare packages/my-lib
+# Increments v1.2.0 → v1.3.0 (stable release)
+```
+
+On a `release/v2` branch:
+```bash
+librarian prepare packages/my-lib
+# Increments v1.2.0 → v1.3.0-rc.1 (release candidate)
+# Increments v1.3.0-rc.1 → v1.3.0-rc.2 (next RC)
+```
+
+#### Manual Prerelease Override
+
+Explicitly specify a prerelease suffix to override automatic detection:
+
+```bash
+librarian prepare packages/my-lib --prerelease alpha
+# Increments v1.2.0 → v1.3.0-alpha.1
+
+librarian prepare packages/my-lib --prerelease beta
+# Increments v1.3.0-alpha.3 → v1.4.0-beta.1 (new prerelease type bumps minor)
+```
+
+#### Promoting to Stable
+
+Promote a prerelease version to stable by removing the prerelease suffix:
+
+```bash
+librarian prepare packages/my-lib --promote
+# Converts v1.3.0-rc.2 → v1.3.0 (stable release)
+```
+
+#### Version Increment Rules
+
+Librarian follows semantic versioning with these rules:
+
+**From stable version:**
+- No prerelease: Increment minor version (v1.2.0 → v1.3.0)
+- With prerelease: Increment minor + add suffix (v1.2.0 → v1.3.0-rc.1)
+
+**From prerelease version:**
+- Same prerelease type: Increment prerelease number (v1.3.0-rc.1 → v1.3.0-rc.2)
+- Different prerelease type: Increment minor + new suffix (v1.3.0-rc.1 → v1.4.0-alpha.1)
+- Promote to stable: Remove suffix (v1.3.0-rc.2 → v1.3.0)
+
+**First version:**
+- No prerelease: v0.1.0
+- With prerelease: v0.1.0-rc.1
+
+#### Release History
+
+After publishing a release with `librarian release`, the release information is saved to history:
+
+**Example** `packages/google-cloud-secret-manager/.librarian.yaml`:
+
+```yaml
+release:
+  version: v1.3.0
+  history:
+    - version: v1.2.0
+      tag: v1.2.0
+      commit: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
+      branch: main
+    - version: v1.3.0-rc.1
+      tag: v1.3.0-rc.1
+      commit: b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0a1
+      branch: release/v1.3
+    - version: v1.3.0-rc.2
+      tag: v1.3.0-rc.2
+      commit: c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0a1b2
+      branch: release/v1.3
+    - version: v1.3.0
+      tag: v1.3.0
+      commit: e4d5c6b7a8f9e0d1c2b3a4f5e6d7c8b9a0f1e2d3
+      branch: main
+```
+
+The history tracks all published releases including their version, tag, commit SHA, and branch.
+
+#### Example Workflows
+
+**Git Flow workflow:**
+```bash
+# On feature branch, create release candidate
+git checkout -b release/v2.0
+librarian prepare --all  # Auto-detects branch → v2.0.0-rc.1
+librarian release --all
+git push --tags
+
+# After testing, merge to main and promote
+git checkout main
+git merge release/v2.0
+librarian prepare --all --promote  # v2.0.0-rc.2 → v2.0.0
+librarian release --all
+git push --tags
+```
+
+**Hotfix workflow:**
+```bash
+# Create hotfix branch from release tag
+git checkout -b hotfix/v1.2.1 v1.2.0
+# Make fixes...
+librarian prepare --all  # Auto-detects branch → v1.2.1-rc.1
+librarian release --all
+git push --tags
+
+# After testing, merge to main
+git checkout main
+git merge hotfix/v1.2.1
+librarian prepare --all --promote  # v1.2.1-rc.1 → v1.2.1
+librarian release --all
+git push --tags
+```
 
 ### Publishing a Release
 

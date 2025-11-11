@@ -13,6 +13,7 @@ import (
 
 	"github.com/julieqiu/exp/librarian/internal/bazel"
 	"github.com/julieqiu/exp/librarian/internal/config"
+	"github.com/julieqiu/exp/librarian/internal/release"
 	"github.com/julieqiu/exp/librarian/internal/state"
 	"github.com/urfave/cli/v3"
 )
@@ -119,6 +120,14 @@ func NewApp() *cli.Command {
 					&cli.BoolFlag{
 						Name:  "all",
 						Usage: "Prepare all artifacts for release",
+					},
+					&cli.StringFlag{
+						Name:  "prerelease",
+						Usage: "Prerelease suffix (e.g., rc, alpha, beta). Empty string for stable release",
+					},
+					&cli.BoolFlag{
+						Name:  "promote",
+						Usage: "Promote from prerelease to stable (removes prerelease suffix)",
 					},
 				},
 				Arguments: []cli.Argument{&cli.StringArg{Name: "path"}},
@@ -816,9 +825,17 @@ func editCommand(ctx context.Context, cmd *cli.Command) error {
 func prepareCommand(ctx context.Context, cmd *cli.Command) error {
 	all := cmd.Bool("all")
 	path := cmd.StringArg("path")
+	prerelease := cmd.String("prerelease")
+	promote := cmd.Bool("promote")
 
 	if !all && cmd.NArg() == 0 {
 		return fmt.Errorf("either --all flag or path is required")
+	}
+
+	// Load config for branch detection
+	cfg, err := config.Load()
+	if err != nil {
+		return fmt.Errorf("failed to load config: %w", err)
 	}
 
 	if all {
@@ -833,7 +850,7 @@ func prepareCommand(ctx context.Context, cmd *cli.Command) error {
 				continue
 			}
 			fmt.Printf("  - Preparing %s\n", path)
-			if err := prepareRelease(artifact); err != nil {
+			if err := prepareRelease(cfg, artifact, prerelease, promote); err != nil {
 				return fmt.Errorf("failed to prepare release for %s: %w", path, err)
 			}
 			if err := artifact.Save(path); err != nil {
@@ -850,7 +867,7 @@ func prepareCommand(ctx context.Context, cmd *cli.Command) error {
 			return fmt.Errorf("artifact at %s is not configured for release", path)
 		}
 		fmt.Printf("Preparing artifact at %s for release...\n", path)
-		if err := prepareRelease(artifact); err != nil {
+		if err := prepareRelease(cfg, artifact, prerelease, promote); err != nil {
 			return fmt.Errorf("failed to prepare release for %s: %w", path, err)
 		}
 		if err := artifact.Save(path); err != nil {
@@ -863,44 +880,56 @@ func prepareCommand(ctx context.Context, cmd *cli.Command) error {
 	return nil
 }
 
-func prepareRelease(artifact *state.Artifact) error {
-	nextVersion, err := bumpPatch(artifact.Release.Version)
+func prepareRelease(cfg *config.Config, artifact *state.Artifact, prereleaseFlag string, promote bool) error {
+	// Get current branch and commit
+	branch, err := release.GetCurrentBranch()
 	if err != nil {
 		return err
 	}
-	commit, err := getCurrentCommit()
+	commit, err := release.GetCurrentCommit()
 	if err != nil {
 		return err
 	}
+
+	// Determine prerelease suffix
+	var prereleaseSuffix string
+	if promote {
+		// Promoting to stable, no prerelease suffix
+		prereleaseSuffix = ""
+	} else if prereleaseFlag != "" {
+		// Explicit flag takes precedence
+		prereleaseSuffix = prereleaseFlag
+	} else {
+		// Auto-detect from branch patterns
+		detected, err := release.DetectPrerelease(cfg)
+		if err != nil {
+			return err
+		}
+		prereleaseSuffix = detected
+	}
+
+	// Calculate next version
+	var nextVersion string
+	if promote {
+		// Remove prerelease suffix from current version
+		nextVersion = release.RemovePrerelease(artifact.Release.Version)
+	} else {
+		// Increment version with prerelease suffix
+		nextVersion, err = release.IncrementVersion(artifact.Release.Version, prereleaseSuffix)
+		if err != nil {
+			return err
+		}
+	}
+
+	// Update prepared release info
 	artifact.Release.Prepared = &state.ReleaseInfo{
-		Tag:    nextVersion,
-		Commit: commit,
+		Version: nextVersion,
+		Tag:     nextVersion,
+		Commit:  commit,
+		Branch:  branch,
 	}
+
 	return nil
-}
-
-func bumpPatch(version string) (string, error) {
-	if version == "null" {
-		return "v0.1.0", nil
-	}
-	parts := strings.Split(strings.TrimPrefix(version, "v"), ".")
-	if len(parts) != 3 {
-		return "", fmt.Errorf("invalid version format: %s", version)
-	}
-	patch, err := Atoi(parts[2])
-	if err != nil {
-		return "", fmt.Errorf("invalid patch version: %s", parts[2])
-	}
-	return fmt.Sprintf("v%s.%s.%d", parts[0], parts[1], patch+1), nil
-}
-
-func getCurrentCommit() (string, error) {
-	cmd := exec.Command("git", "rev-parse", "HEAD")
-	out, err := cmd.Output()
-	if err != nil {
-		return "", fmt.Errorf("failed to get current commit: %w", err)
-	}
-	return strings.TrimSpace(string(out)), nil
 }
 
 func Atoi(s string) (int, error) {
@@ -937,15 +966,17 @@ func releaseCommand(ctx context.Context, cmd *cli.Command) error {
 				}
 				fmt.Println("  - Creating git tag...")
 
-			artifact.Release.Version = artifact.Release.Prepared.Tag
-			artifact.Release.Prepared = nil
-			tagged = true
+				// Add to history before clearing prepared
+				artifact.Release.History = append(artifact.Release.History, *artifact.Release.Prepared)
+				artifact.Release.Version = artifact.Release.Prepared.Tag
+				artifact.Release.Prepared = nil
+				tagged = true
 
-			if err := artifact.Save(path); err != nil {
-				return fmt.Errorf("failed to save artifact state: %w", err)
-			}
-			runYamlFmt(filepath.Join(path, ".librarian.yaml"))
-			fmt.Println("  - Done.")
+				if err := artifact.Save(path); err != nil {
+					return fmt.Errorf("failed to save artifact state: %w", err)
+				}
+				runYamlFmt(filepath.Join(path, ".librarian.yaml"))
+				fmt.Println("  - Done.")
 			}
 		}
 
@@ -977,6 +1008,8 @@ func releaseCommand(ctx context.Context, cmd *cli.Command) error {
 	}
 	fmt.Println("  - Creating git tag...")
 
+	// Add to history before clearing prepared
+	artifact.Release.History = append(artifact.Release.History, *artifact.Release.Prepared)
 	artifact.Release.Version = artifact.Release.Prepared.Tag
 	artifact.Release.Prepared = nil
 
